@@ -6,5 +6,6 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [ring "1.1.6"]
                  [compojure "1.1.3"]
-                 [enlive/enlive "1.0.1"]]
+                 [enlive/enlive "1.0.1"]
+                 [lein-ring "0.7.5"]]
   :main gratefulplace.server)

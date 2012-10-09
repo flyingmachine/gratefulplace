@@ -1,0 +1,28 @@
+---
+title: Welcome to Middleman
+---
+
+.title
+  %img{:src => "/images/title.png"}
+
+
+.page
+  #your-stuff
+    %ul
+      %li
+        %a New Post
+      %li.divider
+        %a Favorites
+      %li
+        %a Log Out
+  .posts
+    .post
+      %header
+        .author by Joe Schmoe
+        .date Jan 03, 2012
+        .favorite
+      .content
+        %p Here is some content.
+      .footer
+        .comments
+          35 Comments

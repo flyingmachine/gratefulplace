@@ -42,6 +42,7 @@ Modifies the global mapping accordingly."
     {:status 404 :body (str "No such short URL: " id)}))
 
 (defroutes app*
+  (compojure.route/files "/" {:root "public"})
   (GET "/" request "Welcome!")
   (PUT "/:id" [id url] (retain url id))
   (POST "/" [url] (retain url))

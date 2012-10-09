@@ -1,0 +1,101 @@
+// Imports -----------------------------------------------------------
+@import "compass/reset";
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/border-radius";
+@import "compass/typography/vertical_rhythm"; // http://compass-style.org/reference/compass/typography/vertical_rhythm/
+@import "compass/css3/box-shadow";
+@import "compass/css3/box-sizing";
+@import "compass/css3/text-shadow";
+
+@import "susy"; // grid
+
+// Grid variables
+$column-width   : 4em;            // each column is 4em wide
+$gutter-width   : 1em;            // 1em gutters between columns
+$grid-padding   : $gutter-width;  // grid-padding equal to gutters
+$base-line-height: 27px;
+
+// Fonts --------------------------------------------------------------
+@mixin sans-family {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin serif-family {
+  font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+}
+
+@mixin monospace-family {
+  font-family: "Bitstream Vera Sans Mono", monospace;
+}
+
+// Colors
+$purple: #767fa8;
+$light-purple-bg: #eeeff4;
+$dark-teal: #b5c5cf;
+$light-teal: #daedf9;
+$light-teal-bg: #f3fafe;
+$light-green-bg: #eef4f1;
+
+// To customize vertical ryhthm, see http://compass-style.org/reference/compass/typography/vertical_rhythm/
+@include establish-baseline;
+
+@font-face {
+  font-family: "ReenieBeanie";
+  src: url('fonts/ReenieBeanie.ttf');
+}
+
+body {
+  background: #87ddfd url("/images/blurbg2.jpg") no-repeat;
+  color: #444;
+  @include serif-family;
+}
+
+.title {
+  @include leader(1, 60px);
+  text-align: center;
+  letter-spacing:-3px;
+  font-family: 'Nothing You Could Do', cursive;
+  color: white;
+}
+
+#your-stuff {
+  @include span-columns(3, 12);
+  @include leader;
+
+  .divider {
+    @include trailer;
+  }
+}
+
+.posts {
+  @include span-columns(9 omega, 12);
+  .post {
+    background: white;
+    @include border-radius(3px); 
+    @include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 1px, 2px, 0px);
+    padding:0 1em;
+    @include padding-leader;
+    @include padding-trailer;
+
+    header {
+      @include padding-trailer;
+      @include trailer;
+      @include clearfix;
+      @include box-sizing(border-box);
+      border-bottom:1px solid #ccc;
+      .author {
+        float: left;
+      }
+      .date {
+        float: right;
+      }
+    }
+  }
+}
+
+.page {
+  // page acts as a container for our grid.
+  @include container;
+  @include trailer;
+  @include leader;
+}

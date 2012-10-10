@@ -97,6 +97,10 @@ body {
       line-height: inherit;
     }
 
+    .content {
+      @include adjust-font-size-to(18px);
+    }
+
     
     .author {
       font-weight:bold;

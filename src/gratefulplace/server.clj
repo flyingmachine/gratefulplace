@@ -20,7 +20,7 @@
     :comment-count 10}
    {:author        "Mickey Parkplace"
     :date          "Jan 03, 2012 10:12am"
-    :content       "This morning I feel grateful for the food in my kitchen"
+    :content       "This morning I feel grateful for the food in my kitchen. I'm happy for my functioning oil heater and for the existence of matcha tea."
     :comment-count 3}
    {:author        "Jeremy McWilder"
     :date          "Jan 03, 2012 10:14am"

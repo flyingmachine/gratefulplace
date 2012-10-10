@@ -137,22 +137,26 @@ body {
       border-top: 1px solid #ccc;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       line-height: inherit; }
-    /* line 101, base.css.scss */
+    /* line 100, base.css.scss */
+    .posts .post .content {
+      font-size: 1.125em;
+      line-height: 1.5em; }
+    /* line 105, base.css.scss */
     .posts .post .author {
       font-weight: bold;
       float: left;
       margin-right: .5em; }
-    /* line 107, base.css.scss */
+    /* line 111, base.css.scss */
     .posts .post .comments {
       float: left; }
-    /* line 111, base.css.scss */
+    /* line 115, base.css.scss */
     .posts .post .date, .posts .post .favorite {
       float: right; }
-    /* line 115, base.css.scss */
+    /* line 119, base.css.scss */
     .posts .post .favorite {
       margin-left: .5em; }
 
-/* line 121, base.css.scss */
+/* line 125, base.css.scss */
 .page {
   *zoom: 1;
   max-width: 59em;

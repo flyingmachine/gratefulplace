@@ -112,25 +112,42 @@ body {
     box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
     padding: 0 1em;
     padding-top: 1.6875em;
-    padding-bottom: 1.6875em; }
+    margin-bottom: 1.6875em; }
     /* line 80, base.css.scss */
     .posts .post header {
-      padding-bottom: 1.6875em;
-      margin-bottom: 1.6875em;
+      overflow: hidden;
+      *zoom: 1; }
+    /* line 84, base.css.scss */
+    .posts .post footer {
       overflow: hidden;
       *zoom: 1;
+      font-size: 0.8125em;
+      line-height: 2.07692em;
+      margin-top: 1.6875em;
+      padding-top: 0.84375em;
+      padding-bottom: 0.84375em;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      border-bottom: 1px solid #ccc; }
-      /* line 86, base.css.scss */
-      .posts .post header .author {
-        float: left; }
-      /* line 89, base.css.scss */
-      .posts .post header .date {
-        float: right; }
+      border-top: 1px solid #ccc;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: inherit; }
+    /* line 97, base.css.scss */
+    .posts .post .author {
+      font-weight: bold;
+      float: left;
+      margin-right: .5em; }
+    /* line 103, base.css.scss */
+    .posts .post .comments {
+      float: left; }
+    /* line 107, base.css.scss */
+    .posts .post .date, .posts .post .favorite {
+      float: right; }
+    /* line 111, base.css.scss */
+    .posts .post .favorite {
+      margin-left: .5em; }
 
-/* line 96, base.css.scss */
+/* line 117, base.css.scss */
 .page {
   *zoom: 1;
   max-width: 59em;

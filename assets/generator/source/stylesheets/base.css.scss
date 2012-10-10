@@ -75,20 +75,41 @@ body {
     @include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 1px, 2px, 0px);
     padding:0 1em;
     @include padding-leader;
-    @include padding-trailer;
+    @include trailer;
 
     header {
-      @include padding-trailer;
-      @include trailer;
       @include clearfix;
+    }
+    
+    footer {
+      @include clearfix;
+      @include adjust-font-size-to(13px);
+      @include leader;
+      @include padding-leader(0.5);
+      @include padding-trailer(0.5);
       @include box-sizing(border-box);
-      border-bottom:1px solid #ccc;
-      .author {
-        float: left;
-      }
-      .date {
-        float: right;
-      }
+      border-top:1px solid #ccc;
+      @include sans-family;
+      line-height: inherit;
+    }
+
+    
+    .author {
+      font-weight:bold;
+      float: left;
+      margin-right:.5em;
+    }
+
+    .comments {
+      float:left;
+    }
+    
+    .date, .favorite {
+      float: right;
+    }
+
+    .favorite {
+      margin-left: .5em;
     }
   }
 }

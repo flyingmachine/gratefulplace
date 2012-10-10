@@ -3,4 +3,4 @@
 middleman build
 rm -Rf ../../public/*
 cp -R build/* ../../public
-mv ../../public/*.html ../templates
+mv ../../public/*.html ../../src/gratefulplace/templates

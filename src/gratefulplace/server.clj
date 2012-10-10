@@ -1,9 +1,22 @@
 (ns gratefulplace.server
   (:require compojure.route
-            compojure.handler)
+            compojure.handler
+            [net.cgrand.enlive-html :as h])
   (:use [ring.adapter.jetty :only (run-jetty)]
         [ring.middleware.params :only (wrap-params)]
         [compojure.core :only (GET PUT POST defroutes)]))
+
+;; templates
+;; (h/defsnippet footer "gratefulplace/templates/footer.html" [:.footer]
+;;   [message]
+;;   [:.footer] (h/content message))
+
+
+;; returns a seq of strings. to concat, use
+;; (apply str (friends-list ...))
+(h/deftemplate home "gratefulplace/templates/index.html"
+  []
+  [:.post :.content] (h/content "This is enlive content"))
 
 (def ^:private counter (atom 0))
 (def ^:private mappings (ref {}))
@@ -43,7 +56,7 @@ Modifies the global mapping accordingly."
 
 (defroutes app*
   (compojure.route/files "/" {:root "public"})
-  (GET "/" request "Welcome!")
+  (GET "/" [] (home))
   (PUT "/:id" [id url] (retain url id))
   (POST "/" [url] (retain url))
   (GET "/:id" [id] (redirect id))

@@ -14,6 +14,7 @@ $column-width   : 4em;            // each column is 4em wide
 $gutter-width   : 1em;            // 1em gutters between columns
 $grid-padding   : $gutter-width;  // grid-padding equal to gutters
 $base-line-height: 27px;
+$total-columns  : 9;
 
 // Fonts --------------------------------------------------------------
 @mixin sans-family {
@@ -58,17 +59,21 @@ body {
   color: white;
 }
 
-#your-stuff {
-  @include span-columns(3, 12);
-  @include leader;
-
-  .divider {
-    @include trailer;
+nav {
+  @include trailer;
+  @include clearfix;
+  
+  li {
+    float: left;
+    margin-right: 1em;
+    padding: .5em;
+    background: rgba(255, 255, 255, 0.3);
+    @include border-radius(3px); 
   }
 }
 
 .posts {
-  @include span-columns(9 omega, 12);
+  @include span-columns(9 omega);
   .post {
     background: white;
     @include border-radius(3px); 

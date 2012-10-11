@@ -34,13 +34,14 @@
 ;; returns a seq of strings. to concat, use
 ;; (apply str (friends-list ...))
 (h/deftemplate home "gratefulplace/templates/index.html"
-  []
-  [:.post] (h/clone-for [post posts]
+  [posts]
+  [[:.post (h/nth-of-type 1)]] (h/clone-for [post posts]
                         [:.author]   (h/content (:author post))
                         [:.date]     (h/content (:date post))
                         [:.content]  (h/content (:content post))
                         [:.comments] (h/content (comments post))
-                        (h/content "This is enlive content")))
+                        (h/content "This is enlive content"))
+  [[:.post (h/nth-of-type 2)]] nil)
 
 (defn url-for
   [id]
@@ -77,7 +78,7 @@ Modifies the global mapping accordingly."
 
 (defroutes app*
   (compojure.route/files "/" {:root "public"})
-  (GET "/" [] (home))
+  (GET "/" [] (home posts))
   (PUT "/:id" [id url] (retain url id))
   (POST "/" [url] (retain url))
   (GET "/:id" [id] (redirect id))

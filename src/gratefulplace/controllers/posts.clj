@@ -21,7 +21,7 @@
     (str (:comment-count post) " comments")))
 ;; returns a seq of strings. to concat, use
 ;; (apply str (friends-list ...))
-(h/deftemplate list "gratefulplace/templates/index.html"
+(h/deftemplate all "gratefulplace/templates/index.html"
   []
   [[:.post (h/nth-of-type 1)]] (h/clone-for [post posts]
                         [:.author]   (h/content (:author post))

@@ -1,0 +1,1 @@
+(ns gratefulplace.models.post)

@@ -9,14 +9,6 @@
                  [enlive/enlive "1.0.1"]
                  [lein-ring "0.7.5"]
                  [korma "0.3.0-beta7"]
-                 [postgresql "9.1-901.jdbc4"]
-                 [ragtime "0.3.1"]]
-
-  :dev-dependencies [[ragtime "0.3.1"]]
-
-  :plugins [[ragtime/ragtime.lein "0.3.1"]]
-  
-  :main gratefulplace.server
-
-  :ragtime {:migrations ragtime.sql.files/migrations
-            :database "jdbc:postgresql://localhost/gratefulplace?user=daniel&password="})
+                 [lobos "1.0.0-SNAPSHOT"]
+                 [postgresql "9.1-901.jdbc4"]]
+  :main gratefulplace.server)

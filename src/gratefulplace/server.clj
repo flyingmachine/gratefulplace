@@ -1,8 +1,7 @@
 (ns gratefulplace.server
   (:require compojure.route
             compojure.handler
-            [gratefulplace.controllers.posts :as posts]
-            [korma.db :as db])
+            [gratefulplace.controllers.posts :as posts])
   (:use [ring.adapter.jetty :only (run-jetty)]
         [compojure.core :only (GET PUT POST defroutes)]))
 
@@ -22,6 +21,3 @@
   []
   (run-jetty #'app {:port 8080 :join? false}))
 
-(db/defdb dev (db/postgres {:db "gratefulplace-development"
-                            :user "daniel"
-                            :password ""}))

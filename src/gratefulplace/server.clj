@@ -13,6 +13,7 @@
 (defroutes app*
   (compojure.route/files "/" {:root "public"})
   (GET "/" [] (posts/all))
+  (GET "/posts/new" [] (posts/new))
   (compojure.route/not-found "Sorry, there's nothing here."))
 
 (def app (compojure.handler/api app*))

@@ -29,6 +29,13 @@ $total-columns  : 9;
   font-family: "Bitstream Vera Sans Mono", monospace;
 }
 
+@mixin chunk {
+  background: white;
+  @include border-radius(3px); 
+  @include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 1px, 2px, 0px);
+  padding:0 1em;
+}
+
 // Colors
 $purple: #767fa8;
 $light-purple-bg: #eeeff4;
@@ -49,6 +56,14 @@ body {
   background: #87ddfd url("/images/blurbg2.jpg") no-repeat;
   color: #444;
   @include serif-family;
+}
+
+h2 {
+  @include sans-family;
+  @include adjust-font-size-to(30px);
+  @include box-sizing(border-box);
+  @include trailer(1, 30px);
+  border-bottom: 1px solid #999;
 }
 
 .title {
@@ -72,13 +87,17 @@ nav {
   }
 }
 
+.page {
+  // page acts as a container for our grid.
+  @include container;
+  @include trailer;
+  @include leader;
+}
+
 .posts {
   @include span-columns(9 omega);
   .post {
-    background: white;
-    @include border-radius(3px); 
-    @include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 1px, 2px, 0px);
-    padding:0 1em;
+    @include chunk;
     @include padding-leader(.5);
     @include trailer;
 
@@ -127,9 +146,25 @@ nav {
   }
 }
 
-.page {
-  // page acts as a container for our grid.
-  @include container;
-  @include trailer;
-  @include leader;
+#new-post {
+  @include chunk;
+  @include padding-leader(.5);
+  @include padding-trailer(.5);
+  textarea {
+    width:100%;
+    @include box-sizing(border-box);
+    @include adjust-font-size-to(18px);
+    @include serif-family;
+    border: 1px solid #ddd;
+    height: 5 * $base-line-height;
+  }
+
+  form {
+
+  }
+}
+
+input[type=submit] {
+  @include serif-family;
+  @include adjust-font-size-to(18px);
 }

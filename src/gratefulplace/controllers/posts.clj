@@ -30,3 +30,6 @@
                         [:.comments] (h/content (comments post))
                         (h/content "This is enlive content"))
   [[:.post (h/nth-of-type 2)]] nil)
+
+(h/deftemplate new "gratefulplace/templates/new.html"
+  [])

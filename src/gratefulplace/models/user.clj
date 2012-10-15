@@ -1,5 +1,5 @@
-(ns gratefulplace.models.post
+(ns gratefulplace.models.user
   (:require gratefulplace.models.db)
   (:use korma.core))
 
-(defentity posts)
+(defentity users)

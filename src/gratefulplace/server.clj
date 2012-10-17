@@ -14,7 +14,8 @@
   (compojure.route/files "/" {:root "public"})
   (GET  "/" [] (posts/all))
   (GET  "/posts/new" [] (posts/new))
-  (POST "/posts" [content] (posts/create {:content content}))
+  (POST "/posts" [content] (posts/create! {:content content}))
+  ()
   (compojure.route/not-found "Sorry, there's nothing here."))
 
 (def app (compojure.handler/api app*))

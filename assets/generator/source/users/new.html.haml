@@ -1,0 +1,26 @@
+.page
+  %nav
+    %ul
+      %li
+        %a New Post
+      %li
+        %a Favorites
+      %li
+        %a Log Out
+
+  #new-user
+    %h2 Sign Up
+    %form{:action => "/users", :method => "POST"}
+      %table.input
+        %tr
+          %td
+            %label{:for => "username"} Username
+          %td
+            %input{:name => "username", :type => "text"}
+
+        %tr
+          %td
+            %label{:for => "email"} Email
+          %td
+            %input{:name => "email", :type => "text"}
+      %input{:type => "submit", :value => "Post"}

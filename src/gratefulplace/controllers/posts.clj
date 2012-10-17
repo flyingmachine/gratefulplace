@@ -1,6 +1,7 @@
 (ns gratefulplace.controllers.posts
   (:require [net.cgrand.enlive-html :as h]
-            [gratefulplace.models.post :as post]))
+            [gratefulplace.models.post :as post]
+            [ring.util.response :as res]))
 
 (def posts
   [{:author        "Terrence Blowfish"
@@ -35,6 +36,7 @@
 (h/deftemplate new "gratefulplace/templates/new.html"
   [])
 
-(defn create
+(defn create!
   [attributes]
-  (post/create attributes))
+  (post/create! attributes)
+  (res/redirect "/"))

@@ -4,6 +4,6 @@
 
 (defentity posts)
 
-(defn create
+(defn create!
   [attributes]
   (insert posts (values (assoc attributes :user_id 1))))

@@ -39,6 +39,8 @@ $total-columns  : 9;
   @include padding-leader(.5);
 }
 
+@import "formalize";
+
 // Colors
 $purple: #767fa8;
 $light-purple-bg: #eeeff4;
@@ -166,7 +168,7 @@ nav {
   }
 }
 
-#new-post {
+#new-post, #new-user {
   @include chunk;
   @include padding-leader(.5);
   @include padding-trailer(.5);
@@ -175,6 +177,7 @@ nav {
     @include box-sizing(border-box);
     @include adjust-font-size-to(18px);
     @include serif-family;
+    @include trailer(.5, 18px);
     border: 1px solid #ddd;
     height: 5 * $base-line-height;
   }
@@ -188,8 +191,11 @@ nav {
   @include chunk;
 }
 
-input[type=submit] {
-  @include leader(.5, 18px);
-  @include serif-family;
-  @include adjust-font-size-to(18px);
+table.input {
+  @include trailer;
+  label {
+    text-align:right;
+    padding-right: 5px;
+    display:block;
+  }
 }

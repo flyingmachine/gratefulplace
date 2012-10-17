@@ -34,6 +34,9 @@ $total-columns  : 9;
   @include border-radius(3px); 
   @include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 1px, 2px, 0px);
   padding:0 1em;
+  @include trailer;
+  @include clearfix;
+  @include padding-leader(.5);
 }
 
 // Colors
@@ -60,10 +63,29 @@ body {
 
 h2 {
   @include sans-family;
-  @include adjust-font-size-to(30px);
+  @include adjust-font-size-to(30px, 1);
   @include box-sizing(border-box);
   @include trailer(1, 30px);
+  @include padding-trailer(.5, 30px);
+  @include leader(.5, 30px);
   border-bottom: 1px solid #999;
+}
+
+h3 {
+  @include sans-family;
+  @include adjust-font-size-to(21px, 1);
+  @include box-sizing(border-box);
+  @include leader(1, 21px);
+  @include trailer(1, 21px);
+}
+
+p, blockquote {
+  @include trailer;
+}
+
+blockquote {
+  background: #f0fafd;
+  padding: .5em 1em;
 }
 
 .title {
@@ -98,8 +120,6 @@ nav {
   @include span-columns(9 omega);
   .post {
     @include chunk;
-    @include padding-leader(.5);
-    @include trailer;
 
     header {
       @include clearfix;
@@ -164,7 +184,12 @@ nav {
   }
 }
 
+#tips {
+  @include chunk;
+}
+
 input[type=submit] {
+  @include leader(.5, 18px);
   @include serif-family;
   @include adjust-font-size-to(18px);
 }

@@ -54,6 +54,371 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block; }
 
+/* line 8, _formalize.css.scss */
+.input_tiny {
+  width: 50px; }
+
+/* line 12, _formalize.css.scss */
+.input_small {
+  width: 100px; }
+
+/* line 16, _formalize.css.scss */
+.input_medium {
+  width: 150px; }
+
+/* line 20, _formalize.css.scss */
+.input_large {
+  width: 200px; }
+
+/* line 24, _formalize.css.scss */
+.input_xlarge {
+  width: 250px; }
+
+/* line 28, _formalize.css.scss */
+.input_xxlarge {
+  width: 300px; }
+
+/* line 32, _formalize.css.scss */
+.input_full {
+  width: 100%; }
+
+/* line 39, _formalize.css.scss */
+.input_full_wrap {
+  display: block;
+  padding-right: 8px; }
+
+/* line 47, _formalize.css.scss */
+input[type="search"]::-webkit-search-decoration {
+  display: none; }
+
+/* line 58, _formalize.css.scss */
+input:invalid,
+button:invalid,
+a.button:invalid,
+select:invalid,
+textarea:invalid {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+/* line 62, _formalize.css.scss */
+input:focus,
+button:focus,
+a.button:focus,
+select:focus,
+textarea:focus {
+  -webkit-box-shadow: #0066ff 0 0 5px 0;
+  -moz-box-shadow: #0066ff 0 0 5px 0;
+  box-shadow: #0066ff 0 0 5px 0;
+  z-index: 1; }
+
+/* line 73, _formalize.css.scss */
+input[type="file"]:focus, input[type="file"]:active,
+input[type="radio"]:focus,
+input[type="radio"]:active,
+input[type="checkbox"]:focus,
+input[type="checkbox"]:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+
+/* line 82, _formalize.css.scss */
+button,
+a.button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  background: #dddddd url('/images/../images/button.png') repeat-x;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dddddd));
+  background-image: -webkit-linear-gradient(#ffffff, #dddddd);
+  background-image: -moz-linear-gradient(#ffffff, #dddddd);
+  background-image: -o-linear-gradient(#ffffff, #dddddd);
+  background-image: linear-gradient(#ffffff, #dddddd);
+  border: 1px solid;
+  border-color: #dddddd #bbbbbb #999999;
+  cursor: pointer;
+  color: #333333;
+  display: inline-block;
+  font: bold 12px/1.3 "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif;
+  outline: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 3px 10px;
+  text-shadow: white 0 1px 1px;
+  text-decoration: none;
+  vertical-align: top;
+  width: auto;
+  *padding-top: 2px;
+  *padding-bottom: 0; }
+  /* line 104, _formalize.css.scss */
+  button:hover,
+  a.button:hover,
+  input[type="reset"]:hover,
+  input[type="submit"]:hover,
+  input[type="button"]:hover {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(1px, #eeeeee), color-stop(100%, #cccccc));
+    background-image: -webkit-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
+    background-image: -moz-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
+    background-image: -o-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
+    background-image: linear-gradient(#ffffff, #eeeeee 1px, #cccccc); }
+  /* line 107, _formalize.css.scss */
+  button:active,
+  a.button:active,
+  input[type="reset"]:active,
+  input[type="submit"]:active,
+  input[type="button"]:active {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(1px, #dddddd), color-stop(100%, #eeeeee));
+    background-image: -webkit-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+    background-image: -moz-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+    background-image: -o-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+    background-image: linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+    -webkit-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+    -moz-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+    box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+    border-color: #999999 #bbbbbb #dddddd; }
+  /* line 117, _formalize.css.scss */
+  button::-moz-focus-inner,
+  a.button::-moz-focus-inner,
+  input[type="reset"]::-moz-focus-inner,
+  input[type="submit"]::-moz-focus-inner,
+  input[type="button"]::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
+
+/* line 123, _formalize.css.scss */
+a.button {
+  *padding-bottom: 3px; }
+
+/* line 128, _formalize.css.scss */
+button {
+  *padding-top: 1px;
+  *padding-bottom: 1px; }
+
+/* line 148, _formalize.css.scss */
+textarea,
+select,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  background-color: white;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  color: black;
+  outline: 0;
+  margin: 0;
+  padding: 2px 3px;
+  text-align: left;
+  font-size: 13px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 1.8em;
+  vertical-align: top;
+  *padding-top: 2px;
+  *padding-bottom: 1px;
+  *height: auto; }
+  /* line 171, _formalize.css.scss */
+  textarea[disabled],
+  select[disabled],
+  input[type="date"][disabled],
+  input[type="datetime"][disabled],
+  input[type="datetime-local"][disabled],
+  input[type="email"][disabled],
+  input[type="month"][disabled],
+  input[type="number"][disabled],
+  input[type="password"][disabled],
+  input[type="search"][disabled],
+  input[type="tel"][disabled],
+  input[type="text"][disabled],
+  input[type="time"][disabled],
+  input[type="url"][disabled],
+  input[type="week"][disabled] {
+    background-color: #eeeeee; }
+
+/* line 182, _formalize.css.scss */
+button[disabled],
+input[disabled],
+select[disabled],
+select[disabled] option,
+select[disabled] optgroup,
+textarea[disabled],
+a.button_disabled {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  color: #888888;
+  cursor: default; }
+
+/* line 196, _formalize.css.scss */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #888888; }
+
+/* line 201, _formalize.css.scss */
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #888888; }
+
+/* line 206, _formalize.css.scss */
+input.placeholder_text,
+textarea.placeholder_text {
+  color: #888888; }
+
+/* line 212, _formalize.css.scss */
+textarea,
+select[size],
+select[multiple] {
+  height: auto; }
+
+/* line 219, _formalize.css.scss */
+select[size="0"],
+select[size="1"] {
+  height: 1.8em;
+  *height: auto; }
+
+@media (-webkit-min-device-pixel-ratio: 0) {
+  /* line 229, _formalize.css.scss */
+  select[size],
+  select[multiple],
+  select[multiple][size] {
+    background-image: none;
+    padding-right: 3px; }
+
+  /* line 235, _formalize.css.scss */
+  select,
+  select[size="0"],
+  select[size="1"] {
+    background-image: url(data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px; }
+
+  /* line 242, _formalize.css.scss */
+  ::-webkit-validation-bubble-message {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(1, black));
+    border: 1px solid;
+    border-color: #747474 #5e5e5e #4f4f4f;
+    color: white;
+    font: 13px/17px "Lucida Grande", Arial, "Liberation Sans", FreeSans, sans-serif;
+    overflow: hidden;
+    padding: 15px 15px 17px;
+    text-shadow: black 0 0 1px;
+    height: 16px; }
+
+  /* line 257, _formalize.css.scss */
+  ::-webkit-validation-bubble-arrow,
+  ::-webkit-validation-bubble-top-outer-arrow,
+  ::-webkit-validation-bubble-top-inner-arrow {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #666666;
+    border: 0; } }
+/* line 265, _formalize.css.scss */
+textarea {
+  min-height: 40px;
+  overflow: auto;
+  resize: vertical;
+  width: 100%; }
+
+/* line 272, _formalize.css.scss */
+optgroup {
+  color: black;
+  font-style: normal;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  /* line 280, _formalize.css.scss */
+  optgroup::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
+
+/* line 311, _formalize.css.scss */
+.ie6_button,
+* html button,
+* html a.button {
+  background: #dddddd url('/images/../images/button.png') repeat-x;
+  border: 1px solid;
+  border-color: #dddddd #bbbbbb #999999;
+  cursor: pointer;
+  color: #333333;
+  font: bold 12px/1.2 Arial, sans-serif;
+  padding: 2px 10px 0px;
+  text-decoration: none;
+  overflow: visible;
+  vertical-align: top;
+  width: auto; }
+
+/* line 325, _formalize.css.scss */
+* html a.button {
+  position: relative;
+  top: 3px;
+  padding-bottom: 2px; }
+
+/* line 331, _formalize.css.scss */
+* html button {
+  padding-top: 1px;
+  padding-bottom: 1px; }
+
+/* line 338, _formalize.css.scss */
+.ie6_input,
+* html textarea,
+* html select {
+  background: white;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  color: black;
+  padding: 2px 3px 1px;
+  font-size: 13px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  vertical-align: top; }
+
+/* line 349, _formalize.css.scss */
+* html select {
+  margin-top: 1px; }
+
+/* line 355, _formalize.css.scss */
+.placeholder_text,
+.ie6_input_disabled,
+.ie6_button_disabled {
+  color: #888888; }
+
+/* line 359, _formalize.css.scss */
+.ie6_input_disabled {
+  background: #eeeeee; }
+
 /* line 61, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 100%; }
@@ -67,13 +432,13 @@ html {
   font-family: "ReenieBeanie";
   src: url("fonts/ReenieBeanie.ttf"); }
 
-/* line 58, base.css.scss */
+/* line 60, base.css.scss */
 body {
   background: #87ddfd url("/images/blurbg2.jpg") no-repeat;
   color: #444;
   font-family: Palatino Linotype, Book Antiqua, Palatino, serif; }
 
-/* line 64, base.css.scss */
+/* line 66, base.css.scss */
 h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.875em;
@@ -86,7 +451,7 @@ h2 {
   margin-top: 0.45em;
   border-bottom: 1px solid #999; }
 
-/* line 74, base.css.scss */
+/* line 76, base.css.scss */
 h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.3125em;
@@ -97,16 +462,16 @@ h3 {
   margin-top: 1.28571em;
   margin-bottom: 1.28571em; }
 
-/* line 82, base.css.scss */
+/* line 84, base.css.scss */
 p, blockquote {
   margin-bottom: 1.6875em; }
 
-/* line 86, base.css.scss */
+/* line 88, base.css.scss */
 blockquote {
   background: #f0fafd;
   padding: .5em 1em; }
 
-/* line 91, base.css.scss */
+/* line 93, base.css.scss */
 .title {
   margin-top: 0.45em;
   text-align: center;
@@ -114,12 +479,12 @@ blockquote {
   font-family: 'Nothing You Could Do', cursive;
   color: white; }
 
-/* line 99, base.css.scss */
+/* line 101, base.css.scss */
 nav {
   margin-bottom: 1.6875em;
   overflow: hidden;
   *zoom: 1; }
-  /* line 103, base.css.scss */
+  /* line 105, base.css.scss */
   nav li {
     float: left;
     margin-right: 1em;
@@ -131,7 +496,7 @@ nav {
     -o-border-radius: 3px;
     border-radius: 3px; }
 
-/* line 112, base.css.scss */
+/* line 114, base.css.scss */
 .page {
   *zoom: 1;
   max-width: 44em;
@@ -148,14 +513,14 @@ nav {
     display: table;
     clear: both; }
 
-/* line 119, base.css.scss */
+/* line 121, base.css.scss */
 .posts {
   width: 100%;
   float: right;
   margin-right: 0;
   #margin-left: -1em;
   display: inline; }
-  /* line 121, base.css.scss */
+  /* line 123, base.css.scss */
   .posts .post {
     background: white;
     -webkit-border-radius: 3px;
@@ -171,7 +536,7 @@ nav {
     overflow: hidden;
     *zoom: 1;
     padding-top: 0.84375em; }
-    /* line 124, base.css.scss */
+    /* line 126, base.css.scss */
     .posts .post header {
       overflow: hidden;
       *zoom: 1;
@@ -180,7 +545,7 @@ nav {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin-bottom: 0.84375em;
       line-height: inherit; }
-    /* line 132, base.css.scss */
+    /* line 134, base.css.scss */
     .posts .post footer {
       overflow: hidden;
       *zoom: 1;
@@ -195,27 +560,27 @@ nav {
       border-top: 1px solid #ccc;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       line-height: inherit; }
-    /* line 144, base.css.scss */
+    /* line 146, base.css.scss */
     .posts .post .content {
       font-size: 1.125em;
       line-height: 1.5em; }
-    /* line 149, base.css.scss */
+    /* line 151, base.css.scss */
     .posts .post .author {
       font-weight: bold;
       float: left;
       margin-right: .5em; }
-    /* line 155, base.css.scss */
+    /* line 157, base.css.scss */
     .posts .post .comments {
       float: left; }
-    /* line 159, base.css.scss */
+    /* line 161, base.css.scss */
     .posts .post .date, .posts .post .favorite {
       float: right; }
-    /* line 163, base.css.scss */
+    /* line 165, base.css.scss */
     .posts .post .favorite {
       margin-left: .5em; }
 
-/* line 169, base.css.scss */
-#new-post {
+/* line 171, base.css.scss */
+#new-post, #new-user {
   background: white;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -232,8 +597,8 @@ nav {
   padding-top: 0.84375em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 173, base.css.scss */
-  #new-post textarea {
+  /* line 175, base.css.scss */
+  #new-post textarea, #new-user textarea {
     width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -241,10 +606,11 @@ nav {
     font-size: 1.125em;
     line-height: 1.5em;
     font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+    margin-bottom: 0.75em;
     border: 1px solid #ddd;
     height: 135px; }
 
-/* line 187, base.css.scss */
+/* line 190, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -261,9 +627,14 @@ nav {
   *zoom: 1;
   padding-top: 0.84375em; }
 
-/* line 191, base.css.scss */
-input[type=submit] {
-  margin-top: 0.75em;
-  font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
-  font-size: 1.125em;
-  line-height: 1.5em; }
+/* line 194, base.css.scss */
+table.input {
+  margin-bottom: 0.84375em; }
+  /* line 196, base.css.scss */
+  table.input td {
+    padding-bottom: 0.84375em; }
+  /* line 199, base.css.scss */
+  table.input label {
+    text-align: right;
+    padding-right: 10px;
+    display: block; }

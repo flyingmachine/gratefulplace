@@ -1,7 +1,8 @@
 (ns gratefulplace.server
   (:require compojure.route
             compojure.handler
-            [gratefulplace.controllers.posts :as posts])
+            [gratefulplace.controllers.posts :as posts]
+            [gratefulplace.controllers.users :as users])
   (:use [ring.adapter.jetty :only (run-jetty)]
         [compojure.core :only (GET PUT POST defroutes)]))
 
@@ -15,7 +16,7 @@
   (GET  "/" [] (posts/all))
   (GET  "/posts/new" [] (posts/new))
   (POST "/posts" [content] (posts/create! {:content content}))
-  ()
+  (GET  "/users/new" [] (users/new))
   (compojure.route/not-found "Sorry, there's nothing here."))
 
 (def app (compojure.handler/api app*))

@@ -3,3 +3,7 @@
   (:use korma.core))
 
 (defentity users)
+
+(defn create
+  [attributes]
+  (insert users (values attributes)))

@@ -10,8 +10,8 @@
 
   #new-post
     %h2 What are you grateful for?
-    %form
-      %textarea
+    %form{:action => "/posts", :method => "POST"}
+      %textarea{:name => "content"}
       %input{:type => "submit", :value => "Post"}
 
   #tips

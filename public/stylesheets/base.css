@@ -263,6 +263,7 @@ nav {
 
 /* line 191, base.css.scss */
 input[type=submit] {
+  margin-top: 0.75em;
   font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
   font-size: 1.125em;
   line-height: 1.5em; }

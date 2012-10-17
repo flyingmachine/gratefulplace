@@ -17,6 +17,7 @@
   (GET  "/posts/new" [] (posts/new))
   (POST "/posts" [content] (posts/create! {:content content}))
   (GET  "/users/new" [] (users/new))
+  (POST "/users" [username email] (users/create! {:username username :email email}))
   (compojure.route/not-found "Sorry, there's nothing here."))
 
 (def app (compojure.handler/api app*))

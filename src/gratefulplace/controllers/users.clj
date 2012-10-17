@@ -5,3 +5,8 @@
 
 (h/deftemplate new "gratefulplace/templates/users/new.html"
   [])
+
+(defn create!
+  [attributes]
+  (user/create! attributes)
+  (res/redirect "/"))

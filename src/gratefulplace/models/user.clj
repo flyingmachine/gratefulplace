@@ -4,6 +4,6 @@
 
 (defentity users)
 
-(defn create
+(defn create!
   [attributes]
   (insert users (values attributes)))

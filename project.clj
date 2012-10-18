@@ -10,5 +10,9 @@
                  [lein-ring "0.7.5"]
                  [korma "0.3.0-beta7"]
                  [lobos "1.0.0-SNAPSHOT"]
-                 [postgresql "9.1-901.jdbc4"]]
+                 [postgresql "9.1-901.jdbc4"]
+                 [com.cemerick/friend "0.1.2"]]
+  
   :main gratefulplace.server)
+
+

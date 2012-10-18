@@ -1,6 +1,7 @@
 (ns gratefulplace.server
   (:require compojure.route
             compojure.handler
+            gratefulplace.models.db
             [gratefulplace.controllers.posts :as posts]
             [gratefulplace.controllers.users :as users]
             [gratefulplace.models.user :as user]

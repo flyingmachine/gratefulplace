@@ -1,7 +1,7 @@
 (ns tasks.db
   (:refer-clojure :exclude [alter drop complement
                             bigint boolean char double float time])
-  (:require gratefulplace.models.user)
+  (:require [gratefulplace.models.user :as user])
   (:use (lobos core)))
 
 (defn rebuild
@@ -11,9 +11,9 @@
 
 (defn seed
   []
-  (println (gratefulplace.models.user/create {:username "higginbotham"
-                                              :email "daniel@flyingmachinestudios.com"
-                                              :display_name "higginbotham"})))
+  (println (user/create! {:username "higginbotham"
+                          :email "daniel@flyingmachinestudios.com"
+                          :display_name "higginbotham"})))
 (defn -main
   [task-name]
   (condp = task-name

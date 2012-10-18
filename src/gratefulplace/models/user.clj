@@ -1,5 +1,5 @@
 (ns gratefulplace.models.user
-  (:require gratefulplace.models.db
+  (:require 
             (cemerick.friend [credentials :as creds]))
   (:use korma.core))
 

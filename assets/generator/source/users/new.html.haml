@@ -1,35 +1,29 @@
-.page
-  %nav
-    %ul
-      %li
-        %a New Post
-      %li
-        %a Favorites
-      %li
-        %a Log Out
+---
+title: "Sign Up :: Grateful Place"
+---
 
-  #new-user
-    %h2 Sign Up
+#new-user
+  %h2 Sign Up
 
-    %p Sign up to begin sharing your gratitude and favoriting posts.
-    
-    %form{:action => "/users", :method => "POST"}
-      %table.input
-        %tr
-          %td
-            %label{:for => "username"} Username
-          %td
-            %input{:name => "username", :type => "text"}
+  %p Sign up to begin sharing your gratitude and favoriting posts.
 
-        %tr
-          %td
-            %label{:for => "password"} Password
-          %td
-            %input{:name => "password", :type => "password"}
+  %form{:action => "/users", :method => "POST"}
+    %table.input
+      %tr
+        %td
+          %label{:for => "username"} Username
+        %td
+          %input{:name => "username", :type => "text"}
 
-        %tr
-          %td
-            %label{:for => "email"} Email
-          %td
-            %input{:name => "email", :type => "text"}
-      %input{:type => "submit", :value => "Sign Up"}
+      %tr
+        %td
+          %label{:for => "password"} Password
+        %td
+          %input{:name => "password", :type => "password"}
+
+      %tr
+        %td
+          %label{:for => "email"} Email
+        %td
+          %input{:name => "email", :type => "text"}
+    %input{:type => "submit", :value => "Sign Up"}

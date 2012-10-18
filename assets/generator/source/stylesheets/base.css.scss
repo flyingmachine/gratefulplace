@@ -101,6 +101,11 @@ blockquote {
 nav {
   @include trailer;
   @include clearfix;
+
+  a {
+    color: #444;
+    text-decoration: none;
+  }
   
   li {
     float: left;
@@ -202,3 +207,4 @@ table.input {
     display:block;
   }
 }
+

@@ -1,7 +1,8 @@
 (ns gratefulplace.controllers.posts
   (:require [net.cgrand.enlive-html :as h]
             [gratefulplace.models.post :as post]
-            [ring.util.response :as res]))
+            [ring.util.response :as res]
+            [gratefulplace.controllers.common :as common]))
 
 (def posts
   [{:author        "Terrence Blowfish"
@@ -21,9 +22,12 @@
   (if (zero? (:comment-count post))
     "Add a comment"
     (str (:comment-count post) " comments")))
-;; returns a seq of strings. to concat, use
-;; (apply str (friends-list ...))
-(h/deftemplate all "gratefulplace/templates/index.html"
+
+(defn selector
+  []
+  [:nav])
+
+(h/deftemplate all (str common/*template-dir* "index.html")
   []
   [[:.post (h/nth-of-type 1)]] (h/clone-for [post posts]
                         [:.author]   (h/content (:author post))
@@ -33,7 +37,7 @@
                         (h/content "This is enlive content"))
   [[:.post (h/nth-of-type 2)]] nil)
 
-(h/deftemplate new "gratefulplace/templates/new.html"
+(h/deftemplate new (str common/*template-dir* "posts/new.html")
   [])
 
 (defn create!

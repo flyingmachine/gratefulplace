@@ -23,10 +23,6 @@
     "Add a comment"
     (str (:comment-count post) " comments")))
 
-(defn selector
-  []
-  [:nav])
-
 (h/deftemplate all (str common/*template-dir* "index.html")
   []
   [[:.post (h/nth-of-type 1)]] (h/clone-for [post posts]
@@ -35,10 +31,12 @@
                         [:.content]  (h/content (:content post))
                         [:.comments] (h/content (comments post))
                         (h/content "This is enlive content"))
-  [[:.post (h/nth-of-type 2)]] nil)
+  [[:.post (h/nth-of-type 2)]] nil
+  [:nav] (h/substitute (common/nav false)))
 
 (h/deftemplate new (str common/*template-dir* "posts/new.html")
-  [])
+  []
+  [:nav] (h/substitute (common/nav false)))
 
 (defn create!
   [attributes]

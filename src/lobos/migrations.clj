@@ -15,7 +15,9 @@
             (varchar :email 255 :unique)
             (check :email (> (length :email) 1))
 
-            (varchar :password 255))
+            (varchar :password 255)
+
+            (text :roles))
 
           (index :users [:username :email])))
   

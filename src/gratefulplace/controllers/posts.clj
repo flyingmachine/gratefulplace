@@ -32,8 +32,9 @@
 
 (h/deftemplate all (str common/*template-dir* "index.html")
   []
+  ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
-  [[:.post]] (h/clone-for [post (post/all)]
+  [:.post] (h/clone-for [post (post/all)]
                                             [:.author]   (h/content (:username   post))
                                             [:.date]     (h/content (timestamp->string (:created_on post)))
                                             [:.content]  (h/content (:content    post))

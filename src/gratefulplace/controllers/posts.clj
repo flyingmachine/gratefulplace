@@ -27,17 +27,17 @@
 
 (defn timestamp->string
   [timestamp]
-  (-> (java.text.SimpleDateFormat. "MMM dd, yyyy")
+  (-> (java.text.SimpleDateFormat. "MMM dd, yyyy hh:mma")
       (.format timestamp)))
 
 (h/deftemplate all (str common/*template-dir* "index.html")
   []
-  [[:.post (h/nth-of-type 1)]] (h/clone-for [post (post/all)]
+  [[:.post (h/nth-of-type 2)]] nil
+  [[:.post]] (h/clone-for [post (post/all)]
                                             [:.author]   (h/content (:username   post))
                                             [:.date]     (h/content (timestamp->string (:created_on post)))
                                             [:.content]  (h/content (:content    post))
                                             [:.comments] (h/content (comments    post)))
-  [[:.post (h/nth-of-type 2)]] nil
   [:nav] (h/substitute (common/nav false)))
 
 (h/deftemplate new (str common/*template-dir* "posts/new.html")

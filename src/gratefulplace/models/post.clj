@@ -1,18 +1,15 @@
 (ns gratefulplace.models.post
   (:require gratefulplace.models.db
-            [gratefulplace.models.user :as user])
-  
-  (:use korma.core))
+            [gratefulplace.models.entities :as e])
 
-(defentity posts
-  (belongs-to user/users))
+  (:use korma.core))
 
 (defn create!
   [attributes]
-  (insert posts (values (assoc attributes :user_id 1))))
+  (insert e/post (values (assoc attributes :user_id 1))))
 
 (defn all
   []
-  (select posts
-          (with user/users
+  (select e/post
+          (with e/user
                 (fields :username))))

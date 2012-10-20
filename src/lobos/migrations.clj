@@ -6,7 +6,7 @@
 
 (defmigration add-users-table
   (up [] (create
-          (tbl :users
+          (tbl :user
             (varchar :username 50 :unique)
             (check :username (> (length :username) 1))
 
@@ -19,22 +19,22 @@
 
             (text :roles))
 
-          (index :users [:username :email])))
+          (index :user [:username :email])))
   
-  (down [] (drop (table :users))))
+  (down [] (drop (table :user))))
 
 (defmigration add-posts-table
   (up [] (create
-          (tbl :posts
+          (tbl :post
             (varchar :title 200 :unique)
             (text :content)
-            (refer-to :users))))
-  (down [] (drop (table :posts))))
+            (refer-to :user))))
+  (down [] (drop (table :post))))
 
 (defmigration add-comments-table
   (up [] (create
-          (tbl :comments
+          (tbl :comment
             (text :content)
-            (refer-to :users)
-            (refer-to :posts))))
-  (down [] (drop (table :comments))))
+            (refer-to :user)
+            (refer-to :post))))
+  (down [] (drop (table :comment))))

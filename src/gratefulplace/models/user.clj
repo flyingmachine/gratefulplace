@@ -1,9 +1,8 @@
 (ns gratefulplace.models.user
   (:require gratefulplace.models.db
+            [gratefulplace.models.entities :as e]
             (cemerick.friend [credentials :as creds]))
   (:use korma.core))
-
-(defentity users)
 
 (defn- create-input->db-fields [input]
   (merge input
@@ -12,7 +11,7 @@
 
 (defn create!
   [attributes]
-  (insert users (values (create-input->db-fields attributes))))
+  (insert e/user (values (create-input->db-fields attributes))))
 
 (defn one
   [find])

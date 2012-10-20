@@ -27,7 +27,8 @@
 
 (defn timestamp->string
   [timestamp]
-  (.format (java.text.SimpleDateFormat. "MMM dd, yyyy") timestamp))
+  (-> (java.text.SimpleDateFormat. "MMM dd, yyyy")
+      (.format timestamp)))
 
 (h/deftemplate all (str common/*template-dir* "index.html")
   []

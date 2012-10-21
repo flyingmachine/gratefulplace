@@ -1,7 +1,6 @@
 (ns gratefulplace.models.post
   (:require gratefulplace.models.db
             [gratefulplace.models.entities :as e])
-
   (:use korma.core))
 
 (defn create!
@@ -12,4 +11,5 @@
   []
   (select e/post
           (with e/user
-                (fields :username))))
+                (fields :username))
+          (order :created_on :DESC)))

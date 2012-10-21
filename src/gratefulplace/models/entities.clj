@@ -1,4 +1,5 @@
 (ns gratefulplace.models.entities
+  (:refer-clojure :exclude [comment])
   (:use korma.core))
 
 (declare user comment)

@@ -1,5 +1,6 @@
 (ns gratefulplace.server
   (:use [ring.adapter.jetty :only (run-jetty)]
+        ring.middleware.params
         [gratefulplace.middleware.auth :only (auth)]
         [gratefulplace.middleware.routes :only (routes)]))
 
@@ -12,6 +13,7 @@
 
 (def app
   (-> routes
+      wrap-params
       auth))
 
 (defn -main

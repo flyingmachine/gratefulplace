@@ -90,6 +90,14 @@ blockquote {
   padding: .5em 1em;
 }
 
+em, i {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
 .title {
   @include leader(1, 60px);
   text-align: center;

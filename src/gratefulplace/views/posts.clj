@@ -35,12 +35,12 @@
                                       (h/set-attr :href (post-path post)))))
 
 (defpage show "posts/show.html"
-  [post]
+  [post comments]
   [:.post :.author]  (h/content (:username post))
   [:.post :.date]    (h/content (created-on post))
   [:.post :.content] (content post)
   [:#post_id] (h/set-attr :value (:id post))
-  [:.comments :.comment] (h/clone-for [comment (:comment post)]
+  [:.comments :.comment] (h/clone-for [comment comments]
                                       [:.author]  (h/content (:username comment))
                                       [:.date]    (h/content (created-on comment))
                                       [:.content] (content comment)))

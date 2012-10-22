@@ -20,5 +20,7 @@
   (first (select e/post
                  (with e/user
                        (fields :username))
-                 (with e/comment)
+                 (with e/comment
+                       (with e/user
+                             fields :username))
                  (where {:id (str->int id)}))))

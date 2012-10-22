@@ -2,6 +2,7 @@
   (:require [ring.util.response :as res]
             [net.cgrand.enlive-html :as h]
             [gratefulplace.models.post :as post]
+            [gratefulplace.models.comment :as comment]
             [gratefulplace.views.posts :as view]
             [cemerick.friend :as friend])
 
@@ -13,7 +14,7 @@
 
 (defn show
   [id]
-  (view/show (post/by-id id)))
+  (view/show (post/by-id id) (comment/all {:post_id id})))
 
 (defn show-new
   []

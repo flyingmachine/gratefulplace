@@ -11,9 +11,9 @@
   []
   (view/all (post/all)))
 
-(defn new
+(defn show-new
   []
-  (view/new))
+  (view/show-new))
 
 (defn create!
   [params]

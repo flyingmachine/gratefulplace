@@ -1,6 +1,6 @@
 (ns gratefulplace.views.posts
   (:require [net.cgrand.enlive-html :as h])
-  (:use [gratefulplace.controllers.common :only [*template-dir* nav]]))
+  (:use [gratefulplace.views.common :only [*template-dir* defpage]]))
 
 (defn comments
   [post]
@@ -14,7 +14,7 @@
   (-> (java.text.SimpleDateFormat. "MMM dd, yyyy hh:mma")
       (.format timestamp)))
 
-(h/deftemplate all (str *template-dir* "index.html")
+(defpage all "index.html"
   [posts]
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
@@ -22,9 +22,7 @@
                         [:.author]   (h/content (:username   post))
                         [:.date]     (h/content (timestamp->string (:created_on post)))
                         [:.content]  (h/content (:content    post))
-                        [:.comments] (h/content (comments    post)))
-  [:nav] (h/substitute (nav false)))
+                        [:.comments] (h/content (comments    post))))
 
-(h/deftemplate new (str *template-dir* "posts/new.html")
-  []
-  [:nav] (h/substitute (nav false)))
+(defpage show-new "posts/new.html"
+  [])

@@ -1,5 +1,6 @@
 (ns gratefulplace.views.users
-  (:require [net.cgrand.enlive-html :as h]))
+  (:require [net.cgrand.enlive-html :as h])
+  (:use [gratefulplace.views.common :only [*template-dir* defpage]]))
 
-(h/deftemplate new "gratefulplace/templates/users/new.html"
+(defpage show-new "users/new.html"
   [])

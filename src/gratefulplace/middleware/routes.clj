@@ -11,11 +11,11 @@
 
   ;; posts
   (GET  "/" [] (posts/all))
-  (GET  "/posts/new" [] (posts/new))
+  (GET  "/posts/new" [] (posts/show-new))
   (POST "/posts"     {params :params} (posts/create! params))
 
   ;; users
-  (GET  "/users/new" [] (users/new))
+  (GET  "/users/new" [] (users/show-new))
   (POST "/users"     {params :params} (users/create! params))
   
   (compojure.route/not-found "Sorry, there's nothing here."))

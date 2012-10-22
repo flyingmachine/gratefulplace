@@ -5,9 +5,11 @@
             [cemerick.friend :as friend]
             [cemerick.friend.workflows :as workflows]))
 
-(defn new
+
+
+(defn show-new
   []
-  (view/new))
+  (view/show-new))
 
 (defn register [{:keys [uri request-method params]}]
   (when (and (= uri "/users")

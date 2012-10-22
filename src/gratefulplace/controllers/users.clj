@@ -1,13 +1,13 @@
 (ns gratefulplace.controllers.users
-  (:require [net.cgrand.enlive-html :as h]
-            [gratefulplace.models.user :as user]
+  (:require [gratefulplace.models.user :as user]
+            [gratefulplace.views.users :as view]
             [ring.util.response :as res]
             [cemerick.friend :as friend]
-            [cemerick.friend.workflows :as workflows]
-            ))
+            [cemerick.friend.workflows :as workflows]))
 
-(h/deftemplate new "gratefulplace/templates/users/new.html"
-  [])
+(defn new
+  []
+  (view/new))
 
 (defn register [{:keys [uri request-method params]}]
   (when (and (= uri "/users")

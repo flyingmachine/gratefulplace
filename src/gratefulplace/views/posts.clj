@@ -24,5 +24,12 @@
                         [:.content]  (h/content (:content    post))
                         [:.comments] (h/content (comments    post))))
 
+(defpage show "posts/show.html"
+  [post]
+  (:.post) (h/do->
+            [:.author]  (h/content (:username post))
+            [:.date]    (h/content (timestamp->string (:created_on post)))
+            [:.content] (h/content (:content    post))))
+
 (defpage show-new "posts/new.html"
   [])

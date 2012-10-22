@@ -13,3 +13,8 @@
           (with e/user
                 (fields :username))
           (order :created_on :DESC)))
+
+(defn by-id
+  [id]
+  (select e/post
+          (where {:id id})))

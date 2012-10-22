@@ -11,6 +11,10 @@
   []
   (view/all (post/all)))
 
+(defn show
+  [id]
+  (view/show (post/by-id id)))
+
 (defn show-new
   []
   (view/show-new))

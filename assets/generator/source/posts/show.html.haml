@@ -1,0 +1,29 @@
+---
+title: Grateful Place
+---
+
+
+.post
+  %header
+    .author Joe Schmoe
+    .favorite &#9733;
+    .date Jan 03, 2012
+  .content
+    %p Here is some content.
+    
+
+%h2 Comments
+.comments
+  .new#new-comment
+    %h3 Post a Comment
+    %form{:action => "/comments", :method => "POST"}
+      %textarea{:name => "content"}
+      %input{:type => "hidden", :name => "post_id", :value => ""}
+      %input{:type => "submit", :value => "Post Comment"}
+    
+  .comment
+    %header
+      .author Billy Blanks
+      .date Jan 03, 2012 8:30am
+    .content
+      %p this is comment content

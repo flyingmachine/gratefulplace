@@ -3,6 +3,7 @@
             compojure.handler
             [gratefulplace.controllers.posts :as posts]
             [gratefulplace.controllers.users :as users]
+            [gratefulplace.controllers.comments :as comments]
             [gratefulplace.models.user :as user])
   (:use [compojure.core :only (GET PUT POST defroutes)]))
 
@@ -15,6 +16,9 @@
   (GET  "/posts/new" [] (posts/show-new))
   (POST "/posts"     {params :params} (posts/create! params))
   (GET  "/posts/:id" [id] (posts/show id))
+
+  ;; comments
+  (POST "/comments"  {params :params} (comments/create! params))
 
   ;; users
   (GET  "/users/new" [] (users/show-new))

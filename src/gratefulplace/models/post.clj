@@ -1,7 +1,8 @@
 (ns gratefulplace.models.post
   (:require gratefulplace.models.db
             [gratefulplace.models.entities :as e])
-  (:use korma.core))
+  (:use korma.core
+        gratefulplace.utils))
 
 (defn create!
   [attributes]
@@ -19,4 +20,5 @@
   (first (select e/post
                  (with e/user
                        (fields :username))
-                 (where {:id (Integer.  id)}))))
+                 (with e/comment)
+                 (where {:id (str->int id)}))))

@@ -28,4 +28,4 @@
 
 (defn content
   [x]
-  (markdown/md-to-html-string (:content x)))
+  (h/html-content (markdown/md-to-html-string (:content x))))

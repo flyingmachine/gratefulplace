@@ -1,6 +1,7 @@
 (ns gratefulplace.models.entities
   (:refer-clojure :exclude [comment])
-  (:use korma.core))
+  (:use korma.core
+        gratefulplace.utils))
 
 (declare user comment)
 (defentity post
@@ -13,4 +14,6 @@
 
 (defentity comment
   (belongs-to user)
-  (belongs-to post))
+  (belongs-to post)
+
+  (prepare #(assoc % :post_id (str->int (:post_id %)))))

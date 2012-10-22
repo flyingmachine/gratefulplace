@@ -8,10 +8,13 @@
 
 (defroutes routes
   (compojure.route/files "/" {:root "public"})
+
+  ;; posts
   (GET  "/" [] (posts/all))
   (GET  "/posts/new" [] (posts/new))
   (POST "/posts"     {params :params} (posts/create! params))
-  
+
+  ;; users
   (GET  "/users/new" [] (users/new))
   (POST "/users"     {params :params} (users/create! params))
   

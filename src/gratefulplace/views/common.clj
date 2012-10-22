@@ -1,4 +1,4 @@
-(ns gratefulplace.controllers.common
+(ns gratefulplace.views.common
   (:require [net.cgrand.enlive-html :as h]))
 
 (defonce *template-dir* "gratefulplace/templates/")

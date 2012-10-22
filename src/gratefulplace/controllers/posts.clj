@@ -11,9 +11,9 @@
   []
   (view/all (post/all)))
 
-(h/deftemplate new (str *template-dir* "posts/new.html")
+(defn new
   []
-  [:nav] (h/substitute (nav false)))
+  (view/new))
 
 (defn create!
   [params]

@@ -24,3 +24,7 @@
                                             [:.content]  (h/content (:content    post))
                                             [:.comments] (h/content (comments    post)))
   [:nav] (h/substitute (nav false)))
+
+(h/deftemplate new (str *template-dir* "posts/new.html")
+  []
+  [:nav] (h/substitute (nav false)))

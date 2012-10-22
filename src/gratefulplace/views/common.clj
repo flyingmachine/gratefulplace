@@ -1,5 +1,6 @@
 (ns gratefulplace.views.common
-  (:require [net.cgrand.enlive-html :as h]))
+  (:require [net.cgrand.enlive-html :as h]
+            markdown))
 
 (defonce *template-dir* "gratefulplace/templates/")
 
@@ -24,3 +25,7 @@
      (defn ~name
        [~@argnames]
        (layout (~(symbol (str name "*")) ~@argnames)))))
+
+(defn content
+  [x]
+  (markdown/md-to-html-string (:content x)))

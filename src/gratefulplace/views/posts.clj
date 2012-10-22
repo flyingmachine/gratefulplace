@@ -1,6 +1,6 @@
 (ns gratefulplace.views.posts
   (:require [net.cgrand.enlive-html :as h])
-  (:use [gratefulplace.views.common :only [*template-dir* defpage]]))
+  (:use [gratefulplace.views.common :only [*template-dir* defpage content]]))
 
 (defn comments
   [post]
@@ -25,7 +25,7 @@
   [:.post] (h/clone-for [post posts]
                         [:.author]   (h/content (:username   post))
                         [:.date]     (h/content (timestamp->string (:created_on post)))
-                        [:.content]  (h/content (:content    post))
+                        [:.content]  (h/html-content (content post))
                         [:.comments] (h/do->
                                       (h/content (comments    post))
                                       (h/set-attr :href (post-path post)))))
@@ -34,7 +34,7 @@
   [post]
   [:.post :.author]  (h/content (:username post))
   [:.post :.date]    (h/content (timestamp->string (:created_on post)))
-  [:.post :.content] (h/content (:content  post)))
+  [:.post :.content] (h/html-content (content  post)))
 
 (defpage show-new "posts/new.html"
   [])

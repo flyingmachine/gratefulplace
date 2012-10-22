@@ -19,10 +19,10 @@
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
   [:.post] (h/clone-for [post posts]
-                                            [:.author]   (h/content (:username   post))
-                                            [:.date]     (h/content (timestamp->string (:created_on post)))
-                                            [:.content]  (h/content (:content    post))
-                                            [:.comments] (h/content (comments    post)))
+                        [:.author]   (h/content (:username   post))
+                        [:.date]     (h/content (timestamp->string (:created_on post)))
+                        [:.content]  (h/content (:content    post))
+                        [:.comments] (h/content (comments    post)))
   [:nav] (h/substitute (nav false)))
 
 (h/deftemplate new (str *template-dir* "posts/new.html")

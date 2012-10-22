@@ -33,5 +33,5 @@
 
 (defn create!
   [attributes]
-  (post/create! attributes)
+  (post/create! (select-keys attributes [:content]))
   (res/redirect "/"))

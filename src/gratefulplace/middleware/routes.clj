@@ -10,7 +10,7 @@
   (compojure.route/files "/" {:root "public"})
   (GET  "/" [] (posts/all))
   (GET  "/posts/new" [] (posts/new))
-  (POST "/posts"     [content] (posts/create! {:content content}))
+  (POST "/posts"     {params :params} (posts/create! params))
   (GET  "/users/new" [] (users/new))
   (POST "/users" [username email] (users/create! {:username username :email email}))
   (compojure.route/not-found "Sorry, there's nothing here."))

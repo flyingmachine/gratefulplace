@@ -10,7 +10,6 @@
 ;;   [:.footer] (h/content message))
 
 
-
 (def app
   (-> routes
       wrap-params

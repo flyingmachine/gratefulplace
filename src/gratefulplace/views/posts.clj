@@ -6,13 +6,17 @@
   [post]
   (let [comment-count (get :comment-count post 0)]
     (if (zero? comment-count)
-      "Add a comment"
+      "Comment"
       (str  comment-count " comments"))))
 
 (defn timestamp->string
   [timestamp]
   (-> (java.text.SimpleDateFormat. "MMM dd, yyyy hh:mma")
       (.format timestamp)))
+
+(defn post-path
+  [post]
+  (str "/posts/" (:id post)))
 
 (defpage all "index.html"
   [posts]
@@ -22,14 +26,15 @@
                         [:.author]   (h/content (:username   post))
                         [:.date]     (h/content (timestamp->string (:created_on post)))
                         [:.content]  (h/content (:content    post))
-                        [:.comments] (h/content (comments    post))))
+                        [:.comments] (h/do->
+                                      (h/content (comments    post))
+                                      (h/set-attr :href (post-path post)))))
 
 (defpage show "posts/show.html"
   [post]
-  (:.post) (h/do->
-            [:.author]  (h/content (:username post))
-            [:.date]    (h/content (timestamp->string (:created_on post)))
-            [:.content] (h/content (:content    post))))
+  [:.post :.author]  (h/content (:username post))
+  [:.post :.date]    (h/content (timestamp->string (:created_on post)))
+  [:.post :.content] (h/content (:content  post)))
 
 (defpage show-new "posts/new.html"
   [])

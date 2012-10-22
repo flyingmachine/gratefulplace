@@ -16,5 +16,7 @@
 
 (defn by-id
   [id]
-  (select e/post
-          (where {:id id})))
+  (first (select e/post
+                 (with e/user
+                       (fields :username))
+                 (where {:id (Integer.  id)}))))

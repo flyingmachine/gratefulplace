@@ -10,7 +10,7 @@
     <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="/javascripts/all.js"></script>
   </head>
-  <body class='index'>
+  <body class='posts posts_show'>
     <div class='title'>
       <img src='/images/title.png' />
     </div>
@@ -29,33 +29,35 @@
         </li>
       </ul>
     </nav>
-    <div class='posts'>
-      <div class='post'>
-        <header>
-          <div class='author'>Joe Schmoe</div>
-          <div class='date'>Jan 03, 2012</div>
-        </header>
-        <div class='content'>
-          <p>Here is some content.</p>
-        </div>
-        <footer>
-          <a class='comments' href=''>35 Comments</a>
-          <div class='favorite'>&#9733;</div>
-        </footer>
-      </div>
-      <div class='post'>
-        <header>
-          <div class='author'>Joe Schmoe</div>
-          <div class='date'>Jan 03, 2012</div>
-        </header>
-        <div class='content'>
-          <p>Here is some content, too.</p>
-        </div>
-        <footer>
-          <a class='comments' href=''>35 Comments</a>
-          <div class='favorite'>&#9733;</div>
-        </footer>
-      </div>
+    <div class='post'>
+  <header>
+    <div class='author'>Joe Schmoe</div>
+    <div class='favorite'>&#9733;</div>
+    <div class='date'>Jan 03, 2012</div>
+  </header>
+  <div class='content'>
+    <p>Here is some content.</p>
+  </div>
+</div>
+<h2>Comments</h2>
+<div class='comments'>
+  <div class='new' id='new-comment'>
+    <h3>Post a Comment</h3>
+    <form action='/comments' method='POST'>
+      <textarea name='content'></textarea>
+      <input name='post_id' type='hidden' value='' />
+      <input type='submit' value='Post Comment' />
+    </form>
+  </div>
+  <div class='comment'>
+    <header>
+      <div class='author'>Billy Blanks</div>
+      <div class='date'>Jan 03, 2012 8:30am</div>
+    </header>
+    <div class='content'>
+      <p>this is comment content</p>
     </div>
+  </div>
+</div>
   </div>
 </html>

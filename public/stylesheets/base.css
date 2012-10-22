@@ -525,67 +525,68 @@ nav {
   margin-right: 0;
   #margin-left: -1em;
   display: inline; }
-  /* line 129, base.css.scss */
-  .posts .post {
-    background: white;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
-    padding: 0 1em;
-    margin-bottom: 1.6875em;
+
+/* line 131, base.css.scss */
+.post, .comment {
+  background: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
+  padding: 0 1em;
+  margin-bottom: 1.6875em;
+  overflow: hidden;
+  *zoom: 1;
+  padding-top: 0.84375em; }
+  /* line 134, base.css.scss */
+  .post header, .comment header {
     overflow: hidden;
     *zoom: 1;
-    padding-top: 0.84375em; }
-    /* line 132, base.css.scss */
-    .posts .post header {
-      overflow: hidden;
-      *zoom: 1;
-      font-size: 0.8125em;
-      line-height: 2.07692em;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      margin-bottom: 0.84375em;
-      line-height: inherit; }
-    /* line 140, base.css.scss */
-    .posts .post footer {
-      overflow: hidden;
-      *zoom: 1;
-      font-size: 0.8125em;
-      line-height: 2.07692em;
-      margin-top: 1.6875em;
-      padding-top: 0.84375em;
-      padding-bottom: 0.84375em;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      border-top: 1px solid #ccc;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      line-height: inherit; }
-    /* line 152, base.css.scss */
-    .posts .post .content {
-      font-size: 1.125em;
-      line-height: 1.5em; }
-    /* line 157, base.css.scss */
-    .posts .post .author {
-      font-weight: bold;
-      float: left;
-      margin-right: .5em; }
-    /* line 163, base.css.scss */
-    .posts .post .comments {
-      float: left; }
-    /* line 167, base.css.scss */
-    .posts .post .date, .posts .post .favorite {
-      float: right; }
-    /* line 171, base.css.scss */
-    .posts .post .favorite {
-      margin-left: .5em; }
+    font-size: 0.8125em;
+    line-height: 2.07692em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 0.84375em;
+    line-height: inherit; }
+  /* line 142, base.css.scss */
+  .post footer, .comment footer {
+    overflow: hidden;
+    *zoom: 1;
+    font-size: 0.8125em;
+    line-height: 2.07692em;
+    margin-top: 1.6875em;
+    padding-top: 0.84375em;
+    padding-bottom: 0.84375em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top: 1px solid #ccc;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: inherit; }
+  /* line 154, base.css.scss */
+  .post .content, .comment .content {
+    font-size: 1.125em;
+    line-height: 1.5em; }
+  /* line 159, base.css.scss */
+  .post .author, .comment .author {
+    font-weight: bold;
+    float: left;
+    margin-right: .5em; }
+  /* line 165, base.css.scss */
+  .post .comments, .comment .comments {
+    float: left; }
+  /* line 169, base.css.scss */
+  .post .date, .post .favorite, .comment .date, .comment .favorite {
+    float: right; }
+  /* line 173, base.css.scss */
+  .post .favorite, .comment .favorite {
+    margin-left: .5em; }
 
-/* line 177, base.css.scss */
-#new-post, #new-user {
+/* line 178, base.css.scss */
+#new-post, #new-user, .new {
   background: white;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -602,8 +603,8 @@ nav {
   padding-top: 0.84375em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 181, base.css.scss */
-  #new-post textarea, #new-user textarea {
+  /* line 182, base.css.scss */
+  #new-post textarea, #new-user textarea, .new textarea {
     width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -615,7 +616,12 @@ nav {
     border: 1px solid #ddd;
     height: 135px; }
 
-/* line 196, base.css.scss */
+/* line 198, base.css.scss */
+#new-comment h3 {
+  margin: 0;
+  margin-bottom: 0.84375em; }
+
+/* line 204, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -632,13 +638,13 @@ nav {
   *zoom: 1;
   padding-top: 0.84375em; }
 
-/* line 200, base.css.scss */
+/* line 208, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 202, base.css.scss */
+  /* line 210, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 205, base.css.scss */
+  /* line 213, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;

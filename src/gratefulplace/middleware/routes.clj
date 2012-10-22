@@ -11,8 +11,10 @@
 
   ;; posts
   (GET  "/" [] (posts/all))
+  (GET  "/posts" [] (posts/all))
   (GET  "/posts/new" [] (posts/show-new))
   (POST "/posts"     {params :params} (posts/create! params))
+  (GET  "/posts/:id" [id] (posts/show id))
 
   ;; users
   (GET  "/users/new" [] (users/show-new))

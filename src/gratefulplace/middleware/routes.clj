@@ -1,9 +1,10 @@
 (ns gratefulplace.middleware.routes
   (:require compojure.route
             compojure.handler
-            [gratefulplace.controllers.posts :as posts]
-            [gratefulplace.controllers.users :as users]
+            [gratefulplace.controllers.posts    :as posts]
+            [gratefulplace.controllers.users    :as users]
             [gratefulplace.controllers.comments :as comments]
+            [gratefulplace.controllers.session  :as session]
             [gratefulplace.models.user :as user])
   (:use [compojure.core :only (GET PUT POST defroutes)]))
 
@@ -23,5 +24,8 @@
   ;; users
   (GET  "/users/new" [] (users/show-new))
   (POST "/users"     {params :params} (users/create! params))
+
+  ;; auth
+  (GET "/session/new" [] (session/show-new))
   
   (compojure.route/not-found "Sorry, there's nothing here."))

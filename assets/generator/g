@@ -1,10 +1,20 @@
 #!/bin/bash
 
 middleman build
-rm -Rf ../../public/*
-rm -Rf ../../src/gratefulplace/templates/*
-cp -R build/* ../../public
+cd ../../
 
-# todo more intelligently move directories
-mv ../../public/{*.html,users,posts} ../../src/gratefulplace/templates
+rm -Rf public/*
+rm -Rf src/gratefulplace/templates/*
+cp -R assets/generator/build/* public
 
+template_dir=src/gratefulplace/templates
+static_dirs=('images' 'javascripts' 'stylesheets')
+
+mv public/*.html $template_dir
+for dir in public/*/
+do
+  if ! [[ ("$dir" == *images*) || ("$dir" == *javascripts*) || ("$dir" == *stylesheets*) ]];
+    then
+    mv $dir $template_dir;
+  fi
+done

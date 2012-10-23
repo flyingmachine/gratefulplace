@@ -12,7 +12,7 @@
 
 (defn session-store-authorize [{:keys [uri request-method params session]}]
   (when (nil? (:cemerick.friend/identity session))
-    (if-let [username false]
+    (if-let [username (get-in session [:cemerick.friend/identity :current])]
       (workflows/make-auth (user/one {:username username})))))
 
 (defn auth

@@ -1,0 +1,49 @@
+---
+title: "Log In :: Grateful Place"
+---
+
+#login.new
+  %h2 Log In
+
+  %form{:action => "/session"}
+    %table.input
+      %tr
+        %td
+          %label{:for => "username"} Username
+        %td
+          %input{:name => "username", :type => "text"}
+
+      %tr
+        %td
+          %label{:for => "password"} Password
+        %td
+          %input{:name => "password", :type => "password"}
+
+    %input{:type => "submit", :value => "Log In"}
+
+#new-user
+  %h2 No Account? Join Grateful Place
+
+  %p Joining will let you write posts and comments.
+  
+  %form{:action => "/users", :method => "POST"}
+    %table.input
+      %tr
+        %td
+          %label{:for => "username"} Username
+        %td
+          %input{:name => "username", :type => "text"}
+
+      %tr
+        %td
+          %label{:for => "password"} Password
+        %td
+          %input{:name => "password", :type => "password"}
+
+      %tr
+        %td
+          %label{:for => "email"} Email
+        %td
+          %input{:name => "email", :type => "text"}
+    %input{:type => "submit", :value => "Join Grateful Place"}
+  

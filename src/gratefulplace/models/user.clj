@@ -14,4 +14,7 @@
   (insert e/user (values (create-input->db-fields attributes))))
 
 (defn one
-  [find])
+  [conditions]
+  (first (select e/user
+                 (where conditions)
+                 (limit 1))))

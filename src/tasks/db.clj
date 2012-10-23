@@ -11,9 +11,10 @@
 
 (defn seed
   []
-  (println (user/create! {:username "higginbotham"
-                          :email "daniel@flyingmachinestudios.com"
-                          :display_name "higginbotham"})))
+  (println (user/create! {:username     "higginbotham"
+                          :email        "daniel@flyingmachinestudios.com"
+                          :display_name "higginbotham"
+                          :password     "password"})))
 (defn -main
   [task-name]
   (condp = task-name

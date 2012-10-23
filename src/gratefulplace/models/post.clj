@@ -6,7 +6,7 @@
 
 (defn create!
   [attributes]
-  (insert e/post (values (assoc attributes :user_id 1))))
+  (insert e/post (values attributes)))
 
 (defn all
   []

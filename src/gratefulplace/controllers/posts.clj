@@ -22,6 +22,10 @@
 
 (defn create!
   [params]
+  (println (friend/current-authentication))
+  (println (assoc params
+                  :user_id
+                  (:id (friend/current-authentication))))
   (post/create! (assoc params
                   :user_id
                   (:id (friend/current-authentication))))

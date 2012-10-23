@@ -10,7 +10,10 @@
 
 (defentity user
   (has-many post)
-  (has-many comment))
+  (has-many comment)
+
+  (prepare #(assoc % :roles (str (:roles %))))
+  (transform #(assoc % :roles (read-string (:roles %)))))
 
 (defentity comment
   (belongs-to user)

@@ -7,7 +7,7 @@
 (defn- create-input->db-fields [input]
   (merge input
          {:password (creds/hash-bcrypt (:password input))
-          :roles (str ["user"])}))
+          :roles [:user]}))
 
 (defn create!
   [attributes]

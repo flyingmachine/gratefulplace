@@ -2,9 +2,7 @@
   (:require [ring.util.response :as res]
             [net.cgrand.enlive-html :as h]
             [gratefulplace.models.comment :as comment]
-            [cemerick.friend :as friend])
-
-  (:use [gratefulplace.controllers.common :only [*template-dir* nav]]))
+            [cemerick.friend :as friend]))
 
 (defn create!
   [params]

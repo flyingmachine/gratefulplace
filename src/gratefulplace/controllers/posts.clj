@@ -4,9 +4,7 @@
             [gratefulplace.models.post :as post]
             [gratefulplace.models.comment :as comment]
             [gratefulplace.views.posts :as view]
-            [cemerick.friend :as friend])
-
-  (:use [gratefulplace.controllers.common :only [*template-dir* nav]]))
+            [cemerick.friend :as friend]))
 
 (defn all
   []
@@ -18,14 +16,11 @@
 
 (defn show-new
   []
+  (println (friend/current-authentication))
   (view/show-new))
 
 (defn create!
   [params]
-  (println (friend/current-authentication))
-  (println (assoc params
-                  :user_id
-                  (:id (friend/current-authentication))))
   (post/create! (assoc params
                   :user_id
                   (:id (friend/current-authentication))))

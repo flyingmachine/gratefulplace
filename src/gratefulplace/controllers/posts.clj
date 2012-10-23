@@ -14,7 +14,7 @@
 
 (defn show
   [id]
-  (view/show (post/by-id id) (comment/all {:post_id id})))
+  (view/show (post/by-id id)))
 
 (defn show-new
   []

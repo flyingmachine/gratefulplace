@@ -7,7 +7,7 @@
 
 (defn create!
   [attributes]
-  (insert e/comment (values (assoc attributes :user_id 1))))
+  (insert e/comment (values attributes)))
 
 (defn all
   [conditions]

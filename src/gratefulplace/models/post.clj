@@ -13,6 +13,8 @@
   (select e/post
           (with e/user
                 (fields :username))
+          (with e/comment
+                (aggregate (count :*) :count))
           (order :created_on :DESC)))
 
 (defn by-id
@@ -21,6 +23,7 @@
                  (with e/user
                        (fields :username))
                  (with e/comment
+                       (fields :content :created_on)
                        (with e/user
-                             fields :username))
+                             (fields :username)))
                  (where {:id (str->int id)}))))

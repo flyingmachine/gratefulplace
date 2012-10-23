@@ -9,6 +9,6 @@
 (defn create!
   [params]
   (comment/create! (assoc params
-                  :user_id
-                  (:id (friend/current-authentication))))
-  (res/redirect "/"))
+                     :user_id
+                     (:id (friend/current-authentication))))
+  (res/redirect (str "/posts/" (:post_id params))))

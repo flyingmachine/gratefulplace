@@ -4,7 +4,7 @@
 
 (defn comments
   [post]
-  (let [comment-count (get :comment-count post 0)]
+  (let [comment-count (get-in post [:comment 0 :count] 0)]
     (if (zero? comment-count)
       "Comment"
       (str  comment-count " comments"))))
@@ -35,12 +35,12 @@
                                       (h/set-attr :href (post-path post)))))
 
 (defpage show "posts/show.html"
-  [post comments]
+  [post]
   [:.post :.author]  (h/content (:username post))
   [:.post :.date]    (h/content (created-on post))
   [:.post :.content] (content post)
   [:#post_id] (h/set-attr :value (:id post))
-  [:.comments :.comment] (h/clone-for [comment comments]
+  [:.comments :.comment] (h/clone-for [comment (:comment post)]
                                       [:.author]  (h/content (:username comment))
                                       [:.date]    (h/content (created-on comment))
                                       [:.content] (content comment)))

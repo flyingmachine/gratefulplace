@@ -1,17 +1,22 @@
 (ns gratefulplace.views.common
   (:require [net.cgrand.enlive-html :as h]
+            [cemerick.friend :as friend]
             markdown))
 
 (defonce *template-dir* "gratefulplace/templates/")
 
 (h/defsnippet nav (str *template-dir* "index.html") [:nav]
   [logged-in]
-  [:.auth] (h/content (if logged-in "Log Out" "Log In")))
+  [:.auth] (if logged-in
+             (h/do-> (h/content "Log Out")
+                     (h/set-attr :href "/logout"))
+             (h/do-> (h/content "Log In")
+                     (h/set-attr :href "/login"))))
 
 (h/deftemplate layout (str *template-dir* "index.html")
   [html]
   [:html] (h/substitute html)
-  [:nav] (h/substitute (nav false)))
+  [:nav] (h/substitute (nav (friend/current-authentication))))
 
 ;; Need to come up with better name
 ;; Bundles together some defsnippet commonalities for user with the

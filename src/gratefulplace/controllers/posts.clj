@@ -4,7 +4,9 @@
             [gratefulplace.models.post :as post]
             [gratefulplace.models.comment :as comment]
             [gratefulplace.views.posts :as view]
-            [cemerick.friend :as friend]))
+            [cemerick.friend :as friend])
+
+  (:use [gratefulplace.controllers.common :only (if-valid)]))
 
 (def validations
   [[:content
@@ -21,11 +23,16 @@
 
 (defn show-new
   []
-  (view/show-new))
+  (view/show-new nil nil))
 
 (defn create!
   [params]
-  (post/create! (assoc params
-                  :user_id
-                  (:id (friend/current-authentication))))
-  (res/redirect "/"))
+
+  (if-valid
+   params validations errors
+   (do
+     (post/create! (assoc params
+                     :user_id
+                     (:id (friend/current-authentication))))
+     (res/redirect "/"))
+   (view/show-new params errors)))

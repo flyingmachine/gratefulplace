@@ -1,10 +1,11 @@
 (ns gratefulplace.controllers.users
-  (:require [gratefulplace.controllers.common :as common]
-            [gratefulplace.models.user :as user]
+  (:require [gratefulplace.models.user :as user]
             [gratefulplace.views.users :as view]
             [ring.util.response :as res]
             [cemerick.friend :as friend]
-            [cemerick.friend.workflows :as workflows]))
+            [cemerick.friend.workflows :as workflows])
+
+  (:use [gratefulplace.controllers.common :only (if-valid)]))
 
 (def validations
   [[:username
@@ -30,7 +31,6 @@
 (defn create! [{:keys [uri request-method params]}]
   (when (and (= uri "/users")
              (= request-method :post))
-    (common/if-valid
-     params validations errors
+    (if-valid params validations errors
      (workflows/make-auth (user/create! params))
      {:body (view/show-new params errors)})))

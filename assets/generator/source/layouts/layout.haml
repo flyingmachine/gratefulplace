@@ -14,11 +14,15 @@
       %img{:src => "/images/title.png"}/
   .page
     %nav
-      %ul
+      %ul.main
         %li
           %a.new-post{:href => "/posts/new"} New Post
         %li
           %a.favorites Favorites
         %li
           %a.auth Log Out
+      %ul.secondary
+        %li#logged-in
+          Logged in as
+          %a{:href => ""} higginbotham
     = yield

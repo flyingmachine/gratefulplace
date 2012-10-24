@@ -104,19 +104,29 @@ strong {
 nav {
   @include trailer;
   @include clearfix;
-
-  a {
-    color: #444;
-    text-decoration: none;
-    padding: .5em;
-    display: block;
-  }
   
-  li {
-    float: left;
-    margin-right: 1em;
-    background: rgba(255, 255, 255, 0.3);
-    @include border-radius(3px); 
+  .main {
+    float: left; 
+    li {
+      float: left;
+      margin-right: 1em;
+      background: rgba(255, 255, 255, 0.3);
+      @include border-radius(3px); 
+    }
+
+    a {
+      color: #444;
+      text-decoration: none;
+      padding: .5em;
+      display: block;
+    }
+  }
+
+  .secondary {
+    float:right;
+    li {
+      padding-top:.5em;
+    }
   }
 }
 

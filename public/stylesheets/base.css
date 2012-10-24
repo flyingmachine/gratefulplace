@@ -493,23 +493,32 @@ nav {
   overflow: hidden;
   *zoom: 1; }
   /* line 108, base.css.scss */
-  nav a {
-    color: #444;
-    text-decoration: none;
-    padding: .5em;
-    display: block; }
-  /* line 115, base.css.scss */
-  nav li {
-    float: left;
-    margin-right: 1em;
-    background: rgba(255, 255, 255, 0.3);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px; }
+  nav .main {
+    float: left; }
+    /* line 110, base.css.scss */
+    nav .main li {
+      float: left;
+      margin-right: 1em;
+      background: rgba(255, 255, 255, 0.3);
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px; }
+    /* line 117, base.css.scss */
+    nav .main a {
+      color: #444;
+      text-decoration: none;
+      padding: .5em;
+      display: block; }
+  /* line 125, base.css.scss */
+  nav .secondary {
+    float: right; }
+    /* line 127, base.css.scss */
+    nav .secondary li {
+      padding-top: .5em; }
 
-/* line 123, base.css.scss */
+/* line 133, base.css.scss */
 .page {
   *zoom: 1;
   max-width: 44em;
@@ -526,7 +535,7 @@ nav {
     display: table;
     clear: both; }
 
-/* line 130, base.css.scss */
+/* line 140, base.css.scss */
 .posts {
   width: 100%;
   float: right;
@@ -534,7 +543,7 @@ nav {
   #margin-left: -1em;
   display: inline; }
 
-/* line 134, base.css.scss */
+/* line 144, base.css.scss */
 .post, .comment {
   background: white;
   -webkit-border-radius: 3px;
@@ -550,7 +559,7 @@ nav {
   overflow: hidden;
   *zoom: 1;
   padding-top: 0.84375em; }
-  /* line 137, base.css.scss */
+  /* line 147, base.css.scss */
   .post header, .comment header {
     overflow: hidden;
     *zoom: 1;
@@ -559,7 +568,7 @@ nav {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-bottom: 0.84375em;
     line-height: inherit; }
-  /* line 145, base.css.scss */
+  /* line 155, base.css.scss */
   .post footer, .comment footer {
     overflow: hidden;
     *zoom: 1;
@@ -574,26 +583,26 @@ nav {
     border-top: 1px solid #ccc;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: inherit; }
-  /* line 157, base.css.scss */
+  /* line 167, base.css.scss */
   .post .content, .comment .content {
     font-size: 1.125em;
     line-height: 1.5em; }
-  /* line 162, base.css.scss */
+  /* line 172, base.css.scss */
   .post .author, .comment .author {
     font-weight: bold;
     float: left;
     margin-right: .5em; }
-  /* line 168, base.css.scss */
+  /* line 178, base.css.scss */
   .post .comments, .comment .comments {
     float: left; }
-  /* line 172, base.css.scss */
+  /* line 182, base.css.scss */
   .post .date, .post .favorite, .comment .date, .comment .favorite {
     float: right; }
-  /* line 176, base.css.scss */
+  /* line 186, base.css.scss */
   .post .favorite, .comment .favorite {
     margin-left: .5em; }
 
-/* line 181, base.css.scss */
+/* line 191, base.css.scss */
 #new-post, #new-user, .new {
   background: white;
   -webkit-border-radius: 3px;
@@ -611,7 +620,7 @@ nav {
   padding-top: 0.84375em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 185, base.css.scss */
+  /* line 195, base.css.scss */
   #new-post textarea, #new-user textarea, .new textarea {
     width: 100%;
     -webkit-box-sizing: border-box;
@@ -624,12 +633,12 @@ nav {
     border: 1px solid #ddd;
     height: 135px; }
 
-/* line 201, base.css.scss */
+/* line 211, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.84375em; }
 
-/* line 207, base.css.scss */
+/* line 217, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -646,23 +655,23 @@ nav {
   *zoom: 1;
   padding-top: 0.84375em; }
 
-/* line 211, base.css.scss */
+/* line 221, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 213, base.css.scss */
+  /* line 223, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 216, base.css.scss */
+  /* line 226, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 220, base.css.scss */
+  /* line 230, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 227, base.css.scss */
+/* line 237, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;

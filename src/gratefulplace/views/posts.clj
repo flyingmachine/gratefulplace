@@ -1,6 +1,6 @@
 (ns gratefulplace.views.posts
   (:require [net.cgrand.enlive-html :as h])
-  (:use [gratefulplace.views.common :only [*template-dir* defpage content]]))
+  (:use [gratefulplace.views.common :only [*template-dir* defpage content error-content]]))
 
 (defn comments
   [post]
@@ -46,4 +46,6 @@
                                       [:.content] (content comment)))
 
 (defpage show-new "posts/new.html"
-  [])
+  [attributes errors]
+  [:#content :textarea] (h/content (:content attributes))
+  [:#content :.errors] (error-content errors :content))

@@ -5,7 +5,9 @@ title: "New Post :: Grateful Place"
 #new-post
   %h2 What are you grateful for?
   %form{:action => "/posts", :method => "POST"}
-    %textarea{:name => "content"}
+    #content
+      .errors You'll need to log in to post
+      %textarea{:name => "content"}
     %input{:type => "submit", :value => "Post"}
 
 #tips

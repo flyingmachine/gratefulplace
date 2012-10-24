@@ -38,7 +38,10 @@
     <div id='new-post'>
   <h2>What are you grateful for?</h2>
   <form action='/posts' method='POST'>
-    <textarea name='content'></textarea>
+    <div id='content'>
+      <div class='errors'>You'll need to log in to post</div>
+      <textarea name='content'></textarea>
+    </div>
     <input type='submit' value='Post' />
   </form>
 </div>

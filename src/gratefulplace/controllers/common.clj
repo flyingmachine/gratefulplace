@@ -11,13 +11,13 @@
 ;; the field name specified in the validation
 
 (defmacro if-valid
-  [to-validate validations errors-name true-cond false-cond]
+  [to-validate validations errors-name & then-else]
   `(let [to-validate# ~to-validate
          validations# ~validations
          ~errors-name (validate to-validate# validations#)]
-     (if (not-empty ~errors-name)
-       ~true-cond
-       ~false-cond)))
+     (if (empty? ~errors-name)
+       ~(first then-else)
+       ~(second then-else))))
 
 ;; TODO would it be better to use map and filter?
 (defn error-messages-for

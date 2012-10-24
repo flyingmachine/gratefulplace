@@ -4,6 +4,11 @@
             [gratefulplace.models.comment :as comment]
             [cemerick.friend :as friend]))
 
+(def validations
+  [[:content
+    ["Whoops! You forgot to write anything"
+     #(> (count %) 4)]]])
+
 (defn create!
   [params]
   (comment/create! (assoc params

@@ -6,6 +6,11 @@
             [gratefulplace.views.posts :as view]
             [cemerick.friend :as friend]))
 
+(def validations
+  [[:content
+    ["Whoops! You forgot to write anything"
+     #(> (count %) 4)]]])
+
 (defn all
   []
   (view/all (post/all)))

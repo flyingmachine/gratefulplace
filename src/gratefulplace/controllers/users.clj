@@ -25,18 +25,13 @@
 
 (defn show-new
   []
-  (view/show-new {} []))
+  (view/show-new {}))
 
-(defn register [{:keys [uri request-method params]}]
+(defn create! [{:keys [uri request-method params]}]
   (when (and (= uri "/users")
              (= request-method :post))
-    (if (and (:username params) (:password params))
-      (workflows/make-auth (user/create! params)))))
-
-(defn create!
-  [attributes]
-  (common/if-valid
-   attributes validations errors
-   (do (user/create! attributes)
-       (res/redirect "/"))
-   (show-new attributes errors)))
+    (common/if-valid
+     params validations errors
+     (workflows/make-auth (user/create! params))
+     {:body (view/show-new {:attributes params
+                            :error errors})})))

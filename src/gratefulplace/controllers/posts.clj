@@ -21,7 +21,6 @@
 
 (defn show-new
   []
-  (println (friend/current-authentication))
   (view/show-new))
 
 (defn create!

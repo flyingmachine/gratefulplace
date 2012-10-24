@@ -6,9 +6,9 @@
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>Join :: Grateful Place</title>
-    <link type="text/css" href="/stylesheets/base.css" rel="stylesheet" media="screen" />
+    <link href="/stylesheets/base.css" media="screen" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css' />
-    <script type="text/javascript" src="/javascripts/all.js"></script>
+    <script src="/javascripts/all.js" type="text/javascript"></script>
   </head>
   <body class='users users_new'>
     <div class='title'>
@@ -35,27 +35,30 @@
       <form action='/users' method='POST'>
         <table class='input'>
           <tr>
-            <td>
+            <td class='label'>
               <label for='username'>Username</label>
             </td>
-            <td>
+            <td id='username'>
               <input name='username' type='text' />
+              <div class='errors'></div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td class='label'>
               <label for='password'>Password</label>
             </td>
-            <td>
+            <td id='password'>
               <input name='password' type='password' />
+              <div class='errors'></div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td class='label'>
               <label for='email'>Email</label>
             </td>
-            <td>
+            <td id='email'>
               <input name='email' type='text' />
+              <div class='errors'></div>
             </td>
           </tr>
         </table>

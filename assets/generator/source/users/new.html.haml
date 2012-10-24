@@ -10,20 +10,24 @@ title: "Join :: Grateful Place"
   %form{:action => "/users", :method => "POST"}
     %table.input
       %tr
-        %td
+        %td.label
           %label{:for => "username"} Username
-        %td
+        %td#username
           %input{:name => "username", :type => "text"}
+          .errors
+          
 
       %tr
-        %td
+        %td.label
           %label{:for => "password"} Password
-        %td
+        %td#password
           %input{:name => "password", :type => "password"}
+          .errors
 
       %tr
-        %td
+        %td.label
           %label{:for => "email"} Email
-        %td
+        %td#email
           %input{:name => "email", :type => "text"}
+          .errors
     %input{:type => "submit", :value => "Join Grateful Place"}

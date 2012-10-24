@@ -25,7 +25,7 @@
 
 (defn show-new
   []
-  (view/show-new {}))
+  (view/show-new nil nil))
 
 (defn create! [{:keys [uri request-method params]}]
   (when (and (= uri "/users")
@@ -33,5 +33,4 @@
     (common/if-valid
      params validations errors
      (workflows/make-auth (user/create! params))
-     {:body (view/show-new {:attributes params
-                            :error errors})})))
+     {:body (view/show-new params errors)})))

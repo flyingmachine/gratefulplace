@@ -8,7 +8,6 @@
 
 (defn credential-fn
   [username]
-  (println (user/one {:username username}))
   (user/one {:username username}))
 
 (defn session-store-authorize [{:keys [uri request-method params session]}]

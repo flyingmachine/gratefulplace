@@ -1,6 +1,13 @@
 (ns gratefulplace.views.users
   (:require [net.cgrand.enlive-html :as h])
-  (:use [gratefulplace.views.common :only [*template-dir* defpage]]))
+  (:use [gratefulplace.views.common :only [*template-dir* defpage error-content]]))
 
 (defpage show-new "users/new.html"
-  [{:keys [attributes errors]}])
+  [attributes errors]
+  [:#username :input] (h/set-attr :value (:username attributes))
+  [:#username :.errors] (error-content errors :username)
+  
+  [:#password :.errors] (error-content errors :password)
+  
+  [:#email :input] (h/set-attr :value (:email attributes))
+  [:#email :.errors] (error-content errors :email))

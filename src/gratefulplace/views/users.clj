@@ -3,4 +3,4 @@
   (:use [gratefulplace.views.common :only [*template-dir* defpage]]))
 
 (defpage show-new "users/new.html"
-  [])
+  [attributes errors])

@@ -9,14 +9,14 @@
 (def validations
   [[:username
     ["Your username must be between 4 and 24 characters long"
-     #(> (count %) 4)
-     #(< (count %) 24)]
+     #(>= (count %) 4)
+     #(<= (count %) 24)]
     ["That username is already taken"
      #(not (user/one {:username %}))]]
    
    [:password
     ["Your password must be at least 4 characters long"
-     #(> (count %) 4)]]
+     #(>= (count %) 4)]]
    
    [:email
     ["You must enter a valid email address"

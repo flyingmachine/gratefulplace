@@ -42,12 +42,7 @@ $total-columns  : 9;
 @import "formalize";
 
 // Colors
-$purple: #767fa8;
-$light-purple-bg: #eeeff4;
-$dark-teal: #b5c5cf;
-$light-teal: #daedf9;
-$light-teal-bg: #f3fafe;
-$light-green-bg: #eef4f1;
+$red: #ff5553;
 
 // To customize vertical ryhthm, see http://compass-style.org/reference/compass/typography/vertical_rhythm/
 @include establish-baseline;
@@ -218,6 +213,10 @@ table.input {
   td {
     @include padding-trailer(0.5);
   }
+  .label {
+    height: 100%;
+    vertical-align:top;
+  }
   label {
     text-align:right;
     padding-right: 10px;
@@ -225,3 +224,7 @@ table.input {
   }
 }
 
+.errors {
+  color: $red;
+  @include adjust-font-size-to(15px);
+}

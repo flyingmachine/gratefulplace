@@ -1,5 +1,6 @@
 (ns gratefulplace.models.entities
   (:refer-clojure :exclude [comment])
+  (:require (cemerick.friend [credentials :as creds]))
   (:use korma.core
         gratefulplace.utils))
 
@@ -12,11 +13,14 @@
   (has-many post)
   (has-many comment)
 
-  (prepare #(assoc % :roles (str (:roles %))))
-  (transform #(assoc % :roles (read-string (:roles %)))))
+  ;; todo move user param transform function here
+  (prepare #(merge %
+                   {:password (creds/hash-bcrypt (:password %))
+                    :roles (str [:user])}))
+  (transform #(deserialize % :roles)))
 
 (defentity comment
   (belongs-to user)
   (belongs-to post)
 
-  (prepare #(assoc % :post_id (str->int (:post_id %)))))
+  (prepare #(str->int % :post_id)))

@@ -4,10 +4,14 @@
   ([str]
      (Integer.  str))
 
-  ([x & keys]
+  ([m & keys]
      (reduce
-      (fn [x k]
-        (if-let [val (k x)]
-          (assoc x k (str->int val))
-          x))
-      x keys)))
+      (fn [m k]
+        (if-let [val (k m)]
+          (assoc m k (str->int val))
+          m))
+      m keys)))
+
+(defn deserialize
+  [m & ks]
+  (reduce #(assoc % %2 (read-string (%2 %))) m ks))

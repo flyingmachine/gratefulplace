@@ -1,17 +1,14 @@
 (ns gratefulplace.models.user
   (:require gratefulplace.models.db
-            [gratefulplace.models.entities :as e]
-            (cemerick.friend [credentials :as creds]))
-  (:use korma.core))
-
-(defn- create-input->db-fields [input]
-  (merge input
-         {:password (creds/hash-bcrypt (:password input))
-          :roles [:user]}))
+            [gratefulplace.models.entities :as e])
+  (:use korma.core
+        gratefulplace.utils))
 
 (defn create!
   [attributes]
-  (insert e/user (values (create-input->db-fields attributes))))
+  (deserialize
+   (insert e/user (values attributes))
+   :roles))
 
 (defn one
   [conditions]

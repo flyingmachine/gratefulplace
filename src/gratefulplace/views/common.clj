@@ -1,7 +1,8 @@
 (ns gratefulplace.views.common
   (:require [net.cgrand.enlive-html :as h]
             [cemerick.friend :as friend]
-            markdown))
+            markdown)
+  (use [cemerick.friend :only (current-authentication)]))
 
 (defonce *template-dir* "gratefulplace/templates/")
 
@@ -16,7 +17,17 @@
 (h/deftemplate layout (str *template-dir* "index.html")
   [html]
   [:html] (h/substitute html)
-  [:nav] (h/substitute (nav (friend/current-authentication))))
+  [:nav] (h/substitute (nav (current-authentication)))
+
+  [:nav :ul.secondary :#logged-in :a]
+  (if-let [username (:username (current-authentication))]
+    (h/do->
+     (h/content username)
+     (h/set-attr :href (str "/users/" username))))
+  
+  [:nav :ul.secondary :#logged-in :span]
+  (when (current-authentication)
+    (h/content "Logged in as")))
 
 ;; Need to come up with better name
 ;; Bundles together some defsnippet commonalities for user with the

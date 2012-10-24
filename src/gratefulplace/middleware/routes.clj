@@ -7,7 +7,7 @@
             [gratefulplace.controllers.session  :as session]
             [gratefulplace.models.user :as user]
             [cemerick.friend :as friend])
-  (:use [compojure.core :only (GET PUT POST defroutes)]))
+  (:use [compojure.core :only (GET PUT POST ANY defroutes)]))
 
 (defroutes routes
   (compojure.route/files "/" {:root "public"})
@@ -30,7 +30,7 @@
 
   ;; comments
   (POST "/comments" {params :params}
-        (comments/create! params))
+        (friend/authorize #{:user} (comments/create! params)))
 
   ;; users
   (GET  "/users/new" []
@@ -40,9 +40,12 @@
         (users/create! params))
 
   ;; auth
-  (GET "/session/new" []
+  (GET "/login" []
        (session/show-new))
-  (POST "/session" []
+  (POST "/login" []
        (session/show-new))
+  (friend/logout
+   (ANY "/logout" request
+        (ring.util.response/redirect "/")))
   
   (compojure.route/not-found "Sorry, there's nothing here."))

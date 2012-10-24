@@ -22,6 +22,6 @@
    ring-app
    {:credential-fn (partial creds/bcrypt-credential-fn credential-fn)
     :workflows [(workflows/interactive-form), users/register, session-store-authorize]
-    :login-uri "/session"
-    :unauthorized-redirect-uri "/session/new" 
+    :login-uri "/login"
+    :unauthorized-redirect-uri "/login"
     :default-landing-uri "/"}))

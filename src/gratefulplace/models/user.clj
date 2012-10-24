@@ -6,6 +6,7 @@
 
 (defn create!
   [attributes]
+  ;; not sure why insert returns serialized roles
   (deserialize
    (insert e/user (values attributes))
    :roles))

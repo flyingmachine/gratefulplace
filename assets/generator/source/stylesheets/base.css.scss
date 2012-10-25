@@ -45,6 +45,7 @@ $total-columns  : 9;
 $red: #ff5553;
 $purple: #6348dd;
 $blue: #73a1e5;
+$light-blue: #f8fcfd;
 
 // To customize vertical ryhthm, see http://compass-style.org/reference/compass/typography/vertical_rhythm/
 @include establish-baseline;
@@ -155,50 +156,52 @@ nav {
   @include span-columns(9 omega);
 }
 
-.post, .comment {
-  @include chunk;
+.posts_show {
+  .post, .comment {
+    @include chunk;
 
-  header {
-    @include clearfix;
-    @include adjust-font-size-to(13px);
-    @include sans-family;
-    @include trailer(.5);
-    line-height: inherit;
-  }
-  
-  footer {
-    @include clearfix;
-    @include adjust-font-size-to(13px);
-    @include leader;
-    @include padding-leader(0.5);
-    @include padding-trailer(0.5);
-    @include box-sizing(border-box);
-    border-top:1px solid #ccc;
-    @include sans-family;
-    line-height: inherit;
-  }
+    header {
+      @include clearfix;
+      @include adjust-font-size-to(13px);
+      @include sans-family;
+      @include trailer(.5);
+      line-height: inherit;
+    }
+    
+    footer {
+      @include clearfix;
+      @include adjust-font-size-to(13px);
+      @include leader;
+      @include padding-leader(0.5);
+      @include padding-trailer(0.5);
+      @include box-sizing(border-box);
+      border-top:1px solid #ccc;
+      @include sans-family;
+      line-height: inherit;
+    }
 
-  .content {
-    @include adjust-font-size-to(18px);
-  }
+    .content {
+      @include adjust-font-size-to(18px);
+    }
 
-  
-  .author {
-    font-weight:bold;
-    float: left;
-    margin-right:.5em;
-  }
+    
+    .author {
+      font-weight:bold;
+      float: left;
+      margin-right:.5em;
+    }
 
-  .comments {
-    float:left;
-  }
-  
-  .date, .favorite {
-    float: right;
-  }
+    .comments {
+      float:left;
+    }
+    
+    .date, .favorite {
+      float: right;
+    }
 
-  .favorite {
-    margin-left: .5em;
+    .favorite {
+      margin-left: .5em;
+    }
   }
 }
 
@@ -257,4 +260,31 @@ table.input {
 .errors {
   color: $red;
   @include adjust-font-size-to(15px);
+}
+
+#user-posts {
+  .posts {
+    border-top: 1px dotted #eee;
+  }
+  .post {
+    display:block;
+    @include clearfix;
+    @include box-sizing(border-box);
+    border-bottom: 1px dotted #eee;
+
+    &:hover {
+      background: $light-blue;
+    }
+    
+    .date {
+      @include span-columns(3 omega, 9);
+      font-style: italic;
+    }
+    .content {
+      @include span-columns(6, 9);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

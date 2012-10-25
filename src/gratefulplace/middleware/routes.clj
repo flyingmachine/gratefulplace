@@ -39,6 +39,9 @@
   (POST "/users" {params :params}
         (users/create! params))
 
+  (GET  "/users/:username" [username]
+        (users/show username))
+
   ;; auth
   (GET "/login" []
        (session/show-new))

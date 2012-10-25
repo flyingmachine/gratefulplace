@@ -56,3 +56,7 @@
   [errors, k]
   (if-let [messages (k errors)]
     (h/html-content (format-error-messages messages))))
+
+(defn relation-count
+  [record relation-key]
+  (get-in record [relation-key 0 :count] 0))

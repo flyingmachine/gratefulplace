@@ -28,6 +28,10 @@
   []
   (view/show-new nil nil))
 
+(defn show
+  [username]
+  (view/show (user/for-user-page {:username username})))
+
 (defn create! [{:keys [uri request-method params]}]
   (when (and (= uri "/users")
              (= request-method :post))

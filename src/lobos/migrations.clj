@@ -17,7 +17,8 @@
 
             (varchar :password 255)
 
-            (text :roles))
+            (text :roles)
+            (text :about))
 
           (index :user [:username :email])))
   

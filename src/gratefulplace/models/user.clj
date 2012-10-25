@@ -16,3 +16,12 @@
   (first (select e/user
                  (where conditions)
                  (limit 1))))
+
+(defn for-user-page
+  [conditions]
+  (first (select e/user
+                 (where conditions)
+                 (with e/post
+                       (aggregate (count :*) :count))
+                 (with e/comment
+                       (aggregate (count :*) :count)))))

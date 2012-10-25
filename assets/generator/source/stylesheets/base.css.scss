@@ -43,6 +43,8 @@ $total-columns  : 9;
 
 // Colors
 $red: #ff5553;
+$purple: #6348dd;
+$blue: #73a1e5;
 
 // To customize vertical ryhthm, see http://compass-style.org/reference/compass/typography/vertical_rhythm/
 @include establish-baseline;
@@ -74,6 +76,19 @@ h3 {
   @include box-sizing(border-box);
   @include leader(1, 21px);
   @include trailer(1, 21px);
+}
+
+a {
+  text-decoration: none;
+  color: $blue;
+}
+
+a:visited {
+  color: $purple;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 p, blockquote {
@@ -116,7 +131,6 @@ nav {
 
     a {
       color: #444;
-      text-decoration: none;
       padding: .5em;
       display: block;
     }
@@ -200,10 +214,6 @@ nav {
     @include trailer(.5, 18px);
     border: 1px solid #ddd;
     height: 5 * $base-line-height;
-  }
-
-  a {
-    text-decoration: none;
   }
 
   .links {

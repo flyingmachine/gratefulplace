@@ -62,3 +62,7 @@
 (defn relation-count
   [record relation-key]
   (get-in record [relation-key 0 :count] 0))
+
+(defn user-path
+  [username]
+  (str "/users/" username))

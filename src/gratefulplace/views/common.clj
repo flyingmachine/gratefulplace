@@ -64,5 +64,6 @@
   (get-in record [relation-key 0 :count] 0))
 
 (defn user-path
-  [username]
-  (str "/users/" username))
+  [x]
+  (let [username (or (:username x) x)]
+    (str "/users/" username)))

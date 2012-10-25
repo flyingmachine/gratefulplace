@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -19,38 +19,38 @@ time, mark, audio, video {
   font-size: 100%;
   vertical-align: baseline; }
 
-/* line 22, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1; }
 
-/* line 24, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none; }
 
-/* line 26, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* line 28, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle; }
 
-/* line 30, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none; }
-  /* line 103, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+  /* line 103, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
   q:before, q:after, blockquote:before, blockquote:after {
     content: "";
     content: none; }
 
-/* line 32, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none; }
 
-/* line 116, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block; }
 
@@ -419,11 +419,11 @@ optgroup {
 .ie6_input_disabled {
   background: #eeeeee; }
 
-/* line 61, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 100%; }
 
-/* line 64, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 16px;
   line-height: 1.6875em; }
@@ -432,13 +432,13 @@ html {
   font-family: "ReenieBeanie";
   src: url("fonts/ReenieBeanie.ttf"); }
 
-/* line 55, base.css.scss */
+/* line 57, base.css.scss */
 body {
   background: #87ddfd url("/images/blurbg2.jpg") no-repeat;
   color: #444;
   font-family: Palatino Linotype, Book Antiqua, Palatino, serif; }
 
-/* line 61, base.css.scss */
+/* line 63, base.css.scss */
 h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.875em;
@@ -451,7 +451,7 @@ h2 {
   margin-top: 0.45em;
   border-bottom: 1px solid #999; }
 
-/* line 71, base.css.scss */
+/* line 73, base.css.scss */
 h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.3125em;
@@ -462,24 +462,37 @@ h3 {
   margin-top: 1.28571em;
   margin-bottom: 1.28571em; }
 
-/* line 79, base.css.scss */
+/* line 81, base.css.scss */
+a {
+  text-decoration: none;
+  color: #73a1e5; }
+
+/* line 86, base.css.scss */
+a:visited {
+  color: #6348dd; }
+
+/* line 90, base.css.scss */
+a:hover {
+  text-decoration: underline; }
+
+/* line 94, base.css.scss */
 p, blockquote {
   margin-bottom: 1.6875em; }
 
-/* line 83, base.css.scss */
+/* line 98, base.css.scss */
 blockquote {
   background: #f0fafd;
   padding: .5em 1em; }
 
-/* line 88, base.css.scss */
+/* line 103, base.css.scss */
 em, i {
   font-style: italic; }
 
-/* line 92, base.css.scss */
+/* line 107, base.css.scss */
 strong {
   font-weight: bold; }
 
-/* line 96, base.css.scss */
+/* line 111, base.css.scss */
 .title {
   margin-top: 0.45em;
   text-align: center;
@@ -487,15 +500,15 @@ strong {
   font-family: 'Nothing You Could Do', cursive;
   color: white; }
 
-/* line 104, base.css.scss */
+/* line 119, base.css.scss */
 nav {
   margin-bottom: 1.6875em;
   overflow: hidden;
   *zoom: 1; }
-  /* line 108, base.css.scss */
+  /* line 123, base.css.scss */
   nav .main {
     float: left; }
-    /* line 110, base.css.scss */
+    /* line 125, base.css.scss */
     nav .main li {
       float: left;
       margin-right: 1em;
@@ -505,20 +518,19 @@ nav {
       -ms-border-radius: 3px;
       -o-border-radius: 3px;
       border-radius: 3px; }
-    /* line 117, base.css.scss */
+    /* line 132, base.css.scss */
     nav .main a {
       color: #444;
-      text-decoration: none;
       padding: .5em;
       display: block; }
-  /* line 125, base.css.scss */
+  /* line 139, base.css.scss */
   nav .secondary {
     float: right; }
-    /* line 127, base.css.scss */
+    /* line 141, base.css.scss */
     nav .secondary li {
       padding-top: .5em; }
 
-/* line 133, base.css.scss */
+/* line 147, base.css.scss */
 .page {
   *zoom: 1;
   max-width: 44em;
@@ -529,13 +541,13 @@ nav {
   padding-right: 1em;
   margin-bottom: 1.6875em;
   margin-top: 1.6875em; }
-  /* line 38, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  /* line 38, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
   .page:after {
     content: "";
     display: table;
     clear: both; }
 
-/* line 140, base.css.scss */
+/* line 154, base.css.scss */
 #posts {
   width: 100%;
   float: right;
@@ -543,7 +555,7 @@ nav {
   #margin-left: -1em;
   display: inline; }
 
-/* line 144, base.css.scss */
+/* line 158, base.css.scss */
 .post, .comment {
   background: white;
   -webkit-border-radius: 3px;
@@ -559,7 +571,7 @@ nav {
   overflow: hidden;
   *zoom: 1;
   padding-top: 0.84375em; }
-  /* line 147, base.css.scss */
+  /* line 161, base.css.scss */
   .post header, .comment header {
     overflow: hidden;
     *zoom: 1;
@@ -568,7 +580,7 @@ nav {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-bottom: 0.84375em;
     line-height: inherit; }
-  /* line 155, base.css.scss */
+  /* line 169, base.css.scss */
   .post footer, .comment footer {
     overflow: hidden;
     *zoom: 1;
@@ -583,26 +595,26 @@ nav {
     border-top: 1px solid #ccc;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: inherit; }
-  /* line 167, base.css.scss */
+  /* line 181, base.css.scss */
   .post .content, .comment .content {
     font-size: 1.125em;
     line-height: 1.5em; }
-  /* line 172, base.css.scss */
+  /* line 186, base.css.scss */
   .post .author, .comment .author {
     font-weight: bold;
     float: left;
     margin-right: .5em; }
-  /* line 178, base.css.scss */
+  /* line 192, base.css.scss */
   .post .comments, .comment .comments {
     float: left; }
-  /* line 182, base.css.scss */
+  /* line 196, base.css.scss */
   .post .date, .post .favorite, .comment .date, .comment .favorite {
     float: right; }
-  /* line 186, base.css.scss */
+  /* line 200, base.css.scss */
   .post .favorite, .comment .favorite {
     margin-left: .5em; }
 
-/* line 191, base.css.scss */
+/* line 205, base.css.scss */
 #new-post, #new-user, .new, .chunk {
   background: white;
   -webkit-border-radius: 3px;
@@ -620,7 +632,7 @@ nav {
   padding-top: 0.84375em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 195, base.css.scss */
+  /* line 209, base.css.scss */
   #new-post textarea, #new-user textarea, .new textarea, .chunk textarea {
     width: 100%;
     -webkit-box-sizing: border-box;
@@ -632,24 +644,21 @@ nav {
     margin-bottom: 0.75em;
     border: 1px solid #ddd;
     height: 135px; }
-  /* line 205, base.css.scss */
-  #new-post a, #new-user a, .new a, .chunk a {
-    text-decoration: none; }
-  /* line 209, base.css.scss */
+  /* line 219, base.css.scss */
   #new-post .links, #new-user .links, .new .links, .chunk .links {
     float: right;
     margin-top: 1em; }
-    /* line 213, base.css.scss */
+    /* line 223, base.css.scss */
     #new-post .links li, #new-user .links li, .new .links li, .chunk .links li {
       float: right;
       margin-left: 1em; }
 
-/* line 221, base.css.scss */
+/* line 231, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.84375em; }
 
-/* line 227, base.css.scss */
+/* line 237, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -666,23 +675,23 @@ nav {
   *zoom: 1;
   padding-top: 0.84375em; }
 
-/* line 231, base.css.scss */
+/* line 241, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 233, base.css.scss */
+  /* line 243, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 236, base.css.scss */
+  /* line 246, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 240, base.css.scss */
+  /* line 250, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 247, base.css.scss */
+/* line 257, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;

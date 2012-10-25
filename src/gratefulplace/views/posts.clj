@@ -1,6 +1,7 @@
 (ns gratefulplace.views.posts
   (:require [net.cgrand.enlive-html :as h])
-  (:use [gratefulplace.views.common :only [*template-dir* defpage md-content error-content]]
+  (:use [gratefulplace.views.common
+         :only [*template-dir* defpage md-content error-content user-path]]
         [cemerick.friend :only (current-authentication)]))
 
 (defn comments
@@ -23,12 +24,20 @@
   [post]
   (str "/posts/" (:id post)))
 
+
+(defn username
+  [record]
+  (h/do->
+   (h/content (:username record))
+   (h/set-attr :href (user-path record))))
+
+;; TODO refactor all this username access
 (defpage all "index.html"
   [posts]
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
   [:.post] (h/clone-for [post posts]
-                        [:.author]   (h/content (:username post))
+                        [:.author]   (username post)
                         [:.date]     (h/content (created-on post))
                         [:.content]  (md-content post)
                         [:.comments] (h/do->
@@ -37,12 +46,12 @@
 
 (defpage show "posts/show.html"
   [post]
-  [:.post :.author]      (h/content (:username post))
+  [:.post :.author]      (username post)
   [:.post :.date]        (h/content (created-on post))
   [:.post :.content]     (md-content post)
   [:#post_id]            (h/set-attr :value (:id post))
   [:.comments :.comment] (h/clone-for [comment (:comment post)]
-                                      [:.author]  (h/content (:username comment))
+                                      [:.author]  (username comment)
                                       [:.date]    (h/content (created-on comment))
                                       [:.content] (md-content comment)))
 

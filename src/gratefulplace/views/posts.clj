@@ -1,6 +1,6 @@
 (ns gratefulplace.views.posts
   (:require [net.cgrand.enlive-html :as h])
-  (:use [gratefulplace.views.common :only [*template-dir* defpage content error-content]]
+  (:use [gratefulplace.views.common :only [*template-dir* defpage md-content error-content]]
         [cemerick.friend :only (current-authentication)]))
 
 (defn comments
@@ -30,21 +30,21 @@
   [:.post] (h/clone-for [post posts]
                         [:.author]   (h/content (:username post))
                         [:.date]     (h/content (created-on post))
-                        [:.content]  (content post)
+                        [:.content]  (md-content post)
                         [:.comments] (h/do->
                                       (h/content (comments post))
                                       (h/set-attr :href (post-path post)))))
 
 (defpage show "posts/show.html"
   [post]
-  [:.post :.author]  (h/content (:username post))
-  [:.post :.date]    (h/content (created-on post))
-  [:.post :.content] (content post)
-  [:#post_id] (h/set-attr :value (:id post))
+  [:.post :.author]      (h/content (:username post))
+  [:.post :.date]        (h/content (created-on post))
+  [:.post :.content]     (md-content post)
+  [:#post_id]            (h/set-attr :value (:id post))
   [:.comments :.comment] (h/clone-for [comment (:comment post)]
                                       [:.author]  (h/content (:username comment))
                                       [:.date]    (h/content (created-on comment))
-                                      [:.content] (content comment)))
+                                      [:.content] (md-content comment)))
 
 (defpage show-new "posts/new.html"
   [attributes errors]

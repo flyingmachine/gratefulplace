@@ -2,7 +2,8 @@
   (:require [net.cgrand.enlive-html :as h]
             [cemerick.friend :as friend]
             markdown)
-  (use [cemerick.friend :only (current-authentication)]))
+  (use [cemerick.friend :only (current-authentication)]
+       gratefulplace.utils))
 
 (defonce *template-dir* "gratefulplace/templates/")
 
@@ -44,9 +45,10 @@
        [~@argnames]
        (layout (~(symbol (str name "*")) ~@argnames)))))
 
-(defn content
-  [x]
-  (h/html-content (markdown/md-to-html-string (:content x))))
+(defn md-content
+  [content]
+  (let [content (if-let [c (:content content)] c content)]
+    (h/html-content (markdown/md-to-html-string content))))
 
 (defn format-error-messages
   [errors]

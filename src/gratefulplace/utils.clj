@@ -15,3 +15,10 @@
 (defn deserialize
   [m & ks]
   (reduce #(assoc % %2 (read-string (%2 %))) m ks))
+
+(defmacro self-unless-fn
+  [self fn then]
+  `(let [self# ~self]
+     (if (~fn self#)
+       ~then
+       self#)))

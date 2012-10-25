@@ -536,7 +536,7 @@ nav {
     clear: both; }
 
 /* line 140, base.css.scss */
-.posts {
+#posts {
   width: 100%;
   float: right;
   margin-right: 0;
@@ -603,7 +603,7 @@ nav {
     margin-left: .5em; }
 
 /* line 191, base.css.scss */
-#new-post, #new-user, .new {
+#new-post, #new-user, .new, .chunk {
   background: white;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -621,7 +621,7 @@ nav {
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
   /* line 195, base.css.scss */
-  #new-post textarea, #new-user textarea, .new textarea {
+  #new-post textarea, #new-user textarea, .new textarea, .chunk textarea {
     width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -632,13 +632,24 @@ nav {
     margin-bottom: 0.75em;
     border: 1px solid #ddd;
     height: 135px; }
+  /* line 205, base.css.scss */
+  #new-post a, #new-user a, .new a, .chunk a {
+    text-decoration: none; }
+  /* line 209, base.css.scss */
+  #new-post .links, #new-user .links, .new .links, .chunk .links {
+    float: right;
+    margin-top: 1em; }
+    /* line 213, base.css.scss */
+    #new-post .links li, #new-user .links li, .new .links li, .chunk .links li {
+      float: right;
+      margin-left: 1em; }
 
-/* line 211, base.css.scss */
+/* line 221, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.84375em; }
 
-/* line 217, base.css.scss */
+/* line 227, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -655,23 +666,23 @@ nav {
   *zoom: 1;
   padding-top: 0.84375em; }
 
-/* line 221, base.css.scss */
+/* line 231, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 223, base.css.scss */
+  /* line 233, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 226, base.css.scss */
+  /* line 236, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 230, base.css.scss */
+  /* line 240, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 237, base.css.scss */
+/* line 247, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;

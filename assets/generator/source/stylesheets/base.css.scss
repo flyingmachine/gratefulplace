@@ -137,7 +137,7 @@ nav {
   @include leader;
 }
 
-.posts {
+#posts {
   @include span-columns(9 omega);
 }
 
@@ -188,7 +188,7 @@ nav {
   }
 }
 
-#new-post, #new-user, .new {
+#new-post, #new-user, .new, .chunk {
   @include chunk;
   @include padding-leader(.5);
   @include padding-trailer(.5);
@@ -202,8 +202,18 @@ nav {
     height: 5 * $base-line-height;
   }
 
-  form {
+  a {
+    text-decoration: none;
+  }
 
+  .links {
+    float:right;
+    margin-top:1em;
+
+    li {
+      float:right;
+      margin-left:1em;
+    }
   }
 }
 

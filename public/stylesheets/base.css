@@ -698,10 +698,10 @@ table.input {
   line-height: 1.8em; }
 
 /* line 266, base.css.scss */
-#user-posts .posts {
+#user-content .posts, #user-content .comments {
   border-top: 1px dotted #eee; }
 /* line 269, base.css.scss */
-#user-posts .post {
+#user-content .post, #user-content .comment {
   display: block;
   overflow: hidden;
   *zoom: 1;
@@ -710,13 +710,13 @@ table.input {
   box-sizing: border-box;
   border-bottom: 1px dotted #eee; }
   /* line 275, base.css.scss */
-  #user-posts .post:hover {
+  #user-content .post:hover, #user-content .comment:hover {
     background: #f8fcfd; }
   /* line 279, base.css.scss */
-  #user-posts .post a {
+  #user-content .post a, #user-content .comment a {
     text-decoration: none; }
   /* line 283, base.css.scss */
-  #user-posts .post .date {
+  #user-content .post .date, #user-content .comment .date {
     width: 31.81818%;
     float: right;
     margin-right: 0;
@@ -724,7 +724,7 @@ table.input {
     display: inline;
     font-style: italic; }
   /* line 287, base.css.scss */
-  #user-posts .post .content {
+  #user-content .post .content, #user-content .comment .content {
     width: 65.90909%;
     float: left;
     margin-right: 2.27273%;

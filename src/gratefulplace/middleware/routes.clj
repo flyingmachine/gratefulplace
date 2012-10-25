@@ -45,6 +45,9 @@
   (GET  "/users/:username/posts" [username]
         (users/posts username))
 
+  (GET  "/users/:username/comments" [username]
+        (users/comments username))
+
   ;; auth
   (GET "/login" []
        (session/show-new))

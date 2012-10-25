@@ -49,3 +49,21 @@
 
   [:.links :.comments :.count] (h/content (str (relation-count user :comment)))
   [:.links :.comments :a]      (h/set-attr :href (str "/users/" (:username user) "/comments")))
+
+
+(defpage comments "users/comments.html"
+  [user comments]
+  [:title] (h/content (str (:username user) "'s Comments :: Grateful Place"))
+  
+  [:h2 :.username] (h/content (:username user))
+  [[:.comment         (h/nth-of-type 2)]] nil
+  [:.comment]         (h/clone-for [comment comments]
+                                [:.date]    (h/content (created-on comment))
+                                [:.content] (h/content (:content comment))
+                                [:a]        (set-post-path (:post_id comment)))
+
+  [:.links :.about :.username] (h/content (:username user))
+  [:.links :.about :a]         (set-user-path user)
+
+  [:.links :.posts :.count] (h/content (str (relation-count user :post)))
+  [:.links :.posts :a]      (h/set-attr :href (str "/users/" (:username user) "/posts")))

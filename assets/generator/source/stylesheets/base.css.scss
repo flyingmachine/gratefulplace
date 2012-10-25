@@ -262,11 +262,11 @@ table.input {
   @include adjust-font-size-to(15px);
 }
 
-#user-posts {
-  .posts {
+#user-content {
+  .posts, .comments {
     border-top: 1px dotted #eee;
   }
-  .post {
+  .post, .comment {
     display:block;
     @include clearfix;
     @include box-sizing(border-box);

@@ -21,11 +21,13 @@
   ([]
      (all {}))
   ([conditions]
-     (select e/comment
+     ;; TODO fix this... shouldn't have to put in a bogus where
+     (let [conditions (if (empty? conditions) true conditions)]
+       (select e/comment
              (with e/user
                    (fields :username))
              (where (str->int conditions :post_id :user_id))
-             (order :created_on :DESC))))
+             (order :created_on :DESC)))))
 
 (defn num-records
   ([] (num-records {}))

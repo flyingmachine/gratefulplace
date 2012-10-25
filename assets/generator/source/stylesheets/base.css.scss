@@ -156,54 +156,54 @@ nav {
   @include span-columns(9 omega);
 }
 
-.posts_show {
-  .post, .comment {
-    @include chunk;
+#posts .post, #post .comment, #post .post {
+  @include chunk;
 
-    header {
-      @include clearfix;
-      @include adjust-font-size-to(13px);
-      @include sans-family;
-      @include trailer(.5);
-      line-height: inherit;
-    }
-    
-    footer {
-      @include clearfix;
-      @include adjust-font-size-to(13px);
-      @include leader;
-      @include padding-leader(0.5);
-      @include padding-trailer(0.5);
-      @include box-sizing(border-box);
-      border-top:1px solid #ccc;
-      @include sans-family;
-      line-height: inherit;
-    }
+  header {
+    @include clearfix;
+    @include adjust-font-size-to(13px);
+    @include sans-family;
+    @include trailer(.5);
+    line-height: inherit;
+  }
+  
+  footer {
+    @include clearfix;
+    @include adjust-font-size-to(13px);
+    @include leader;
+    @include padding-leader(0.5);
+    @include padding-trailer(0.5);
+    @include box-sizing(border-box);
+    border-top:1px solid #ccc;
+    @include sans-family;
+    line-height: inherit;
+  }
 
-    .content {
-      @include adjust-font-size-to(18px);
-    }
+  .content {
+    @include adjust-font-size-to(18px);
+  }
 
-    
-    .author {
-      font-weight:bold;
-      float: left;
-      margin-right:.5em;
-    }
+  
+  .author {
+    font-weight:bold;
+    float: left;
+    margin-right:.5em;
+  }
 
-    .comments {
-      float:left;
-    }
-    
-    .date, .favorite {
-      float: right;
-    }
+  .comments {
+    float:left;
+  }
+  
+  .date, .favorite {
+    float: right;
+  }
 
-    .favorite {
-      margin-left: .5em;
-    }
+  .favorite {
+    margin-left: .5em;
   }
 }
+
+
 
 #new-post, #new-user, .new, .chunk {
   @include chunk;
@@ -274,6 +274,10 @@ table.input {
 
     &:hover {
       background: $light-blue;
+    }
+
+    a {
+      text-decoration: none;
     }
     
     .date {

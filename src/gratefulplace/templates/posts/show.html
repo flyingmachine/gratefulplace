@@ -37,33 +37,35 @@
         </li>
       </ul>
     </nav>
-    <div class='post'>
-  <header>
-    <a class='author' href=''>Joe Schmoe</a>
-    <div class='favorite'>&#9733;</div>
-    <div class='date'>Jan 03, 2012</div>
-  </header>
-  <div class='content'>
-    <p>Here is some content.</p>
-  </div>
-</div>
-<h2>Comments</h2>
-<div class='comments'>
-  <div class='new' id='new-comment'>
-    <h3>Post a Comment</h3>
-    <form action='/comments' method='POST'>
-      <textarea name='content'></textarea>
-      <input id='post_id' name='post_id' type='hidden' value='' />
-      <input type='submit' value='Post Comment' />
-    </form>
-  </div>
-  <div class='comment'>
+    <div id='post'>
+  <div class='post'>
     <header>
-      <a class='author' href=''>Billy Blanks</a>
-      <div class='date'>Jan 03, 2012 8:30am</div>
+      <a class='author' href=''>Joe Schmoe</a>
+      <div class='favorite'>&#9733;</div>
+      <div class='date'>Jan 03, 2012</div>
     </header>
     <div class='content'>
-      <p>this is comment content</p>
+      <p>Here is some content.</p>
+    </div>
+  </div>
+  <h2>Comments</h2>
+  <div class='comments'>
+    <div class='new' id='new-comment'>
+      <h3>Post a Comment</h3>
+      <form action='/comments' method='POST'>
+        <textarea name='content'></textarea>
+        <input id='post_id' name='post_id' type='hidden' value='' />
+        <input type='submit' value='Post Comment' />
+      </form>
+    </div>
+    <div class='comment'>
+      <header>
+        <a class='author' href=''>Billy Blanks</a>
+        <div class='date'>Jan 03, 2012 8:30am</div>
+      </header>
+      <div class='content'>
+        <p>this is comment content</p>
+      </div>
     </div>
   </div>
 </div>

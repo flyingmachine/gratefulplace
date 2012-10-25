@@ -42,6 +42,9 @@
   (GET  "/users/:username" [username]
         (users/show username))
 
+  (GET  "/users/:username/posts" [username]
+        (users/posts username))
+
   ;; auth
   (GET "/login" []
        (session/show-new))

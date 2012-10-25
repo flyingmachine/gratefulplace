@@ -1,28 +1,28 @@
 ---
 title: Grateful Place
 ---
-
-.post
-  %header
-    %a.author{:href => ""} Joe Schmoe
-    .favorite &#9733;
-    .date Jan 03, 2012
-  .content
-    %p Here is some content.
-    
-
-%h2 Comments
-.comments
-  .new#new-comment
-    %h3 Post a Comment
-    %form{:action => "/comments", :method => "POST"}
-      %textarea{:name => "content"}
-      %input#post_id{:type => "hidden", :name => "post_id", :value => ""}
-      %input{:type => "submit", :value => "Post Comment"}
-    
-  .comment
+#post
+  .post
     %header
-      %a.author{:href => ""} Billy Blanks
-      .date Jan 03, 2012 8:30am
+      %a.author{:href => ""} Joe Schmoe
+      .favorite &#9733;
+      .date Jan 03, 2012
     .content
-      %p this is comment content
+      %p Here is some content.
+
+
+  %h2 Comments
+  .comments
+    .new#new-comment
+      %h3 Post a Comment
+      %form{:action => "/comments", :method => "POST"}
+        %textarea{:name => "content"}
+        %input#post_id{:type => "hidden", :name => "post_id", :value => ""}
+        %input{:type => "submit", :value => "Post Comment"}
+
+    .comment
+      %header
+        %a.author{:href => ""} Billy Blanks
+        .date Jan 03, 2012 8:30am
+      .content
+        %p this is comment content

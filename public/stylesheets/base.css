@@ -555,8 +555,8 @@ nav {
   #margin-left: -1em;
   display: inline; }
 
-/* line 160, base.css.scss */
-.posts_show .post, .posts_show .comment {
+/* line 159, base.css.scss */
+#posts .post, #post .comment, #post .post {
   background: white;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -571,8 +571,8 @@ nav {
   overflow: hidden;
   *zoom: 1;
   padding-top: 0.84375em; }
-  /* line 163, base.css.scss */
-  .posts_show .post header, .posts_show .comment header {
+  /* line 162, base.css.scss */
+  #posts .post header, #post .comment header, #post .post header {
     overflow: hidden;
     *zoom: 1;
     font-size: 0.8125em;
@@ -580,8 +580,8 @@ nav {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-bottom: 0.84375em;
     line-height: inherit; }
-  /* line 171, base.css.scss */
-  .posts_show .post footer, .posts_show .comment footer {
+  /* line 170, base.css.scss */
+  #posts .post footer, #post .comment footer, #post .post footer {
     overflow: hidden;
     *zoom: 1;
     font-size: 0.8125em;
@@ -595,23 +595,23 @@ nav {
     border-top: 1px solid #ccc;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: inherit; }
-  /* line 183, base.css.scss */
-  .posts_show .post .content, .posts_show .comment .content {
+  /* line 182, base.css.scss */
+  #posts .post .content, #post .comment .content, #post .post .content {
     font-size: 1.125em;
     line-height: 1.5em; }
-  /* line 188, base.css.scss */
-  .posts_show .post .author, .posts_show .comment .author {
+  /* line 187, base.css.scss */
+  #posts .post .author, #post .comment .author, #post .post .author {
     font-weight: bold;
     float: left;
     margin-right: .5em; }
-  /* line 194, base.css.scss */
-  .posts_show .post .comments, .posts_show .comment .comments {
+  /* line 193, base.css.scss */
+  #posts .post .comments, #post .comment .comments, #post .post .comments {
     float: left; }
-  /* line 198, base.css.scss */
-  .posts_show .post .date, .posts_show .post .favorite, .posts_show .comment .date, .posts_show .comment .favorite {
+  /* line 197, base.css.scss */
+  #posts .post .date, #posts .post .favorite, #post .comment .date, #post .comment .favorite, #post .post .date, #post .post .favorite {
     float: right; }
-  /* line 202, base.css.scss */
-  .posts_show .post .favorite, .posts_show .comment .favorite {
+  /* line 201, base.css.scss */
+  #posts .post .favorite, #post .comment .favorite, #post .post .favorite {
     margin-left: .5em; }
 
 /* line 208, base.css.scss */
@@ -713,6 +713,9 @@ table.input {
   #user-posts .post:hover {
     background: #f8fcfd; }
   /* line 279, base.css.scss */
+  #user-posts .post a {
+    text-decoration: none; }
+  /* line 283, base.css.scss */
   #user-posts .post .date {
     width: 31.81818%;
     float: right;
@@ -720,7 +723,7 @@ table.input {
     #margin-left: -1em;
     display: inline;
     font-style: italic; }
-  /* line 283, base.css.scss */
+  /* line 287, base.css.scss */
   #user-posts .post .content {
     width: 65.90909%;
     float: left;

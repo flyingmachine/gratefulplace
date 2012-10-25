@@ -1,5 +1,6 @@
 (ns gratefulplace.controllers.users
   (:require [gratefulplace.models.user :as user]
+            [gratefulplace.models.post :as post]
             [gratefulplace.views.users :as view]
             [ring.util.response :as res]
             [cemerick.friend :as friend]
@@ -31,6 +32,12 @@
 (defn show
   [username]
   (view/show (user/for-user-page {:username username})))
+
+(defn posts
+  [username]
+  (let [user (user/for-user-page {:username username})]
+    (view/posts user
+     (post/all {:user_id (:id user)}))))
 
 (defn create! [{:keys [uri request-method params]}]
   (when (and (= uri "/users")

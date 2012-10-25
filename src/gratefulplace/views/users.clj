@@ -1,7 +1,6 @@
 (ns gratefulplace.views.users
   (:require [net.cgrand.enlive-html :as h])
-  (:use [gratefulplace.views.common
-         :only [*template-dir* defpage error-content md-content relation-count]]
+  (:use [gratefulplace.views.common :exclude [layout nav *template-dir*]]
         gratefulplace.utils))
 
 (defpage show-new "users/new.html"
@@ -30,5 +29,21 @@
   [:.links :.posts :.count]    (h/content (str (relation-count user :post)))
   [:.links :.posts :a]         (h/set-attr :href (str "/users/" (:username user) "/posts"))
   
+  [:.links :.comments :.count] (h/content (str (relation-count user :comment)))
+  [:.links :.comments :a]      (h/set-attr :href (str "/users/" (:username user) "/comments")))
+
+;; TODO handle case where there are no posts
+(defpage posts "users/posts.html"
+  [user posts]
+  [:h2 :.username] (h/content (:username user))
+  [[:.post (h/nth-of-type 2)]] nil
+  [:.post] (h/clone-for [post posts]
+                        [:.date]    (h/content (created-on post))
+                        [:.content] (h/content (:content post))
+                        [:a]        (set-post-path post))
+
+  [:.links :.about :.username] (h/content (:username user))
+  [:.links :.about :a]         (set-user-path user)
+
   [:.links :.comments :.count] (h/content (str (relation-count user :comment)))
   [:.links :.comments :a]      (h/set-attr :href (str "/users/" (:username user) "/comments")))

@@ -63,7 +63,37 @@
   [record relation-key]
   (get-in record [relation-key 0 :count] 0))
 
+(defn linked-username
+  [record]
+  (h/do->
+   (h/content (:username record))
+   (set-user-path record)))
+
+(defn timestamp->string
+  [timestamp]
+  (-> (java.text.SimpleDateFormat. "MMM dd, yyyy hh:mma")
+      (.format timestamp)))
+
+(defn created-on
+  [x]
+  (timestamp->string (:created_on x)))
+
+
+;; TODO here's another refactoring! WooooOOO
 (defn user-path
   [x]
   (let [username (or (:username x) x)]
     (str "/users/" username)))
+
+(defn set-user-path
+  [x]
+  (h/set-attr :href (user-path x)))
+
+(defn post-path
+  [x]
+  (let [id (or (:id x) x)]
+    (str "/posts/" id)))
+
+(defn set-post-path
+  [x]
+  (h/set-attr :href (post-path x)))

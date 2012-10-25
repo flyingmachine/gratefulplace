@@ -35,12 +35,14 @@
 ;; TODO handle case where there are no posts
 (defpage posts "users/posts.html"
   [user posts]
+  [:title] (h/content (str (:username user) "'s Posts :: Grateful Place"))
+  
   [:h2 :.username] (h/content (:username user))
-  [[:.post (h/nth-of-type 2)]] nil
-  [:.post] (h/clone-for [post posts]
-                        [:.date]    (h/content (created-on post))
-                        [:.content] (h/content (:content post))
-                        [:a]        (set-post-path post))
+  [[:.post         (h/nth-of-type 2)]] nil
+  [:.post]         (h/clone-for [post posts]
+                                [:.date]    (h/content (created-on post))
+                                [:.content] (h/content (:content post))
+                                [:a]        (set-post-path post))
 
   [:.links :.about :.username] (h/content (:username user))
   [:.links :.about :a]         (set-user-path user)

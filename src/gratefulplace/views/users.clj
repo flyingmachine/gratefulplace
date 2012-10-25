@@ -11,3 +11,7 @@
   
   [:#email :input] (h/set-attr :value (:email attributes))
   [:#email :.errors] (error-content errors :email))
+
+(defpage show "users/show.html"
+  [user]
+  )

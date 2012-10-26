@@ -10,10 +10,38 @@ title: "Editing Profile :: Grateful Place"
           Back to profile
   %h2
     Edit Your Profile
-  .about
+  #about.sub-section
     %h3 About You
-    %p I'm a blah blah blah
-  .change-password
+    %form{:action => "/users/username", :method => "POST"}
+      %textarea{:name => "content"}
+      %input{:type => "submit", :value => "Update"}
+  #change-password.sub-section
     %h3 Change Password
-  .change-email
+    %form{:action => "/users/username", :method => "POST"}
+      .errors Your passwords didn't match
+      %table.input
+        %tr
+          %td.label
+            %label{:for => "username"} Old Password
+          %td#username
+            %input{:name => "old_password", :type => "password"}
+            .errors
+        %tr
+          %td.label
+            %label{:for => "password"} New Password
+          %td#password
+            %input{:name => "new_password", :type => "password"}
+            .errors
+        %tr
+          %td.label
+            %label{:for => "password"} New Password Confirmation
+          %td#password
+            %input{:name => "new_password", :type => "password"}
+            .errors
+      %input{:type => "submit", :value => "Change Password"}
+      
+  #change-email.sub-section
     %h3 Change Email Address
+    %form{:action => "/users/username", :method => "POST"}
+      %input{:name => "email", :type => "text"}
+      %input{:type => "submit", :value => "Update"}

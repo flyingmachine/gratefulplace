@@ -76,7 +76,7 @@ h3 {
   @include adjust-font-size-to(21px, 1);
   @include box-sizing(border-box);
   @include leader(1, 21px);
-  @include trailer(1, 21px);
+  @include trailer(.5, 21px);
 }
 
 a {

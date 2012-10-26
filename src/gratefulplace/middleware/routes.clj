@@ -49,8 +49,8 @@
         (users/comments username))
 
   ;; auth
-  (GET "/login" []
-       (session/show-new))
+  (GET "/login" {params :params}
+       (session/show-new params))
   (POST "/login" []
        (session/show-new))
   (friend/logout

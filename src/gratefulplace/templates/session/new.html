@@ -40,13 +40,14 @@
     <div class='new' id='login'>
       <h2>Log In</h2>
       <form action='/login' method='POST'>
+        <div class='errors'></div>
         <table class='input'>
           <tr>
             <td>
               <label for='username'>Username</label>
             </td>
             <td>
-              <input name='username' type='text' />
+              <input class='username' name='username' type='text' />
             </td>
           </tr>
           <tr>

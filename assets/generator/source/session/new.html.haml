@@ -6,12 +6,13 @@ title: "Log In :: Grateful Place"
   %h2 Log In
 
   %form{:action => "/login", :method => "POST"}
+    .errors
     %table.input
       %tr
         %td
           %label{:for => "username"} Username
         %td
-          %input{:name => "username", :type => "text"}
+          %input.username{:name => "username", :type => "text"}
 
       %tr
         %td

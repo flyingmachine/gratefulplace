@@ -5,5 +5,5 @@
             [cemerick.friend :as friend]))
 
 (defn show-new
-  []
-  (view/show-new))
+  [params]
+  (view/show-new params))

@@ -7,18 +7,18 @@
 (defmigration add-users-table
   (up [] (create
           (tbl :user
-            (varchar :username 50 :unique)
-            (check :username (> (length :username) 1))
+               (varchar :username 50 :unique)
+               (check :username (> (length :username) 1))
 
-            (varchar :display_name 255)
+               (varchar :display_name 255)
 
-            (varchar :email 255 :unique)
-            (check :email (> (length :email) 1))
+               (varchar :email 255 :unique)
+               (check :email (> (length :email) 1))
 
-            (varchar :password 255)
+               (varchar :password 255)
 
-            (text :roles)
-            (text :about))
+               (text :roles)
+               (text :about))
 
           (index :user [:username :email])))
   
@@ -27,15 +27,24 @@
 (defmigration add-posts-table
   (up [] (create
           (tbl :post
-            (varchar :title 200 :unique)
-            (text :content)
-            (refer-to :user))))
+               (varchar :title 200 :unique)
+               (text :content)
+               (refer-to :user))))
   (down [] (drop (table :post))))
 
 (defmigration add-comments-table
   (up [] (create
           (tbl :comment
-            (text :content)
-            (refer-to :user)
-            (refer-to :post))))
+               (text :content)
+               (refer-to :user)
+               (refer-to :post))))
   (down [] (drop (table :comment))))
+
+(defmigration add-sessions-table
+  (up [] (create
+          (tbl :user_session
+               (varchar :key 255 :unique)
+               (text :data)))
+      
+      (index :user_session [:key]))
+  (down [] (drop (table :user_session))))

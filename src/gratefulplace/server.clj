@@ -3,14 +3,14 @@
         ring.middleware.params
         ring.middleware.keyword-params
         ring.middleware.session
-        ring.middleware.session.cookie
+        gratefulplace.middleware.db-session-store
         [gratefulplace.middleware.auth :only (auth)]
         [gratefulplace.middleware.routes :only (routes)]))
 
 (def app
   (-> routes
       auth
-      (wrap-session {:cookie-name "gratefulplace-session" :store (cookie-store)})
+      (wrap-session {:cookie-name "gratefulplace-session" :store (db-session-store)})
       wrap-keyword-params
       wrap-params))
 

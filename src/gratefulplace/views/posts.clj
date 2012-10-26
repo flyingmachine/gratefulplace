@@ -44,4 +44,4 @@
   [:#content :textarea] (h/content (:content attributes))
   [:#content :.errors] (if (current-authentication)
                          (error-content errors :content)
-                         (h/content "You'll need to log in to post")))
+                         (h/html-content "You'll need to <a href=\"/login\">log in</a> to post")))

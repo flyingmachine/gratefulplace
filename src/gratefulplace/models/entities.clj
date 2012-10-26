@@ -24,3 +24,7 @@
   (belongs-to post)
 
   (prepare #(str->int % :post_id)))
+
+(defentity user_session
+  (prepare #(merge % {:data (str (:data %))}))
+  (transform #(deserialize % :data)))

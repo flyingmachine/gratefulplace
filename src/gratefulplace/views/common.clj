@@ -30,6 +30,26 @@
   (when (current-authentication)
     (h/content "Logged in as")))
 
+
+;; TODO here's another refactoring! WooooOOO
+(defn user-path
+  [x]
+  (let [username (or (:username x) x)]
+    (str "/users/" username)))
+
+(defn set-user-path
+  [x]
+  (h/set-attr :href (user-path x)))
+
+(defn post-path
+  [x]
+  (let [id (or (:id x) x)]
+    (str "/posts/" id)))
+
+(defn set-post-path
+  [x]
+  (h/set-attr :href (post-path x)))
+
 ;; Need to come up with better name
 ;; Bundles together some defsnippet commonalities for user with the
 ;; layout template
@@ -77,23 +97,3 @@
 (defn created-on
   [x]
   (timestamp->string (:created_on x)))
-
-
-;; TODO here's another refactoring! WooooOOO
-(defn user-path
-  [x]
-  (let [username (or (:username x) x)]
-    (str "/users/" username)))
-
-(defn set-user-path
-  [x]
-  (h/set-attr :href (user-path x)))
-
-(defn post-path
-  [x]
-  (let [id (or (:id x) x)]
-    (str "/posts/" id)))
-
-(defn set-post-path
-  [x]
-  (h/set-attr :href (post-path x)))

@@ -74,5 +74,10 @@
   [:.links :.posts :a]      (h/set-attr :href (str "/users/" (:username user) "/posts")))
 
 (defpage edit "users/edit.html"
-  [user]
+  [user errors]
+
+  [:textarea] (h/content (:about user))
+
+  [:#change-password :.errors] (error-content errors :password)
+  [:#change-email :.errors]    (error-content errors :email)
   )

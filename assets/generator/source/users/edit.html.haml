@@ -23,25 +23,24 @@ title: "Editing Profile :: Grateful Place"
         %tr
           %td.label
             %label{:for => "username"} Old Password
-          %td#username
+          %td#old-password
             %input{:name => "old_password", :type => "password"}
-            .errors
         %tr
           %td.label
             %label{:for => "password"} New Password
-          %td#password
+          %td#new-password
             %input{:name => "new_password", :type => "password"}
-            .errors
         %tr
           %td.label
             %label{:for => "password"} New Password Confirmation
-          %td#password
+          %td#new-password-confirmation
             %input{:name => "new_password", :type => "password"}
-            .errors
+              
       %input{:type => "submit", :value => "Change Password"}
       
   #change-email.sub-section
     %h3 Change Email Address
     %form{:action => "/users/username", :method => "POST"}
+      .errors
       %input{:name => "email", :type => "text"}
       %input{:type => "submit", :value => "Update"}

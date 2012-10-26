@@ -58,4 +58,4 @@
 (defn edit
   [username]
   (let [user (user/one {:username username})]
-    (view/edit user)))
+    (view/edit user nil)))

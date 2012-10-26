@@ -66,27 +66,24 @@
           <td class='label'>
             <label for='username'>Old Password</label>
           </td>
-          <td id='username'>
+          <td id='old-password'>
             <input name='old_password' type='password' />
-            <div class='errors'></div>
           </td>
         </tr>
         <tr>
           <td class='label'>
             <label for='password'>New Password</label>
           </td>
-          <td id='password'>
+          <td id='new-password'>
             <input name='new_password' type='password' />
-            <div class='errors'></div>
           </td>
         </tr>
         <tr>
           <td class='label'>
             <label for='password'>New Password Confirmation</label>
           </td>
-          <td id='password'>
+          <td id='new-password-confirmation'>
             <input name='new_password' type='password' />
-            <div class='errors'></div>
           </td>
         </tr>
       </table>
@@ -96,6 +93,7 @@
   <div class='sub-section' id='change-email'>
     <h3>Change Email Address</h3>
     <form action='/users/username' method='POST'>
+      <div class='errors'></div>
       <input name='email' type='text' />
       <input type='submit' value='Update' />
     </form>

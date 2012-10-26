@@ -13,6 +13,8 @@
   [:#email :input] (h/set-attr :value (:email attributes))
   [:#email :.errors] (error-content errors :email))
 
+
+;; TODO if this is your page, show edit link
 (defn about-content
   [user]
   (md-content
@@ -25,6 +27,9 @@
   [:title]         (h/content (str "About " (:username user) " :: Grateful Place"))
   [:h2 :.username] (h/content (:username user))
   [:.about]        (about-content user)
+
+  [:.links :.edit] (keep-when (current-user-owns? user))
+  [:.links :.edit :a] (h/set-attr :href (str "/users/" (:username user) "/edit"))
 
   [:.links :.posts :.count]    (h/content (str (relation-count user :post)))
   [:.links :.posts :a]         (h/set-attr :href (str "/users/" (:username user) "/posts"))
@@ -67,3 +72,7 @@
 
   [:.links :.posts :.count] (h/content (str (relation-count user :post)))
   [:.links :.posts :a]      (h/set-attr :href (str "/users/" (:username user) "/posts")))
+
+(defpage edit "users/edit.html"
+  [user]
+  )

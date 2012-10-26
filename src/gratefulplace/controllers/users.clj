@@ -54,3 +54,8 @@
     (if-valid params validations errors
      (workflows/make-auth (user/create! params))
      {:body (view/show-new params errors)})))
+
+(defn edit
+  [username]
+  (let [user (user/one {:username username})]
+    (view/edit user)))

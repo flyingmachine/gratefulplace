@@ -39,8 +39,11 @@
   (POST "/users" {params :params}
         (users/create! params))
 
-  (GET  "/users/:username" [username]
-        (users/show username))
+  (GET "/users/:username" [username]
+       (users/show username))
+  
+  (GET "/users/:username/edit" [username]
+       (users/edit username))
 
   (GET  "/users/:username/posts" [username]
         (users/posts username))

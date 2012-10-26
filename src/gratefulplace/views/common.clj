@@ -1,6 +1,5 @@
 (ns gratefulplace.views.common
   (:require [net.cgrand.enlive-html :as h]
-            [cemerick.friend :as friend]
             markdown)
   (use [cemerick.friend :only (current-authentication)]
        gratefulplace.utils))
@@ -97,3 +96,12 @@
 (defn created-on
   [x]
   (timestamp->string (:created_on x)))
+
+(defn current-user-owns?
+  [record]
+  (= (:username record) (:username (current-authentication))))
+
+(defmacro keep-when
+  [condition]
+  `(when ~condition
+     #(identity %)))

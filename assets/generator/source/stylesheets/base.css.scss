@@ -246,6 +246,11 @@ table.input {
   td {
     @include padding-trailer(0.5);
   }
+
+  tr:last-child td {
+    padding-bottom:0
+  }
+  
   .label {
     height: 100%;
     vertical-align:top;

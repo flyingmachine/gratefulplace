@@ -6,6 +6,8 @@
                              [credentials :as creds]
                              [openid :as openid])))
 
+
+
 (defn credential-fn
   [username]
   (user/one {:username username}))
@@ -13,7 +15,7 @@
 (defn session-store-authorize [{:keys [uri request-method params session]}]
   (when (nil? (:cemerick.friend/identity session))
     (if-let [username (get-in session [:cemerick.friend/identity :current])]
-      (workflows/make-auth (user/one {:username username})))))
+      (workflows/make-auth (select-keys (user/one {:username username}) [:id :username])))))
 
 (defn auth
   [ring-app]

@@ -7,7 +7,8 @@
             [cemerick.friend :as friend]
             [cemerick.friend.workflows :as workflows])
 
-  (:use [gratefulplace.controllers.common :only (if-valid)]))
+  (:use [gratefulplace.controllers.common :only (if-valid)]
+        gratefulplace.models.permissions))
 
 
 (defn show-new
@@ -45,28 +46,32 @@
 
 (defn edit
   [username]
-  (let [user (user/one {:username username})]
-    (view/edit user nil)))
+  (protect
+   (modify-profile? username)
+   (let [user (user/one {:username username})]
+     (view/edit user nil))))
 
 ;; TODO don't really need to have a redirect here do I?
 (defn update
   [params]
-  (let [username (:username params)
-        validations (cond
-                     (:change-password params)
-                     ((:change-password user/validation-contexts)
-                      (let [user (user/one {:username username})] (:password user)))
-                     
-                     (:email params)
-                     (:update-email user/validation-contexts)
-                     
-                     :else {})]
-    
-    (if-valid
-     params validations errors
-     (let [new-attributes (if (:change-password params)
-                            {:password (get-in params [:change-password :new-password])}
-                            (dissoc params :username))]
-       (user/update! {:username username} new-attributes)
-       (res/redirect (str "/users/" username "/edit?success=true")))
-     (view/edit params errors))))
+  (let [username (:username params)]
+    (protect
+     (modify-profile? username)
+     (let [validations (cond
+                        (:change-password params)
+                        ((:change-password user/validation-contexts)
+                         (let [user (user/one {:username username})] (:password user)))
+                        
+                        (:email params)
+                        (:update-email user/validation-contexts)
+                        
+                        :else {})]
+       
+       (if-valid
+        params validations errors
+        (let [new-attributes (if (:change-password params)
+                               {:password (get-in params [:change-password :new-password])}
+                               (dissoc params :username))]
+          (user/update! {:username username} new-attributes)
+          (res/redirect (str "/users/" username "/edit?success=true")))
+        (view/edit params errors))))))

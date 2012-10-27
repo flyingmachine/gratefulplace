@@ -98,7 +98,7 @@
     (if-valid
      params vals errors
      (let [new-attributes (if (:change-password params)
-                            {:password (get-in params :change-password :new-password)}
+                            {:password (get-in params [:change-password :new-password])}
                             (dissoc params :username))]
        (user/update! {:username username} new-attributes)
        (res/redirect (str "/users/" username "/edit?success=true")))

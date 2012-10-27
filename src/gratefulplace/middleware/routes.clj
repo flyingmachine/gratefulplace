@@ -51,8 +51,8 @@
   (GET  "/users/:username/comments" [username]
         (users/comments username))
 
-  (POST "/users/:username" {{username "username"} :params, params :params}
-        (users/update username params))
+  (POST "/users/:username" {params :params}
+        (users/update params))
 
   ;; auth
   (GET "/login" {params :params}

@@ -13,7 +13,8 @@
 
 (defn update!
   [conditions attributes]
-  (update e/user (values attributes)))
+  (println attributes)
+  (update e/user (set-fields attributes)))
 
 (defn one
   [conditions]

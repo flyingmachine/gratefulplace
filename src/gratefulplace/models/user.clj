@@ -11,6 +11,10 @@
    (insert e/user (values attributes))
    :roles))
 
+(defn update!
+  [conditions attributes]
+  (update e/user (values attributes)))
+
 (defn one
   [conditions]
   (first (select e/user

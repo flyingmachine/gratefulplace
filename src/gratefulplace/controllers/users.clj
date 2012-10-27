@@ -9,22 +9,32 @@
 
   (:use [gratefulplace.controllers.common :only (if-valid)]))
 
+
 (def validations
-  [[:username
-    ["Your username must be between 4 and 24 characters long"
-     #(>= (count %) 4)
-     #(<= (count %) 24)]
-    ["That username is already taken"
-     #(not (user/one {:username %}))]]
+  {:username
+   ["Your username must be between 4 and 24 characters long"
+    #(and
+      (>= (count %) 4)
+      (<= (count %) 24))
+    "That username is already taken"
+    #(not (user/one {:username %}))]
    
-   [:password
-    ["Your password must be at least 4 characters long"
-     #(>= (count %) 4)]]
+   :password
+   ["Your password must be at least 4 characters long"
+    #(>= (count %) 4)]
    
-   [:email
-    ["You must enter a valid email address"
-     #(not-empty %)
-     #(re-find #"@" %)]]])
+   :change-password
+   ["The current password you entered was incorrect"
+    #(= ())
+    
+    "Your passwords do not match"
+    #(= (:new-password %) (:new-password-confirmation %))]
+  
+   :email
+   ["You must enter a valid email address"
+    #(and
+      (not-empty %)
+      (re-find #"@" %))]})
 
 (defn show-new
   []
@@ -51,7 +61,11 @@
 (defn create! [{:keys [uri request-method params]}]
   (when (and (= uri "/users")
              (= request-method :post))
-    (if-valid params validations errors
+    (if-valid
+     params
+     (select-keys validations [:username :password :email])
+     errors
+     
      (workflows/make-auth (user/create! params))
      {:body (view/show-new params errors)})))
 
@@ -59,3 +73,16 @@
   [username]
   (let [user (user/one {:username username})]
     (view/edit user nil)))
+
+;; TODO don't really need to have a redirect here do I?
+(defn update
+  [username params]
+  (let [user (user/one {:username username})
+        current-password-check #(= ())])
+  
+  (if-valid
+   params validations errors
+   (do
+     (user/update! username params)
+     (res/redirect (str "/users/" username "/edit?success=true")))
+   (view/edit params errors)))

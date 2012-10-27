@@ -77,6 +77,7 @@
   [user errors]
 
   [:textarea] (h/content (:about user))
+  [:form] (h/set-attr :action (user-path user))
 
   [:#change-password :.errors] (error-content errors :password)
   [:#change-email :.errors]    (error-content errors :email)

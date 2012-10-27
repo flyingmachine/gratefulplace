@@ -24,17 +24,17 @@ title: "Editing Profile :: Grateful Place"
           %td.label
             %label{:for => "username"} Current Password
           %td#current-password
-            %input{:name => "current-password", :type => "password"}
+            %input{:name => "change-password[current-password]", :type => "password"}
         %tr
           %td.label
             %label{:for => "password"} New Password
           %td#new-password
-            %input{:name => "new-password", :type => "password"}
+            %input{:name => "change-password[new-password]", :type => "password"}
         %tr
           %td.label
             %label{:for => "password"} New Password Confirmation
           %td#new-password-confirmation
-            %input{:name => "new-password", :type => "password"}
+            %input{:name => "change-password[new-password-confirmation]", :type => "password"}
               
       %input{:type => "submit", :value => "Change Password"}
       

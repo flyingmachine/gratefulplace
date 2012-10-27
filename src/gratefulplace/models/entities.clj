@@ -14,9 +14,13 @@
   (has-many comment)
 
   ;; todo move user param transform function here
-  (prepare #(merge %
-                   {:password (creds/hash-bcrypt (:password %))
-                    :roles (str [:user])}))
+  (prepare
+   (fn [attributes]
+     (-> (if (:password attributes)
+           (assoc attributes :password (creds/hash-bcrypt (:password attributes)))
+            attributes)
+         (assoc :roles (str [:user])))))
+  
   (transform #(deserialize % :roles)))
 
 (defentity comment

@@ -7,7 +7,8 @@
             [cemerick.friend :as friend]
             [cemerick.friend.workflows :as workflows])
 
-  (:use [gratefulplace.controllers.common :only (if-valid)]))
+  (:use [gratefulplace.controllers.common :only (if-valid)])
+  (:import org.mindrot.jbcrypt.BCrypt))
 
 
 (def validations
@@ -74,16 +75,30 @@
 ;; TODO don't really need to have a redirect here do I?
 (defn update
   [params]
+  (println params)
   (let [username (:username params)
         user (user/one {:username username})
         vals (cond
-              (:change-password params) (select-keys validations [:change-password])
+              ;; TODO I have to do this funky stuff so that I can
+              ;; actually access current password value for user
+              (:change-password params)
+              (update-in
+               (select-keys validations [:change-password])
+               [:change-password]
+               conj
+               "You didn't enter the correct value for your current password"
+               #(BCrypt/checkpw (:current-password %) (:password user)))
+              
               (:email params) (select-keys validations [:email])
+              
               :else {})]
     
     (if-valid
      params vals errors
      (do
-       (user/update! username (dissoc params :username))
+       (let [new-attributes (dissoc params :username)
+             new-attributes (if (:change-password new-attributes)
+                              {:password (get-in new-attributes [:change-password :new-password])})]
+         (user/update! {:username username} new-attributes))
        (res/redirect (str "/users/" username "/edit?success=true")))
      (view/edit params errors))))

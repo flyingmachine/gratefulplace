@@ -2,6 +2,7 @@
   (:use [ring.adapter.jetty :only (run-jetty)]
         ring.middleware.params
         ring.middleware.keyword-params
+        ring.middleware.nested-params
         ring.middleware.session
         gratefulplace.middleware.db-session-store
         [gratefulplace.middleware.auth :only (auth)]
@@ -11,6 +12,7 @@
   (-> routes
       auth
       (wrap-session {:cookie-name "gratefulplace-session" :store (db-session-store)})
+      wrap-nested-params
       wrap-keyword-params
       wrap-params))
 

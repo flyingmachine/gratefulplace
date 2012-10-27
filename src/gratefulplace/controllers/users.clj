@@ -26,7 +26,10 @@
    
    :change-password
    ["Your passwords do not match"
-    #(= (:new-password %) (:new-password-confirmation %))]
+    #(= (:new-password %) (:new-password-confirmation %))
+
+    "Your password must be at least 4 characters long"
+    #(>= (count (:new-password %)) 4)]
   
    :email
    ["You must enter a valid email address"
@@ -75,7 +78,6 @@
 ;; TODO don't really need to have a redirect here do I?
 (defn update
   [params]
-  (println params)
   (let [username (:username params)
         user (user/one {:username username})
         vals (cond
@@ -95,10 +97,9 @@
     
     (if-valid
      params vals errors
-     (do
-       (let [new-attributes (dissoc params :username)
-             new-attributes (if (:change-password new-attributes)
-                              {:password (get-in new-attributes [:change-password :new-password])})]
-         (user/update! {:username username} new-attributes))
+     (let [new-attributes (if (:change-password params)
+                            {:password (get-in params :change-password :new-password)}
+                            (dissoc params :username))]
+       (user/update! {:username username} new-attributes)
        (res/redirect (str "/users/" username "/edit?success=true")))
      (view/edit params errors))))

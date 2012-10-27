@@ -12,8 +12,8 @@
   (-> routes
       auth
       (wrap-session {:cookie-name "gratefulplace-session" :store (db-session-store)})
-      wrap-nested-params
       wrap-keyword-params
+      wrap-nested-params
       wrap-params))
 
 (defn -main

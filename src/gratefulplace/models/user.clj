@@ -13,6 +13,7 @@
 
 (defn update!
   [conditions attributes]
+  (println attributes)
   (update e/user
           (set-fields attributes)
           (where conditions)))

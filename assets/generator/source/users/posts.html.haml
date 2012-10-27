@@ -3,18 +3,20 @@ title: "someuser's Posts :: Grateful Place"
 ---
 
 #user-content.chunk
-  %div.links
-    %ul
-      %li.comments
-        %a{:href => "/users/comments.html"}
-          Comments (<span class="count">10</span>)
-      %li.about
-        %a{:href => "/users/show.html"}
-          About
-          %span.username someuser
   %h2
     Posts by 
     %span.username someuser
+    
+  .local-nav
+    %ul
+      %li.about
+        %a{:href => "/users/show.html"}
+          About
+      %li.comments
+        %a{:href => "/users/comments.html"}
+          Comments
+      %li.posts
+        Posts (<span class="count">20</span>)
   .posts
     .post
       %a.date{:href => "/"} Oct 12, 2012 8:21AM

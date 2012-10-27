@@ -2,20 +2,23 @@
 title: "someuser :: Grateful Place"
 ---
 
-#user.chunk
-  %div.links
+#user-content.chunk
+  .edit
+    %a{:href => "/users/edit.html"}
+      Edit Your Profile
+  %h2
+    About
+    %span.username someuser
+
+  .local-nav
     %ul
-      %li.edit
-        %a{:href => "/users/edit.html"}
-          Edit Your Profile
+      %li.about
+        About
       %li.comments
         %a{:href => "/users/comments.html"}
           Comments (<span class="count">10</span>)
       %li.posts
         %a{:href => "/users/posts.html"}
           Posts (<span class="count">20</span>)
-  %h2
-    About
-    %span.username someuser
   .about
     %p I'm a blah blah blah

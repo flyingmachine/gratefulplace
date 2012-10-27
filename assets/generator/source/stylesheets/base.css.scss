@@ -219,14 +219,9 @@ nav {
     height: 5 * $base-line-height;
   }
 
-  .links {
+  .edit {
     float:right;
     margin-top:1em;
-
-    li {
-      float:right;
-      margin-left:1em;
-    }
   }
 }
 
@@ -268,10 +263,23 @@ table.input {
 }
 
 #user-content {
-  .posts, .comments {
+  h2 {
+    margin-bottom: 0;
+  }
+  .local-nav {
+    @include clearfix;
+    li {
+      float:left;
+      margin-right: 1em;
+    }
+
+    @include trailer(.5);
+  }
+  
+  div.posts, div.comments {
     border-top: 1px dotted #eee;
   }
-  .post, .comment {
+  div.post, div.comment {
     display:block;
     @include clearfix;
     @include box-sizing(border-box);

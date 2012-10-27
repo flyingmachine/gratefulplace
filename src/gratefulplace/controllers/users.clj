@@ -7,35 +7,8 @@
             [cemerick.friend :as friend]
             [cemerick.friend.workflows :as workflows])
 
-  (:use [gratefulplace.controllers.common :only (if-valid)])
-  (:import org.mindrot.jbcrypt.BCrypt))
+  (:use [gratefulplace.controllers.common :only (if-valid)]))
 
-
-(def validations
-  {:username
-   ["Your username must be between 4 and 24 characters long"
-    #(and
-      (>= (count %) 4)
-      (<= (count %) 24))
-    "That username is already taken"
-    #(not (user/one {:username %}))]
-   
-   :password
-   ["Your password must be at least 4 characters long"
-    #(>= (count %) 4)]
-   
-   :change-password
-   ["Your passwords do not match"
-    #(= (:new-password %) (:new-password-confirmation %))
-
-    "Your password must be at least 4 characters long"
-    #(>= (count (:new-password %)) 4)]
-  
-   :email
-   ["You must enter a valid email address"
-    #(and
-      (not-empty %)
-      (re-find #"@" %))]})
 
 (defn show-new
   []
@@ -64,7 +37,7 @@
              (= request-method :post))
     (if-valid
      params
-     (select-keys validations [:username :password :email])
+     (:create user/validation-contexts)
      errors
      
      (workflows/make-auth (user/create! params))
@@ -79,24 +52,18 @@
 (defn update
   [params]
   (let [username (:username params)
-        user (user/one {:username username})
-        vals (cond
-              ;; TODO I have to do this funky stuff so that I can
-              ;; actually access current password value for user
-              (:change-password params)
-              (update-in
-               (select-keys validations [:change-password])
-               [:change-password]
-               conj
-               "You didn't enter the correct value for your current password"
-               #(BCrypt/checkpw (:current-password %) (:password user)))
-              
-              (:email params) (select-keys validations [:email])
-              
-              :else {})]
+        validations (cond
+                     (:change-password params)
+                     ((:change-password user/validation-contexts)
+                      (let [user (user/one {:username username})] (:password user)))
+                     
+                     (:email params)
+                     (:update-email user/validation-contexts)
+                     
+                     :else {})]
     
     (if-valid
-     params vals errors
+     params validations errors
      (let [new-attributes (if (:change-password params)
                             {:password (get-in params [:change-password :new-password])}
                             (dissoc params :username))]

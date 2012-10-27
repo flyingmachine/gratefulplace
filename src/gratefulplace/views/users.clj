@@ -80,4 +80,6 @@
   [:form] (h/set-attr :action (user-path user))
 
   [:#change-password :.errors] (error-content errors :change-password)
+
+  [:#change-email [:input (h/attr= :type "text")]] (h/set-attr :value (:email user))
   [:#change-email :.errors]    (error-content errors :email))

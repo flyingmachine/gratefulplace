@@ -645,20 +645,16 @@ nav {
     border: 1px solid #ddd;
     height: 135px; }
   /* line 222, base.css.scss */
-  #new-post .links, #new-user .links, .new .links, .chunk .links {
+  #new-post .edit, #new-user .edit, .new .edit, .chunk .edit {
     float: right;
     margin-top: 1em; }
-    /* line 226, base.css.scss */
-    #new-post .links li, #new-user .links li, .new .links li, .chunk .links li {
-      float: right;
-      margin-left: 1em; }
 
-/* line 234, base.css.scss */
+/* line 229, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.84375em; }
 
-/* line 240, base.css.scss */
+/* line 235, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -675,36 +671,48 @@ nav {
   *zoom: 1;
   padding-top: 0.84375em; }
 
-/* line 244, base.css.scss */
+/* line 239, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 246, base.css.scss */
+  /* line 241, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 250, base.css.scss */
+  /* line 245, base.css.scss */
   table.input tr:last-child td {
     padding-bottom: 0; }
-  /* line 254, base.css.scss */
+  /* line 249, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 258, base.css.scss */
+  /* line 253, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 265, base.css.scss */
+/* line 260, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;
   line-height: 1.8em; }
 
-/* line 271, base.css.scss */
-#user-content .posts, #user-content .comments {
+/* line 266, base.css.scss */
+#user-content h2 {
+  margin-bottom: 0; }
+/* line 269, base.css.scss */
+#user-content .local-nav {
+  overflow: hidden;
+  *zoom: 1;
+  margin-bottom: 0.84375em; }
+  /* line 271, base.css.scss */
+  #user-content .local-nav li {
+    float: left;
+    margin-right: 1em; }
+/* line 279, base.css.scss */
+#user-content div.posts, #user-content div.comments {
   border-top: 1px dotted #eee; }
-/* line 274, base.css.scss */
-#user-content .post, #user-content .comment {
+/* line 282, base.css.scss */
+#user-content div.post, #user-content div.comment {
   display: block;
   overflow: hidden;
   *zoom: 1;
@@ -712,22 +720,22 @@ table.input {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #eee; }
-  /* line 280, base.css.scss */
-  #user-content .post:hover, #user-content .comment:hover {
-    background: #f8fcfd; }
-  /* line 284, base.css.scss */
-  #user-content .post a, #user-content .comment a {
-    text-decoration: none; }
   /* line 288, base.css.scss */
-  #user-content .post .date, #user-content .comment .date {
+  #user-content div.post:hover, #user-content div.comment:hover {
+    background: #f8fcfd; }
+  /* line 292, base.css.scss */
+  #user-content div.post a, #user-content div.comment a {
+    text-decoration: none; }
+  /* line 296, base.css.scss */
+  #user-content div.post .date, #user-content div.comment .date {
     width: 31.81818%;
     float: right;
     margin-right: 0;
     #margin-left: -1em;
     display: inline;
     font-style: italic; }
-  /* line 292, base.css.scss */
-  #user-content .post .content, #user-content .comment .content {
+  /* line 300, base.css.scss */
+  #user-content div.post .content, #user-content div.comment .content {
     width: 65.90909%;
     float: left;
     margin-right: 2.27273%;
@@ -736,14 +744,14 @@ table.input {
     overflow: hidden;
     text-overflow: ellipsis; }
 
-/* line 301, base.css.scss */
+/* line 309, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.6875em; }
-  /* line 306, base.css.scss */
+  /* line 314, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.84375em;
     border-bottom: none; }

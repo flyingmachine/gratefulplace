@@ -22,20 +22,27 @@
      (self-unless-fn about empty?
        "This user hasn't entered info yet."))))
 
+(defn local-nav
+  [node user]
+  (h/at node
+        [:.about :a]         (set-user-path user) 
+        
+        [:.posts :.count]    (h/content (str (relation-count user :post)))
+        [:.posts :a]         (h/set-attr :href (str "/users/" (:username user) "/posts"))
+        
+        [:.comments :.count] (h/content (str (relation-count user :comment)))
+        [:.comments :a]      (h/set-attr :href (str "/users/" (:username user) "/comments"))))
+
 (defpage show "users/show.html"
   [user]
   [:title]         (h/content (str "About " (:username user) " :: Grateful Place"))
   [:h2 :.username] (h/content (:username user))
-  [:.about]        (about-content user)
+  [:div.about]     (about-content user)
 
-  [:.links :.edit] (keep-when (current-user-owns? user))
-  [:.links :.edit :a] (h/set-attr :href (str "/users/" (:username user) "/edit"))
-
-  [:.links :.posts :.count]    (h/content (str (relation-count user :post)))
-  [:.links :.posts :a]         (h/set-attr :href (str "/users/" (:username user) "/posts"))
+  [:.edit]    (keep-when (current-user-owns? user))
+  [:.edit :a] (h/set-attr :href (str "/users/" (:username user) "/edit"))
   
-  [:.links :.comments :.count] (h/content (str (relation-count user :comment)))
-  [:.links :.comments :a]      (h/set-attr :href (str "/users/" (:username user) "/comments")))
+  [:.local-nav]    #(local-nav % user))
 
 ;; TODO handle case where there are no posts
 (defpage posts "users/posts.html"
@@ -43,17 +50,13 @@
   [:title] (h/content (str (:username user) "'s Posts :: Grateful Place"))
   
   [:h2 :.username] (h/content (:username user))
-  [[:.post         (h/nth-of-type 2)]] nil
-  [:.post]         (h/clone-for [post posts]
+  [[:di.post         (h/nth-of-type 2)]] nil
+  [:div.post]         (h/clone-for [post posts]
                                 [:.date]    (h/content (created-on post))
                                 [:.content] (h/content (:content post))
                                 [:a]        (set-post-path post))
 
-  [:.links :.about :.username] (h/content (:username user))
-  [:.links :.about :a]         (set-user-path user)
-
-  [:.links :.comments :.count] (h/content (str (relation-count user :comment)))
-  [:.links :.comments :a]      (h/set-attr :href (str "/users/" (:username user) "/comments")))
+  [:.local-nav]    #(local-nav % user))
 
 
 (defpage comments "users/comments.html"
@@ -66,12 +69,8 @@
                                 [:.date]    (h/content (created-on comment))
                                 [:.content] (h/content (:content comment))
                                 [:a]        (set-post-path (:post_id comment)))
-
-  [:.links :.about :.username] (h/content (:username user))
-  [:.links :.about :a]         (set-user-path user)
-
-  [:.links :.posts :.count] (h/content (str (relation-count user :post)))
-  [:.links :.posts :a]      (h/set-attr :href (str "/users/" (:username user) "/posts")))
+  
+  [:.local-nav]    #(local-nav % user))
 
 (defpage edit "users/edit.html"
   [user errors]

@@ -157,6 +157,7 @@ nav {
 
 #posts .post, #post .comment, #post .post {
   @include chunk;
+  @include padding-trailer(.5);
 
   header {
     @include clearfix;
@@ -180,6 +181,10 @@ nav {
 
   .content {
     @include adjust-font-size-to(18px);
+
+    p:last-child {
+      margin-bottom:0;
+    }
   }
 
   
@@ -201,21 +206,20 @@ nav {
   }
 }
 
-
+textarea {
+  width:100%;
+  @include box-sizing(border-box);
+  @include adjust-font-size-to(18px);
+  @include serif-family;
+  @include trailer(.5, 18px);
+  border: 1px solid #ddd;
+  height: 5 * $base-line-height;
+}
 
 #new-post, #new-user, .new, .chunk {
   @include chunk;
   @include padding-leader(.5);
   @include padding-trailer(.5);
-  textarea {
-    width:100%;
-    @include box-sizing(border-box);
-    @include adjust-font-size-to(18px);
-    @include serif-family;
-    @include trailer(.5, 18px);
-    border: 1px solid #ddd;
-    height: 5 * $base-line-height;
-  }
 
   .edit {
     float:right;

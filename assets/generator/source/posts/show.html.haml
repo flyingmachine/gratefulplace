@@ -5,8 +5,11 @@ title: Grateful Place
   .post
     %header
       %a.author{:href => ""} Joe Schmoe
-      .favorite &#9733;
-      .date Jan 03, 2012
+      .secondary
+        %span.date Jan 03, 2012
+        %span.favorite &#9733;
+        %span.edit
+          %a{:href => "/posts/edit.html"} edit
     .content
       %p Here is some content.
 
@@ -23,6 +26,9 @@ title: Grateful Place
     .comment
       %header
         %a.author{:href => ""} Billy Blanks
-        .date Jan 03, 2012 8:30am
+        .secondary
+          %span.date Jan 03, 2012 8:30am
+          %span.edit
+            %a{:href => "/comments/edit.html"} edit
       .content
         %p this is comment content

@@ -136,7 +136,6 @@ nav {
       display: block;
     }
   }
-
   .secondary {
     float:right;
     li {
@@ -193,13 +192,12 @@ nav {
   .comments {
     float:left;
   }
-  
-  .date, .favorite {
-    float: right;
-  }
 
-  .favorite {
-    margin-left: .5em;
+  .secondary {
+    float: right;
+    span {
+      margin-left:.5em;
+    }
   }
 }
 

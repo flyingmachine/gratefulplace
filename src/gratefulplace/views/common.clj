@@ -99,7 +99,9 @@
 
 (defn current-user-owns?
   [record]
-  (= (:username record) (:username (current-authentication))))
+  (or
+   (= (:username record) (:username (current-authentication)))
+   (= (:user_id record) (:id (current-authentication)))))
 
 (defmacro keep-when
   [condition]

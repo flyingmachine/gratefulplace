@@ -1,7 +1,7 @@
 (ns gratefulplace.views.posts
   (:require [net.cgrand.enlive-html :as h])
-  (:use [gratefulplace.views.common
-         :only [*template-dir* defpage md-content error-content linked-username created-on]]
+  (:use [gratefulplace.views.common :exclude [layout nav *template-dir*]]
+        gratefulplace.utils
         [cemerick.friend :only (current-authentication)]))
 
 (defn comments
@@ -10,10 +10,6 @@
     (if (zero? comment-count)
       "Comment"
       (str  comment-count " comments"))))
-
-(defn post-path
-  [post]
-  (str "/posts/" (:id post)))
 
 ;; TODO refactor all this username access
 (defpage all "index.html"
@@ -33,6 +29,9 @@
   [:.post :.author]      (linked-username post)
   [:.post :.date]        (h/content (created-on post))
   [:.post :.content]     (md-content post)
+
+  [:.post :.edit]        (keep-when (current-user-owns? post))
+  
   [:#post_id]            (h/set-attr :value (:id post))
   [:.comments :.comment] (h/clone-for [comment (:comment post)]
                                       [:.author]  (linked-username comment)

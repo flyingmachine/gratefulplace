@@ -172,11 +172,14 @@ nav {
     @include adjust-font-size-to(13px);
     @include leader;
     @include padding-leader(0.5);
-    @include padding-trailer(0.5);
     @include box-sizing(border-box);
     border-top:1px solid #ccc;
     @include sans-family;
     line-height: inherit;
+
+    .favorite {
+      float:right;
+    }
   }
 
   .content {

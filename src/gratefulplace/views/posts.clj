@@ -56,7 +56,3 @@
   [post]
   [:form]     (h/set-attr :action (post-path post))
   [:textarea] (h/content  (:content post)))
-
-(defn updated
-  [params]
-  (markdown/md-to-html-string (:content params)))

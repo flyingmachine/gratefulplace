@@ -20,7 +20,7 @@
 
 (defn show
   [id]
-  (view/show (post/by-id id)))
+  (view/show (post/by-id id) (friend/current-authentication)))
 
 (defn edit
   [id]

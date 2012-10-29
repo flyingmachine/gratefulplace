@@ -103,10 +103,13 @@
   (timestamp->string (:created_on x)))
 
 (defn current-user-owns?
-  [record]
-  (or
-   (= (:username record) (:username (current-authentication)))
-   (= (:user_id record) (:id (current-authentication)))))
+  ([record]
+     (current-user-owns? record (current-authentication)))
+  ([record owner-map]
+     (or
+      (= (:username record) (:username owner-map))
+      (= (:user_id record) (:id owner-map)))))
+
 
 (defmacro keep-when
   [condition]

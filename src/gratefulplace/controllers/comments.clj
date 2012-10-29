@@ -22,6 +22,7 @@
 
 (defn edit
   [id]
+  (println (comment/by-id id))
   (view/edit (comment/by-id id)))
 
 (defn update

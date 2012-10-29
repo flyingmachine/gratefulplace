@@ -36,7 +36,7 @@
                  (with e/user
                        (fields :username))
                  (with e/comment
-                       (fields :content :created_on)
+                       (fields :content :created_on :id)
                        (with e/user
                              (fields :username)))
                  (where {:id (str->int id)}))))

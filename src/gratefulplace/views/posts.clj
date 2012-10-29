@@ -50,7 +50,7 @@
 
                                       [:.edit]        (keep-when (current-user-owns? comment))
   ;; TODO more path refactoring
-                                      [:.edit :a]     (h/set-attr :href (str "/comments/" (:id post) "/edit"))))
+                                      [:.edit :a]     (h/set-attr :href (str "/comments/" (:id comment) "/edit"))))
 
 (defpage edit "posts/edit.html"
   [post]

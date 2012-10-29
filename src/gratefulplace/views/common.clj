@@ -49,6 +49,11 @@
   [x]
   (h/set-attr :href (post-path x)))
 
+(defn comment-path
+  [x]
+  (let [id (or (:id x) x)]
+    (str "/comments/" id)))
+
 ;; Need to come up with better name
 ;; Bundles together some defsnippet commonalities for user with the
 ;; layout template

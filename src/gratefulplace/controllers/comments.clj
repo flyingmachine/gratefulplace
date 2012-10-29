@@ -15,10 +15,10 @@
 
 (defn create!
   [params]
-  (comment/create! (assoc params
-                     :user_id
-                     (:id (friend/current-authentication))))
-  (res/redirect (str "/posts/" (:post_id params))))
+  (let [comment (comment/create! (assoc params
+                                   :user_id
+                                   (:id (friend/current-authentication))))]
+    (res/redirect (str "/posts/" (:post_id params) "#comment-" (:id comment)))))
 
 (defn edit
   [id]

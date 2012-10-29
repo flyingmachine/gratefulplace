@@ -5,12 +5,7 @@
         gratefulplace.utils
         [cemerick.friend :only (current-authentication)]))
 
-
 (defpage edit "comments/edit.html"
   [comment]
   [:form]     (h/set-attr :action (comment-path comment))
   [:textarea] (h/content (:content comment)))
-
-(defn updated
-  [params]
-  (markdown/md-to-html-string (:content params)))

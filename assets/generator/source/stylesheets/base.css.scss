@@ -93,7 +93,7 @@ a:hover {
 }
 
 p, blockquote {
-  @include trailer;
+  @include trailer(.5);
 }
 
 blockquote {

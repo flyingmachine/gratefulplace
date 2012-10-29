@@ -10,6 +10,12 @@
   [attributes]
   (insert e/comment (values attributes)))
 
+(defn update!
+  [conditions attributes]
+  (let [attributes (dissoc attributes :id)]
+    (update e/comment
+            (set-fields attributes)
+            (where (str->int conditions :id)))))
 
 (defn optional-conditions
   [sel conditions where]
@@ -39,3 +45,9 @@
         (select e/comment
                 (aggregate (count :*) :count)
                 (where (str->int conditions :post_id :user_id)))))))
+
+(defn by-id
+  [id]
+  (first (select e/comment
+                 (where {:id (str->int id)}))))
+

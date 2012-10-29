@@ -38,6 +38,12 @@
   (POST "/comments" {params :params}
         (friend/authorize #{:user} (comments/create! params)))
 
+  (GET  "/comments/:id/edit" [id]
+        (comments/edit id))
+
+  (POST "/comments/:id" {params :params}
+        (comments/update params))
+
   ;; users
   (GET  "/users/new" []
         (users/show-new))

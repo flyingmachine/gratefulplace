@@ -117,6 +117,12 @@ strong {
   color: white;
 }
 
+.content {
+  ul {
+    list-style: disc inside;
+  }
+}
+
 nav {
   @include trailer;
   @include clearfix;

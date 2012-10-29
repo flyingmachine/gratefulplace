@@ -6,7 +6,8 @@
             [gratefulplace.views.posts :as view]
             [cemerick.friend :as friend])
 
-  (:use [gratefulplace.controllers.common :only (if-valid)]))
+  (:use [gratefulplace.controllers.common :only (if-valid)]
+        gratefulplace.models.permissions))
 
 (def validations
   [[:content
@@ -20,6 +21,19 @@
 (defn show
   [id]
   (view/show (post/by-id id)))
+
+(defn edit
+  [id]
+  (view/edit (post/by-id id)))
+
+(defn update
+  [params]
+  (let [id   (:id params)
+        post (post/by-id id)]
+    (protect
+     (modify-content? (:user_id post))
+     (post/update! {:id id} params)
+     (view/updated params))))
 
 (defn show-new
   []

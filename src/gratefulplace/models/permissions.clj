@@ -4,8 +4,14 @@
 (defn current-username []
   (:username (friend/current-authentication)))
 
+(defn current-user-id []
+  (:id (friend/current-authentication)))
+
 (defn modify-profile? [username]
   (= username (current-username)))
+
+(defn modify-content? [user-id]
+  (= user-id (current-user-id)))
 
 ;; Pretty sure there's something in onlisp about this
 (defmacro protect [check & body]
@@ -18,12 +24,3 @@
 
 (defn moderate? []
   (some #(= % (current-username)) moderator-ids))
-
-(defn moderate-arenas? []
-  (moderate?))
-
-(defn moderate-arena? [arena]
-  (moderate?))
-
-(defn moderate-fighter? [fighter]
-  (moderate?))

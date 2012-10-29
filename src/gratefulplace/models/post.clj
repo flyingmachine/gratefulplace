@@ -8,6 +8,13 @@
   [attributes]
   (insert e/post (values attributes)))
 
+(defn update!
+  [conditions attributes]
+  (let [attributes (dissoc attributes :id)]
+    (update e/post
+            (set-fields attributes)
+            (where (str->int conditions :id)))))
+
 ;; TODO refactor - looks similar to comments
 (defn all
   ([]

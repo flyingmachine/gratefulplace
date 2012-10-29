@@ -27,7 +27,13 @@
   
   (GET  "/posts/:id" [id]
         (posts/show id))
+  
+  (GET  "/posts/:id/edit" [id]
+        (posts/edit id))
 
+  (POST "/posts/:id" {params :params}
+        (posts/update params))
+  
   ;; comments
   (POST "/comments" {params :params}
         (friend/authorize #{:user} (comments/create! params)))
@@ -39,11 +45,11 @@
   (POST "/users" {params :params}
         (users/create! params))
 
-  (GET "/users/:username" [username]
-       (users/show username))
+  (GET  "/users/:username" [username]
+        (users/show username))
   
-  (GET "/users/:username/edit" [username]
-       (users/edit username))
+  (GET  "/users/:username/edit" [username]
+        (users/edit username))
 
   (GET  "/users/:username/posts" [username]
         (users/posts username))

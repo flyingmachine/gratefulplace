@@ -2,16 +2,35 @@ var Editable = {
   correspondingContent: function(el) {
     return $(el).parents(".post, .comment").find(".content");
   },
+
+  
   
   setup: function() {
+    // show the content form
     $(".edit a").click(function(ev) {
-      var node = this;
-      $.get($(node).attr("href"), function(data) {
-        Editable.correspondingContent(node).html(data);
+      var el = this;
+      $.get($(el).attr("href"), function(data) {
+        Editable.correspondingContent(el).html(data);
       });
-      return false;
+      ev.preventDefault();
     });
+
+    $(".content").on('submit', 'form', function(ev) {
+      var el = this;
+      $.post(
+        $(el).attr("action"),
+        $(el).serializeJSON(),
+        function(data) {
+          console.log(Editable.correspondingContent(el));
+          console.log(data);
+          Editable.correspondingContent(el).html(data);
+        }
+      )
+      ev.preventDefault();
+    })
   }
+
+
 }
 
 $(Editable.setup)

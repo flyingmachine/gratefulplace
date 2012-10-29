@@ -1,5 +1,6 @@
 (ns gratefulplace.views.posts
-  (:require [net.cgrand.enlive-html :as h])
+  (:require [net.cgrand.enlive-html :as h]
+            markdown)
   (:use [gratefulplace.views.common :exclude [layout nav *template-dir*]]
         gratefulplace.utils
         [cemerick.friend :only (current-authentication)]))
@@ -24,6 +25,13 @@
                                       (h/content (comments post))
                                       (h/set-attr :href (post-path post)))))
 
+(defpage show-new "posts/new.html"
+  [attributes errors]
+  [:#content :textarea] (h/content (:content attributes))
+  [:#content :.errors] (if (current-authentication)
+                         (error-content errors :content)
+                         (h/html-content "You'll need to <a href=\"/login\">log in</a> to post")))
+
 (defpage show "posts/show.html"
   [post]
   [:.post :.author]      (linked-username post)
@@ -31,6 +39,8 @@
   [:.post :.content]     (md-content post)
 
   [:.post :.edit]        (keep-when (current-user-owns? post))
+  ;; TODO more path refactoring
+  [:.post :.edit :a]     (h/set-attr :href (str "/posts/" (:id post) "/edit"))
   
   [:#post_id]            (h/set-attr :value (:id post))
   [:.comments :.comment] (h/clone-for [comment (:comment post)]
@@ -38,9 +48,11 @@
                                       [:.date]    (h/content (created-on comment))
                                       [:.content] (md-content comment)))
 
-(defpage show-new "posts/new.html"
-  [attributes errors]
-  [:#content :textarea] (h/content (:content attributes))
-  [:#content :.errors] (if (current-authentication)
-                         (error-content errors :content)
-                         (h/html-content "You'll need to <a href=\"/login\">log in</a> to post")))
+(defpage edit "posts/edit.html"
+  [post]
+  [:form]     (h/set-attr :action (post-path post))
+  [:textarea] (h/content  (:content post)))
+
+(defn updated
+  [params]
+  (markdown/md-to-html-string (:content params)))

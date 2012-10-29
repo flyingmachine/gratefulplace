@@ -6,6 +6,8 @@
 
   (:import org.mindrot.jbcrypt.BCrypt))
 
+(declare one)
+
 (def validations
   {:username
    ["Your username must be between 4 and 24 characters long"
@@ -54,7 +56,6 @@
 
 (defn update!
   [conditions attributes]
-  (println attributes)
   (update e/user
           (set-fields attributes)
           (where conditions)))

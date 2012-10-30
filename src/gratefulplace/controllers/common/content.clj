@@ -4,6 +4,7 @@
 (defn updated
   [params]
   {:status 200
+   :headers {"Content-Type" "text/plain"}
    :body (markdown/md-to-html-string (:content params))})
 
 (defn update-fn

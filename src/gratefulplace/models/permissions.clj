@@ -20,7 +20,7 @@
      (do ~@body)))
 
 
-(def moderator-ids (clojure.string/split (get (System/getenv) "MODERATOR_NAMES" "daniel") #","))
+(def moderator-usernames (clojure.string/split (get (System/getenv) "MODERATOR_NAMES" "higginbotham") #","))
 
 (defn moderate? []
-  (some #(= % (current-username)) moderator-ids))
+  (some #(= % (current-username)) moderator-usernames))

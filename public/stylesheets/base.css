@@ -578,7 +578,7 @@ nav {
   margin-bottom: 1.6875em;
   overflow: hidden;
   *zoom: 1;
-  padding-top: 0.84375em;
+  padding-top: 1.6875em;
   padding-bottom: 0.84375em; }
   /* line 173, base.css.scss */
   #posts .post header, #posts .post footer, #post .comment header, #post .comment footer, #post .post header, #post .post footer {
@@ -677,7 +677,7 @@ textarea {
   margin-bottom: 1.6875em;
   overflow: hidden;
   *zoom: 1;
-  padding-top: 0.84375em;
+  padding-top: 1.6875em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
   /* line 260, base.css.scss */
@@ -705,7 +705,7 @@ textarea {
   margin-bottom: 1.6875em;
   overflow: hidden;
   *zoom: 1;
-  padding-top: 0.84375em; }
+  padding-top: 1.6875em; }
 
 /* line 277, base.css.scss */
 table.input {

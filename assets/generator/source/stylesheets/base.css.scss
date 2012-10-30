@@ -36,7 +36,7 @@ $total-columns  : 9;
   padding:0 1em;
   @include trailer;
   @include clearfix;
-  @include padding-leader(.5);
+  @include padding-leader;
 }
 
 @import "formalize";

@@ -7,13 +7,17 @@
 (defn current-user-id []
   (:id (friend/current-authentication)))
 
-(defn modify-profile? [username]
-  (= username (current-username)))
+(defn can-modify-profile? [user]
+  (= (:username user) (current-username)))
 
-(defn modify-content? [user-id]
-  (or
-   (moderator? (current-username))
-   (= user-id (current-user-id))))
+(defn can-modify-record?
+  ([record]
+     (can-modify-record? record (friend/current-authentication)))
+  ([record owner-map]
+     (or
+      (= (:username record) (:username owner-map))
+      (= (:user_id record) (:id owner-map))
+      (moderator? (:username owner-map)))))
 
 ;; Pretty sure there's something in onlisp about this
 (defmacro protect [check & body]

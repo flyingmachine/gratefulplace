@@ -39,9 +39,11 @@
   [:.post :.date]        (h/content (created-on post))
   [:.post :.content]     (md-content post)
 
-  [:.post :.edit]        (keep-when (current-user-owns? post))
+  [:.post :.edit]        (keep-when (can-modify-record? post))
   ;; TODO more path refactoring
   [:.post :.edit :a]     (h/set-attr :href (str "/posts/" (:id post) "/edit"))
+
+  
 
   [:.post :.moderate]    (keep-when (moderator? (:username current-user)))
   [:.post :.moderate :a] (h/do->
@@ -57,7 +59,7 @@
                [:.date]      (h/content (created-on comment))
                [:.content]   (md-content comment)
 
-               [:.edit]      (keep-when (current-user-owns? comment current-user))
+               [:.edit]      (keep-when (can-modify-record? comment current-user))
                ;; TODO more path refactoring
                [:.edit :a]   (h/set-attr :href (str "/comments/" (:id comment) "/edit"))))
 

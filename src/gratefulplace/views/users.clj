@@ -1,7 +1,8 @@
 (ns gratefulplace.views.users
   (:require [net.cgrand.enlive-html :as h])
   (:use [gratefulplace.views.common :exclude [layout nav *template-dir*]]
-        gratefulplace.utils))
+        gratefulplace.utils
+        gratefulplace.models.permissions))
 
 (defpage show-new "users/new.html"
   [attributes errors]
@@ -39,7 +40,7 @@
   [:h2 :.username] (h/content (:username user))
   [:div.about]     (about-content user)
 
-  [:.edit]    (keep-when (current-user-owns? user))
+  [:.edit]    (keep-when (can-modify-profile? user))
   [:.edit :a] (h/set-attr :href (str "/users/" (:username user) "/edit"))
   
   [:.local-nav]    #(local-nav % user))

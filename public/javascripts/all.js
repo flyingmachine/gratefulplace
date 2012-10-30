@@ -35,8 +35,6 @@ var Editable = {
         $(el).attr("action"),
         $(el).serializeJSON(),
         function(data) {
-          console.log(Editable.correspondingContent(el));
-          console.log(data);
           Editable.correspondingContent(el).html(data);
         }
       )

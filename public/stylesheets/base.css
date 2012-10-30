@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -19,38 +19,38 @@ time, mark, audio, video {
   font-size: 100%;
   vertical-align: baseline; }
 
-/* line 22, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1; }
 
-/* line 24, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none; }
 
-/* line 26, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* line 28, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle; }
 
-/* line 30, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none; }
-  /* line 103, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+  /* line 103, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
   q:before, q:after, blockquote:before, blockquote:after {
     content: "";
     content: none; }
 
-/* line 32, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none; }
 
-/* line 116, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block; }
 
@@ -419,11 +419,11 @@ optgroup {
 .ie6_input_disabled {
   background: #eeeeee; }
 
-/* line 61, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 100%; }
 
-/* line 64, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 16px;
   line-height: 1.6875em; }
@@ -545,7 +545,7 @@ nav {
   padding-right: 1em;
   margin-bottom: 1.6875em;
   margin-top: 1.6875em; }
-  /* line 38, ../../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  /* line 38, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
   .page:after {
     content: "";
     display: table;
@@ -577,15 +577,6 @@ nav {
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
   /* line 168, base.css.scss */
-  #posts .post header, #post .comment header, #post .post header {
-    overflow: hidden;
-    *zoom: 1;
-    font-size: 0.8125em;
-    line-height: 2.07692em;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-bottom: 0.84375em;
-    line-height: inherit; }
-  /* line 176, base.css.scss */
   #posts .post footer, #post .comment footer, #post .post footer {
     overflow: hidden;
     *zoom: 1;
@@ -599,32 +590,45 @@ nav {
     border-top: 1px solid #ccc;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: inherit; }
-    /* line 186, base.css.scss */
-    #posts .post footer .favorite, #post .comment footer .favorite, #post .post footer .favorite {
-      float: right; }
-  /* line 191, base.css.scss */
+  /* line 179, base.css.scss */
   #posts .post .content, #post .comment .content, #post .post .content {
     font-size: 1.125em;
     line-height: 1.5em; }
-    /* line 194, base.css.scss */
+    /* line 182, base.css.scss */
     #posts .post .content p:last-child, #post .comment .content p:last-child, #post .post .content p:last-child {
       margin-bottom: 0; }
-  /* line 200, base.css.scss */
+  /* line 188, base.css.scss */
   #posts .post .author, #post .comment .author, #post .post .author {
     font-weight: bold;
-    float: left;
+    float: right;
     margin-right: .5em; }
-  /* line 206, base.css.scss */
+  /* line 194, base.css.scss */
+  #posts .post .date, #post .comment .date, #post .post .date {
+    float: right; }
+  /* line 198, base.css.scss */
   #posts .post .comments, #post .comment .comments, #post .post .comments {
     float: left; }
-  /* line 210, base.css.scss */
+  /* line 202, base.css.scss */
+  #posts .post .favorite, #post .comment .favorite, #post .post .favorite {
+    float: left;
+    background: #e5f6fd;
+    width: 2em;
+    text-align: center;
+    display: block;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+    border-radius: 1em;
+    margin-right: .5em; }
+  /* line 212, base.css.scss */
   #posts .post .secondary, #post .comment .secondary, #post .post .secondary {
     float: right; }
-    /* line 212, base.css.scss */
+    /* line 214, base.css.scss */
     #posts .post .secondary span, #post .comment .secondary span, #post .post .secondary span {
       margin-left: .5em; }
 
-/* line 218, base.css.scss */
+/* line 220, base.css.scss */
 textarea {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -637,7 +641,7 @@ textarea {
   border: 1px solid #ddd;
   height: 135px; }
 
-/* line 228, base.css.scss */
+/* line 230, base.css.scss */
 #new-post, #new-user, .new, .chunk {
   background: white;
   -webkit-border-radius: 3px;
@@ -655,17 +659,17 @@ textarea {
   padding-top: 0.84375em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 233, base.css.scss */
+  /* line 235, base.css.scss */
   #new-post .edit, #new-user .edit, .new .edit, .chunk .edit {
     float: right;
     margin-top: 1em; }
 
-/* line 240, base.css.scss */
+/* line 242, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.84375em; }
 
-/* line 246, base.css.scss */
+/* line 248, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -682,47 +686,47 @@ textarea {
   *zoom: 1;
   padding-top: 0.84375em; }
 
-/* line 250, base.css.scss */
+/* line 252, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 252, base.css.scss */
+  /* line 254, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 256, base.css.scss */
+  /* line 258, base.css.scss */
   table.input tr:last-child td {
     padding-bottom: 0; }
-  /* line 260, base.css.scss */
+  /* line 262, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 264, base.css.scss */
+  /* line 266, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 271, base.css.scss */
+/* line 273, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;
   line-height: 1.8em; }
 
-/* line 277, base.css.scss */
+/* line 279, base.css.scss */
 #user-content h2 {
   margin-bottom: 0; }
-/* line 280, base.css.scss */
+/* line 282, base.css.scss */
 #user-content .local-nav {
   overflow: hidden;
   *zoom: 1;
   margin-bottom: 0.84375em; }
-  /* line 282, base.css.scss */
+  /* line 284, base.css.scss */
   #user-content .local-nav li {
     float: left;
     margin-right: 1em; }
-/* line 290, base.css.scss */
+/* line 292, base.css.scss */
 #user-content div.posts, #user-content div.comments {
   border-top: 1px dotted #eee; }
-/* line 293, base.css.scss */
+/* line 295, base.css.scss */
 #user-content div.post, #user-content div.comment {
   display: block;
   overflow: hidden;
@@ -731,13 +735,13 @@ table.input {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #eee; }
-  /* line 299, base.css.scss */
+  /* line 301, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 303, base.css.scss */
+  /* line 305, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 307, base.css.scss */
+  /* line 309, base.css.scss */
   #user-content div.post .date, #user-content div.comment .date {
     width: 31.81818%;
     float: right;
@@ -745,7 +749,7 @@ table.input {
     #margin-left: -1em;
     display: inline;
     font-style: italic; }
-  /* line 311, base.css.scss */
+  /* line 313, base.css.scss */
   #user-content div.post .content, #user-content div.comment .content {
     width: 65.90909%;
     float: left;
@@ -755,14 +759,14 @@ table.input {
     overflow: hidden;
     text-overflow: ellipsis; }
 
-/* line 320, base.css.scss */
+/* line 322, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.6875em; }
-  /* line 325, base.css.scss */
+  /* line 327, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.84375em;
     border-bottom: none; }

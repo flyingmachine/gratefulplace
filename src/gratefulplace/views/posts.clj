@@ -18,7 +18,7 @@
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
   [:.post] (h/clone-for [post posts]
-                        [:.author]   (linked-username post)
+                        [:.author :a]   (linked-username post)
                         [:.date]     (h/content (created-on post))
                         [:.content]  (md-content post)
                         [:.comments] (h/do->

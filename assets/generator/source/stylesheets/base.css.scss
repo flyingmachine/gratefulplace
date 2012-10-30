@@ -164,14 +164,6 @@ nav {
 #posts .post, #post .comment, #post .post {
   @include chunk;
   @include padding-trailer(.5);
-
-  header {
-    @include clearfix;
-    @include adjust-font-size-to(13px);
-    @include sans-family;
-    @include trailer(.5);
-    line-height: inherit;
-  }
   
   footer {
     @include clearfix;
@@ -182,10 +174,6 @@ nav {
     border-top:1px solid #ccc;
     @include sans-family;
     line-height: inherit;
-
-    .favorite {
-      float:right;
-    }
   }
 
   .content {
@@ -199,12 +187,26 @@ nav {
   
   .author {
     font-weight:bold;
-    float: left;
+    float: right;
     margin-right:.5em;
+  }
+
+  .date {
+    float:right;
   }
 
   .comments {
     float:left;
+  }
+
+  .favorite {
+    float:left;
+    background:#e5f6fd;
+    width: 2em;
+    text-align:center;
+    display:block;
+    @include border-radius(1em);
+    margin-right: .5em;
   }
 
   .secondary {

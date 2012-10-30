@@ -164,16 +164,23 @@ nav {
 #posts .post, #post .comment, #post .post {
   @include chunk;
   @include padding-trailer(.5);
+
+  header, footer {
+    @include adjust-font-size-to(13px);
+    @include sans-family;
+    line-height: inherit;
+  }
+
+  header {
+    float:right;
+  }
   
   footer {
     @include clearfix;
-    @include adjust-font-size-to(13px);
     @include leader;
     @include padding-leader(0.5);
     @include box-sizing(border-box);
     border-top:1px solid #ccc;
-    @include sans-family;
-    line-height: inherit;
   }
 
   .content {
@@ -209,12 +216,17 @@ nav {
     margin-right: .5em;
   }
 
-  .secondary {
-    float: right;
-    span {
-      margin-left:.5em;
-    }
+  .edit {
+    float:right;
+    margin-left: .5em;
   }
+}
+
+#post .comment footer {
+  border: none;
+  padding: 0;
+  margin: 0;
+  float: left;
 }
 
 textarea {

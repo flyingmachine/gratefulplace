@@ -3,15 +3,17 @@ title: Grateful Place
 ---
 #post
   .post
-    %header
-      %a.author{:href => ""} Joe Schmoe
-      .secondary
-        %span.date Jan 03, 2012
-        %span.favorite &#9733;
-        %span.edit
-          %a{:href => "/posts/edit.html"} edit
     .content
       %p Here is some content.
+    %footer
+      %span.edit
+        %a{:href => "/posts/edit.html"} edit
+      .date Jan 03, 2012
+      .author
+        by
+        %a{:href => ""} Joe Schmoe
+      .favorite &#9733;
+
 
 
   %h2 Comments
@@ -24,11 +26,12 @@ title: Grateful Place
         %input{:type => "submit", :value => "Post Comment"}
 
     .comment
-      %header
-        %a.author{:href => ""} Billy Blanks
-        .secondary
-          %span.date Jan 03, 2012 8:30am
-          %span.edit
-            %a{:href => "/comments/edit.html"} edit
       .content
         %p this is comment content
+      %footer
+        %span.edit
+          %a{:href => "/posts/edit.html"} edit
+        .date Jan 03, 2012
+        .author
+          by
+          %a{:href => ""} Joe Schmoe

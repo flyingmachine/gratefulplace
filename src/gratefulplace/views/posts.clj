@@ -41,17 +41,18 @@
   [:.post :.edit]        (keep-when (current-user-owns? post))
   ;; TODO more path refactoring
   [:.post :.edit :a]     (h/set-attr :href (str "/posts/" (:id post) "/edit"))
-  
   [:#post_id]            (h/set-attr :value (:id post))
-  [:.comments :.comment] (h/clone-for [comment (:comment post)]
-                                      [:header]   (h/set-attr :id (str "comment-" (:id comment)))
-                                      [:.author :a]  (linked-username comment)
-                                      [:.date]    (h/content (created-on comment))
-                                      [:.content] (md-content comment)
 
-                                      [:.edit]    (keep-when (current-user-owns? comment current-user))
-                                      ;; TODO more path refactoring
-                                      [:.edit :a] (h/set-attr :href (str "/comments/" (:id comment) "/edit"))))
+  [:.comments :.comment]
+  (h/clone-for [comment (:comment post)]
+               [:header]     (h/set-attr :id (str "comment-" (:id comment)))
+               [:.author :a] (linked-username comment)
+               [:.date]      (h/content (created-on comment))
+               [:.content]   (md-content comment)
+
+               [:.edit]      (keep-when (current-user-owns? comment current-user))
+               ;; TODO more path refactoring
+               [:.edit :a]   (h/set-attr :href (str "/comments/" (:id comment) "/edit"))))
 
 (defpage edit "posts/edit.html"
   [post]

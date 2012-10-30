@@ -7,9 +7,7 @@ title: Grateful Place
       %p Here is some content.
     %footer
       .moderate
-        %form{:action => "/posts/1", :method => "POST"}
-          %input{:type => "hidden", :name => "hidden", :value => "true"}
-          %input{:type => "submit", :value => "hide"}
+        %a{:href => "/posts/1"} hide
       %span.edit
         %a{:href => "/posts/edit.html"} edit
       .date Jan 03, 2012

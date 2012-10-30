@@ -20,24 +20,25 @@ var Editable = {
   
   
   setup: function() {
-    $(".moderate form").submit(function(ev) {
+    $(".moderate a").click(function(ev) {
       var el = this;
+
+      if ($(el).text() == "hide") {
+        var hidden = true;
+        var newText = "unhide";
+      } else {
+        var hidden = false;
+        var newText = "hide";
+      }
+      
       $.post(
         $(el).attr("action"),
-        $(el).serializeJSON(),
+        {hidden: hidden},
         function() {}
       )
 
-      var field = $(el).children("input[type=hidden]");
-      var submit = $(el).children("input[type=submit]");
+      $(el).text(newText);
       
-      if (field.val() == "true") {
-        field.val("false");
-        submit.val("unhide");
-      } else {
-        field.val("true");
-        submit.val("hide");
-      }
       ev.preventDefault();
     });
     

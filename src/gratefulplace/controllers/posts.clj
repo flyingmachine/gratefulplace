@@ -4,19 +4,36 @@
             [gratefulplace.models.post :as post]
             [gratefulplace.models.comment :as comment]
             [gratefulplace.views.posts :as view]
-            [cemerick.friend :as friend])
+            [cemerick.friend :as friend]
+            korma.core)
 
   (:use [gratefulplace.controllers.common :only (if-valid)]
-        gratefulplace.controllers.common.content))
+        gratefulplace.controllers.common.content
+        gratefulplace.models.permissions))
 
 (def validations
   [[:content
     ["Whoops! You forgot to write anything"
      #(> (count %) 4)]]])
 
+;; TODO any way I could tidy this up?
 (defn all
   []
-  (view/all (post/all)))
+  (let [current-auth (friend/current-authentication)]
+    (view/all 
+     (cond
+      (moderator? (:username current-auth))
+      (post/all)
+      
+      (friend/current-authentication)
+      (post/all
+       (korma.core/where
+        (or {:hidden false}
+            {:user_id [= (:id current-auth)]})))
+      
+      :else
+      (post/all
+       (korma.core/where {:hidden false}))))))
 
 (defn show
   [id]

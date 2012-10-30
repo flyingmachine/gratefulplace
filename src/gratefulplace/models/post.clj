@@ -15,20 +15,15 @@
             (set-fields attributes)
             (where (str->int conditions :id)))))
 
-;; TODO refactor - looks similar to comments
-(defn all
-  ([]
-     (all {}))
-  ([conditions]
-     ;; TODO fix this... shouldn't have to put in a bogus where
-     (let [conditions (if (empty? conditions) true conditions)]
-       (select e/post
-               (with e/user
-                     (fields :username))
-               (with e/comment
-                     (aggregate (count :*) :count))
-               (where conditions)
-               (order :created_on :DESC)))))
+(defmacro all
+  [& clauses]
+  `(select e/post
+           (with e/user
+                 (fields :username))
+           (with e/comment
+                 (aggregate (~'count :*) :count))
+           ~@clauses
+           (order :created_on :DESC)))
 
 (defn by-id
   [id]

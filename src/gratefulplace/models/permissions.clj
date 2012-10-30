@@ -11,7 +11,9 @@
   (= username (current-username)))
 
 (defn modify-content? [user-id]
-  (= user-id (current-user-id)))
+  (or
+   (moderator? (current-username))
+   (= user-id (current-user-id))))
 
 ;; Pretty sure there's something in onlisp about this
 (defmacro protect [check & body]

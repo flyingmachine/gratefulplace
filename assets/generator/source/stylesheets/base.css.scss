@@ -227,6 +227,14 @@ nav {
   padding: 0;
   margin: 0;
   float: left;
+  color: #999;
+
+  a {
+    color: #aac2e5;
+    &:visited {
+      color: #9889dd;
+    }
+  }
 }
 
 textarea {

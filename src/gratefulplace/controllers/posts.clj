@@ -25,7 +25,7 @@
       (moderator? (:username current-auth))
       (post/all)
       
-      (friend/current-authentication)
+      current-auth
       (post/all
        (korma.core/where
         (or {:hidden false}

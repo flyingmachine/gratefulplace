@@ -40,9 +40,17 @@
   [:.post :.content]     (md-content post)
 
   [:.post :.edit]        (keep-when (current-user-owns? post))
-  [:.post :.moderate]    (keep-when (moderator? (:username current-user)))
   ;; TODO more path refactoring
   [:.post :.edit :a]     (h/set-attr :href (str "/posts/" (:id post) "/edit"))
+
+  [:.post :.moderate]       (keep-when (moderator? (:username current-user)))
+  [:.post :.moderate :form] (h/set-attr :action (post-path post))
+  [:.post :.moderate [:input (h/attr= :name "hidden")]]
+  (h/set-attr :value (if (:hidden post) "false" "true"))
+
+  [:.post :.moderate [:input (h/attr= :type "submit")]]
+  (h/set-attr :value (if (:hidden post) "unhide" "hide"))
+  
   [:#post_id]            (h/set-attr :value (:id post))
 
   [:.comments :.comment]

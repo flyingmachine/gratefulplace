@@ -7,7 +7,11 @@
 (declare user comment)
 (defentity post
   (belongs-to user)
-  (has-many comment))
+  (has-many comment)
+  (prepare
+   (fn [attributes]
+      (let [hidden (= "true" (:hidden attributes))]
+        (assoc attributes :hidden hidden)))))
 
 (defentity user
   (has-many post)

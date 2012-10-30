@@ -29,6 +29,7 @@
           (tbl :post
                (varchar :title 200 :unique)
                (text :content)
+               (boolean :hidden (default false))
                (refer-to :user))))
   (down [] (drop (table :post))))
 
@@ -36,6 +37,7 @@
   (up [] (create
           (tbl :comment
                (text :content)
+               (boolean :hidden (default false))
                (refer-to :user)
                (refer-to :post))))
   (down [] (drop (table :comment))))

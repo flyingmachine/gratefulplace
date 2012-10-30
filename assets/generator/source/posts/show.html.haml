@@ -7,8 +7,8 @@ title: Grateful Place
       %p Here is some content.
     %footer
       .moderate
-        %form{:action => "/posts/1"}
-          %input{:type => "hidden", :name => "hide", :value => "true"}
+        %form{:action => "/posts/1", :method => "POST"}
+          %input{:type => "hidden", :name => "hidden", :value => "true"}
           %input{:type => "submit", :value => "hide"}
       %span.edit
         %a{:href => "/posts/edit.html"} edit

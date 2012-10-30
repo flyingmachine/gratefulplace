@@ -3,7 +3,8 @@
 
 (defn updated
   [params]
-  (markdown/md-to-html-string (:content params)))
+  {:status 200
+   :body (markdown/md-to-html-string (:content params))})
 
 (defn update-fn
   [finder-fn record-update-fn]

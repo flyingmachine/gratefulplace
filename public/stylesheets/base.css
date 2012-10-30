@@ -506,7 +506,7 @@ strong {
 
 /* line 126, base.css.scss */
 nav {
-  margin-bottom: 1.6875em;
+  padding-bottom: 1.6875em;
   overflow: hidden;
   *zoom: 1; }
   /* line 130, base.css.scss */
@@ -515,26 +515,30 @@ nav {
     /* line 132, base.css.scss */
     nav .main li {
       float: left;
-      margin-right: 1em;
+      margin-right: 1em; }
+    /* line 137, base.css.scss */
+    nav .main a {
       background: rgba(255, 255, 255, 0.3);
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       -ms-border-radius: 3px;
       -o-border-radius: 3px;
-      border-radius: 3px; }
-    /* line 139, base.css.scss */
-    nav .main a {
+      border-radius: 3px;
       color: #444;
       padding: .5em;
       display: block; }
-  /* line 145, base.css.scss */
+      /* line 144, base.css.scss */
+      nav .main a:hover {
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.6); }
+  /* line 150, base.css.scss */
   nav .secondary {
     float: right; }
-    /* line 147, base.css.scss */
+    /* line 152, base.css.scss */
     nav .secondary li {
       padding-top: .5em; }
 
-/* line 153, base.css.scss */
+/* line 158, base.css.scss */
 .page {
   *zoom: 1;
   max-width: 44em;
@@ -551,7 +555,7 @@ nav {
     display: table;
     clear: both; }
 
-/* line 160, base.css.scss */
+/* line 165, base.css.scss */
 #posts {
   width: 100%;
   float: right;
@@ -559,7 +563,7 @@ nav {
   #margin-left: -1em;
   display: inline; }
 
-/* line 164, base.css.scss */
+/* line 169, base.css.scss */
 #posts .post, #post .comment, #post .post {
   background: white;
   -webkit-border-radius: 3px;
@@ -576,16 +580,16 @@ nav {
   *zoom: 1;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 168, base.css.scss */
+  /* line 173, base.css.scss */
   #posts .post header, #posts .post footer, #post .comment header, #post .comment footer, #post .post header, #post .post footer {
     font-size: 0.8125em;
     line-height: 2.07692em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: inherit; }
-  /* line 174, base.css.scss */
+  /* line 179, base.css.scss */
   #posts .post header, #post .comment header, #post .post header {
     float: right; }
-  /* line 178, base.css.scss */
+  /* line 183, base.css.scss */
   #posts .post footer, #post .comment footer, #post .post footer {
     overflow: hidden;
     *zoom: 1;
@@ -595,25 +599,25 @@ nav {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-top: 1px solid #ccc; }
-  /* line 186, base.css.scss */
+  /* line 191, base.css.scss */
   #posts .post .content, #post .comment .content, #post .post .content {
     font-size: 1.125em;
     line-height: 1.5em; }
-    /* line 189, base.css.scss */
+    /* line 194, base.css.scss */
     #posts .post .content p:last-child, #post .comment .content p:last-child, #post .post .content p:last-child {
       margin-bottom: 0; }
-  /* line 195, base.css.scss */
+  /* line 200, base.css.scss */
   #posts .post .author, #post .comment .author, #post .post .author {
     font-weight: bold;
     float: right;
     margin-right: .5em; }
-  /* line 201, base.css.scss */
+  /* line 206, base.css.scss */
   #posts .post .date, #post .comment .date, #post .post .date {
     float: right; }
-  /* line 205, base.css.scss */
+  /* line 210, base.css.scss */
   #posts .post .comments, #post .comment .comments, #post .post .comments {
     float: left; }
-  /* line 209, base.css.scss */
+  /* line 214, base.css.scss */
   #posts .post .favorite, #post .comment .favorite, #post .post .favorite {
     float: left;
     background: #e5f6fd;
@@ -626,26 +630,26 @@ nav {
     -o-border-radius: 1em;
     border-radius: 1em;
     margin-right: .5em; }
-  /* line 219, base.css.scss */
+  /* line 224, base.css.scss */
   #posts .post .edit, #post .comment .edit, #post .post .edit {
     float: right;
     margin-left: .5em; }
 
-/* line 225, base.css.scss */
+/* line 230, base.css.scss */
 #post .comment footer {
   border: none;
   padding: 0;
   margin: 0;
   float: left;
   color: #999; }
-  /* line 232, base.css.scss */
+  /* line 237, base.css.scss */
   #post .comment footer a {
     color: #aac2e5; }
-    /* line 234, base.css.scss */
+    /* line 239, base.css.scss */
     #post .comment footer a:visited {
       color: #9889dd; }
 
-/* line 240, base.css.scss */
+/* line 245, base.css.scss */
 textarea {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -658,7 +662,7 @@ textarea {
   border: 1px solid #ddd;
   height: 135px; }
 
-/* line 250, base.css.scss */
+/* line 255, base.css.scss */
 #new-post, #new-user, .new, .chunk {
   background: white;
   -webkit-border-radius: 3px;
@@ -676,17 +680,17 @@ textarea {
   padding-top: 0.84375em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 255, base.css.scss */
+  /* line 260, base.css.scss */
   #new-post .edit, #new-user .edit, .new .edit, .chunk .edit {
     float: right;
     margin-top: 1em; }
 
-/* line 262, base.css.scss */
+/* line 267, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.84375em; }
 
-/* line 268, base.css.scss */
+/* line 273, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -703,47 +707,47 @@ textarea {
   *zoom: 1;
   padding-top: 0.84375em; }
 
-/* line 272, base.css.scss */
+/* line 277, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 274, base.css.scss */
+  /* line 279, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 278, base.css.scss */
+  /* line 283, base.css.scss */
   table.input tr:last-child td {
     padding-bottom: 0; }
-  /* line 282, base.css.scss */
+  /* line 287, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 286, base.css.scss */
+  /* line 291, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 293, base.css.scss */
+/* line 298, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;
   line-height: 1.8em; }
 
-/* line 299, base.css.scss */
+/* line 304, base.css.scss */
 #user-content h2 {
   margin-bottom: 0; }
-/* line 302, base.css.scss */
+/* line 307, base.css.scss */
 #user-content .local-nav {
   overflow: hidden;
   *zoom: 1;
   margin-bottom: 0.84375em; }
-  /* line 304, base.css.scss */
+  /* line 309, base.css.scss */
   #user-content .local-nav li {
     float: left;
     margin-right: 1em; }
-/* line 312, base.css.scss */
+/* line 317, base.css.scss */
 #user-content div.posts, #user-content div.comments {
   border-top: 1px dotted #eee; }
-/* line 315, base.css.scss */
+/* line 320, base.css.scss */
 #user-content div.post, #user-content div.comment {
   display: block;
   overflow: hidden;
@@ -752,13 +756,13 @@ table.input {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #eee; }
-  /* line 321, base.css.scss */
+  /* line 326, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 325, base.css.scss */
+  /* line 330, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 329, base.css.scss */
+  /* line 334, base.css.scss */
   #user-content div.post .date, #user-content div.comment .date {
     width: 31.81818%;
     float: right;
@@ -766,7 +770,7 @@ table.input {
     #margin-left: -1em;
     display: inline;
     font-style: italic; }
-  /* line 333, base.css.scss */
+  /* line 338, base.css.scss */
   #user-content div.post .content, #user-content div.comment .content {
     width: 65.90909%;
     float: left;
@@ -776,14 +780,14 @@ table.input {
     overflow: hidden;
     text-overflow: ellipsis; }
 
-/* line 342, base.css.scss */
+/* line 347, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.6875em; }
-  /* line 347, base.css.scss */
+  /* line 352, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.84375em;
     border-bottom: none; }

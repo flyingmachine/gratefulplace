@@ -124,7 +124,7 @@ strong {
 }
 
 nav {
-  @include trailer;
+  @include padding-trailer;
   @include clearfix;
   
   .main {
@@ -132,14 +132,19 @@ nav {
     li {
       float: left;
       margin-right: 1em;
-      background: rgba(255, 255, 255, 0.3);
-      @include border-radius(3px); 
     }
 
     a {
+      background: rgba(255, 255, 255, 0.3);
+      @include border-radius(3px);
       color: #444;
       padding: .5em;
       display: block;
+
+      &:hover {
+        text-decoration:none;
+        background: rgba(255, 255, 255, 0.6);
+      }
     }
   }
   .secondary {

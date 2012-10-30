@@ -22,5 +22,5 @@
 
 (def moderator-usernames (clojure.string/split (get (System/getenv) "MODERATOR_NAMES" "higginbotham") #","))
 
-(defn moderate? []
-  (some #(= % (current-username)) moderator-usernames))
+(defn moderator? [username]
+  (some #(= % username) moderator-usernames))

@@ -3,6 +3,7 @@
             markdown)
   (:use [gratefulplace.views.common :exclude [layout nav *template-dir*]]
         gratefulplace.utils
+        gratefulplace.models.permissions
         [cemerick.friend :only (current-authentication)]))
 
 (defn comments
@@ -39,6 +40,7 @@
   [:.post :.content]     (md-content post)
 
   [:.post :.edit]        (keep-when (current-user-owns? post))
+  [:.post :.moderate]    (keep-when (moderator? (:username current-user)))
   ;; TODO more path refactoring
   [:.post :.edit :a]     (h/set-attr :href (str "/posts/" (:id post) "/edit"))
   [:#post_id]            (h/set-attr :value (:id post))

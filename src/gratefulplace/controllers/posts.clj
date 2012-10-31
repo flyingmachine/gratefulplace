@@ -62,10 +62,7 @@
 
 (defn edit
   [id]
-  (let [post (post/by-id id)
-        
-        ])
-  (view/edit ))
+  (view/edit (post/by-id id)))
 
 (def update (update-fn post/by-id post/update!))
 

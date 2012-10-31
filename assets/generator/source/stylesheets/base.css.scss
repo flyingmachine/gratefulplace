@@ -230,8 +230,19 @@ nav {
     width: 2em;
     text-align:center;
     display:block;
+    color: #999;
     @include border-radius(1em);
     margin-right: .5em;
+
+    &:hover {
+      color:#8873e5;
+      text-decoration:none;
+    }
+
+    // include a css animation here
+    &.added {
+      color: $purple;
+    }
   }
 
   .moderate {

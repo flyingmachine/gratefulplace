@@ -42,3 +42,8 @@ validation-check-groups is a seq of alternating messages and validation checks"
             (recur errors (rest v))
             (recur (assoc errors fieldname error-messages) (rest v))))
         errors))))
+
+(defn paginate
+  ([page]
+     (paginate page 20))
+  ([page limit]))

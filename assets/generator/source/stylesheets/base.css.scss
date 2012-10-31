@@ -39,6 +39,12 @@ $total-columns  : 9;
   @include padding-leader;
 }
 
+@mixin alt-font {
+  @include adjust-font-size-to(13px);
+  @include sans-family;
+  line-height: inherit;
+}
+
 @import "formalize";
 
 // Colors
@@ -171,9 +177,7 @@ nav {
   @include padding-trailer(.5);
 
   header, footer {
-    @include adjust-font-size-to(13px);
-    @include sans-family;
-    line-height: inherit;
+    @include alt-font;
   }
 
   header {
@@ -193,6 +197,11 @@ nav {
 
     p:last-child {
       margin-bottom:0;
+    }
+
+    .controls {
+      @include alt-font;
+      @include adjust-font-size-to(13px, 1, 18px);
     }
   }
 

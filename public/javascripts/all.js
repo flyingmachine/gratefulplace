@@ -46,9 +46,17 @@ var Editable = {
     // show the content form
     $(".edit a").click(function(ev) {
       var el = this;
+      var content = Editable.correspondingContent(el).get(0)
+      content.oldHtml = $(content).html()
       $.get($(el).attr("href"), function(data) {
-        Editable.correspondingContent(el).html(data);
+        $(content).html(data);
       });
+      ev.preventDefault();
+    });
+
+    $(".content").on('click', '.cancel', function(ev) {
+      var content = Editable.correspondingContent(this).get(0);
+      $(content).html(content.oldHtml);
       ev.preventDefault();
     });
 

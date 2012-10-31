@@ -15,4 +15,7 @@
 
 (defn all
   []
-  (view/all (favorite/all (current-user-id))))
+  (view/all
+   (if (current-user-id)
+     (favorite/all (current-user-id))
+     [])))

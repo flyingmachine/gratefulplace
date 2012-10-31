@@ -1,5 +1,6 @@
 (ns gratefulplace.controllers.favorites
-  (require [gratefulplace.models.favorite :as favorite])
+  (require [gratefulplace.models.favorite :as favorite]
+           [gratefulplace.views.favorites :as view])
   (use gratefulplace.models.permissions))
 
 (defn create!
@@ -13,4 +14,5 @@
   {:status 200})
 
 (defn all
-  [])
+  []
+  (view/all (favorite/all (current-user-id))))

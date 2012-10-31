@@ -68,6 +68,8 @@
         (users/update params))
 
   ;; favorites
+  (GET  "/favorites" []
+        (favorites/all))
   (POST "/favorites/:post_id" [post_id]
         (favorites/create! post_id))
   

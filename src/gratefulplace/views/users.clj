@@ -51,7 +51,7 @@
   [:title] (h/content (str (:username user) "'s Posts :: Grateful Place"))
   
   [:h2 :.username] (h/content (:username user))
-  [[:di.post         (h/nth-of-type 2)]] nil
+  [[:div.post         (h/nth-of-type 2)]] nil
   [:div.post]         (h/clone-for [post posts]
                                 [:.date]    (h/content (created-on post))
                                 [:.content] (h/content (:content post))

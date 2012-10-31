@@ -2,9 +2,7 @@ var Editable = {
   correspondingContent: function(el) {
     return $(el).parents(".post, .comment").find(".content");
   },
-
-  
-  
+   
   setup: function() {
     // moderation links
     $(".moderate a").click(function(ev) {
@@ -40,6 +38,8 @@ var Editable = {
       ev.preventDefault();
     });
 
+    
+    // cancel
     $(".content").on('click', '.cancel', function(ev) {
       var content = Editable.correspondingContent(this).get(0);
       $(content).html(content.oldHtml);
@@ -57,6 +57,12 @@ var Editable = {
         }
       )
       ev.preventDefault();
+    });
+
+    // formatting help
+    $(".formatting-help a").click(function(ev) {
+      $('.markdown-help').appendTo($(this).parents('form')).removeClass('hidden');
+      ev.preventDefault();
     })
   }
 
@@ -64,5 +70,3 @@ var Editable = {
 }
 
 $(Editable.setup)
-
-

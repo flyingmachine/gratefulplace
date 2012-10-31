@@ -123,7 +123,7 @@ strong {
   color: white;
 }
 
-.content {
+.content, .markdown-help {
   ul {
     list-style: disc inside;
   }
@@ -199,7 +199,7 @@ nav {
       margin-bottom:0;
     }
 
-    .controls {
+    .controls, .formatting-help {
       @include alt-font;
       @include adjust-font-size-to(13px, 1, 18px);
     }
@@ -370,4 +370,26 @@ table.input {
     @include padding-trailer(.5);
     border-bottom: none;
   }
+}
+
+.markdown-help {
+  table {
+    width: 100%;
+  }
+  td:first-child {
+    width: 50%;
+  }
+  td {
+    padding: 0 .5em;
+    border: 1px solid #eee;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.formatting-help {
+  float:right;
+  @include alt-font;
 }

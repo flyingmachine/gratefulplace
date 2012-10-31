@@ -501,7 +501,7 @@ strong {
   color: white; }
 
 /* line 127, base.css.scss */
-.content ul {
+.content ul, .markdown-help ul {
   list-style: disc inside; }
 
 /* line 132, base.css.scss */
@@ -607,7 +607,7 @@ nav {
     #posts .post .content p:last-child, #post .comment .content p:last-child, #post .post .content p:last-child {
       margin-bottom: 0; }
     /* line 202, base.css.scss */
-    #posts .post .content .controls, #post .comment .content .controls, #post .post .content .controls {
+    #posts .post .content .controls, #posts .post .content .formatting-help, #post .comment .content .controls, #post .comment .content .formatting-help, #post .post .content .controls, #post .post .content .formatting-help {
       font-size: 0.8125em;
       line-height: 2.07692em;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -806,3 +806,26 @@ table.input {
   .sub-section:last-child {
     padding-bottom: 0.84375em;
     border-bottom: none; }
+
+/* line 376, base.css.scss */
+.markdown-help table {
+  width: 100%; }
+/* line 379, base.css.scss */
+.markdown-help td:first-child {
+  width: 50%; }
+/* line 382, base.css.scss */
+.markdown-help td {
+  padding: 0 .5em;
+  border: 1px solid #eee; }
+
+/* line 388, base.css.scss */
+.hidden {
+  display: none; }
+
+/* line 392, base.css.scss */
+.formatting-help {
+  float: right;
+  font-size: 0.8125em;
+  line-height: 2.07692em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: inherit; }

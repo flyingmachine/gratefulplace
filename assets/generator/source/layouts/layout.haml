@@ -27,3 +27,48 @@
           %span Logged in as
           %a{:href => ""} higginbotham
     = yield
+  .markdown-help.hidden
+    %table
+      %tbody
+        %tr{:style => "background-color: #ffff99; text-align: center"}
+          %td
+            %em you type:
+          %td
+            %em you see:
+        %tr
+          %td *italics*
+          %td
+            %em italics
+        %tr
+          %td **bold**
+          %td
+            %b bold
+        %tr
+          %td [google!](http://google.com)
+          %td
+            %a{:href => "http://google.com"} google!
+        %tr
+          %td
+            * item 1
+            %br>/
+            * item 2
+            %br>/
+            * item 3
+          %td
+            %ul
+              %li item 1
+              %li item 2
+              %li item 3
+        %tr
+          %td &gt; quoted text
+          %td
+            %blockquote quoted text
+        %tr
+          %td ~~strikethrough~~
+          %td
+            %strike strikethrough
+        %tr
+          %td super^script
+          %td
+            super
+            %sup script

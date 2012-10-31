@@ -81,7 +81,21 @@
 
                [:.edit]      (keep-when (can-modify-record? comment current-user))
                ;; TODO more path refactoring
-               [:.edit :a]   (h/set-attr :href (str "/comments/" (:id comment) "/edit"))))
+               [:.edit :a]   (h/set-attr :href (str "/comments/" (:id comment) "/edit")))
+
+  [:.favorite]
+  (h/do->
+   (h/add-class (when (and
+                       current-user
+                       (contains? (current-user-favorites (:id current-user)) (:id post)))
+                  "added"))
+   (h/set-attr :href
+               (if (and
+                    current-user
+                    (contains? (current-user-favorites (:id current-user)) (:id post)))
+                 
+                 (str "/favorites/" (:id post) "/destroy")
+                 (str "/favorites/" (:id post))))))
 
 (defpage edit "posts/edit.html"
   [post]

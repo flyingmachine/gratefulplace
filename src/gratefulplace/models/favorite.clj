@@ -19,5 +19,6 @@
 (defn all
   [user_id]
   (select e/favorite
+          (fields :user_id :post_id)
           (with e/post)
           (where {:user_id (str->int user_id)})))

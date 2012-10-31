@@ -29,7 +29,8 @@
       
       :else
       (post/all
-       (korma.core/where {:hidden false}))))))
+       (korma.core/where {:hidden false})))
+     current-auth)))
 
 (defn show
   [id]

@@ -47,7 +47,7 @@
 (defn edit
   [username]
   (protect
-   (modify-profile? username)
+   (can-modify-profile? username)
    (let [user (user/one {:username username})]
      (view/edit user nil))))
 
@@ -56,7 +56,7 @@
   [params]
   (let [username (:username params)]
     (protect
-     (modify-profile? username)
+     (can-modify-profile? username)
      (let [validations (cond
                         (:change-password params)
                         ((:change-password user/validation-contexts)

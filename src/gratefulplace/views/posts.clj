@@ -15,7 +15,7 @@
 
 ;; TODO refactor all this username access
 (defpage all "index.html"
-  [posts]
+  [posts current-user]
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
   [:.post] (h/clone-for [post posts]
@@ -25,6 +25,11 @@
                         [:.comments] (h/do->
                                       (h/content (comments post))
                                       (h/set-attr :href (post-path post)))
+                        [:.favorite]
+                        (h/add-class (when (and
+                                            current-user
+                                            (contains? (current-user-favorites (:id current-user)) (:id post)))
+                                       "added"))
                         [:.favorite] (h/set-attr :href (str "/favorites/" (:id post)))))
 
 (defpage show-new "posts/new.html"

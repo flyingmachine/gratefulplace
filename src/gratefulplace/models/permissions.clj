@@ -1,6 +1,11 @@
 (ns gratefulplace.models.permissions
   (:require [cemerick.friend :as friend]))
 
+(def moderator-usernames (clojure.string/split (get (System/getenv) "MODERATOR_NAMES" "higginbotham") #","))
+
+(defn moderator? [username]
+  (some #(= % username) moderator-usernames))
+
 (defn current-username []
   (:username (friend/current-authentication)))
 
@@ -8,7 +13,9 @@
   (:id (friend/current-authentication)))
 
 (defn can-modify-profile? [user]
-  (= (:username user) (current-username)))
+  (or
+   (= user (current-username))
+   (= (:username user) (current-username))))
 
 (defn can-modify-record?
   ([record]
@@ -24,9 +31,3 @@
   `(if (not ~check)
      (ring.util.response/redirect "/")
      (do ~@body)))
-
-
-(def moderator-usernames (clojure.string/split (get (System/getenv) "MODERATOR_NAMES" "higginbotham") #","))
-
-(defn moderator? [username]
-  (some #(= % username) moderator-usernames))

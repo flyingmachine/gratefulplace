@@ -1,8 +1,10 @@
 (ns gratefulplace.views.common
   (:require [net.cgrand.enlive-html :as h]
+            [gratefulplace.models.favorite :as favorite]
             markdown)
   (use [cemerick.friend :only (current-authentication)]
-       gratefulplace.utils))
+       gratefulplace.utils
+       gratefulplace.models.permissions))
 
 (defonce *template-dir* "gratefulplace/templates/")
 
@@ -110,3 +112,7 @@
   [condition]
   `(when ~condition
      #(identity %)))
+
+(defn current-user-favorites
+  [user-id]
+  (into #{} (map :post_id (favorite/all user-id))))

@@ -13,6 +13,6 @@
     (let [id     (:id params)
           record (finder-fn id)]
       (protect
-       (can-modify-record? (:user_id record))
+       (can-modify-record? record)
        (record-update-fn {:id id} params)
        (updated params)))))

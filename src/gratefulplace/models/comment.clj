@@ -23,17 +23,12 @@
     sel
     (-> sel where)))
 
-(defn all
-  ([]
-     (all {}))
-  ([conditions]
-     ;; TODO fix this... shouldn't have to put in a bogus where
-     (let [conditions (if (empty? conditions) true conditions)]
-       (select e/comment
-             (with e/user
-                   (fields :username))
-             (where (str->int conditions :post_id :user_id))
-             (order :created_on :DESC)))))
+(defmacro all
+  [& clauses]
+  `(select e/comment
+           (with e/user (fields :username))
+           ~@clauses
+           (order :created_on :DESC)))
 
 (defn num-records
   ([] (num-records {}))

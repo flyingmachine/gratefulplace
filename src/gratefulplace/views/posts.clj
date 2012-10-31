@@ -34,7 +34,7 @@
                          (h/html-content "You'll need to <a href=\"/login\">log in</a> to post")))
 
 (defpage show "posts/show.html"
-  [post current-user]
+  [post comments current-user]
   [:.post :.author]      (linked-username post)
   [:.post :.date]        (h/content (created-on post))
   [:.post :.content]     (md-content post)
@@ -53,11 +53,16 @@
   [:#post_id]            (h/set-attr :value (:id post))
 
   [:.comments :.comment]
-  (h/clone-for [comment (:comment post)]
+  (h/clone-for [comment comments]
                [:header]     (h/set-attr :id (str "comment-" (:id comment)))
                [:.author :a] (linked-username comment)
                [:.date]      (h/content (created-on comment))
                [:.content]   (md-content comment)
+
+               [:.moderate]  (keep-when (moderator? (:username current-user)))
+               [:.moderate :a] (h/do->
+                                (set-comment-path comment)
+                                (h/content (if (:hidden comment) "unhide" "hide")))
 
                [:.edit]      (keep-when (can-modify-record? comment current-user))
                ;; TODO more path refactoring

@@ -6,6 +6,7 @@ var Editable = {
   
   
   setup: function() {
+    // moderation links
     $(".moderate a").click(function(ev) {
       var el = this;
 
@@ -18,7 +19,7 @@ var Editable = {
       }
       
       $.post(
-        $(el).attr("action"),
+        $(el).attr("href"),
         {hidden: hidden},
         function() {}
       )

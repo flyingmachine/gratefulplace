@@ -5,13 +5,16 @@
         gratefulplace.utils))
 
 (declare user comment)
+
+(defn hidden-text->boolean
+  [attributes]
+  (let [hidden (= "true" (:hidden attributes))]
+        (assoc attributes :hidden hidden)))
+
 (defentity post
   (belongs-to user)
   (has-many comment)
-  (prepare
-   (fn [attributes]
-      (let [hidden (= "true" (:hidden attributes))]
-        (assoc attributes :hidden hidden)))))
+  (prepare hidden-text->boolean))
 
 (defentity user
   (has-many post)
@@ -31,7 +34,11 @@
   (belongs-to user)
   (belongs-to post)
 
-  (prepare #(str->int % :post_id)))
+  (prepare
+   (fn [attributes]
+     (-> attributes
+         hidden-text->boolean
+         (str->int :post_id)))))
 
 (defentity user_session
   (prepare #(merge % {:data (str (:data %))}))

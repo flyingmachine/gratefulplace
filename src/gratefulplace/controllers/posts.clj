@@ -9,6 +9,7 @@
 
   (:use [gratefulplace.controllers.common :only (if-valid)]
         gratefulplace.controllers.common.content
+        gratefulplace.utils
         gratefulplace.models.permissions))
 
 (def validations
@@ -37,11 +38,34 @@
 
 (defn show
   [id]
-  (view/show (post/by-id id) (friend/current-authentication)))
+  (let [current-auth (friend/current-authentication)
+        base-cond {:post_id (str->int id)}
+        comments (cond
+                  (moderator? (:username current-auth))
+                  (comment/all
+                   (korma.core/where base-cond))
+                  
+                  current-auth
+                  (comment/all
+                   (korma.core/where
+                    (and
+                     base-cond
+                     (or {:hidden false}
+                         {:user_id [= (:id current-auth)]}))))
+                  
+                  :else
+                  (comment/all (korma.core/where (and base-cond {:hidden false}))))]
+    
+    (view/show (post/by-id id)
+               comments
+               (friend/current-authentication))))
 
 (defn edit
   [id]
-  (view/edit (post/by-id id)))
+  (let [post (post/by-id id)
+        
+        ])
+  (view/edit ))
 
 (def update (update-fn post/by-id post/update!))
 

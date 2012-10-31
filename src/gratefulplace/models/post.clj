@@ -21,7 +21,8 @@
            (with e/user
                  (fields :username))
            (with e/comment
-                 (aggregate (~'count :*) :count))
+                 (aggregate (~'count :*) :count)
+                 (where {:hidden false}))
            ~@clauses
            (order :created_on :DESC)))
 
@@ -30,8 +31,4 @@
   (first (select e/post
                  (with e/user
                        (fields :username))
-                 (with e/comment
-                       (fields :content :created_on :id :user_id)
-                       (with e/user
-                             (fields :username)))
                  (where {:id (str->int id)}))))

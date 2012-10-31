@@ -16,8 +16,8 @@
   (GET  "/" []
         (posts/all))
   
-  (GET  "/posts" [page]
-        (posts/all page))
+  (GET  "/posts" []
+        (posts/all))
   
   (GET  "/posts/new" []
         (posts/show-new))

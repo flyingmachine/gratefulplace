@@ -14,7 +14,7 @@
 
 ;; TODO any way I could tidy this up?
 (defn all
-  [page]
+  []
   (let [current-auth (friend/current-authentication)]
     (view/all 
      (cond

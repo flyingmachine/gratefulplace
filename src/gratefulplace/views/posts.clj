@@ -18,19 +18,28 @@
   [posts current-user]
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
-  [:.post] (h/clone-for [post posts]
-                        [:.author :a]   (linked-username post)
-                        [:.date]     (h/content (created-on post))
-                        [:.content]  (md-content post)
-                        [:.comments] (h/do->
-                                      (h/content (comments post))
-                                      (h/set-attr :href (post-path post)))
-                        [:.favorite]
-                        (h/add-class (when (and
-                                            current-user
-                                            (contains? (current-user-favorites (:id current-user)) (:id post)))
-                                       "added"))
-                        [:.favorite] (h/set-attr :href (str "/favorites/" (:id post)))))
+  [:.post] (h/clone-for
+            [post posts]
+            [:.author :a]   (linked-username post)
+            [:.date]     (h/content (created-on post))
+            [:.content]  (md-content post)
+            [:.comments] (h/do->
+                          (h/content (comments post))
+                          (h/set-attr :href (post-path post)))
+            ;; TODO this is an unholy mess
+            [:.favorite]
+            (h/do->
+             (h/add-class (when (and
+                                 current-user
+                                 (contains? (current-user-favorites (:id current-user)) (:id post)))
+                            "added"))
+             (h/set-attr :href
+                         (if (and
+                              current-user
+                              (contains? (current-user-favorites (:id current-user)) (:id post)))
+                                        
+                           (str "/favorites/" (:id post) "/destroy")
+                           (str "/favorites/" (:id post)))))))
 
 (defpage show-new "posts/new.html"
   [attributes errors]

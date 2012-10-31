@@ -24,7 +24,8 @@
                         [:.content]  (md-content post)
                         [:.comments] (h/do->
                                       (h/content (comments post))
-                                      (h/set-attr :href (post-path post)))))
+                                      (h/set-attr :href (post-path post)))
+                        [:.favorite] (h/set-attr :href (str "/favorites/" (:id post)))))
 
 (defpage show-new "posts/new.html"
   [attributes errors]

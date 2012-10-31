@@ -43,3 +43,9 @@
 (defentity user_session
   (prepare #(merge % {:data (str (:data %))}))
   (transform #(deserialize % :data)))
+
+(defentity favorite
+  (belongs-to post)
+  (belongs-to user)
+  
+  (prepare #(str->int % :post_id :user_id)))

@@ -1,10 +1,11 @@
 (ns gratefulplace.middleware.routes
   (:require compojure.route
             compojure.handler
-            [gratefulplace.controllers.posts    :as posts]
-            [gratefulplace.controllers.users    :as users]
-            [gratefulplace.controllers.comments :as comments]
-            [gratefulplace.controllers.session  :as session]
+            [gratefulplace.controllers.posts     :as posts]
+            [gratefulplace.controllers.users     :as users]
+            [gratefulplace.controllers.comments  :as comments]
+            [gratefulplace.controllers.favorites :as favorites]
+            [gratefulplace.controllers.session   :as session]
             [gratefulplace.models.user :as user]
             [cemerick.friend :as friend])
   (:use [compojure.core :only (GET PUT POST ANY defroutes)]))
@@ -65,6 +66,13 @@
 
   (POST "/users/:username" {params :params}
         (users/update params))
+
+  ;; favorites
+  (POST "/favorites/:post_id" [post_id]
+        (favorites/create! post_id))
+  
+  (POST "/favorites/:post_id/destroy" [post_id]
+        (favorites/destroy! post_id))
 
   ;; auth
   (GET "/login" {params :params}

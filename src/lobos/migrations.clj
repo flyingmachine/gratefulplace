@@ -5,22 +5,23 @@
                config helpers)))
 
 (defmigration add-users-table
-  (up [] (create
-          (tbl :user
-               (varchar :username 50 :unique)
-               (check :username (> (length :username) 1))
+  (up []
+      (create
+       (tbl :user
+            (varchar :username 50 :unique)
+            (check :username (> (length :username) 1))
 
-               (varchar :display_name 255)
+            (varchar :display_name 255)
 
-               (varchar :email 255 :unique)
-               (check :email (> (length :email) 1))
+            (varchar :email 255 :unique)
+            (check :email (> (length :email) 1))
 
-               (varchar :password 255)
+            (varchar :password 255)
 
-               (text :roles)
-               (text :about))
-
-          (index :user [:username :email])))
+            (text :roles)
+            (text :about)))
+      (create (index :user [:username]))
+      (create (index :user [:email])))
   
   (down [] (drop (table :user))))
 
@@ -47,6 +48,13 @@
           (tbl :user_session
                (varchar :key 255 :unique)
                (text :data)))
-      
-      (index :user_session [:key]))
+      (create (index :user_session [:key])))
   (down [] (drop (table :user_session))))
+
+(defmigration add-favorites-table
+  (up [] (create
+          (tbl :favorite
+               (refer-to :user)
+               (refer-to :post)))
+      (create (index :favorite [:user_id :post_id] :unique)))
+  (down [] (drop (table :favorite))))

@@ -607,25 +607,29 @@ nav {
     #posts .post .content p:last-child, #post .comment .content p:last-child, #post .post .content p:last-child {
       margin-bottom: 0; }
     /* line 202, base.css.scss */
-    #posts .post .content .controls, #posts .post .content .formatting-help, #post .comment .content .controls, #post .comment .content .formatting-help, #post .post .content .controls, #post .post .content .formatting-help {
+    #posts .post .content .controls, #post .comment .content .controls, #post .post .content .controls {
       font-size: 0.8125em;
       line-height: 2.07692em;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       line-height: inherit;
       font-size: 0.72222em;
       line-height: 2.07692em; }
-  /* line 209, base.css.scss */
+      /* line 206, base.css.scss */
+      #posts .post .content .controls .formatting-help, #post .comment .content .controls .formatting-help, #post .post .content .controls .formatting-help {
+        font-size: 1em;
+        line-height: 2.07692em; }
+  /* line 213, base.css.scss */
   #posts .post .author, #post .comment .author, #post .post .author {
     font-weight: bold;
     float: right;
     margin-right: .5em; }
-  /* line 215, base.css.scss */
+  /* line 219, base.css.scss */
   #posts .post .date, #post .comment .date, #post .post .date {
     float: right; }
-  /* line 219, base.css.scss */
+  /* line 223, base.css.scss */
   #posts .post .comments, #post .comment .comments, #post .post .comments {
     float: left; }
-  /* line 223, base.css.scss */
+  /* line 227, base.css.scss */
   #posts .post .favorite, #post .comment .favorite, #post .post .favorite {
     float: left;
     background: #e5f6fd;
@@ -638,33 +642,33 @@ nav {
     -o-border-radius: 1em;
     border-radius: 1em;
     margin-right: .5em; }
-  /* line 233, base.css.scss */
+  /* line 237, base.css.scss */
   #posts .post .moderate, #post .comment .moderate, #post .post .moderate {
     float: right;
     margin-left: .5em; }
-  /* line 238, base.css.scss */
+  /* line 242, base.css.scss */
   #posts .post .edit, #post .comment .edit, #post .post .edit {
     float: right;
     margin-left: .5em; }
-  /* line 243, base.css.scss */
+  /* line 247, base.css.scss */
   #posts .post textarea, #post .comment textarea, #post .post textarea {
     font-size: 1em;
     line-height: 1.5em; }
 
-/* line 248, base.css.scss */
+/* line 252, base.css.scss */
 #post .comment footer {
   border: none;
   margin: 0;
   float: left;
   color: #999; }
-  /* line 254, base.css.scss */
+  /* line 258, base.css.scss */
   #post .comment footer a {
     color: #aac2e5; }
-    /* line 256, base.css.scss */
+    /* line 260, base.css.scss */
     #post .comment footer a:visited {
       color: #9889dd; }
 
-/* line 262, base.css.scss */
+/* line 266, base.css.scss */
 textarea {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -677,7 +681,7 @@ textarea {
   border: 1px solid #ddd;
   height: 135px; }
 
-/* line 272, base.css.scss */
+/* line 276, base.css.scss */
 #new-post, #new-user, .new, .chunk {
   background: white;
   -webkit-border-radius: 3px;
@@ -695,17 +699,17 @@ textarea {
   padding-top: 1.6875em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 277, base.css.scss */
+  /* line 281, base.css.scss */
   #new-post .edit, #new-user .edit, .new .edit, .chunk .edit {
     float: right;
     margin-top: 1em; }
 
-/* line 284, base.css.scss */
+/* line 288, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.84375em; }
 
-/* line 290, base.css.scss */
+/* line 294, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -722,47 +726,47 @@ textarea {
   *zoom: 1;
   padding-top: 1.6875em; }
 
-/* line 294, base.css.scss */
+/* line 298, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 296, base.css.scss */
+  /* line 300, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 300, base.css.scss */
+  /* line 304, base.css.scss */
   table.input tr:last-child td {
     padding-bottom: 0; }
-  /* line 304, base.css.scss */
+  /* line 308, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 308, base.css.scss */
+  /* line 312, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 315, base.css.scss */
+/* line 319, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;
   line-height: 1.8em; }
 
-/* line 321, base.css.scss */
+/* line 325, base.css.scss */
 #user-content h2 {
   margin-bottom: 0; }
-/* line 324, base.css.scss */
+/* line 328, base.css.scss */
 #user-content .local-nav {
   overflow: hidden;
   *zoom: 1;
   margin-bottom: 0.84375em; }
-  /* line 326, base.css.scss */
+  /* line 330, base.css.scss */
   #user-content .local-nav li {
     float: left;
     margin-right: 1em; }
-/* line 334, base.css.scss */
+/* line 338, base.css.scss */
 #user-content div.posts, #user-content div.comments {
   border-top: 1px dotted #eee; }
-/* line 337, base.css.scss */
+/* line 341, base.css.scss */
 #user-content div.post, #user-content div.comment {
   display: block;
   overflow: hidden;
@@ -771,13 +775,13 @@ table.input {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #eee; }
-  /* line 343, base.css.scss */
+  /* line 347, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 347, base.css.scss */
+  /* line 351, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 351, base.css.scss */
+  /* line 355, base.css.scss */
   #user-content div.post .date, #user-content div.comment .date {
     width: 31.81818%;
     float: right;
@@ -785,7 +789,7 @@ table.input {
     #margin-left: -1em;
     display: inline;
     font-style: italic; }
-  /* line 355, base.css.scss */
+  /* line 359, base.css.scss */
   #user-content div.post .content, #user-content div.comment .content {
     width: 65.90909%;
     float: left;
@@ -795,34 +799,34 @@ table.input {
     overflow: hidden;
     text-overflow: ellipsis; }
 
-/* line 364, base.css.scss */
+/* line 368, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.6875em; }
-  /* line 369, base.css.scss */
+  /* line 373, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.84375em;
     border-bottom: none; }
 
-/* line 376, base.css.scss */
+/* line 380, base.css.scss */
 .markdown-help table {
   width: 100%; }
-/* line 379, base.css.scss */
+/* line 383, base.css.scss */
 .markdown-help td:first-child {
   width: 50%; }
-/* line 382, base.css.scss */
+/* line 386, base.css.scss */
 .markdown-help td {
   padding: 0 .5em;
   border: 1px solid #eee; }
 
-/* line 388, base.css.scss */
+/* line 392, base.css.scss */
 .hidden {
   display: none; }
 
-/* line 392, base.css.scss */
+/* line 396, base.css.scss */
 .formatting-help {
   float: right;
   font-size: 0.8125em;

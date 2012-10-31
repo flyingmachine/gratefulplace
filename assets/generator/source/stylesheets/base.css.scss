@@ -199,9 +199,13 @@ nav {
       margin-bottom:0;
     }
 
-    .controls, .formatting-help {
+    .controls {
       @include alt-font;
       @include adjust-font-size-to(13px, 1, 18px);
+      
+      .formatting-help {
+        @include adjust-font-size-to(13px, 1, 13px);
+      }  
     }
   }
 

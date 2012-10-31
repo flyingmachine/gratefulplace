@@ -60,7 +60,7 @@ var Editable = {
     });
 
     // formatting help
-    $(".formatting-help a").click(function(ev) {
+    $("form, .content").on('click', '.formatting-help a', function(ev) {
       $('.markdown-help').appendTo($(this).parents('form')).removeClass('hidden');
       ev.preventDefault();
     })

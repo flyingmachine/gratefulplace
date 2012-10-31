@@ -4,6 +4,11 @@
   (:use korma.core
         gratefulplace.utils))
 
+(def validations
+  {:content
+   ["Whoops! You forgot to write anything"
+    #(> (count %) 1)]})
+
 (defn create!
   [attributes]
   (insert e/post (values attributes)))

@@ -15,10 +15,13 @@
 
 (defn create!
   [params]
-  (let [comment (comment/create! (assoc params
+  (if-valid
+   params comment/validations errors
+   (let [comment (comment/create! (assoc params
                                    :user_id
                                    (:id (friend/current-authentication))))]
-    (res/redirect (str "/posts/" (:post_id params) "#comment-" (:id comment)))))
+    (res/redirect (str "/posts/" (:post_id params) "#comment-" (:id comment))))
+   (res/redirect (str "/posts/" (:post_id params) "?blank-comment=true"))))
 
 (defn edit
   [id]

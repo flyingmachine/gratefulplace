@@ -12,11 +12,6 @@
         gratefulplace.utils
         gratefulplace.models.permissions))
 
-(def validations
-  [[:content
-    ["Whoops! You forgot to write anything"
-     #(> (count %) 4)]]])
-
 ;; TODO any way I could tidy this up?
 (defn all
   []
@@ -74,7 +69,7 @@
   [params]
 
   (if-valid
-   params validations errors
+   params post/validations errors
    (do
      (post/create! (assoc params
                      :user_id

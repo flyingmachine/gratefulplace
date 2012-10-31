@@ -6,6 +6,11 @@
         gratefulplace.utils
         gratefulplace.models.entities))
 
+(def validations
+  {:content
+   ["Whoops! You forgot to write anything"
+    #(> (count %) 1)]})
+
 (defn create!
   [attributes]
   (insert e/comment (values attributes)))

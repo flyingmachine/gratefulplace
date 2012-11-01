@@ -58,8 +58,10 @@
                   (comment/all (korma.core/where (and base-cond {:hidden false})))))))
 
 (defn edit
-  [id]
-  (view/edit (post/by-id id)))
+  [req]
+  (view
+   view/edit
+   :post (post/by-id (get-in req [:params :id]))))
 
 (def update (update-fn post/by-id post/update!))
 

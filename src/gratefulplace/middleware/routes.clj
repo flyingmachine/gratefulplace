@@ -23,8 +23,8 @@
   (route GET "/" posts/all)
   (route GET "/posts" posts/all)
   (route GET "/posts/new" posts/show-new)
-  (POST "/posts" {params :params}
-        (friend/authorize #{:user} (posts/create! params)))
+  (POST "/posts" req
+        (friend/authorize #{:user} (posts/create! req)))
   (route GET "/posts/:id" posts/show)
   (route GET "/posts/:id/edit" posts/edit)
   (route POST "/posts/:id" posts/update)

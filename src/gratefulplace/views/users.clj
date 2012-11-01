@@ -79,7 +79,7 @@
   [:textarea] (h/content (:about user))
   [:form] (h/set-attr :action (user-path user))
 
-  [:.about :a] (set-user-path user)
+  [:.edit :a] (set-user-path user)
 
   [:#change-password :.errors] (error-content errors :change-password)
 

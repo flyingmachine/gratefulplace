@@ -9,8 +9,9 @@
 
 (defn update-fn
   [finder-fn record-update-fn]
-  (fn [params]
-    (let [id     (:id params)
+  (fn [req]
+    (let [params (:params req)
+          id     (:id params)
           record (finder-fn id)]
       (protect
        (can-modify-record? record)

@@ -1,7 +1,7 @@
 (ns gratefulplace.controllers.favorites
-  (require [gratefulplace.models.favorite :as favorite]
+  (:require [gratefulplace.models.favorite :as favorite]
            [gratefulplace.views.favorites :as view])
-  (use gratefulplace.models.permissions))
+  (:use [gratefulplace.controllers.common :only (if-valid view)]))
 
 (defn create!
   [post_id]
@@ -14,8 +14,9 @@
   {:status 200})
 
 (defn all
-  []
-  (view/all
-   (if (current-user-id)
-     (favorite/all (current-user-id))
-     [])))
+  [req]
+  (view
+   view/all
+   :posts (if (current-user-id)
+            (favorite/all (current-user-id))
+            [])))

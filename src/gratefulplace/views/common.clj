@@ -31,6 +31,21 @@
   (when (current-authentication)
     (h/content "Logged in as")))
 
+;; Need to come up with better name
+;; Bundles together some defsnippet commonalities for user with the
+;; layout template
+;;
+;; TODO destructuring doesn't work in argnames
+(defmacro defpage
+  [name file [& argnames] & body]
+  `(do
+     (h/defsnippet ~(symbol (str name "*")) (str *template-dir* ~file) [:html]
+       [~@argnames]
+       ~@body)
+     (defn ~name
+       [{:keys [~@argnames]}]
+       (layout (~(symbol (str name "*")) ~@argnames)))))
+
 
 ;; TODO here's another refactoring! WooooOOO
 (defn user-path
@@ -59,21 +74,6 @@
 (defn set-comment-path
   [x]
   (h/set-attr :href (comment-path x)))
-
-;; Need to come up with better name
-;; Bundles together some defsnippet commonalities for user with the
-;; layout template
-;;
-;; TODO destructuring doesn't work in argnames
-(defmacro defpage
-  [name file [& argnames] & body]
-  `(do
-     (h/defsnippet ~(symbol (str name "*")) (str *template-dir* ~file) [:html]
-       [~@argnames]
-       ~@body)
-     (defn ~name
-       [{:keys [~@argnames]}]
-       (layout (~(symbol (str name "*")) ~@argnames)))))
 
 (defn md-content
   [content]

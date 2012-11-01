@@ -49,8 +49,10 @@ validation-check-groups is a seq of alternating messages and validation checks"
      (paginate page 20))
   ([page limit]))
 
-(defn view
+(defmacro view
   [view-fn & keys]
-  (let [x {:current-auth (friend/current-authentication)
-           :errors {}}]
-    (view-fn (into x (map vec (partition 2 keys))))))
+  `(let [x# {:current-auth (friend/current-authentication)
+             :errors {}
+             :params (:params ~'req)
+             :req ~'req}]
+     (~view-fn (into x# (map vec (partition 2 ~(vec keys)))))))

@@ -63,17 +63,17 @@
 (def update (update-fn post/by-id post/update!))
 
 (defn show-new
-  []
-  (view/show-new nil nil))
+  [req]
+  (view view/show-new))
 
 (defn create!
-  [params]
-
-  (if-valid
-   params post/validations errors
-   (do
-     (post/create! (assoc params
-                     :user_id
-                     (:id (friend/current-authentication))))
-     (res/redirect "/"))
-   (view/show-new params errors)))
+  [req]
+  (let [params (:params req)]
+    (if-valid
+     params post/validations errors
+     (do
+       (post/create! (assoc params
+                       :user_id
+                       (:id (friend/current-authentication))))
+       (res/redirect "/"))
+     (view view/show-new :errors errors))))

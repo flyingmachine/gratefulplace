@@ -37,9 +37,9 @@
                ((h/set-attr :href (str "/favorites/" (:id post))) node)))))
 
 (defpage show-new "posts/new.html"
-  [attributes errors]
-  [:#content :textarea] (h/content (:content attributes))
-  [:#content :.errors] (if (current-authentication)
+  [params errors current-auth]
+  [:#content :textarea] (h/content (:content params))
+  [:#content :.errors] (if current-auth
                          (error-content errors :content)
                          (h/html-content "You'll need to <a href=\"/login\">log in</a> to post")))
 

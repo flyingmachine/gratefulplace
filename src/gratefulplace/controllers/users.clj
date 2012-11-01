@@ -29,8 +29,10 @@
        {:body (view view/show-new :errors errors)}))))
 
 (defn show
-  [username]
-  (view/show (user/for-user-page {:username username})))
+  [req]
+  (view
+   view/show
+   :user (user/for-user-page (:params req))))
 
 (defn posts
   [username]

@@ -21,7 +21,7 @@
   (md-content
    (let [about (:about user)]
      (self-unless-fn about empty?
-       "This user hasn't entered info yet."))))
+       "This user hasn't customized their profile yet."))))
 
 (defn local-nav
   [node user]

@@ -30,8 +30,8 @@
   (route POST "/posts/:id" posts/update)
   
   ;; comments
-  (POST "/comments" {params :params}
-        (friend/authorize #{:user} (comments/create! params)))
+  (POST "/comments" req
+        (friend/authorize #{:user} (comments/create! req)))
 
   (route GET "/comments/:id/edit" comments/edit)
   (route POST "/comments/:id" comments/update)

@@ -25,20 +25,16 @@
             [:.comments]  (h/do->
                            (h/content (comments post))
                            (h/set-attr :href (post-path post)))
-            ;; TODO this is an unholy mess
+            
             [:.favorite]
-            (h/do->
-             (h/add-class (when (and
-                                 current-auth
-                                 (contains? (current-user-favorites (:id current-auth)) (:id post)))
-                            "added"))
-             (h/set-attr :href
-                         (if (and
-                              current-auth
-                              (contains? (current-user-favorites (:id current-auth)) (:id post)))
-                           
-                           (str "/favorites/" (:id post) "/destroy")
-                           (str "/favorites/" (:id post)))))))
+            (fn [node]
+              (if (and
+                   current-auth
+                   (contains? (current-user-favorites (:id current-auth)) (:id post)))
+               (-> node
+                   ((h/set-attr :href (str "/favorites/" (:id post) "/destroy")))
+                   ((h/add-class "added")))
+               ((h/set-attr :href (str "/favorites/" (:id post))) node)))))
 
 (defpage show-new "posts/new.html"
   [attributes errors]

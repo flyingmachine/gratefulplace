@@ -7,13 +7,26 @@
             [cemerick.friend :as friend]
             [cemerick.friend.workflows :as workflows])
 
-  (:use [gratefulplace.controllers.common :only (if-valid)]
+  (:use [gratefulplace.controllers.common :only (if-valid view)]
         gratefulplace.models.permissions))
 
 
 (defn show-new
-  []
-  (view/show-new nil nil))
+  [req]
+  (view view/show-new))
+
+(defn create!
+  [req]
+  (let [{:keys [uri request-method params]} req]
+    (when (and (= uri "/users")
+               (= request-method :post))
+      (if-valid
+       params
+       (:create user/validation-contexts)
+       errors
+       
+       (workflows/make-auth (user/create! params))
+       {:body (view view/show-new :errors errors)}))))
 
 (defn show
   [username]
@@ -32,17 +45,6 @@
     (view/comments
      user
      (comment/all {:user_id (:id user)}))))
-
-(defn create! [{:keys [uri request-method params]}]
-  (when (and (= uri "/users")
-             (= request-method :post))
-    (if-valid
-     params
-     (:create user/validation-contexts)
-     errors
-     
-     (workflows/make-auth (user/create! params))
-     {:body (view/show-new params errors)})))
 
 (defn edit
   [username]

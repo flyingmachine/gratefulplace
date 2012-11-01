@@ -5,13 +5,13 @@
         gratefulplace.models.permissions))
 
 (defpage show-new "users/new.html"
-  [attributes errors]
-  [:#username :input] (h/set-attr :value (:username attributes))
+  [params errors]
+  [:#username :input] (h/set-attr :value (:username params))
   [:#username :.errors] (error-content errors :username)
   
   [:#password :.errors] (error-content errors :password)
   
-  [:#email :input] (h/set-attr :value (:email attributes))
+  [:#email :input] (h/set-attr :value (:email params))
   [:#email :.errors] (error-content errors :email))
 
 

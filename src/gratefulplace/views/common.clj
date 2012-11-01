@@ -72,7 +72,7 @@
        [~@argnames]
        ~@body)
      (defn ~name
-       [~@argnames]
+       [{:keys [~@argnames]}]
        (layout (~(symbol (str name "*")) ~@argnames)))))
 
 (defn md-content

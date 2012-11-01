@@ -10,79 +10,53 @@
             [cemerick.friend :as friend])
   (:use [compojure.core :only (GET PUT POST ANY defroutes)]))
 
+
+(defmacro route
+  [method path handler]
+  `(~method ~path req#
+            (~handler req#)))
+
 (defroutes routes
   (compojure.route/files "/" {:root "public"})
 
   ;; posts
-  (GET  "/" []
-        (posts/all))
-  
-  (GET  "/posts" []
-        (posts/all))
-  
-  (GET  "/posts/new" []
-        (posts/show-new))
-  
+  (route GET "/" posts/all)
+  (route GET "/posts" posts/all)
+  (route GET "/posts/new" posts/show-new)
   (POST "/posts" {params :params}
         (friend/authorize #{:user} (posts/create! params)))
-  
-  (GET  "/posts/:id" [id]
-        (posts/show id))
-  
-  (GET  "/posts/:id/edit" [id]
-        (posts/edit id))
-
-  (POST "/posts/:id" {params :params}
-        (posts/update params))
+  (route GET "/posts/:id" posts/show)
+  (route GET "/posts/:id/edit" posts/edit)
+  (route POST "/posts/:id" posts/update)
   
   ;; comments
   (POST "/comments" {params :params}
         (friend/authorize #{:user} (comments/create! params)))
 
-  (GET  "/comments/:id/edit" [id]
-        (comments/edit id))
-
-  (POST "/comments/:id" {params :params}
-        (comments/update params))
+  (route GET "/comments/:id/edit" comments/edit)
+  (route POST "/comments/:id" comments/update)
 
   ;; users
-  (GET  "/users/new" []
-        (users/show-new))
+  (route GET "/users/new" users/show-new)
+  (route POST "/users" users/create!)
+  (route GET "/users/:username" users/show)
+  (route GET "/users/:username/edit" users/edit)
+  (route GET "/users/:username/posts" users/posts)
+  (route GET "/users/:username/comments" users/comments)
+  (route POST "/users/:username" users/update)
   
-  (POST "/users" {params :params}
-        (users/create! params))
-
-  (GET  "/users/:username" [username]
-        (users/show username))
-  
-  (GET  "/users/:username/edit" [username]
-        (users/edit username))
-
-  (GET  "/users/:username/posts" [username]
-        (users/posts username))
-
-  (GET  "/users/:username/comments" [username]
-        (users/comments username))
-
-  (POST "/users/:username" {params :params}
-        (users/update params))
-
   ;; favorites
-  (GET  "/favorites" []
-        (favorites/all))
+  (route GET "/favorites" favorites/all)
   (POST "/favorites/:post_id" [post_id]
-        (favorites/create! post_id))
-  
+        (friend/authorize #{:user} (favorites/create! post_id)))
   (POST "/favorites/:post_id/destroy" [post_id]
-        (favorites/destroy! post_id))
+        (friend/authorize #{:user} (favorites/destroy! post_id)))
 
   ;; auth
-  (GET "/login" {params :params}
-       (session/show-new params))
-  (POST "/login" []
-       (session/show-new))
+  (route GET "/login" session/show-new)
+  (route POST "/login" session/show-new)
   (friend/logout
-   (ANY "/logout" request
+   (ANY "/logout" []
         (ring.util.response/redirect "/")))
   
   (compojure.route/not-found "Sorry, there's nothing here."))

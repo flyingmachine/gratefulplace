@@ -13,31 +13,30 @@
       "Comment"
       (str  comment-count " comments"))))
 
-;; TODO refactor all this username access
 (defpage all "index.html"
-  [posts current-user]
+  [data current-auth]
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
   [:.post] (h/clone-for
-            [post posts]
-            [:.author :a]   (linked-username post)
-            [:.date]     (h/content (created-on post))
-            [:.content]  (md-content post)
-            [:.comments] (h/do->
-                          (h/content (comments post))
-                          (h/set-attr :href (post-path post)))
+            [post data]
+            [:.author :a] (linked-username post)
+            [:.date]      (h/content (created-on post))
+            [:.content]   (md-content post)
+            [:.comments]  (h/do->
+                           (h/content (comments post))
+                           (h/set-attr :href (post-path post)))
             ;; TODO this is an unholy mess
             [:.favorite]
             (h/do->
              (h/add-class (when (and
-                                 current-user
-                                 (contains? (current-user-favorites (:id current-user)) (:id post)))
+                                 current-auth
+                                 (contains? (current-user-favorites (:id current-auth)) (:id post)))
                             "added"))
              (h/set-attr :href
                          (if (and
-                              current-user
-                              (contains? (current-user-favorites (:id current-user)) (:id post)))
-                                        
+                              current-auth
+                              (contains? (current-user-favorites (:id current-auth)) (:id post)))
+                           
                            (str "/favorites/" (:id post) "/destroy")
                            (str "/favorites/" (:id post)))))))
 

@@ -1,4 +1,5 @@
-(ns gratefulplace.controllers.common)
+(ns gratefulplace.controllers.common
+  (:require [cemerick.friend :as friend]))
 
 ;; validation: combination of field name and validation checks
 ;;
@@ -47,3 +48,9 @@ validation-check-groups is a seq of alternating messages and validation checks"
   ([page]
      (paginate page 20))
   ([page limit]))
+
+(defn view
+  [view-fn & keys]
+  (let [x {:current-auth (friend/current-authentication)
+           :errors {}}]
+    (view-fn (into x (map vec (partition 2 keys))))))

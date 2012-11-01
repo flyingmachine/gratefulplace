@@ -7,30 +7,30 @@
             [cemerick.friend :as friend]
             korma.core)
 
-  (:use [gratefulplace.controllers.common :only (if-valid)]
+  (:use [gratefulplace.controllers.common :only (if-valid view)]
         gratefulplace.controllers.common.content
         gratefulplace.utils
         gratefulplace.models.permissions))
 
 ;; TODO any way I could tidy this up?
 (defn all
-  []
+  [req]
   (let [current-auth (friend/current-authentication)]
-    (view/all 
-     (cond
-      (moderator? (:username current-auth))
-      (post/all)
-      
-      current-auth
-      (post/all
-       (korma.core/where
-        (or {:hidden false}
-            {:user_id [= (:id current-auth)]})))
-      
-      :else
-      (post/all
-       (korma.core/where {:hidden false})))
-     current-auth)))
+    (view
+     view/all
+     :data (cond
+            (moderator? (:username current-auth))
+            (post/all)
+            
+            current-auth
+            (post/all
+             (korma.core/where
+              (or {:hidden false}
+                  {:user_id [= (:id current-auth)]})))
+            
+            :else
+            (post/all
+             (korma.core/where {:hidden false}))))))
 
 (defn show
   [id]

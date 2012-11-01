@@ -228,22 +228,23 @@ nav {
 
   .favorite {
     float:left;
-    background:#e5f6fd;
+    background:#eee;
     width: 2em;
     text-align:center;
     display:block;
-    color: #999;
+    color: #ccc;
     @include border-radius(1em);
     margin-right: .5em;
 
     &:hover {
-      color:#8873e5;
+      color:#999;
       text-decoration:none;
     }
 
     // include a css animation here
     &.added {
-      color: $purple;
+      background: #ebf4f6;
+      color: $blue;
       @include transition-property("all");
       @include rotate(360deg);
       @include transition-duration(".5s");

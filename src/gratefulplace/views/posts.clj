@@ -13,12 +13,23 @@
       "Comment"
       (str  comment-count " comments"))))
 
+(defn favorite
+  [current-auth post]
+  (fn [node]
+    (if (and
+         current-auth
+         (contains? (current-user-favorites (:id current-auth)) (:id post)))
+      (-> node
+          ((h/set-attr :href (str "/favorites/" (:id post) "/destroy")))
+          ((h/add-class "added")))
+      ((h/set-attr :href (str "/favorites/" (:id post))) node))))
+
 (defpage all "index.html"
-  [data current-auth]
+  [posts current-auth]
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
   [:.post] (h/clone-for
-            [post data]
+            [post posts]
             [:.author :a] (linked-username post)
             [:.date]      (h/content (created-on post))
             [:.content]   (md-content post)
@@ -26,15 +37,7 @@
                            (h/content (comments post))
                            (h/set-attr :href (post-path post)))
             
-            [:.favorite]
-            (fn [node]
-              (if (and
-                   current-auth
-                   (contains? (current-user-favorites (:id current-auth)) (:id post)))
-               (-> node
-                   ((h/set-attr :href (str "/favorites/" (:id post) "/destroy")))
-                   ((h/add-class "added")))
-               ((h/set-attr :href (str "/favorites/" (:id post))) node)))))
+            [:.favorite] (favorite current-auth post)))
 
 (defpage show-new "posts/new.html"
   [params errors current-auth]
@@ -44,7 +47,7 @@
                          (h/html-content "You'll need to <a href=\"/login\">log in</a> to post")))
 
 (defpage show "posts/show.html"
-  [post comments current-user]
+  [post comments current-auth]
   [:.post :.author]      (linked-username post)
   [:.post :.date]        (h/content (created-on post))
   [:.post :.content]     (md-content post)
@@ -55,12 +58,13 @@
 
   
 
-  [:.post :.moderate]    (keep-when (moderator? (:username current-user)))
+  [:.post :.moderate]    (keep-when (moderator? (:username current-auth)))
   [:.post :.moderate :a] (h/do->
                           (set-post-path post)
                           (h/content (if (:hidden post) "unhide" "hide")))
   
   [:#post_id]            (h/set-attr :value (:id post))
+  [:.favorite]           (favorite current-auth post)
 
   [:.comments :.comment]
   (h/clone-for [comment comments]
@@ -69,28 +73,14 @@
                [:.date]      (h/content (created-on comment))
                [:.content]   (md-content comment)
 
-               [:.moderate]  (keep-when (moderator? (:username current-user)))
+               [:.moderate]  (keep-when (moderator? (:username current-auth)))
                [:.moderate :a] (h/do->
                                 (set-comment-path comment)
                                 (h/content (if (:hidden comment) "unhide" "hide")))
 
-               [:.edit]      (keep-when (can-modify-record? comment current-user))
+               [:.edit]      (keep-when (can-modify-record? comment current-auth))
                ;; TODO more path refactoring
-               [:.edit :a]   (h/set-attr :href (str "/comments/" (:id comment) "/edit")))
-
-  [:.favorite]
-  (h/do->
-   (h/add-class (when (and
-                       current-user
-                       (contains? (current-user-favorites (:id current-user)) (:id post)))
-                  "added"))
-   (h/set-attr :href
-               (if (and
-                    current-user
-                    (contains? (current-user-favorites (:id current-user)) (:id post)))
-                 
-                 (str "/favorites/" (:id post) "/destroy")
-                 (str "/favorites/" (:id post))))))
+               [:.edit :a]   (h/set-attr :href (str "/comments/" (:id comment) "/edit"))))
 
 (defpage edit "posts/edit.html"
   [post]

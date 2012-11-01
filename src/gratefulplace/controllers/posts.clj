@@ -18,25 +18,30 @@
   (let [current-auth (friend/current-authentication)]
     (view
      view/all
-     :data (cond
-            (moderator? (:username current-auth))
-            (post/all)
-            
-            current-auth
-            (post/all
-             (korma.core/where
-              (or {:hidden false}
-                  {:user_id [= (:id current-auth)]})))
-            
-            :else
-            (post/all
-             (korma.core/where {:hidden false}))))))
+     :posts (cond
+             (moderator? (:username current-auth))
+             (post/all)
+             
+             current-auth
+             (post/all
+              (korma.core/where
+               (or {:hidden false}
+                   {:user_id [= (:id current-auth)]})))
+             
+             :else
+             (post/all
+              (korma.core/where {:hidden false}))))))
 
 (defn show
-  [id]
-  (let [current-auth (friend/current-authentication)
-        base-cond {:post_id (str->int id)}
-        comments (cond
+  [req]
+  (let [id (get-in req [:params :id])
+        current-auth (friend/current-authentication)
+        base-cond {:post_id (str->int id)}]
+    
+    (view
+     view/show
+     :post (post/by-id id)
+     :comments (cond
                   (moderator? (:username current-auth))
                   (comment/all
                    (korma.core/where base-cond))
@@ -50,11 +55,7 @@
                          {:user_id [= (:id current-auth)]}))))
                   
                   :else
-                  (comment/all (korma.core/where (and base-cond {:hidden false}))))]
-    
-    (view/show (post/by-id id)
-               comments
-               (friend/current-authentication))))
+                  (comment/all (korma.core/where (and base-cond {:hidden false})))))))
 
 (defn edit
   [id]

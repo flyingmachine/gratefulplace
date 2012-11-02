@@ -12,9 +12,10 @@
 
 
 (defmacro route
-  [method path handler]
+  [method path & handlers]
   `(~method ~path req#
-            (~handler req#)))
+            (->> req#
+                ~@handlers)))
 
 (defroutes routes
   (compojure.route/files "/" {:root "public"})
@@ -23,16 +24,13 @@
   (route GET "/" posts/all)
   (route GET "/posts" posts/all)
   (route GET "/posts/new" posts/show-new)
-  (POST "/posts" req
-        (friend/authorize #{:user} (posts/create! req)))
+  (route POST "/posts" posts/create! (friend/authorize #{:user}))
   (route GET "/posts/:id" posts/show)
   (route GET "/posts/:id/edit" posts/edit)
   (route POST "/posts/:id" posts/update)
   
   ;; comments
-  (POST "/comments" req
-        (friend/authorize #{:user} (comments/create! req)))
-
+  (route POST "/comments" comments/create! (friend/authorize #{:user}))
   (route GET "/comments/:id/edit" comments/edit)
   (route POST "/comments/:id" comments/update)
 

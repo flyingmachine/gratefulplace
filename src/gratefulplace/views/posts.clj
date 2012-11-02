@@ -68,7 +68,7 @@
 
   [:.comments :.comment]
   (h/clone-for [comment comments]
-               [:header]     (h/set-attr :id (str "comment-" (:id comment)))
+               [:.content]     (h/set-attr :id (str "comment-" (:id comment)))
                [:.author :a] (linked-username comment)
                [:.date]      (h/content (created-on comment))
                [:.content]   (md-content comment)

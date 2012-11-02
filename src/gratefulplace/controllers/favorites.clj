@@ -1,7 +1,8 @@
 (ns gratefulplace.controllers.favorites
   (:require [gratefulplace.models.favorite :as favorite]
            [gratefulplace.views.favorites :as view])
-  (:use [gratefulplace.controllers.common :only (if-valid view)]))
+  (:use [gratefulplace.controllers.common :only (if-valid view)]
+        gratefulplace.models.permissions))
 
 (defn create!
   [post_id]

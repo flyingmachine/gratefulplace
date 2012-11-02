@@ -26,13 +26,13 @@
 (defn local-nav
   [node user]
   (h/at node
-        [:.about :a]         (set-user-path user) 
+        [:.about :a]         (set-path user user-path)
         
         [:.posts :.count]    (h/content (str (relation-count user :post)))
-        [:.posts :a]         (h/set-attr :href (str "/users/" (:username user) "/posts"))
+        [:.posts :a]         (set-path user user-posts-path)
         
         [:.comments :.count] (h/content (str (relation-count user :comment)))
-        [:.comments :a]      (h/set-attr :href (str "/users/" (:username user) "/comments"))))
+        [:.comments :a]      (set-path user user-comments-path)))
 
 (defpage show "users/show.html"
   [user]
@@ -41,7 +41,7 @@
   [:div.about]     (about-content user)
 
   [:.edit]    (keep-when (can-modify-profile? user))
-  [:.edit :a] (h/set-attr :href (str "/users/" (:username user) "/edit"))
+  [:.edit :a] (set-path user user-edit-path)
   
   [:.local-nav]    #(local-nav % user))
 
@@ -55,7 +55,7 @@
   [:div.post]         (h/clone-for [post posts]
                                 [:.date]    (h/content (created-on post))
                                 [:.content] (h/content (:content post))
-                                [:a]        (set-post-path post))
+                                [:a]        (set-path post post-path))
 
   [:.local-nav]    #(local-nav % user))
 
@@ -69,7 +69,7 @@
   [:.comment]         (h/clone-for [comment comments]
                                 [:.date]    (h/content (created-on comment))
                                 [:.content] (h/content (:content comment))
-                                [:a]        (set-post-path (:post_id comment)))
+                                [:a]        (set-path (:post_id comment) post-path))
   
   [:.local-nav]    #(local-nav % user))
 
@@ -79,7 +79,7 @@
   [:textarea] (h/content (:about user))
   [:form] (h/set-attr :action (user-path user))
 
-  [:.edit :a] (set-user-path user)
+  [:.edit :a] (set-path user user-path)
 
   [:#change-password :.errors] (error-content errors :change-password)
 

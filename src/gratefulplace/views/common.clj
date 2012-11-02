@@ -48,32 +48,39 @@
 
 
 ;; TODO here's another refactoring! WooooOOO
-(defn user-path
-  [x]
-  (let [username (or (:username x) x)]
-    (str "/users/" username)))
+(defn path
+  [record url-id prefix & suffixes]
+  (str "/"
+       (apply str
+              (interpose
+               "/"
+               (into [prefix (or (url-id record) record)] suffixes)))))
 
-(defn set-user-path
-  [x]
-  (h/set-attr :href (user-path x)))
 
-(defn post-path
-  [x]
-  (let [id (or (:id x) x)]
-    (str "/posts/" id)))
+(defmacro create-path-fns
+  [record-type url-id & suffixes]
+  `(do
+     (defn ~(symbol (str record-type "-path"))
+       [x#]
+       (path x# ~url-id ~(str record-type "s")))
 
-(defn set-post-path
-  [x]
-  (h/set-attr :href (post-path x)))
+     
+     (defn ~(symbol (str record-type "-edit-path"))
+       [x#]
+       (path x# ~url-id ~(str record-type "s") "edit"))
+     
+     (defn ~(symbol (str record-type "-destroy-path"))
+       [x#]
+       (path x# ~url-id ~(str record-type "s") "destroy"))))
 
-(defn comment-path
-  [x]
-  (let [id (or (:id x) x)]
-    (str "/comments/" id)))
+(create-path-fns "user" :username)
+(create-path-fns "comment" :id)
+(create-path-fns "post" :id)
+(create-path-fns "favorite" :id)
 
-(defn set-comment-path
-  [x]
-  (h/set-attr :href (comment-path x)))
+(defn set-path
+  [x fn]
+  (h/set-attr :href (fn x)))
 
 (defn md-content
   [content]
@@ -97,7 +104,7 @@
   [record]
   (h/do->
    (h/content (:username record))
-   (set-user-path record)))
+   (set-path record user-path)))
 
 (defn timestamp->string
   [timestamp]

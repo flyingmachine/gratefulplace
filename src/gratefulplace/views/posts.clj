@@ -20,9 +20,9 @@
          current-auth
          (contains? (user-favorites (:id current-auth)) (:id post)))
       (-> node
-          ((h/set-attr :href (str "/favorites/" (:id post) "/destroy")))
+          ((set-path post favorite-destroy-path))
           ((h/add-class "added")))
-      ((h/set-attr :href (str "/favorites/" (:id post))) node))))
+      ((set-path post favorite-path) node))))
 
 (defpage all "index.html"
   [posts current-auth]
@@ -35,7 +35,7 @@
             [:.content]   (md-content post)
             [:.comments]  (h/do->
                            (h/content (comments post))
-                           (h/set-attr :href (post-path post)))
+                           (set-path post post-path))
             
             [:.favorite] (favorite current-auth post)))
 
@@ -53,14 +53,13 @@
   [:.post :.content]     (md-content post)
 
   [:.post :.edit]        (keep-when (can-modify-record? post))
-  ;; TODO more path refactoring
-  [:.post :.edit :a]     (h/set-attr :href (str "/posts/" (:id post) "/edit"))
+  [:.post :.edit :a]     (set-path post post-edit-path)
 
   
 
   [:.post :.moderate]    (keep-when (moderator? (:username current-auth)))
   [:.post :.moderate :a] (h/do->
-                          (set-post-path post)
+                          (set-path post post-path)
                           (h/content (if (:hidden post) "unhide" "hide")))
   
   [:#post_id]            (h/set-attr :value (:id post))
@@ -75,12 +74,12 @@
 
                [:.moderate]  (keep-when (moderator? (:username current-auth)))
                [:.moderate :a] (h/do->
-                                (set-comment-path comment)
+                                (set-path comment comment-path)
                                 (h/content (if (:hidden comment) "unhide" "hide")))
 
                [:.edit]      (keep-when (can-modify-record? comment current-auth))
                ;; TODO more path refactoring
-               [:.edit :a]   (h/set-attr :href (str "/comments/" (:id comment) "/edit"))))
+               [:.edit :a]   (set-path comment comment-edit-path)))
 
 (defpage edit "posts/edit.html"
   [post]

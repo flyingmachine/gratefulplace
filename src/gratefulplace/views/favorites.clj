@@ -12,4 +12,4 @@
   [:div.post]         (h/clone-for [post posts]
                                    [:.date]    (h/content (created-on post))
                                    [:.content] (h/content (:content post))
-                                   [:a]        (set-post-path post)))
+                                   [:a]        (set-path post post-path)))

@@ -18,4 +18,4 @@
 
 (defn -main
   []
-  (run-jetty #'app {:port 8080 :join? false}))
+  (run-jetty #'app {:port (Integer. (get (System/getenv) "PORT" 8080)) :join? false}))

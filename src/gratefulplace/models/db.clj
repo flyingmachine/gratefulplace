@@ -5,9 +5,10 @@
 ;; there
 ;; google "lein full project map"
 (if (not (resolve 'db))
-  (defdb db (postgres (or (System/getenv "DATABASE_URL")
-                          {:db "gratefulplace-development"
-                           :user "daniel"
-                           :password ""
-                           ;;OPTIONAL KEYS
-                           :host "localhost"}))))
+  (defdb db (or (System/getenv "DATABASE_URL")
+                (postgres
+                 {:db "gratefulplace-development"
+                  :user "daniel"
+                  :password ""
+                  ;;OPTIONAL KEYS
+                  :host "localhost"}))))

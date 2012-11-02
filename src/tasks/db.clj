@@ -7,8 +7,9 @@
 (defn rebuild
   []
   (open-global :lobos gratefulplace.models.db/db-config)
-  (rollback :all)
-  (migrate))
+  (with-connection :lobos
+    (rollback :all)
+    (migrate)))
 
 (defn seed
   []

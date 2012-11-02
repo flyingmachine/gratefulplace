@@ -18,7 +18,7 @@
   (fn [node]
     (if (and
          current-auth
-         (contains? (current-user-favorites (:id current-auth)) (:id post)))
+         (contains? (user-favorites (:id current-auth)) (:id post)))
       (-> node
           ((h/set-attr :href (str "/favorites/" (:id post) "/destroy")))
           ((h/add-class "added")))
@@ -68,7 +68,7 @@
 
   [:.comments :.comment]
   (h/clone-for [comment comments]
-               [:.content]     (h/set-attr :id (str "comment-" (:id comment)))
+               [:.content]   (h/set-attr :id (str "comment-" (:id comment)))
                [:.author :a] (linked-username comment)
                [:.date]      (h/content (created-on comment))
                [:.content]   (md-content comment)

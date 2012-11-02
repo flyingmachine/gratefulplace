@@ -113,6 +113,6 @@
   `(when ~condition
      #(identity %)))
 
-(defn current-user-favorites
+(defn user-favorites
   [user-id]
   (into #{} (map :post_id (favorite/all user-id))))

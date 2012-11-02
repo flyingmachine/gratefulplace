@@ -56,27 +56,27 @@
                "/"
                (into [prefix (or (url-id record) record)] suffixes)))))
 
-
 (defmacro create-path-fns
   [record-type url-id & suffixes]
   `(do
-     (defn ~(symbol (str record-type "-path"))
-       [x#]
-       (path x# ~url-id ~(str record-type "s")))
+     ~@(map
+        (fn [suffix]
+          (let [fn-name-suffix (if suffix
+                                 (str "-" suffix "-path")
+                                 "-path")
+                x (gensym)]
+            `(defn ~(symbol (str record-type fn-name-suffix))
+               [~x]
+               ;; TODO is there a briefer way of doing this?
+               ~(if suffix
+                  `(path ~x ~url-id ~(str record-type "s") ~suffix)
+                  `(path ~x ~url-id ~(str record-type "s"))))))
+        (conj suffixes nil))))
 
-     
-     (defn ~(symbol (str record-type "-edit-path"))
-       [x#]
-       (path x# ~url-id ~(str record-type "s") "edit"))
-     
-     (defn ~(symbol (str record-type "-destroy-path"))
-       [x#]
-       (path x# ~url-id ~(str record-type "s") "destroy"))))
-
-(create-path-fns "user" :username)
-(create-path-fns "comment" :id)
-(create-path-fns "post" :id)
-(create-path-fns "favorite" :id)
+(create-path-fns "user" :username "edit" "posts" "comments")
+(create-path-fns "comment" :id "edit" "destroy")
+(create-path-fns "post" :id "edit" "destroy")
+(create-path-fns "favorite" :id "edit" "destroy")
 
 (defn set-path
   [x fn]

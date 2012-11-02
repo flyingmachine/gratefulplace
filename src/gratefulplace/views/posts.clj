@@ -78,7 +78,6 @@
                                 (h/content (if (:hidden comment) "unhide" "hide")))
 
                [:.edit]      (keep-when (can-modify-record? comment current-auth))
-               ;; TODO more path refactoring
                [:.edit :a]   (set-path comment comment-edit-path)))
 
 (defpage edit "posts/edit.html"

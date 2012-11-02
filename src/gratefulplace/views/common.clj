@@ -46,8 +46,7 @@
        [{:keys [~@argnames]}]
        (layout (~(symbol (str name "*")) ~@argnames)))))
 
-
-;; TODO here's another refactoring! WooooOOO
+;; Path stuff
 (defn path
   [record url-id prefix & suffixes]
   (str "/"

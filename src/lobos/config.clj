@@ -1,11 +1,5 @@
 (ns lobos.config
-  (:use lobos.connectivity))
+  (:use lobos.connectivity
+        gratefulplace.models.db))
 
-(def db
-  {:classname "org.postgresql.Driver"
-   :subprotocol "postgresql"
-   :user "daniel"
-   :password ""
-   :subname "//localhost:5432/gratefulplace-development"})
-
-(open-global db)
+(open-global db-config)

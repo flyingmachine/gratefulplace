@@ -6,9 +6,9 @@
        gratefulplace.utils
        gratefulplace.models.permissions))
 
-(defonce *template-dir* "gratefulplace/templates/")
+(defonce template-dir "gratefulplace/templates/")
 
-(h/defsnippet nav (str *template-dir* "index.html") [:nav]
+(h/defsnippet nav (str template-dir "index.html") [:nav]
   [logged-in]
   [:.auth] (if logged-in
              (h/do-> (h/content "Log Out")
@@ -16,7 +16,7 @@
              (h/do-> (h/content "Log In")
                      (h/set-attr :href "/login"))))
 
-(h/deftemplate layout (str *template-dir* "index.html")
+(h/deftemplate layout (str template-dir "index.html")
   [html]
   [:html] (h/substitute html)
   [:nav] (h/substitute (nav (current-authentication)))
@@ -39,7 +39,7 @@
 (defmacro defpage
   [name file [& argnames] & body]
   `(do
-     (h/defsnippet ~(symbol (str name "*")) (str *template-dir* ~file) [:html]
+     (h/defsnippet ~(symbol (str name "*")) (str template-dir ~file) [:html]
        [~@argnames]
        ~@body)
      (defn ~name

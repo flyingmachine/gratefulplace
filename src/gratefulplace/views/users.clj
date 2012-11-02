@@ -67,9 +67,9 @@
   [:h2 :.username] (h/content (:username user))
   [[:.comment         (h/nth-of-type 2)]] nil
   [:.comment]         (h/clone-for [comment comments]
-                                [:.date]    (h/content (created-on comment))
+                                [:.date]    (h/content (created-on-short comment))
                                 [:.content] (h/content (:content comment))
-                                [:a]        (set-path (:post_id comment) post-path))
+                                [:a]        (h/set-attr :href (comment-on-post-path (:post_id comment) comment)))
   
   [:.local-nav]    #(local-nav % user))
 

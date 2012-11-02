@@ -73,9 +73,12 @@
         (conj suffixes nil))))
 
 (create-path-fns "user" :username "edit" "posts" "comments")
-(create-path-fns "comment" :id "edit" "destroy")
 (create-path-fns "post" :id "edit" "destroy")
 (create-path-fns "favorite" :id "edit" "destroy")
+(create-path-fns "comment" :id "edit" "destroy")
+(defn comment-on-post-path
+  [post, comment]
+  (str (post-path post) "#" (:id comment)))
 
 (defn set-path
   [x fn]
@@ -110,9 +113,18 @@
   (-> (java.text.SimpleDateFormat. "MMM dd, yyyy hh:mma")
       (.format timestamp)))
 
+(defn timestamp->shortstring
+  [timestamp]
+  (-> (java.text.SimpleDateFormat. "MMM dd, yyyy")
+      (.format timestamp)))
+
 (defn created-on
   [x]
   (timestamp->string (:created_on x)))
+
+(defn created-on-short
+  [x]
+  (timestamp->shortstring (:created_on x)))
 
 (defmacro keep-when
   [condition]

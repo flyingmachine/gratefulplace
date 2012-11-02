@@ -359,6 +359,8 @@ table.input {
     display:block;
     @include clearfix;
     @include box-sizing(border-box);
+    @include padding-trailer(.5);
+    @include padding-leader(.5);
     border-bottom: 1px dotted #eee;
 
     &:hover {
@@ -368,16 +370,25 @@ table.input {
     a {
       text-decoration: none;
     }
+
+    .meta {
+      float: right;
+      padding: 0 4px;
+      margin: 0 .5em;
+
+      border-left: 1px solid #eee;
+    }
     
-    .date {
-      @include span-columns(3 omega, 9);
+    .date, .author {
+      float:right;
+      padding: 0 .5em;
       font-style: italic;
+      text-align: right;
+      @include adjust-font-size-to(13px);
+
     }
     .content {
-      @include span-columns(6, 9);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+
     }
   }
 }

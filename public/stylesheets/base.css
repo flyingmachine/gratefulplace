@@ -796,59 +796,58 @@ table.input {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  padding-bottom: 0.84375em;
+  padding-top: 0.84375em;
   border-bottom: 1px dotted #eee; }
-  /* line 364, base.css.scss */
+  /* line 366, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 368, base.css.scss */
+  /* line 370, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 372, base.css.scss */
-  #user-content div.post .date, #user-content div.comment .date {
-    width: 31.81818%;
+  /* line 374, base.css.scss */
+  #user-content div.post .meta, #user-content div.comment .meta {
     float: right;
-    margin-right: 0;
-    #margin-left: -1em;
-    display: inline;
-    font-style: italic; }
-  /* line 376, base.css.scss */
-  #user-content div.post .content, #user-content div.comment .content {
-    width: 65.90909%;
-    float: left;
-    margin-right: 2.27273%;
-    display: inline;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; }
+    padding: 0 4px;
+    margin: 0 .5em;
+    border-left: 1px solid #eee; }
+  /* line 382, base.css.scss */
+  #user-content div.post .date, #user-content div.post .author, #user-content div.comment .date, #user-content div.comment .author {
+    float: right;
+    padding: 0 .5em;
+    font-style: italic;
+    text-align: right;
+    font-size: 0.8125em;
+    line-height: 2.07692em; }
 
-/* line 385, base.css.scss */
+/* line 396, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.6875em; }
-  /* line 390, base.css.scss */
+  /* line 401, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.84375em;
     border-bottom: none; }
 
-/* line 397, base.css.scss */
+/* line 408, base.css.scss */
 .markdown-help table {
   width: 100%; }
-/* line 400, base.css.scss */
+/* line 411, base.css.scss */
 .markdown-help td:first-child {
   width: 50%; }
-/* line 403, base.css.scss */
+/* line 414, base.css.scss */
 .markdown-help td {
   padding: 0 .5em;
   border: 1px solid #eee; }
 
-/* line 409, base.css.scss */
+/* line 420, base.css.scss */
 .hidden {
   display: none; }
 
-/* line 413, base.css.scss */
+/* line 424, base.css.scss */
 .formatting-help {
   float: right;
   font-size: 0.8125em;

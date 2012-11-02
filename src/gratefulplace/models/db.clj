@@ -4,7 +4,7 @@
 ;; TODO figure out how to put this config in lein and read it from
 ;; there
 ;; google "lein full project map"
-(defdb db 
+(def db-config
   (if (System/getenv "DATABASE_URL")
     (let [db-uri (java.net.URI. (System/getenv "DATABASE_URL"))
           user-and-password (clojure.string/split (.getUserInfo db-uri) #":")]
@@ -21,3 +21,5 @@
       :password ""
       ;;OPTIONAL KEYS
       :host "localhost"})))
+
+(defdb db db-config)

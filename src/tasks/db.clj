@@ -2,10 +2,11 @@
   (:refer-clojure :exclude [alter drop complement
                             bigint boolean char double float time])
   (:require [gratefulplace.models.user :as user])
-  (:use (lobos core)))
+  (:use (lobos core connectivity)))
 
 (defn rebuild
   []
+  (open-global :lobos gratefulplace.models.db/db-config)
   (rollback :all)
   (migrate))
 

@@ -48,12 +48,12 @@
 
 ;; Path stuff
 (defn path
-  [record url-id prefix & suffixes]
+  [record url-string prefix & suffixes]
   (str "/"
        (apply str
               (interpose
                "/"
-               (into [prefix (or (url-id record) record)] suffixes)))))
+               (into [prefix (or (url-string record) record)] suffixes)))))
 
 (defmacro create-path-fns
   [record-type url-id & suffixes]
@@ -76,17 +76,18 @@
 (create-path-fns "post" :id "edit" "destroy")
 (create-path-fns "favorite" :id "edit" "destroy")
 (create-path-fns "comment" :id "edit" "destroy")
+
 (defn comment-on-post-path
   [post, comment]
   (str (post-path post) "#" (:id comment)))
 
 (defn set-path
-  [x fn]
-  (h/set-attr :href (fn x)))
+  [x fun]
+  (h/set-attr :href (fun x)))
 
 (defn md-content
   [content]
-  (let [content (if-let [c (:content content)] c content)]
+  (let [content (or (:content content) content)]
     (h/html-content (markdown/md-to-html-string content))))
 
 (defn format-error-messages

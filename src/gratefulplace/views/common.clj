@@ -95,8 +95,8 @@
   (str "<ul>" (apply str (map #(str "<li>" % "</li>") errors)) "</ul>"))
 
 (defn error-content
-  [errors, k]
-  (if-let [messages (k errors)]
+  [errors, key]
+  (if-let [messages (get errors key)]
     (h/html-content (format-error-messages messages))))
 
 (defn relation-count

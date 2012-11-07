@@ -9,6 +9,7 @@
         [gratefulplace.middleware.routes :only (routes)]))
 
 (def app
+  "The ring app"
   (-> routes
       auth
       (wrap-session {:cookie-name "gratefulplace-session" :store (db-session-store)})
@@ -17,5 +18,6 @@
       wrap-params))
 
 (defn -main
+  "Start the jetty server"
   []
   (run-jetty #'app {:port (Integer. (get (System/getenv) "PORT" 8080)) :join? false}))

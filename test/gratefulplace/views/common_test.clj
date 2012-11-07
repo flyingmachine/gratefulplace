@@ -1,8 +1,7 @@
 (ns gratefulplace.views.common-test
   (:use clojure.test
         gratefulplace.views.common
-        gratefulplace.views.test-helpers
-        [clojure.contrib.string :only (substring?)]))
+        gratefulplace.views.test-helpers))
 
 (def node
   {:tag :div

@@ -44,11 +44,6 @@ validation-check-groups is a seq of alternating messages and validation checks"
             (recur (assoc errors fieldname error-messages) (rest v))))
         errors))))
 
-(defn paginate
-  ([page]
-     (paginate page 20))
-  ([page limit]))
-
 (defmacro view
   [view-fn & keys]
   `(let [x# {:current-auth (friend/current-authentication)

@@ -10,10 +10,10 @@
   [substring snippet]
   (substring? substring (snippet->str snippet)))
 
-(defn sets-attr?
+(defn attr-set?
   [node attr val]
   (= (get-in node [:attrs attr]) val))
 
-(defn sets-content?
+(defn content-set?
   [node val]
   (= (apply str (snippet->str node)) val))

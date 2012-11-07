@@ -19,3 +19,8 @@
   (testing "Returns 'self' argument when function applied to 'self' returns false"
     (is (= (self-unless-fn 1 #(not %) 0)
            1))))
+
+(deftest deserialize-test
+  (testing "Transforms value for given keys in map from a string to a Clojure data structure"
+    (is (= (deserialize {:a "[]" :b "{}"} :a :b)
+           {:a [] :b {}}))))

@@ -15,7 +15,7 @@
 $column-width   : 4em;            // each column is 4em wide
 $gutter-width   : 1em;            // 1em gutters between columns
 $grid-padding   : $gutter-width;  // grid-padding equal to gutters
-$base-line-height: 27px;
+$base-line-height: 24px;
 $total-columns  : 9;
 
 // Fonts --------------------------------------------------------------
@@ -101,7 +101,7 @@ a:hover {
 }
 
 p, blockquote {
-  @include trailer(.5);
+  @include trailer;
 }
 
 blockquote {
@@ -301,8 +301,7 @@ textarea {
 
 #new-post, #new-user, .new, .chunk {
   @include chunk;
-  @include padding-leader(.5);
-  @include padding-trailer(.5);
+  @include padding-trailer;
 
   .edit {
     float:right;

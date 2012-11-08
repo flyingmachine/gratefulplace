@@ -426,7 +426,7 @@ optgroup {
 /* line 64, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 16px;
-  line-height: 1.6875em; }
+  line-height: 1.5em; }
 
 @font-face {
   font-family: "ReenieBeanie";
@@ -442,25 +442,25 @@ body {
 h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.875em;
-  line-height: 0.9em;
+  line-height: 0.8em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-bottom: 0.9em;
-  padding-bottom: 0.45em;
-  margin-top: 0.45em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.4em;
+  margin-top: 0.4em;
   border-bottom: 1px solid #999; }
 
 /* line 82, base.css.scss */
 h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.3125em;
-  line-height: 1.28571em;
+  line-height: 1.14286em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-top: 1.28571em;
-  margin-bottom: 0.64286em; }
+  margin-top: 1.14286em;
+  margin-bottom: 0.57143em; }
 
 /* line 90, base.css.scss */
 a {
@@ -477,7 +477,7 @@ a:hover {
 
 /* line 103, base.css.scss */
 p, blockquote {
-  margin-bottom: 0.84375em; }
+  margin-bottom: 1.5em; }
 
 /* line 107, base.css.scss */
 blockquote {
@@ -494,7 +494,7 @@ strong {
 
 /* line 120, base.css.scss */
 .title {
-  margin-top: 0.45em;
+  margin-top: 0.4em;
   text-align: center;
   letter-spacing: -3px;
   font-family: 'Nothing You Could Do', cursive;
@@ -506,7 +506,7 @@ strong {
 
 /* line 134, base.css.scss */
 nav {
-  padding-bottom: 1.6875em;
+  padding-bottom: 1.5em;
   overflow: hidden;
   *zoom: 1; }
   /* line 138, base.css.scss */
@@ -547,8 +547,8 @@ nav {
   margin-right: auto;
   padding-left: 1em;
   padding-right: 1em;
-  margin-bottom: 1.6875em;
-  margin-top: 1.6875em; }
+  margin-bottom: 1.5em;
+  margin-top: 1.5em; }
   /* line 38, ../../../../../../../.rvm/gems/ree-1.8.7-2012.02/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
   .page:after {
     content: "";
@@ -575,15 +575,15 @@ nav {
   -moz-box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
   padding: 0 1em;
-  margin-bottom: 1.6875em;
+  margin-bottom: 1.5em;
   overflow: hidden;
   *zoom: 1;
-  padding-top: 1.6875em;
-  padding-bottom: 0.84375em; }
+  padding-top: 1.5em;
+  padding-bottom: 0.75em; }
   /* line 181, base.css.scss */
   #posts .post header, #posts .post footer, #post .comment header, #post .comment footer, #post .post header, #post .post footer {
     font-size: 0.8125em;
-    line-height: 2.07692em;
+    line-height: 1.84615em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: inherit; }
   /* line 185, base.css.scss */
@@ -593,8 +593,8 @@ nav {
   #posts .post footer, #post .comment footer, #post .post footer {
     overflow: hidden;
     *zoom: 1;
-    margin-top: 1.6875em;
-    padding-top: 0.84375em;
+    margin-top: 1.5em;
+    padding-top: 0.75em;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -602,22 +602,22 @@ nav {
   /* line 197, base.css.scss */
   #posts .post .content, #post .comment .content, #post .post .content {
     font-size: 1.125em;
-    line-height: 1.5em; }
+    line-height: 1.33333em; }
     /* line 200, base.css.scss */
     #posts .post .content p:last-child, #post .comment .content p:last-child, #post .post .content p:last-child {
       margin-bottom: 0; }
     /* line 204, base.css.scss */
     #posts .post .content .controls, #post .comment .content .controls, #post .post .content .controls {
       font-size: 0.8125em;
-      line-height: 2.07692em;
+      line-height: 1.84615em;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       line-height: inherit;
       font-size: 0.72222em;
-      line-height: 2.07692em; }
+      line-height: 1.84615em; }
       /* line 208, base.css.scss */
       #posts .post .content .controls .formatting-help, #post .comment .content .controls .formatting-help, #post .post .content .controls .formatting-help {
         font-size: 1em;
-        line-height: 2.07692em; }
+        line-height: 1.84615em; }
   /* line 215, base.css.scss */
   #posts .post .author, #post .comment .author, #post .post .author {
     font-weight: bold;
@@ -684,7 +684,7 @@ nav {
   /* line 273, base.css.scss */
   #posts .post textarea, #post .comment textarea, #post .post textarea {
     font-size: 1em;
-    line-height: 1.5em; }
+    line-height: 1.33333em; }
 
 /* line 278, base.css.scss */
 #post .comment footer {
@@ -706,11 +706,11 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 1.125em;
-  line-height: 1.5em;
+  line-height: 1.33333em;
   font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.66667em;
   border: 1px solid #ddd;
-  height: 135px; }
+  height: 120px; }
 
 /* line 302, base.css.scss */
 #new-post, #new-user, .new, .chunk {
@@ -724,23 +724,22 @@ textarea {
   -moz-box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
   padding: 0 1em;
-  margin-bottom: 1.6875em;
+  margin-bottom: 1.5em;
   overflow: hidden;
   *zoom: 1;
-  padding-top: 1.6875em;
-  padding-top: 0.84375em;
-  padding-bottom: 0.84375em; }
-  /* line 307, base.css.scss */
+  padding-top: 1.5em;
+  padding-bottom: 1.5em; }
+  /* line 306, base.css.scss */
   #new-post .edit, #new-user .edit, .new .edit, .chunk .edit {
     float: right;
     margin-top: 1em; }
 
-/* line 314, base.css.scss */
+/* line 313, base.css.scss */
 #new-comment h3 {
   margin: 0;
-  margin-bottom: 0.84375em; }
+  margin-bottom: 0.75em; }
 
-/* line 320, base.css.scss */
+/* line 319, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -752,52 +751,52 @@ textarea {
   -moz-box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
   padding: 0 1em;
-  margin-bottom: 1.6875em;
+  margin-bottom: 1.5em;
   overflow: hidden;
   *zoom: 1;
-  padding-top: 1.6875em; }
+  padding-top: 1.5em; }
 
-/* line 324, base.css.scss */
+/* line 323, base.css.scss */
 table.input {
-  margin-bottom: 0.84375em; }
-  /* line 326, base.css.scss */
+  margin-bottom: 0.75em; }
+  /* line 325, base.css.scss */
   table.input td {
-    padding-bottom: 0.84375em; }
-  /* line 330, base.css.scss */
+    padding-bottom: 0.75em; }
+  /* line 329, base.css.scss */
   table.input tr:last-child td {
     padding-bottom: 0; }
-  /* line 334, base.css.scss */
+  /* line 333, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 338, base.css.scss */
+  /* line 337, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 345, base.css.scss */
+/* line 344, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;
-  line-height: 1.8em; }
+  line-height: 1.6em; }
 
-/* line 351, base.css.scss */
+/* line 350, base.css.scss */
 #user-content h2 {
   margin-bottom: 0; }
-/* line 354, base.css.scss */
+/* line 353, base.css.scss */
 #user-content .local-nav {
   overflow: hidden;
   *zoom: 1;
-  margin-bottom: 0.84375em; }
-  /* line 356, base.css.scss */
+  margin-bottom: 0.75em; }
+  /* line 355, base.css.scss */
   #user-content .local-nav li {
     float: left;
     margin-right: 1em; }
-/* line 364, base.css.scss */
+/* line 363, base.css.scss */
 #user-content div.posts, #user-content div.comments {
   border-top: 1px dotted #eee; }
-/* line 367, base.css.scss */
+/* line 366, base.css.scss */
 #user-content div.post, #user-content div.comment {
   display: block;
   overflow: hidden;
@@ -805,61 +804,61 @@ table.input {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding-bottom: 0.84375em;
-  padding-top: 0.84375em;
+  padding-bottom: 0.75em;
+  padding-top: 0.75em;
   border-bottom: 1px dotted #eee; }
-  /* line 375, base.css.scss */
+  /* line 374, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 379, base.css.scss */
+  /* line 378, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 383, base.css.scss */
+  /* line 382, base.css.scss */
   #user-content div.post .meta, #user-content div.comment .meta {
     float: right;
     padding: 0 4px;
     margin: 0 .5em;
     border-left: 1px solid #eee; }
-  /* line 391, base.css.scss */
+  /* line 390, base.css.scss */
   #user-content div.post .date, #user-content div.post .author, #user-content div.comment .date, #user-content div.comment .author {
     float: right;
     padding: 0 .5em;
     font-style: italic;
     text-align: right;
     font-size: 0.8125em;
-    line-height: 2.07692em; }
+    line-height: 1.84615em; }
 
-/* line 405, base.css.scss */
+/* line 404, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
-  padding-bottom: 1.6875em; }
-  /* line 410, base.css.scss */
+  padding-bottom: 1.5em; }
+  /* line 409, base.css.scss */
   .sub-section:last-child {
-    padding-bottom: 0.84375em;
+    padding-bottom: 0.75em;
     border-bottom: none; }
 
-/* line 417, base.css.scss */
+/* line 416, base.css.scss */
 .markdown-help table {
   width: 100%; }
-/* line 420, base.css.scss */
+/* line 419, base.css.scss */
 .markdown-help td:first-child {
   width: 50%; }
-/* line 423, base.css.scss */
+/* line 422, base.css.scss */
 .markdown-help td {
   padding: 0 .5em;
   border: 1px solid #eee; }
 
-/* line 429, base.css.scss */
+/* line 428, base.css.scss */
 .hidden {
   display: none; }
 
-/* line 433, base.css.scss */
+/* line 432, base.css.scss */
 .formatting-help {
   float: right;
   font-size: 0.8125em;
-  line-height: 2.07692em;
+  line-height: 1.84615em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: inherit; }

@@ -253,8 +253,10 @@ nav {
       background: #ebf4f6;
       color: $blue;
       @include transition-property("all");
-      @include rotate(144deg);
+      @include rotate(360deg);
       @include transition-duration(".5s");
+      position: relative;
+      left: 1px;
     }
   }
 

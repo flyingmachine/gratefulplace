@@ -662,42 +662,44 @@ nav {
       -moz-transition-property: all;
       -o-transition-property: all;
       transition-property: all;
-      -webkit-transform: rotate(144deg);
-      -moz-transform: rotate(144deg);
-      -ms-transform: rotate(144deg);
-      -o-transform: rotate(144deg);
-      transform: rotate(144deg);
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
       -webkit-transition-duration: .5s;
       -moz-transition-duration: .5s;
       -o-transition-duration: .5s;
-      transition-duration: .5s; }
-  /* line 261, base.css.scss */
+      transition-duration: .5s;
+      position: relative;
+      left: 1px; }
+  /* line 263, base.css.scss */
   #posts .post .moderate, #post .comment .moderate, #post .post .moderate {
     float: right;
     margin-left: .5em; }
-  /* line 266, base.css.scss */
+  /* line 268, base.css.scss */
   #posts .post .edit, #post .comment .edit, #post .post .edit {
     float: right;
     margin-left: .5em; }
-  /* line 271, base.css.scss */
+  /* line 273, base.css.scss */
   #posts .post textarea, #post .comment textarea, #post .post textarea {
     font-size: 1em;
     line-height: 1.5em; }
 
-/* line 276, base.css.scss */
+/* line 278, base.css.scss */
 #post .comment footer {
   border: none;
   margin: 0;
   float: left;
   color: #999; }
-  /* line 282, base.css.scss */
+  /* line 284, base.css.scss */
   #post .comment footer a {
     color: #aac2e5; }
-    /* line 284, base.css.scss */
+    /* line 286, base.css.scss */
     #post .comment footer a:visited {
       color: #9889dd; }
 
-/* line 290, base.css.scss */
+/* line 292, base.css.scss */
 textarea {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -710,7 +712,7 @@ textarea {
   border: 1px solid #ddd;
   height: 135px; }
 
-/* line 300, base.css.scss */
+/* line 302, base.css.scss */
 #new-post, #new-user, .new, .chunk {
   background: white;
   -webkit-border-radius: 3px;
@@ -728,17 +730,17 @@ textarea {
   padding-top: 1.6875em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 305, base.css.scss */
+  /* line 307, base.css.scss */
   #new-post .edit, #new-user .edit, .new .edit, .chunk .edit {
     float: right;
     margin-top: 1em; }
 
-/* line 312, base.css.scss */
+/* line 314, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.84375em; }
 
-/* line 318, base.css.scss */
+/* line 320, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -755,47 +757,47 @@ textarea {
   *zoom: 1;
   padding-top: 1.6875em; }
 
-/* line 322, base.css.scss */
+/* line 324, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 324, base.css.scss */
+  /* line 326, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 328, base.css.scss */
+  /* line 330, base.css.scss */
   table.input tr:last-child td {
     padding-bottom: 0; }
-  /* line 332, base.css.scss */
+  /* line 334, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 336, base.css.scss */
+  /* line 338, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 343, base.css.scss */
+/* line 345, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;
   line-height: 1.8em; }
 
-/* line 349, base.css.scss */
+/* line 351, base.css.scss */
 #user-content h2 {
   margin-bottom: 0; }
-/* line 352, base.css.scss */
+/* line 354, base.css.scss */
 #user-content .local-nav {
   overflow: hidden;
   *zoom: 1;
   margin-bottom: 0.84375em; }
-  /* line 354, base.css.scss */
+  /* line 356, base.css.scss */
   #user-content .local-nav li {
     float: left;
     margin-right: 1em; }
-/* line 362, base.css.scss */
+/* line 364, base.css.scss */
 #user-content div.posts, #user-content div.comments {
   border-top: 1px dotted #eee; }
-/* line 365, base.css.scss */
+/* line 367, base.css.scss */
 #user-content div.post, #user-content div.comment {
   display: block;
   overflow: hidden;
@@ -806,19 +808,19 @@ table.input {
   padding-bottom: 0.84375em;
   padding-top: 0.84375em;
   border-bottom: 1px dotted #eee; }
-  /* line 373, base.css.scss */
+  /* line 375, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 377, base.css.scss */
+  /* line 379, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 381, base.css.scss */
+  /* line 383, base.css.scss */
   #user-content div.post .meta, #user-content div.comment .meta {
     float: right;
     padding: 0 4px;
     margin: 0 .5em;
     border-left: 1px solid #eee; }
-  /* line 389, base.css.scss */
+  /* line 391, base.css.scss */
   #user-content div.post .date, #user-content div.post .author, #user-content div.comment .date, #user-content div.comment .author {
     float: right;
     padding: 0 .5em;
@@ -827,34 +829,34 @@ table.input {
     font-size: 0.8125em;
     line-height: 2.07692em; }
 
-/* line 403, base.css.scss */
+/* line 405, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.6875em; }
-  /* line 408, base.css.scss */
+  /* line 410, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.84375em;
     border-bottom: none; }
 
-/* line 415, base.css.scss */
+/* line 417, base.css.scss */
 .markdown-help table {
   width: 100%; }
-/* line 418, base.css.scss */
+/* line 420, base.css.scss */
 .markdown-help td:first-child {
   width: 50%; }
-/* line 421, base.css.scss */
+/* line 423, base.css.scss */
 .markdown-help td {
   padding: 0 .5em;
   border: 1px solid #eee; }
 
-/* line 427, base.css.scss */
+/* line 429, base.css.scss */
 .hidden {
   display: none; }
 
-/* line 431, base.css.scss */
+/* line 433, base.css.scss */
 .formatting-help {
   float: right;
   font-size: 0.8125em;

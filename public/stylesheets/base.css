@@ -628,69 +628,76 @@ nav {
     float: right; }
   /* line 225, base.css.scss */
   #posts .post .comments, #post .comment .comments, #post .post .comments {
-    float: left; }
-  /* line 229, base.css.scss */
-  #posts .post .favorite, #post .comment .favorite, #post .post .favorite {
     float: left;
-    background: #eee;
-    width: 2em;
-    text-align: center;
-    display: block;
-    color: #ccc;
-    -webkit-border-radius: 1em;
-    -moz-border-radius: 1em;
-    -ms-border-radius: 1em;
-    -o-border-radius: 1em;
-    border-radius: 1em;
-    margin-right: .5em; }
-    /* line 239, base.css.scss */
-    #posts .post .favorite:hover, #post .comment .favorite:hover, #post .post .favorite:hover {
-      color: #999;
-      text-decoration: none; }
-    /* line 245, base.css.scss */
-    #posts .post .favorite.added, #post .comment .favorite.added, #post .post .favorite.added {
+    margin-left: 1em; }
+  /* line 230, base.css.scss */
+  #posts .post .favorite, #post .comment .favorite, #post .post .favorite {
+    float: left; }
+    /* line 232, base.css.scss */
+    #posts .post .favorite .status, #post .comment .favorite .status, #post .post .favorite .status {
+      float: left; }
+    /* line 236, base.css.scss */
+    #posts .post .favorite a, #post .comment .favorite a, #post .post .favorite a {
+      float: left;
+      display: block;
+      background: #eee;
+      width: 2em;
+      text-align: center;
+      color: #ccc;
+      -webkit-border-radius: 1em;
+      -moz-border-radius: 1em;
+      -ms-border-radius: 1em;
+      -o-border-radius: 1em;
+      border-radius: 1em;
+      margin-right: .5em; }
+      /* line 246, base.css.scss */
+      #posts .post .favorite a:hover, #post .comment .favorite a:hover, #post .post .favorite a:hover {
+        color: #999;
+        text-decoration: none; }
+    /* line 252, base.css.scss */
+    #posts .post .favorite.added a, #post .comment .favorite.added a, #post .post .favorite.added a {
       background: #ebf4f6;
       color: #73a1e5;
       -webkit-transition-property: all;
       -moz-transition-property: all;
       -o-transition-property: all;
       transition-property: all;
-      -webkit-transform: rotate(360deg);
-      -moz-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
+      -webkit-transform: rotate(144deg);
+      -moz-transform: rotate(144deg);
+      -ms-transform: rotate(144deg);
+      -o-transform: rotate(144deg);
+      transform: rotate(144deg);
       -webkit-transition-duration: .5s;
       -moz-transition-duration: .5s;
       -o-transition-duration: .5s;
       transition-duration: .5s; }
-  /* line 254, base.css.scss */
+  /* line 261, base.css.scss */
   #posts .post .moderate, #post .comment .moderate, #post .post .moderate {
     float: right;
     margin-left: .5em; }
-  /* line 259, base.css.scss */
+  /* line 266, base.css.scss */
   #posts .post .edit, #post .comment .edit, #post .post .edit {
     float: right;
     margin-left: .5em; }
-  /* line 264, base.css.scss */
+  /* line 271, base.css.scss */
   #posts .post textarea, #post .comment textarea, #post .post textarea {
     font-size: 1em;
     line-height: 1.5em; }
 
-/* line 269, base.css.scss */
+/* line 276, base.css.scss */
 #post .comment footer {
   border: none;
   margin: 0;
   float: left;
   color: #999; }
-  /* line 275, base.css.scss */
+  /* line 282, base.css.scss */
   #post .comment footer a {
     color: #aac2e5; }
-    /* line 277, base.css.scss */
+    /* line 284, base.css.scss */
     #post .comment footer a:visited {
       color: #9889dd; }
 
-/* line 283, base.css.scss */
+/* line 290, base.css.scss */
 textarea {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -703,7 +710,7 @@ textarea {
   border: 1px solid #ddd;
   height: 135px; }
 
-/* line 293, base.css.scss */
+/* line 300, base.css.scss */
 #new-post, #new-user, .new, .chunk {
   background: white;
   -webkit-border-radius: 3px;
@@ -721,17 +728,17 @@ textarea {
   padding-top: 1.6875em;
   padding-top: 0.84375em;
   padding-bottom: 0.84375em; }
-  /* line 298, base.css.scss */
+  /* line 305, base.css.scss */
   #new-post .edit, #new-user .edit, .new .edit, .chunk .edit {
     float: right;
     margin-top: 1em; }
 
-/* line 305, base.css.scss */
+/* line 312, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.84375em; }
 
-/* line 311, base.css.scss */
+/* line 318, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -748,47 +755,47 @@ textarea {
   *zoom: 1;
   padding-top: 1.6875em; }
 
-/* line 315, base.css.scss */
+/* line 322, base.css.scss */
 table.input {
   margin-bottom: 0.84375em; }
-  /* line 317, base.css.scss */
+  /* line 324, base.css.scss */
   table.input td {
     padding-bottom: 0.84375em; }
-  /* line 321, base.css.scss */
+  /* line 328, base.css.scss */
   table.input tr:last-child td {
     padding-bottom: 0; }
-  /* line 325, base.css.scss */
+  /* line 332, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 329, base.css.scss */
+  /* line 336, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 336, base.css.scss */
+/* line 343, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;
   line-height: 1.8em; }
 
-/* line 342, base.css.scss */
+/* line 349, base.css.scss */
 #user-content h2 {
   margin-bottom: 0; }
-/* line 345, base.css.scss */
+/* line 352, base.css.scss */
 #user-content .local-nav {
   overflow: hidden;
   *zoom: 1;
   margin-bottom: 0.84375em; }
-  /* line 347, base.css.scss */
+  /* line 354, base.css.scss */
   #user-content .local-nav li {
     float: left;
     margin-right: 1em; }
-/* line 355, base.css.scss */
+/* line 362, base.css.scss */
 #user-content div.posts, #user-content div.comments {
   border-top: 1px dotted #eee; }
-/* line 358, base.css.scss */
+/* line 365, base.css.scss */
 #user-content div.post, #user-content div.comment {
   display: block;
   overflow: hidden;
@@ -799,19 +806,19 @@ table.input {
   padding-bottom: 0.84375em;
   padding-top: 0.84375em;
   border-bottom: 1px dotted #eee; }
-  /* line 366, base.css.scss */
+  /* line 373, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 370, base.css.scss */
+  /* line 377, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 374, base.css.scss */
+  /* line 381, base.css.scss */
   #user-content div.post .meta, #user-content div.comment .meta {
     float: right;
     padding: 0 4px;
     margin: 0 .5em;
     border-left: 1px solid #eee; }
-  /* line 382, base.css.scss */
+  /* line 389, base.css.scss */
   #user-content div.post .date, #user-content div.post .author, #user-content div.comment .date, #user-content div.comment .author {
     float: right;
     padding: 0 .5em;
@@ -820,34 +827,34 @@ table.input {
     font-size: 0.8125em;
     line-height: 2.07692em; }
 
-/* line 396, base.css.scss */
+/* line 403, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.6875em; }
-  /* line 401, base.css.scss */
+  /* line 408, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.84375em;
     border-bottom: none; }
 
-/* line 408, base.css.scss */
+/* line 415, base.css.scss */
 .markdown-help table {
   width: 100%; }
-/* line 411, base.css.scss */
+/* line 418, base.css.scss */
 .markdown-help td:first-child {
   width: 50%; }
-/* line 414, base.css.scss */
+/* line 421, base.css.scss */
 .markdown-help td {
   padding: 0 .5em;
   border: 1px solid #eee; }
 
-/* line 420, base.css.scss */
+/* line 427, base.css.scss */
 .hidden {
   display: none; }
 
-/* line 424, base.css.scss */
+/* line 431, base.css.scss */
 .formatting-help {
   float: right;
   font-size: 0.8125em;

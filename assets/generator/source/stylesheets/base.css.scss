@@ -224,29 +224,36 @@ nav {
 
   .comments {
     float:left;
+    margin-left:1em;
   }
 
   .favorite {
     float:left;
-    background:#eee;
-    width: 2em;
-    text-align:center;
-    display:block;
-    color: #ccc;
-    @include border-radius(1em);
-    margin-right: .5em;
-
-    &:hover {
-      color:#999;
-      text-decoration:none;
+    .status {
+      float:left;
+    }
+    
+    a {
+      float:left;
+      display:block;
+      background:#eee;
+      width: 2em;
+      text-align:center;
+      color: #ccc;
+      @include border-radius(1em);
+      margin-right: .5em;
+      
+      &:hover {
+        color:#999;
+        text-decoration:none;
+      }
     }
 
-    // include a css animation here
-    &.added {
+    &.added a {
       background: #ebf4f6;
       color: $blue;
       @include transition-property("all");
-      @include rotate(360deg);
+      @include rotate(144deg);
       @include transition-duration(".5s");
     }
   }

@@ -28,6 +28,9 @@
            (with e/comment
                  (aggregate (~'count :*) :count)
                  (where {:hidden false}))
+           (with e/favorite
+                 (aggregate (~'count :*) :count)
+                 (where {:hidden false}))
            ~@clauses
            (order :created_on :DESC)))
 

@@ -19,9 +19,16 @@
     (if (and
          current-auth
          (contains? (user-favorites (:id current-auth)) (:id post)))
-      (-> node
-          ((set-path post favorite-destroy-path))
-          ((h/add-class "added")))
+      (let [node (-> node
+                     ((set-path post favorite-destroy-path))
+                     ((h/add-class "added")))
+            like-count (relation-count post :favorite)]
+        (h/at node
+              [:.status] (h/content
+                          (cond
+                           (= like-count 0) "You like this"
+                           (= like-count 1) "You and 1 other person like this"
+                           :else (str "You and " like-count " other people like this")))))
       ((set-path post favorite-path) node))))
 
 (defpage all "index.html"

@@ -14,6 +14,7 @@
 (defentity post
   (belongs-to user)
   (has-many comment)
+  (has-many favorite)
   (prepare hidden-text->boolean))
 
 (defentity user

@@ -16,19 +16,26 @@
 (defn favorite
   [current-auth post]
   (fn [node]
-    (if (and
-         current-auth
-         (contains? (user-favorites (:id current-auth)) (:id post)))
-      (let [node ((h/add-class "added") node)
-            like-count (relation-count post :favorite)]
-        (h/at node
+    (println post)
+    (println (relation-count post :favorite))
+    (let [like-count (relation-count post :favorite)]
+      (if (and
+           current-auth
+           (contains? (user-favorites (:id current-auth)) (:id post)))
+        (h/at ((h/add-class "added") node)
               [:a] (set-path post favorite-destroy-path)
               [:.status] (h/content
                           (cond
-                           (= like-count 0) "You like this"
-                           (= like-count 1) "You and 1 other person like this"
-                           :else (str "You and " like-count " other people like this")))))
-      ((set-path post favorite-path) node))))
+                           (= like-count 1) "You like this"
+                           (= like-count 2) "You and 1 other person like this"
+                           :else (str "You and " like-count " other people like this"))))
+        (h/at node
+              [:a] (set-path post favorite-path)
+              [:.status] (h/content
+                          (cond
+                           (= like-count 0) "Like"
+                           (= like-count 1) "1 person likes this"
+                           :else (str like-count " people like this"))))))))
 
 (defpage all "index.html"
   [posts current-auth]

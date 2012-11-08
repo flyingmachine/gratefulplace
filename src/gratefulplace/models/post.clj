@@ -29,8 +29,7 @@
                  (aggregate (~'count :*) :count)
                  (where {:hidden false}))
            (with e/favorite
-                 (aggregate (~'count :*) :count)
-                 (where {:hidden false}))
+                 (aggregate (~'count :*) :count))
            ~@clauses
            (order :created_on :DESC)))
 
@@ -39,4 +38,6 @@
   (first (select e/post
                  (with e/user
                        (fields :username))
+                 (with e/favorite
+                       (aggregate (count :*) :count))
                  (where {:id (str->int id)}))))

@@ -19,11 +19,10 @@
     (if (and
          current-auth
          (contains? (user-favorites (:id current-auth)) (:id post)))
-      (let [node (-> node
-                     ((set-path post favorite-destroy-path))
-                     ((h/add-class "added")))
+      (let [node ((h/add-class "added") node)
             like-count (relation-count post :favorite)]
         (h/at node
+              [:a] (set-path post favorite-destroy-path)
               [:.status] (h/content
                           (cond
                            (= like-count 0) "You like this"

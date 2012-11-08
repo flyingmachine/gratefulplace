@@ -1,5 +1,6 @@
 (ns gratefulplace.controllers.common
-  (:require [cemerick.friend :as friend]))
+  (:require [cemerick.friend :as friend])
+  (:use gratefulplace.utils))
 
 ;; validation: combination of field name and validation checks
 ;;
@@ -11,6 +12,7 @@
 ;; validation check: a function to apply to the value corresponding to
 ;; the field name specified in the validation
 
+
 (defmacro if-valid
   [to-validate validations errors-name & then-else]
   `(let [to-validate# ~to-validate
@@ -21,8 +23,9 @@
        ~(second then-else))))
 
 (defn error-messages-for
-  "return a vector of error messages or nil if no errors.
-validation-check-groups is a seq of alternating messages and validation checks"
+  "return a vector of error messages or nil if no errors
+validation-check-groups is a seq of alternating messages and
+validation checks"
   [value validation-check-groups]
   (filter
    identity
@@ -44,7 +47,16 @@ validation-check-groups is a seq of alternating messages and validation checks"
             (recur (assoc errors fieldname error-messages) (rest v))))
         errors))))
 
+;; TODO it might be better to use this than if-valid
+(defn validation-failures
+  [to-validate validations]
+  (self-unless-fn (validate to-validate validations) empty? nil))
+
+;; 
 (defmacro view
+  "provides defaults for the map provided to view functions and allows
+  you to provide additional key value pairs"
+
   [view-fn & keys]
   `(let [x# {:current-auth (friend/current-authentication)
              :errors {}

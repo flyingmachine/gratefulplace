@@ -8,8 +8,8 @@
         [gratefulplace.middleware.auth :only (auth)]
         [gratefulplace.middleware.routes :only (routes)]))
 
+; The ring app
 (def app
-  "The ring app"
   (-> routes
       auth
       (wrap-session {:cookie-name "gratefulplace-session" :store (db-session-store)})

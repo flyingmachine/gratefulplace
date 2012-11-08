@@ -22,12 +22,6 @@
             (set-fields attributes)
             (where (str->int conditions :id)))))
 
-(defn optional-conditions
-  [sel conditions where]
-  (if (empty? conditions)
-    sel
-    (-> sel where)))
-
 (defmacro all
   [& clauses]
   `(select e/comment

@@ -4,7 +4,7 @@
   (:use korma.core
         gratefulplace.utils))
 
-(declare user comment)
+(declare user comment favorite)
 
 (defn hidden-text->boolean
   [attributes]

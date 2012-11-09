@@ -10,27 +10,31 @@
   (:use [gratefulplace.controllers.common :only (if-valid view)]
         gratefulplace.controllers.common.content
         gratefulplace.utils
-        gratefulplace.models.permissions))
+        gratefulplace.models.permissions
+        gratefulplace.models.helpers))
 
 ;; TODO any way I could tidy this up?
 (defn all
   [req]
-  (let [current-auth (friend/current-authentication)]
+  (let [current-auth (friend/current-authentication)
+        page (or (get-in req [:page :params] 1))]
     (view
      view/all
      :posts (cond
              (moderator? (:username current-auth))
-             (post/all)
+             (paginate page 20 (post/all))
              
              current-auth
-             (post/all
-              (korma.core/where
-               (or {:hidden false}
-                   {:user_id [= (:id current-auth)]})))
+             (paginate page 20
+                       (post/all
+                        (korma.core/where
+                         (or {:hidden false}
+                             {:user_id [= (:id current-auth)]}))))
              
              :else
-             (post/all
-              (korma.core/where {:hidden false}))))))
+             (paginate page 20
+                       (post/all
+                        (korma.core/where {:hidden false})))))))
 
 (defn show
   [req]

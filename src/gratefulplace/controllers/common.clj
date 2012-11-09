@@ -12,7 +12,6 @@
 ;; validation check: a function to apply to the value corresponding to
 ;; the field name specified in the validation
 
-
 (defmacro if-valid
   [to-validate validations errors-name & then-else]
   `(let [to-validate# ~to-validate
@@ -52,10 +51,10 @@ validation checks"
   [to-validate validations]
   (self-unless-fn (validate to-validate validations) empty? nil))
 
-;; 
 (defmacro view
   "provides defaults for the map provided to view functions and allows
-  you to provide additional key value pairs"
+  you to provide additional key value pairs. Assumes that a variable
+  named req exists"
 
   [view-fn & keys]
   `(let [x# {:current-auth (friend/current-authentication)

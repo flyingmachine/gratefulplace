@@ -29,17 +29,6 @@
            ~@clauses
            (order :created_on :DESC)))
 
-(defn num-records
-  ([] (num-records {}))
-  
-  ([conditions]
-     ;; TODO fix this... shouldn't have to put in a bogus where
-     (let [conditions (if (empty? conditions) true conditions)]
-       ((comp :count first)
-        (select e/comment
-                (aggregate (count :*) :count)
-                (where (str->int conditions :post_id :user_id)))))))
-
 (defn by-id
   [id]
   (first (select e/comment

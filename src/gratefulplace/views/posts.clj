@@ -61,7 +61,7 @@
 
 (defpage show "posts/show.html"
   [post comments current-auth]
-  [:.post :.author]      (linked-username post)
+  [:.post :.author :a]   (linked-username post)
   [:.post :.date]        (h/content (created-on post))
   [:.post :.content]     (md-content post)
 

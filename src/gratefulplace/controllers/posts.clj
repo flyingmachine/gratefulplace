@@ -31,9 +31,10 @@
                     {:hidden false})]
     (view
      view/all
-     :posts (korma.core/select (-> post/all (korma.core/where conditions)))
-     :count (korma.core/select (-> post/record-count (korma.core/where conditions)))
-     :page page)))
+     :posts (paginate page per-page (post/all conditions))
+     :count (post/record-count conditions)
+     :page page
+     :per-page per-page)))
 
 (defn show
   [req]

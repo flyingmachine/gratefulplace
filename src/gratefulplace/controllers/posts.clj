@@ -11,6 +11,7 @@
         gratefulplace.utils
         gratefulplace.models.permissions
         gratefulplace.models.helpers
+        [clojure.contrib.math :only (ceil)]
         [korma.core :only (where)]))
 
 ;; TODO any way I could tidy this up?
@@ -24,13 +25,14 @@
                      {:moderator true
                       :logged-in (or {:hidden false}
                                      {:user_id [= (:id current-auth)]})
-                      :not-logged-in {:hidden false}})]
+                      :not-logged-in {:hidden false}})
+        record-count (post/record-count (where conditions))]
     (view
      view/all
      :posts (paginate page per-page (post/all (where conditions)))
-     :count (post/record-count (where conditions))
+     :record-count record-count
      :page page
-     :per-page per-page)))
+     :max-pages (ceil (/ record-count per-page)))))
 
 (defn show
   [req]

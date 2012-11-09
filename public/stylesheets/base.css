@@ -554,7 +554,7 @@ nav {
   float: left;
   margin: 0 .25em; }
   /* line 177, base.css.scss */
-  .pagination a:hover, .pagination span:hover {
+  .pagination a:hover, .pagination a.current, .pagination span:hover, .pagination span.current {
     text-decoration: none;
     background: rgba(255, 255, 255, 0.6); }
 

@@ -36,7 +36,7 @@
                            :else (str like-count " people like this"))))))))
 
 (defpage all "index.html"
-  [posts current-auth count page]
+  [posts current-auth record-count page max-pages]
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
   [:.post] (h/clone-for
@@ -52,7 +52,19 @@
 
   [:.pagination] (fn [node]
                    (h/at node
-                         )))
+                         [:.previous] (keep-when (not= page 1))
+                         [:.previous] (h/set-attr :href (str "/?page=" (dec page)))
+                         [:.next] (keep-when (not= page max-pages))
+                         [:.next] (h/set-attr :href (str "/?page=" (inc page)))
+                         [[:.page-link :.current]] nil
+                         [[:.page-link (h/nth-of-type 2)]] nil
+                         [:.page-link] (h/clone-for
+                                        [pagenum (range 1 (inc max-pages))]
+                                        (h/do->
+                                         (h/content (str pagenum))
+                                         (h/add-class
+                                          (if (= pagenum page) "current" ""))
+                                         (h/set-attr :href (str "/?page=" pagenum)))))))
 
 (defpage show-new "posts/new.html"
   [params errors current-auth]

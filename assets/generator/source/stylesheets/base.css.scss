@@ -174,7 +174,7 @@ nav {
     float: left;
     margin: 0 .25em;
     
-    &:hover {
+    &:hover, &.current {
       text-decoration:none;
       background: rgba(255, 255, 255, 0.6);
     }

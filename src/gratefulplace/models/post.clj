@@ -40,9 +40,11 @@
 
 (defmacro record-count
   [& clauses]
-  `(select e/post
-    (aggregate (~'count :*) :cnt)
-    ~@clauses))
+  `(:cnt
+    (first
+     (select e/post
+             (aggregate (~'count :*) :cnt)
+             ~@clauses))))
 
 (defn by-id
   [id]

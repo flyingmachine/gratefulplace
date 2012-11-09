@@ -17,7 +17,7 @@
 (defn all
   [req]
   (let [current-auth (friend/current-authentication)
-        page (or (get-in req [:page :params] 1))]
+        page (str->int (or (get-in req [:params :page] 1)))]
     (view
      view/all
      :posts (cond

@@ -16,8 +16,6 @@
 (defn favorite
   [current-auth post]
   (fn [node]
-    (println post)
-    (println (relation-count post :favorite))
     (let [like-count (relation-count post :favorite)]
       (if (and
            current-auth

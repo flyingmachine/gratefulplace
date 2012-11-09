@@ -20,30 +20,33 @@
             (set-fields attributes)
             (where (str->int conditions :id)))))
 
+(def base
+  (->
+   (select* e/post)
+   (with e/user
+         (fields :username))
+   (with e/comment
+         (aggregate (count :*) :count)
+         (where {:hidden false}))
+   (with e/favorite
+         (aggregate (count :*) :count))
+   (order :created_on :DESC)))
+
 (defmacro all
-  [conditions]
-  `(select e/post
-           (with e/user
-                 (fields :username))
-           (with e/comment
-                 (aggregate (~'count :*) :count)
-                 (where {:hidden false}))
-           (with e/favorite
-                 (aggregate (~'count :*) :count))
-           (where ~conditions)
-           (order :created_on :DESC)))
+  [& clauses]
+  `(-> base
+       ~@clauses
+       select))
 
 (defmacro record-count
-  [conditions]
+  [& clauses]
   `(select e/post
     (aggregate (~'count :*) :cnt)
-    (where ~conditions)))
+    ~@clauses))
 
 (defn by-id
   [id]
-  (first (select e/post
-                 (with e/user
-                       (fields :username))
-                 (with e/favorite
-                       (aggregate (count :*) :count))
-                 (where {:id (str->int id)}))))
+  (first
+   (-> base
+       (where {:id (str->int id)})
+       select)))

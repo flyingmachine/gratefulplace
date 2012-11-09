@@ -4,14 +4,14 @@
             [gratefulplace.models.post :as post]
             [gratefulplace.models.comment :as comment]
             [gratefulplace.views.posts :as view]
-            [cemerick.friend :as friend]
-            korma.core)
+            [cemerick.friend :as friend])
 
   (:use [gratefulplace.controllers.common :only (if-valid view)]
         gratefulplace.controllers.common.content
         gratefulplace.utils
         gratefulplace.models.permissions
-        gratefulplace.models.helpers))
+        gratefulplace.models.helpers
+        [korma.core :only (where)]))
 
 ;; TODO any way I could tidy this up?
 (defn all
@@ -31,8 +31,8 @@
                     {:hidden false})]
     (view
      view/all
-     :posts (paginate page per-page (post/all conditions))
-     :count (post/record-count conditions)
+     :posts (paginate page per-page (post/all (where conditions)))
+     :count (post/record-count (where conditions))
      :page page
      :per-page per-page)))
 
@@ -48,18 +48,18 @@
      :comments (cond
                   (moderator? (:username current-auth))
                   (comment/all
-                   (korma.core/where base-cond))
+                   (where base-cond))
                   
                   current-auth
                   (comment/all
-                   (korma.core/where
+                   (where
                     (and
                      base-cond
                      (or {:hidden false}
                          {:user_id [= (:id current-auth)]}))))
                   
                   :else
-                  (comment/all (korma.core/where (and base-cond {:hidden false})))))))
+                  (comment/all (where (and base-cond {:hidden false})))))))
 
 (defn edit
   [req]

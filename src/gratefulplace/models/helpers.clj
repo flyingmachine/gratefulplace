@@ -4,6 +4,6 @@
 ;; TODO make better!
 (defmacro paginate
   ([page num-per-page query]
-     `(~@(macroexpand-1 query)
+     `(~@query
        (limit ~num-per-page)
        (offset (dec ~page)))))

@@ -141,7 +141,10 @@ nav {
       background: rgba(255, 255, 255, 0.3);
       @include border-radius(3px);
       color: #444;
-      padding: .5em;
+      @include padding-leader(.25);
+      @include padding-trailer(.25);
+      padding-left: .5em;
+      padding-right: .5em;
       display: block;
 
       &:hover {
@@ -154,6 +157,26 @@ nav {
     float:right;
     li {
       padding-top:.5em;
+    }
+  }
+}
+
+.pagination {
+  a, span {
+    background: rgba(255, 255, 255, 0.3);
+    @include border-radius(3px);
+    color: #444;
+    @include padding-leader(.25);
+    @include padding-trailer(.25);
+    padding-left: .5em;
+    padding-right: .5em;
+    display: block;
+    float: left;
+    margin: 0 .25em;
+    
+    &:hover {
+      text-decoration:none;
+      background: rgba(255, 255, 255, 0.6);
     }
   }
 }

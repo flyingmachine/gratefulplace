@@ -1,6 +1,7 @@
 (ns gratefulplace.controllers.common
   (:require [cemerick.friend :as friend])
-  (:use gratefulplace.utils))
+  (:use gratefulplace.utils
+        gratefulplace.models.permissions))
 
 ;; validation: combination of field name and validation checks
 ;;
@@ -62,3 +63,10 @@ validation checks"
              :params (:params ~'req)
              :req ~'req}]
      (~view-fn (into x# (map vec (partition 2 ~(vec keys)))))))
+
+(defmacro with-visibility
+  [current-auth {:keys [moderator logged-in not-logged-in]}]
+  `(let [current-auth# ~current-auth]
+     (cond (moderator? (:username current-auth#)) ~moderator
+           current-auth# ~logged-in
+           :else ~not-logged-in)))

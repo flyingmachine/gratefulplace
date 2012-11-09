@@ -6,7 +6,7 @@
             [gratefulplace.views.posts :as view]
             [cemerick.friend :as friend])
 
-  (:use [gratefulplace.controllers.common :only (if-valid view)]
+  (:use [gratefulplace.controllers.common :only (if-valid view with-visibility)]
         gratefulplace.controllers.common.content
         gratefulplace.utils
         gratefulplace.models.permissions
@@ -19,16 +19,12 @@
   (let [current-auth (friend/current-authentication)
         per-page 20
         page (str->int (or (get-in req [:params :page] 1)))
-        conditions (cond
-                    (moderator? (:username current-auth))
-                    true
-                    
-                    current-auth
-                    (or {:hidden false}
-                        {:user_id [= (:id current-auth)]})
-                    
-                    :else
-                    {:hidden false})]
+        conditions (with-visibility
+                     current-auth
+                     {:moderator true
+                      :logged-in (or {:hidden false}
+                                     {:user_id [= (:id current-auth)]})
+                      :not-logged-in {:hidden false}})]
     (view
      view/all
      :posts (paginate page per-page (post/all (where conditions)))
@@ -45,21 +41,19 @@
     (view
      view/show
      :post (post/by-id id)
-     :comments (cond
-                  (moderator? (:username current-auth))
-                  (comment/all
-                   (where base-cond))
+     :comments (with-visibility
+                 current-auth
+                 {:moderator (comment/all
+                              (where base-cond))
                   
-                  current-auth
-                  (comment/all
-                   (where
-                    (and
-                     base-cond
-                     (or {:hidden false}
-                         {:user_id [= (:id current-auth)]}))))
+                  :logged-in (comment/all
+                              (where
+                               (and
+                                base-cond
+                                (or {:hidden false}
+                                    {:user_id [= (:id current-auth)]}))))
                   
-                  :else
-                  (comment/all (where (and base-cond {:hidden false})))))))
+                  :not-logged-in (comment/all (where (and base-cond {:hidden false})))}))))
 
 (defn edit
   [req]

@@ -58,11 +58,6 @@ $light-blue: #f8fcfd;
 // To customize vertical ryhthm, see http://compass-style.org/reference/compass/typography/vertical_rhythm/
 @include establish-baseline;
 
-@font-face {
-  font-family: "ReenieBeanie";
-  src: url('fonts/ReenieBeanie.ttf');
-}
-
 body {
   background: #87ddfd url("/images/blurbg2.jpg") no-repeat;
   color: #444;

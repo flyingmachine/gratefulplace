@@ -36,7 +36,7 @@
                            :else (str like-count " people like this"))))))))
 
 (defpage all "index.html"
-  [posts current-auth]
+  [posts current-auth count page]
   ;; don't show the second post as it's just an example
   [[:.post (h/nth-of-type 2)]] nil
   [:.post] (h/clone-for
@@ -48,7 +48,11 @@
                            (h/content (comments post))
                            (set-path post post-path))
             
-            [:.favorite] (favorite current-auth post)))
+            [:.favorite] (favorite current-auth post))
+
+  [:.pagination] (fn [node]
+                   (h/at node
+                         )))
 
 (defpage show-new "posts/new.html"
   [params errors current-auth]

@@ -17,24 +17,23 @@
 (defn all
   [req]
   (let [current-auth (friend/current-authentication)
-        page (str->int (or (get-in req [:params :page] 1)))]
+        per-page 20
+        page (str->int (or (get-in req [:params :page] 1)))
+        conditions (cond
+                    (moderator? (:username current-auth))
+                    true
+                    
+                    current-auth
+                    (or {:hidden false}
+                        {:user_id [= (:id current-auth)]})
+                    
+                    :else
+                    {:hidden false})]
     (view
      view/all
-     :posts (cond
-             (moderator? (:username current-auth))
-             (paginate page 20 (post/all))
-             
-             current-auth
-             (paginate page 20
-                       (post/all
-                        (korma.core/where
-                         (or {:hidden false}
-                             {:user_id [= (:id current-auth)]}))))
-             
-             :else
-             (paginate page 20
-                       (post/all
-                        (korma.core/where {:hidden false})))))))
+     :posts (korma.core/select (-> post/all (korma.core/where conditions)))
+     :count (korma.core/select (-> post/record-count (korma.core/where conditions)))
+     :page page)))
 
 (defn show
   [req]

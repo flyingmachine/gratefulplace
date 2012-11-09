@@ -3,6 +3,6 @@
 
 (defmacro paginate
   ([page num-per-page query]
-     `(~@query
+     `(-> ~@query
        (limit ~num-per-page)
        (offset (dec ~page)))))

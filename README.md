@@ -1,13 +1,11 @@
-# gratefulplace
+# Grateful Place
 
-A Clojure library designed to ... well, that part is up to you.
+Source for http://www.gratefulplace.com .
 
-## Usage
-
-FIXME
+For a walkthrough, check out http://www.flyingmachinestudios.com/programming/dissecting-gratefulplace/
 
 ## License
 
-Copyright © 2012 FIXME
+Copyright © 2012 Daniel Higginbotham
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the MIT License.

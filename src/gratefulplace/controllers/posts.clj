@@ -11,6 +11,7 @@
         gratefulplace.utils
         gratefulplace.models.permissions
         gratefulplace.models.helpers
+        gratefulplace.lib.twitter
         [clojure.contrib.math :only (ceil)]
         [korma.core :only (where)]))
 
@@ -38,24 +39,18 @@
   [req]
   (let [id (get-in req [:params :id])
         current-auth (friend/current-authentication)
-        base-cond {:post_id (str->int id)}]
-    
+        comment-base-cond {:post_id (str->int id)}
+        comment-conditions (with-visibility
+                             current-auth
+                             {:moderator comment-base-cond
+                              :logged-in (and comment-base-cond
+                                              (or {:hidden false}
+                                                  {:user_id [= (:id current-auth)]}))
+                              :not-logged-in (and comment-base-cond {:hidden false})})]
     (view
      view/show
      :post (post/by-id id)
-     :comments (with-visibility
-                 current-auth
-                 {:moderator (comment/all
-                              (where base-cond))
-                  
-                  :logged-in (comment/all
-                              (where
-                               (and
-                                base-cond
-                                (or {:hidden false}
-                                    {:user_id [= (:id current-auth)]}))))
-                  
-                  :not-logged-in (comment/all (where (and base-cond {:hidden false})))}))))
+     :comments (comment/all (where comment-conditions)))))
 
 (defn edit
   [req]
@@ -75,8 +70,11 @@
     (if-valid
      params post/validations errors
      (do
-       (post/create! (assoc params
-                       :user_id
-                       (:id (friend/current-authentication))))
+       (let [post (post/create! (assoc params
+                                  :user_id
+                                  (:id (friend/current-authentication))))]
+         ; TODO path
+         (future (send-tweets! (:content params) (str "/posts/" (:id post)))))
        (res/redirect "/"))
      (view view/show-new :errors errors))))
+

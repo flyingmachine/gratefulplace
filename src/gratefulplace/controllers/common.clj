@@ -65,6 +65,7 @@ validation checks"
      (~view-fn (into x# (map vec (partition 2 ~(vec keys)))))))
 
 (defmacro with-visibility
+  "this conditional was used a few times so I put it in a macro"
   [current-auth {:keys [moderator logged-in not-logged-in]}]
   `(let [current-auth# ~current-auth]
      (cond (moderator? (:username current-auth#)) ~moderator

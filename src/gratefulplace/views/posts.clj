@@ -9,9 +9,10 @@
 (defn comments
   [post]
   (let [comment-count (get-in post [:comment 0 :count] 0)]
-    (if (zero? comment-count)
-      "Comment"
-      (str  comment-count " comments"))))
+    (cond
+     (zero? comment-count) "Comment"
+     (= 1 comment-count) "1 comment"
+     :else (str  comment-count " comments"))))
 
 (defn favorite
   [current-auth post]

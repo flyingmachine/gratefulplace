@@ -13,7 +13,7 @@
   [:.auth] (if logged-in
              (h/do-> (h/content "Log Out")
                      (h/set-attr :href "/logout"))
-             (h/do-> (h/content "Log In")
+             (h/do-> (h/content "Log In / Register")
                      (h/set-attr :href "/login"))))
 
 (h/deftemplate layout (str template-dir "index.html")

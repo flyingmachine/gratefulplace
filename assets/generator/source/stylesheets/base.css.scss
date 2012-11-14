@@ -112,12 +112,25 @@ strong {
   font-weight: bold;
 }
 
-.title {
-  @include leader(1, 60px);
-  text-align: center;
-  letter-spacing:-3px;
-  font-family: 'Nothing You Could Do', cursive;
-  color: white;
+.masthead {
+  @include container;
+  @include leader(1);
+
+  .logo {
+    @include span-columns(5);
+  }
+  
+  blockquote {
+    @include span-columns(4 omega);
+    background: none;
+    padding: 0;
+    margin:0;
+    color:#666;
+    cite {
+      display:block;
+      font-style:italic;
+    }
+  }
 }
 
 .content, .markdown-help {

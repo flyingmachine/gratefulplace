@@ -1,7 +1,7 @@
 (ns gratefulplace.models.permissions
   (:require [cemerick.friend :as friend]))
 
-(def moderator-usernames (clojure.string/split (get (System/getenv) "MODERATOR_NAMES" "higginbotham") #","))
+(def moderator-usernames (clojure.string/split (get (System/getenv) "MODERATOR_NAMES" "flyingmachine") #","))
 
 (defn moderator? [username]
   (some #(= % username) moderator-usernames))

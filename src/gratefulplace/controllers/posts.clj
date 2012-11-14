@@ -46,7 +46,7 @@
                               :logged-in (and comment-base-cond
                                               (or {:hidden false}
                                                   {:user_id [= (:id current-auth)]}))
-                              :not-logged-in (and comment-base-cond {:hidden false})})]
+                              :not-logged-in (merge comment-base-cond {:hidden false})})]
     (view
      view/show
      :post (post/by-id id)

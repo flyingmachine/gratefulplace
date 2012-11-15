@@ -21,4 +21,6 @@
   (select e/favorite
           (fields :user_id :post_id)
           (with e/post)
+          (with e/user)
+          (order :post.created_on :DESC)
           (where {:user_id (str->int user_id)})))

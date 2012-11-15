@@ -46,8 +46,7 @@
   
   ;; favorites
   (route GET "/favorites" favorites/all)
-  (POST "/favorites/:post_id" [post_id]
-        (friend/authorize #{:user} (favorites/create! post_id)))
+  (POST "/favorites/:post_id" [post_id] (favorites/create! post_id))
   (POST "/favorites/:post_id/destroy" [post_id]
         (friend/authorize #{:user} (favorites/destroy! post_id)))
 

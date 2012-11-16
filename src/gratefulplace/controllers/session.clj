@@ -7,5 +7,5 @@
   (:use [gratefulplace.controllers.common :only (if-valid view)]))
 
 (defn show-new
-  [req]
+  [params]
   (view view/show-new))

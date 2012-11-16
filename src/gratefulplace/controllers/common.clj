@@ -60,8 +60,7 @@ validation checks"
   [view-fn & keys]
   `(let [x# {:current-auth (friend/current-authentication)
              :errors {}
-             :params (:params ~'req)
-             :req ~'req}]
+             :params ~'params}]
      (~view-fn (into x# (map vec (partition 2 ~(vec keys)))))))
 
 (defmacro with-visibility

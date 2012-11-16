@@ -3,5 +3,5 @@
   (:use [gratefulplace.controllers.common :only (view)]))
 
 (defn about
-  [req]
+  [params]
   (view view/about))

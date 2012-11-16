@@ -27,7 +27,7 @@
                           (cond
                            (= like-count 1) "You like this"
                            (= like-count 2) "You and 1 other person like this"
-                           :else (str "You and " like-count " other people like this"))))
+                           :else (str "You and " (dec like-count) " other people like this"))))
         (h/at node
               [:a] (set-path post favorite-path)
               [:.status] (h/content

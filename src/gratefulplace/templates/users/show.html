@@ -11,19 +11,21 @@
   </head>
   <body class='users users_show'>
     <div class='masthead'>
-      <div class='logo'>
-        <a href='/'>
-          <img src='/images/logo.png' />
-        </a>
-      </div>
-      <div class='intro'>
-        <blockquote>
-          When we appreciate the good in our lives, the good grows and we have more of it.
-          <cite>
-            &ndash; Tal Ben-Shahar, the "Harvard Happiness Professor"
-          </cite>
-        </blockquote>
-        <a href='/about'>Learn more</a>
+      <div class='content'>
+        <div class='logo'>
+          <a href='/'>
+            <img src='/images/logo.png' />
+          </a>
+        </div>
+        <div class='intro'>
+          <blockquote>
+            When we appreciate the good in our lives, the good grows and we have more of it.
+            <cite>
+              &ndash; Tal Ben-Shahar, the "Harvard Happiness Professor"
+            </cite>
+          </blockquote>
+          <a href='/about'>Learn more</a>
+        </div>
       </div>
     </div>
   </body>
@@ -37,45 +39,49 @@
           <a class='likes' href='/favorites'>Likes</a>
         </li>
         <li>
-          <a class='auth'>Log Out</a>
+          <a class='notifications' href='/notifications'>Notifications</a>
         </li>
       </ul>
       <ul class='secondary'>
+        <li>
+          <a class='auth'>Log Out</a>
+        </li>
         <li id='logged-in'>
-          <span>Logged in as</span>
-          <a href=''>higginbotham</a>
+          <a href=''>Profile</a>
         </li>
       </ul>
     </nav>
-    <div class='chunk' id='user-content'>
-      <div class='edit'>
-        <a href='/users/edit.html'>
-          Edit Your Profile
-        </a>
-      </div>
-      <h2>
-        About
-        <span class='username'>someuser</span>
-      </h2>
-      <div class='local-nav'>
-        <ul>
-          <li class='about'>
-            About
-          </li>
-          <li class='comments'>
-            <a href='/users/comments.html'>
-              Comments (<span class="count">10</span>)
-            </a>
-          </li>
-          <li class='posts'>
-            <a href='/users/posts.html'>
-              Posts (<span class="count">20</span>)
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class='about'>
-        <p>I'm a blah blah blah</p>
+    <div id='main'>
+      <div class='chunk' id='user-content'>
+        <div class='edit'>
+          <a href='/users/edit.html'>
+            Edit Your Profile
+          </a>
+        </div>
+        <h2>
+          About
+          <span class='username'>someuser</span>
+        </h2>
+        <div class='local-nav'>
+          <ul>
+            <li class='about'>
+              About
+            </li>
+            <li class='comments'>
+              <a href='/users/comments.html'>
+                Comments (<span class="count">10</span>)
+              </a>
+            </li>
+            <li class='posts'>
+              <a href='/users/posts.html'>
+                Posts (<span class="count">20</span>)
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class='about'>
+          <p>I'm a blah blah blah</p>
+        </div>
       </div>
     </div>
   </div>

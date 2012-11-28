@@ -11,19 +11,21 @@
   </head>
   <body class='users users_edit'>
     <div class='masthead'>
-      <div class='logo'>
-        <a href='/'>
-          <img src='/images/logo.png' />
-        </a>
-      </div>
-      <div class='intro'>
-        <blockquote>
-          When we appreciate the good in our lives, the good grows and we have more of it.
-          <cite>
-            &ndash; Tal Ben-Shahar, the "Harvard Happiness Professor"
-          </cite>
-        </blockquote>
-        <a href='/about'>Learn more</a>
+      <div class='content'>
+        <div class='logo'>
+          <a href='/'>
+            <img src='/images/logo.png' />
+          </a>
+        </div>
+        <div class='intro'>
+          <blockquote>
+            When we appreciate the good in our lives, the good grows and we have more of it.
+            <cite>
+              &ndash; Tal Ben-Shahar, the "Harvard Happiness Professor"
+            </cite>
+          </blockquote>
+          <a href='/about'>Learn more</a>
+        </div>
       </div>
     </div>
   </body>
@@ -37,17 +39,20 @@
           <a class='likes' href='/favorites'>Likes</a>
         </li>
         <li>
-          <a class='auth'>Log Out</a>
+          <a class='notifications' href='/notifications'>Notifications</a>
         </li>
       </ul>
       <ul class='secondary'>
+        <li>
+          <a class='auth'>Log Out</a>
+        </li>
         <li id='logged-in'>
-          <span>Logged in as</span>
-          <a href=''>higginbotham</a>
+          <a href=''>Profile</a>
         </li>
       </ul>
     </nav>
-    <div class='chunk' id='user-content'>
+    <div id='main'>
+      <div class='chunk' id='user-content'>
   <div class='edit'>
     <a href='/users/comments.html'>
       Back to profile
@@ -105,6 +110,7 @@
     </form>
   </div>
 </div>
+    </div>
   </div>
   <div class='markdown-help hidden'>
     <table>

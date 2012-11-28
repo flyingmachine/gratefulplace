@@ -10,16 +10,17 @@
     = javascript_include_tag  "all"
   %body{:class => page_classes}
     .masthead
-      .logo
-        %a{:href => "/"}
-          %img{:src => "/images/logo.png"}/
+      .content
+        .logo
+          %a{:href => "/"}
+            %img{:src => "/images/logo.png"}/
 
-      .intro
-        %blockquote
-          When we appreciate the good in our lives, the good grows and we have more of it.
-          %cite
-            &ndash; Tal Ben-Shahar, the "Harvard Happiness Professor"
-        %a{:href => "/about"}Learn more
+        .intro
+          %blockquote
+            When we appreciate the good in our lives, the good grows and we have more of it.
+            %cite
+              &ndash; Tal Ben-Shahar, the "Harvard Happiness Professor"
+          %a{:href => "/about"}Learn more
   .page
     %nav
       %ul.main
@@ -28,12 +29,14 @@
         %li
           %a.likes{:href => "/favorites"} Likes
         %li
-          %a.auth Log Out
+          %a.notifications{:href => "/notifications"} Notifications
       %ul.secondary
+        %li
+          %a.auth Log Out
         %li#logged-in
-          %span Logged in as
-          %a{:href => ""} higginbotham
-    = yield
+          %a{:href => ""} Profile
+    #main
+      = yield
   .markdown-help.hidden
     %table
       %tbody

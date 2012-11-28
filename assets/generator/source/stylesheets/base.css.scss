@@ -16,7 +16,7 @@ $column-width   : 4em;            // each column is 4em wide
 $gutter-width   : 1em;            // 1em gutters between columns
 $grid-padding   : $gutter-width;  // grid-padding equal to gutters
 $base-line-height: 24px;
-$total-columns  : 9;
+$total-columns  : 12;
 
 // Fonts --------------------------------------------------------------
 @mixin sans-family {
@@ -31,14 +31,19 @@ $total-columns  : 9;
   font-family: "Bitstream Vera Sans Mono", monospace;
 }
 
+@mixin bshadow {
+  @include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 1px, 2px, 0px);
+}
+
 @mixin chunk {
   background: white;
   @include border-radius(3px); 
-  @include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 1px, 2px, 0px);
+  @include bshadow;
   padding:0 1em;
   @include trailer;
   @include clearfix;
   @include padding-leader;
+  @include box-sizing(border-box);
 }
 
 @mixin alt-font {
@@ -67,7 +72,6 @@ body {
 h2 {
   @include sans-family;
   @include adjust-font-size-to(30px, 1);
-  @include box-sizing(border-box);
   @include trailer(1, 30px);
   @include padding-trailer(.5, 30px);
   @include leader(.5, 30px);
@@ -116,20 +120,28 @@ strong {
   @include container;
   @include leader(1);
 
+  .content {
+    @include span-columns(9);
+  }
+
   .logo {
-    @include span-columns(5);
+    @include span-columns(5, 9);
   }
   
   blockquote {
-    @include span-columns(4 omega);
+    @include span-columns(4 omega, 9);
     background: none;
     padding: 0;
     margin:0;
-    color:#666;
+    color:#555;
     cite {
       display:block;
       font-style:italic;
     }
+  }
+
+  .intro a {
+    display:none;
   }
 }
 
@@ -142,34 +154,35 @@ strong {
 nav {
   @include padding-trailer;
   @include clearfix;
-  
-  .main {
-    float: left; 
-    li {
-      float: left;
-      margin-right: 1em;
-    }
+  @include span-columns(3 omega, 12);
 
-    a {
-      background: rgba(255, 255, 255, 0.3);
-      @include border-radius(3px);
-      color: #444;
-      @include padding-leader(.25);
-      @include padding-trailer(.25);
-      padding-left: .5em;
-      padding-right: .5em;
-      display: block;
-
-      &:hover {
-        text-decoration:none;
-        background: rgba(255, 255, 255, 0.6);
-      }
-    }
-  }
   .secondary {
-    float:right;
-    li {
-      padding-top:.5em;
+    @include leader;
+  }
+
+  li {
+    @include trailer(.25);
+  }
+
+  a {
+    background: rgba(255, 255, 255, 0.3);
+    @include bshadow;
+    @include border-radius(0 0 40px 0);
+    color: #444;
+    @include padding-leader(.25);
+    @include padding-trailer(.25);
+    padding-left: .5em;
+    padding-right: .5em;
+    display: block;
+    border-left: 2px solid white;
+
+    &:hover {
+      text-decoration:none;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    &:visited {
+      color: #444;
     }
   }
 }
@@ -185,7 +198,7 @@ nav {
     padding-right: .5em;
     display: block;
     float: left;
-    margin: 0 .25em;
+    margin: 0 .25em 0 0;
     
     &:hover, &.current {
       text-decoration:none;
@@ -201,8 +214,8 @@ nav {
   @include leader;
 }
 
-#posts {
-  @include span-columns(9 omega);
+#main {
+  @include span-columns(9, 12);
 }
 
 #posts .post, #post .comment, #post .post {

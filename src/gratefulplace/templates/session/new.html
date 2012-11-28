@@ -11,19 +11,21 @@
   </head>
   <body class='session session_new'>
     <div class='masthead'>
-      <div class='logo'>
-        <a href='/'>
-          <img src='/images/logo.png' />
-        </a>
-      </div>
-      <div class='intro'>
-        <blockquote>
-          When we appreciate the good in our lives, the good grows and we have more of it.
-          <cite>
-            &ndash; Tal Ben-Shahar, the "Harvard Happiness Professor"
-          </cite>
-        </blockquote>
-        <a href='/about'>Learn more</a>
+      <div class='content'>
+        <div class='logo'>
+          <a href='/'>
+            <img src='/images/logo.png' />
+          </a>
+        </div>
+        <div class='intro'>
+          <blockquote>
+            When we appreciate the good in our lives, the good grows and we have more of it.
+            <cite>
+              &ndash; Tal Ben-Shahar, the "Harvard Happiness Professor"
+            </cite>
+          </blockquote>
+          <a href='/about'>Learn more</a>
+        </div>
       </div>
     </div>
   </body>
@@ -37,73 +39,77 @@
           <a class='likes' href='/favorites'>Likes</a>
         </li>
         <li>
-          <a class='auth'>Log Out</a>
+          <a class='notifications' href='/notifications'>Notifications</a>
         </li>
       </ul>
       <ul class='secondary'>
+        <li>
+          <a class='auth'>Log Out</a>
+        </li>
         <li id='logged-in'>
-          <span>Logged in as</span>
-          <a href=''>higginbotham</a>
+          <a href=''>Profile</a>
         </li>
       </ul>
     </nav>
-    <div class='new' id='login'>
-      <h2>Log In</h2>
-      <form action='/login' method='POST'>
-        <div class='errors'></div>
-        <table class='input'>
-          <tr>
-            <td>
-              <label for='username'>Username</label>
-            </td>
-            <td>
-              <input class='username' name='username' type='text' />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label for='password'>Password</label>
-            </td>
-            <td>
-              <input name='password' type='password' />
-            </td>
-          </tr>
-        </table>
-        <input type='submit' value='Log In' />
-      </form>
-    </div>
-    <div id='new-user'>
-      <h2>No Account? Join Grateful Place</h2>
-      <p>Joining will let you write posts and comments.</p>
-      <form action='/users' method='POST'>
-        <table class='input'>
-          <tr>
-            <td>
-              <label for='username'>Username</label>
-            </td>
-            <td>
-              <input name='username' type='text' />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label for='password'>Password</label>
-            </td>
-            <td>
-              <input name='password' type='password' />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label for='email'>Email</label>
-            </td>
-            <td>
-              <input name='email' type='text' />
-            </td>
-          </tr>
-        </table>
-        <input type='submit' value='Join Grateful Place' />
-      </form>
+    <div id='main'>
+      <div class='new' id='login'>
+        <h2>Log In</h2>
+        <form action='/login' method='POST'>
+          <div class='errors'></div>
+          <table class='input'>
+            <tr>
+              <td>
+                <label for='username'>Username</label>
+              </td>
+              <td>
+                <input class='username' name='username' type='text' />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for='password'>Password</label>
+              </td>
+              <td>
+                <input name='password' type='password' />
+              </td>
+            </tr>
+          </table>
+          <input type='submit' value='Log In' />
+        </form>
+      </div>
+      <div id='new-user'>
+        <h2>No Account? Join Grateful Place</h2>
+        <p>Joining will let you write posts and comments.</p>
+        <form action='/users' method='POST'>
+          <table class='input'>
+            <tr>
+              <td>
+                <label for='username'>Username</label>
+              </td>
+              <td>
+                <input name='username' type='text' />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for='password'>Password</label>
+              </td>
+              <td>
+                <input name='password' type='password' />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for='email'>Email</label>
+              </td>
+              <td>
+                <input name='email' type='text' />
+              </td>
+            </tr>
+          </table>
+          <input type='submit' value='Join Grateful Place' />
+        </form>
+      </div>
     </div>
   </div>
   <div class='markdown-help hidden'>

@@ -14,8 +14,8 @@
 
 (defmacro route
   [method path & handlers]
-  `(~method ~path req#
-            (->> req#
+  `(~method ~path {params# :params}
+            (->> params#
                 ~@handlers)))
 
 (defroutes routes
@@ -37,7 +37,7 @@
 
   ;; users
   (route GET "/users/new" users/show-new)
-  (route POST "/users" users/create!)
+  (POST "/users" [] users/create!)
   (route GET "/users/:username" users/show)
   (route GET "/users/:username/edit" users/edit)
   (route GET "/users/:username/posts" users/posts)

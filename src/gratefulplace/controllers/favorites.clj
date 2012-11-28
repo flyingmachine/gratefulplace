@@ -15,7 +15,7 @@
   {:status 200})
 
 (defn all
-  [req]
+  [params]
   (view
    view/all
    :posts (if (current-user-id)

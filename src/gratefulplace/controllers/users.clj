@@ -12,12 +12,12 @@
 
 
 (defn show-new
-  [req]
+  [params]
   (view view/show-new))
 
-(defn user-from-req
-  [req]
-  (user/for-user-page (:params req)))
+(defn user-from-params
+  [params]
+  (user/for-user-page params))
 
 (defn create!
   [req]
@@ -33,31 +33,30 @@
        {:body (view view/show-new :errors errors)}))))
 
 (defn show
-  [req]
+  [params]
   (view
    view/show
-   :user (user-from-req req)))
+   :user (user-from-params params)))
 
 (defn posts
-  [req]
-  (let [user (user-from-req req)]
+  [params]
+  (let [user (user-from-params params)]
     (view
      view/posts
      :user  user
      :posts (post/all (korma.core/where {:user_id (:id user)})))))
 
 (defn comments
-  [req]
-  (let [user (user-from-req req)]
-    (println user)
+  [params]
+  (let [user (user-from-params params)]
     (view
      view/comments
      :user user
      :comments (comment/all (korma.core/where {:user_id (:id user)})))))
 
 (defn edit
-  [req]
-  (let [username (get-in req [:params :username])]
+  [params]
+  (let [username (:username params)]
     (protect
      (can-modify-profile? username)
      (view
@@ -66,9 +65,8 @@
 
 ;; TODO don't really need to have a redirect here do I?
 (defn update
-  [req]
-  (let [params   (:params req)
-        username (:username params)]
+  [params]
+  (let [username (:username params)]
     (protect
      (can-modify-profile? username)
      (let [validations (cond

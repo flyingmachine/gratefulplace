@@ -11,9 +11,9 @@
 
 (defn seed
   []
-  (println (user/create! {:username     "higginbotham"
+  (println (user/create! {:username     "flyingmachine"
                           :email        "daniel@flyingmachinestudios.com"
-                          :display_name "higginbotham"
+                          :display_name "flyingmachine"
                           :password     "password"})))
 (defn -main
   [task-name]

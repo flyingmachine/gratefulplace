@@ -17,10 +17,10 @@
 
 ;; TODO any way I could tidy this up?
 (defn all
-  [req]
+  [params]
   (let [current-auth (friend/current-authentication)
         per-page 20
-        page (str->int (or (get-in req [:params :page] 1)))
+        page (str->int (or (get params :page 1)))
         conditions (with-visibility
                      current-auth
                      {:moderator true
@@ -36,8 +36,8 @@
      :max-pages (ceil (/ record-count per-page)))))
 
 (defn show
-  [req]
-  (let [id (get-in req [:params :id])
+  [params]
+  (let [id (:id params)
         current-auth (friend/current-authentication)
         comment-base-cond {:post_id (str->int id)}
         comment-conditions (with-visibility
@@ -53,28 +53,26 @@
      :comments (comment/all (where comment-conditions)))))
 
 (defn edit
-  [req]
+  [params]
   (view
    view/edit
-   :post (post/by-id (get-in req [:params :id]))))
+   :post (post/by-id (:id params))))
 
 (def update (update-fn post/by-id post/update!))
 
 (defn show-new
-  [req]
+  [params]
   (view view/show-new))
 
 (defn create!
-  [req]
-  (let [params (:params req)]
-    (if-valid
-     params post/validations errors
-     (do
-       (let [post (post/create! (assoc params
-                                  :user_id
-                                  (:id (friend/current-authentication))))]
-         ; TODO path
-         (future (send-tweets! (:content params) (str "/posts/" (:id post)))))
-       (res/redirect "/"))
-     (view view/show-new :errors errors))))
-
+  [params]
+  (if-valid
+   params post/validations errors
+   (do
+     (let [post (post/create! (assoc params
+                                :user_id
+                                (:id (friend/current-authentication))))]
+                                        ; TODO path
+       (future (send-tweets! (:content params) (str "/posts/" (:id post)))))
+     (res/redirect "/"))
+   (view view/show-new :errors errors)))

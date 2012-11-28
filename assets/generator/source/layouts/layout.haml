@@ -23,18 +23,19 @@
           %a{:href => "/about"}Learn more
   .page
     %nav
-      %ul.main
+      %ul
         %li
           %a.new-post{:href => "/posts/new"} New Post
         %li
           %a.likes{:href => "/favorites"} Likes
         %li
           %a.notifications{:href => "/notifications"} Notifications
-      %ul.secondary
+      %ul
+        %li#logged-in
+          %a{:href => ""} Your Profile
+      %ul
         %li
           %a.auth Log Out
-        %li#logged-in
-          %a{:href => ""} Profile
     #main
       = yield
   .markdown-help.hidden

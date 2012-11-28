@@ -156,8 +156,8 @@ nav {
   @include clearfix;
   @include span-columns(3 omega, 12);
 
-  .secondary {
-    @include leader;
+  ul {
+    @include trailer;
   }
 
   li {

@@ -546,8 +546,8 @@ nav {
   #margin-left: -1em;
   display: inline; }
   /* line 159, base.css.scss */
-  nav .secondary {
-    margin-top: 1.5em; }
+  nav ul {
+    margin-bottom: 1.5em; }
   /* line 163, base.css.scss */
   nav li {
     margin-bottom: 0.375em; }

@@ -24,12 +24,7 @@
   [:nav :ul.secondary :#logged-in :a]
   (if-let [username (:username (current-authentication))]
     (h/do->
-     (h/content username)
-     (h/set-attr :href (str "/users/" username))))
-  
-  [:nav :ul.secondary :#logged-in :span]
-  (when (current-authentication)
-    (h/content "Logged in as")))
+     (h/set-attr :href (str "/users/" username)))))
 
 ;; Need to come up with better name
 ;; Bundles together some defsnippet commonalities for user with the

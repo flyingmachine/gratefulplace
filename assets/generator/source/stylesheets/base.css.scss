@@ -477,3 +477,7 @@ table.input {
   float:right;
   @include alt-font;
 }
+
+.highlight {
+  @include background-image(linear-gradient(#ebfdec, white 3em, white));
+}

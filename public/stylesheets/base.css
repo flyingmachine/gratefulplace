@@ -930,3 +930,11 @@ table.input {
   line-height: 1.84615em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: inherit; }
+
+/* line 481, base.css.scss */
+.highlight {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ebfdec), color-stop(3em, #ffffff), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(#ebfdec, #ffffff 3em, #ffffff);
+  background-image: -moz-linear-gradient(#ebfdec, #ffffff 3em, #ffffff);
+  background-image: -o-linear-gradient(#ebfdec, #ffffff 3em, #ffffff);
+  background-image: linear-gradient(#ebfdec, #ffffff 3em, #ffffff); }

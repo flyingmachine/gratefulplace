@@ -51,7 +51,7 @@ var Editable = {
       var el = this;
       $.post(
         $(el).attr("action"),
-        {content: $(el).children("textarea").val()},
+        $(el).serializeJSON(),
         function(data) {
           Editable.correspondingContent(el).html(data);
         }

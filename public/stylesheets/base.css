@@ -911,3 +911,14 @@ table.input {
   line-height: 1.84615em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: inherit; }
+
+/* line 468, base.css.scss */
+.delete {
+  margin-top: 1.5em; }
+  /* line 471, base.css.scss */
+  .delete input[type="submit"] {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f1d8df));
+    background-image: -webkit-linear-gradient(#ffffff, #f1d8df);
+    background-image: -moz-linear-gradient(#ffffff, #f1d8df);
+    background-image: -o-linear-gradient(#ffffff, #f1d8df);
+    background-image: linear-gradient(#ffffff, #f1d8df); }

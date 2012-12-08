@@ -29,6 +29,7 @@
   (route GET "/posts/:id" posts/show)
   (route GET "/posts/:id/edit" posts/edit)
   (route POST "/posts/:id" posts/update)
+  (route POST "/posts/:id/destroy" posts/destroy)
   
   ;; comments
   (route POST "/comments" comments/create! (friend/authorize #{:user}))

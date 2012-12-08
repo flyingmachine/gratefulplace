@@ -47,11 +47,11 @@ var Editable = {
     });
 
     // content form submission
-    $(".content").on('submit', 'form', function(ev) {
+    $(".content").on('submit', 'form.update', function(ev) {
       var el = this;
       $.post(
         $(el).attr("action"),
-        $(el).serializeJSON(),
+        {content: $(el).children("textarea").val()},
         function(data) {
           Editable.correspondingContent(el).html(data);
         }

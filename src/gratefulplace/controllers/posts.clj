@@ -40,17 +40,17 @@
   (let [id (:id params)
         current-auth (friend/current-authentication)
         comment-base-cond {:post_id (str->int id)}
-        comment-conditions (with-visibility
-                             current-auth
-                             {:moderator comment-base-cond
-                              :logged-in (and comment-base-cond
-                                              (or {:hidden false}
-                                                  {:user_id [= (:id current-auth)]}))
-                              :not-logged-in (merge comment-base-cond {:hidden false})})]
+        comments (with-visibility
+                   current-auth
+                   {:moderator (comment/all (where comment-base-cond))
+                    :logged-in (comment/all (where (and comment-base-cond
+                                                                  (or {:hidden false}
+                                                                      {:user_id [= (:id current-auth)]}))))
+                    :not-logged-in (comment/all (where (merge comment-base-cond {:hidden false})))})]
     (view
      view/show
      :post (post/by-id id)
-     :comments (comment/all (where comment-conditions)))))
+     :comments comments)))
 
 (defn edit
   [params]

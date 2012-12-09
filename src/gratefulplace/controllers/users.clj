@@ -28,9 +28,8 @@
        params
        (:create user/validation-contexts)
        errors
-       
-       (do (workflows/make-auth (user/create! params))
-           (res/redirect "/"))
+
+       (workflows/make-auth (user/create! params))
        {:body (view view/show-new :errors errors)}))))
 
 (defn show

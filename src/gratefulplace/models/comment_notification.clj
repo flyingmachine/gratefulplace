@@ -19,7 +19,7 @@
 (defn all
   [user_id]
   (select e/comment-notification
-          (with e/user (fields :username))
-          (with e/comment (fields :content :created_on))
+          (with e/comment (fields :content :created_on)
+                (with e/user (fields :username)))
           (order :comment.created_on :DESC)
           (where {:user_id (str->int user_id)})))

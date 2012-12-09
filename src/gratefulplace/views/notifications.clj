@@ -8,10 +8,11 @@
 (defpage all "notifications/index.html"
   [notifications]
   [:title] (h/content (str (current-username) "'s Notifications :: Grateful Place"))
-  [[:div.comment (h/nth-of-type 2)]] nil
+  [[:div.comment (h/nth-of-type 1)]] nil
   [:div.comment] (h/clone-for [notif notifications]
                               h/this-node   (if (not (:viewed notif))
-                                              (h/add-class "highlight"))
+                                              (h/add-class "highlight")
+                                              #(identity %))
                               [:.date]      (h/content (created-on notif))
                               [:.content]   (h/content (:content notif))
                               [:.author :a] (linked-username notif)

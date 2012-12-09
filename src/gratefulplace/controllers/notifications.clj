@@ -13,7 +13,7 @@
   (view
    view/all
    :notifications (if (current-user-id)
-                    (do
+                    (let [html (notification/all (current-user-id))]
                       (notification/mark-all-viewed (current-user-id))
-                      (notification/all (current-user-id)))
+                      html)
                     [])))

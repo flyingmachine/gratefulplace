@@ -8,9 +8,17 @@
 
 (defonce template-dir "gratefulplace/templates/")
 
+(defmacro keep-when
+  [condition]
+  `(when ~condition
+     #(identity %)))
+
 (h/defsnippet nav (str template-dir "index.html") [:nav]
   [logged-in]
-  [:.auth] (if logged-in
+  [:#logged-in] (keep-when logged-in)
+  [:.likes] (keep-when logged-in)
+  [:.notifications] (keep-when logged-in)
+  [:li.auth :a] (if logged-in
              (h/do-> (h/content "Log Out")
                      (h/set-attr :href "/logout"))
              (h/do-> (h/content "Log In / Register")
@@ -71,6 +79,7 @@
 (create-path-fns "post" :id "edit" "destroy")
 (create-path-fns "favorite" :id "edit" "destroy")
 (create-path-fns "comment" :id "edit" "destroy")
+(create-path-fns "notification" :id)
 
 (defn comment-on-post-path
   [post, comment]
@@ -126,11 +135,6 @@
 (defn created-on-short
   [x]
   (timestamp->shortstring (:created_on x)))
-
-(defmacro keep-when
-  [condition]
-  `(when ~condition
-     #(identity %)))
 
 (defn user-favorites
   [user-id]

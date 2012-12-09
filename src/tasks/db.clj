@@ -19,4 +19,5 @@
   [task-name]
   (condp = task-name
     "rebuild" (rebuild)
-    "seed" (seed)))
+    "seed" (seed)
+    "migrate" (migrate)))

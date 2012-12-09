@@ -5,6 +5,7 @@
             [gratefulplace.controllers.users     :as users]
             [gratefulplace.controllers.comments  :as comments]
             [gratefulplace.controllers.favorites :as favorites]
+            [gratefulplace.controllers.notifications :as notifications]
             [gratefulplace.controllers.session   :as session]
             [gratefulplace.controllers.static    :as static]
             [gratefulplace.models.user :as user]
@@ -44,6 +45,9 @@
   (route GET "/users/:username/posts" users/posts)
   (route GET "/users/:username/comments" users/comments)
   (route POST "/users/:username" users/update)
+
+  ;; notifications
+  (route GET "/notifications" notifications/all)
   
   ;; favorites
   (route GET "/favorites" favorites/all)

@@ -50,3 +50,8 @@
   (belongs-to user)
   
   (prepare #(str->int % :post_id :user_id)))
+
+(defentity comment-notification
+  (table :comment_notification)
+  (belongs-to user)
+  (belongs-to comment))

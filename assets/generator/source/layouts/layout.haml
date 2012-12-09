@@ -24,18 +24,18 @@
   .page
     %nav
       %ul
-        %li
-          %a.new-post{:href => "/posts/new"} New Post
-        %li
-          %a.likes{:href => "/favorites"} Likes
-        %li
-          %a.notifications{:href => "/notifications"} Notifications
+        %li.new-post
+          %a{:href => "/posts/new"} New Post
+        %li.likes
+          %a{:href => "/favorites"} Likes
+        %li.notifications
+          %a{:href => "/notifications"} Notifications
       %ul
         %li#logged-in
           %a{:href => "/users/show.html"} Your Profile
       %ul
-        %li
-          %a.auth Log Out
+        %li.auth
+          %a Log Out
     #main
       = yield
   .markdown-help.hidden

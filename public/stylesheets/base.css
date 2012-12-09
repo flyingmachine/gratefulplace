@@ -863,7 +863,7 @@ table.input {
     margin-right: 1em; }
 /* line 407, base.css.scss */
 #user-content div.posts, #user-content div.comments {
-  border-top: 1px dotted #eee; }
+  border-bottom: 1px solid #eee; }
 /* line 410, base.css.scss */
 #user-content div.post, #user-content div.comment {
   display: block;
@@ -874,20 +874,23 @@ table.input {
   box-sizing: border-box;
   padding-bottom: 0.75em;
   padding-top: 0.75em;
-  border-bottom: 1px dotted #eee; }
+  border-top: 1px solid #eee; }
   /* line 418, base.css.scss */
+  #user-content div.post.highlight, #user-content div.comment.highlight {
+    border-top: 1px solid #8873e5; }
+  /* line 422, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 422, base.css.scss */
+  /* line 426, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 426, base.css.scss */
+  /* line 430, base.css.scss */
   #user-content div.post .meta, #user-content div.comment .meta {
     float: right;
     padding: 0 4px;
     margin: 0 .5em;
     border-left: 1px solid #eee; }
-  /* line 434, base.css.scss */
+  /* line 438, base.css.scss */
   #user-content div.post .date, #user-content div.post .author, #user-content div.comment .date, #user-content div.comment .author {
     float: right;
     padding: 0 .5em;
@@ -896,48 +899,40 @@ table.input {
     font-size: 0.8125em;
     line-height: 1.84615em; }
 
-/* line 448, base.css.scss */
+/* line 452, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.5em; }
-  /* line 453, base.css.scss */
+  /* line 457, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.75em;
     border-bottom: none; }
 
-/* line 460, base.css.scss */
+/* line 464, base.css.scss */
 .markdown-help table {
   width: 100%; }
-/* line 463, base.css.scss */
+/* line 467, base.css.scss */
 .markdown-help td:first-child {
   width: 50%; }
-/* line 466, base.css.scss */
+/* line 470, base.css.scss */
 .markdown-help td {
   padding: 0 .5em;
   border: 1px solid #eee; }
 
-/* line 472, base.css.scss */
+/* line 476, base.css.scss */
 .hidden {
   display: none; }
 
-/* line 476, base.css.scss */
+/* line 480, base.css.scss */
 .formatting-help {
   float: right;
   font-size: 0.8125em;
   line-height: 1.84615em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: inherit; }
-
-/* line 481, base.css.scss */
-.highlight {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ebfdec), color-stop(3em, #ffffff), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(#ebfdec, #ffffff 3em, #ffffff);
-  background-image: -moz-linear-gradient(#ebfdec, #ffffff 3em, #ffffff);
-  background-image: -o-linear-gradient(#ebfdec, #ffffff 3em, #ffffff);
-  background-image: linear-gradient(#ebfdec, #ffffff 3em, #ffffff); }
 
 /* line 485, base.css.scss */
 .delete {

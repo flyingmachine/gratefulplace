@@ -22,7 +22,6 @@
             (text :about)))
       (create (index :user [:username]))
       (create (index :user [:email])))
-  
   (down [] (drop (table :user))))
 
 (defmigration add-posts-table
@@ -58,3 +57,11 @@
                (refer-to :post)))
       (create (index :favorite [:user_id :post_id] :unique)))
   (down [] (drop (table :favorite))))
+
+(defmigration add-comment-notifications-table
+  (up [] (create
+          (-> (table :comment_notification)
+              (refer-to :user)
+              (refer-to :comment)
+              (boolean :viewed (default false)))))
+  (down [] (drop (table :comment_notification))))

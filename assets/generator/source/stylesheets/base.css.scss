@@ -481,3 +481,11 @@ table.input {
 .highlight {
   @include background-image(linear-gradient(#ebfdec, white 3em, white));
 }
+
+.delete {
+  @include leader;
+
+  input[type="submit"] {
+    @include background-image(linear-gradient(white, #f1d8df));
+  }
+}

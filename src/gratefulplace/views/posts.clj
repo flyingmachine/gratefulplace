@@ -110,5 +110,6 @@
 
 (defpage edit "posts/edit.html"
   [post]
-  [:form]     (h/set-attr :action (post-path post))
-  [:textarea] (h/content  (:content post)))
+  [:form.update] (h/set-attr :action (post-path post))
+  [:form.delete] (h/set-attr :action (post-destroy-path post))
+  [:textarea]    (h/content  (:content post)))

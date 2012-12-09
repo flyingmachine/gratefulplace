@@ -80,10 +80,15 @@
   [x fun]
   (h/set-attr :href (fun x)))
 
+(defn- xml-str
+ "Like clojure.core/str but escapes < > and &."
+ [x]
+  (-> x str (.replace "&" "&amp;") (.replace "<" "&lt;") (.replace ">" "&gt;")))
+
 (defn md-content
   [content]
   (let [content (or (:content content) content)]
-    (h/html-content (markdown/md-to-html-string content))))
+    (h/html-content (markdown/md-to-html-string (xml-str content)))))
 
 (defn format-error-messages
   [errors]

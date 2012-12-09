@@ -20,6 +20,11 @@
             (set-fields attributes)
             (where (str->int conditions :id)))))
 
+(defn destroy!
+  [conditions]
+  (delete e/post
+          (where (str->int conditions :id))))
+
 (def base
   (->
    (select* e/post)

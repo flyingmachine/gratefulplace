@@ -2,7 +2,7 @@
 layout: false
 ---
 
-%form{:action => "/posts/show.html", :method => "POST"}
+%form.update{:action => "/posts/show.html", :method => "POST"}
   #content
     %textarea{:name => "content"}
   .controls
@@ -10,3 +10,6 @@ layout: false
     %a.cancel{:href => "#"} cancel
     .formatting-help
       %a{:href => "#"} formatting help
+
+%form.delete{:action => "/posts/show.html/delete", :method => "POST"}      
+  %input{:type => "submit", :value => "Delete"}

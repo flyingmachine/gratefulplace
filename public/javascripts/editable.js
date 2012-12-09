@@ -47,7 +47,7 @@ var Editable = {
     });
 
     // content form submission
-    $(".content").on('submit', 'form', function(ev) {
+    $(".content").on('submit', 'form.update', function(ev) {
       var el = this;
       $.post(
         $(el).attr("action"),

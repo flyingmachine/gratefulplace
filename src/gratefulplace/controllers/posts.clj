@@ -60,6 +60,11 @@
 
 (def update (update-fn post/by-id post/update!))
 
+(defn destroy
+  [params]
+  (post/destroy! params)
+  (res/redirect "/"))
+
 (defn show-new
   [params]
   (view view/show-new))

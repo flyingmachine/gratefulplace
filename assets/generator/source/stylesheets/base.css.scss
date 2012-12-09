@@ -405,7 +405,7 @@ table.input {
   }
   
   div.posts, div.comments {
-    border-top: 1px dotted #eee;
+    border-bottom: 1px solid #eee;
   }
   div.post, div.comment {
     display:block;
@@ -413,7 +413,11 @@ table.input {
     @include box-sizing(border-box);
     @include padding-trailer(.5);
     @include padding-leader(.5);
-    border-bottom: 1px dotted #eee;
+    border-top: 1px solid #eee;
+
+    &.highlight {
+      border-top:1px solid $purple;
+    }
 
     &:hover {
       background: $light-blue;
@@ -476,10 +480,6 @@ table.input {
 .formatting-help {
   float:right;
   @include alt-font;
-}
-
-.highlight {
-  @include background-image(linear-gradient(#ebfdec, white 3em, white));
 }
 
 .delete {

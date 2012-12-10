@@ -1,6 +1,7 @@
 (ns gratefulplace.views.common
   (:require [net.cgrand.enlive-html :as h]
             [gratefulplace.models.favorite :as favorite]
+            [gratefulplace.models.comment-notification :as notification]
             markdown)
   (use [cemerick.friend :only (current-authentication)]
        gratefulplace.utils
@@ -14,11 +15,15 @@
      #(identity %)))
 
 (h/defsnippet nav (str template-dir "index.html") [:nav]
-  [logged-in]
-  [:#logged-in] (keep-when logged-in)
-  [:.likes] (keep-when logged-in)
-  [:.notifications] (keep-when logged-in)
-  [:li.auth :a] (if logged-in
+  [current-auth]
+  [:#logged-in] (keep-when current-auth)
+  [:.likes] (keep-when current-auth)
+  [:.notifications] (keep-when current-auth)
+  [:.notifications :a] (let [count (notification/count (current-user-id))
+                            content (if (zero? count) "Notifications" (str "Notifications (" count ")"))]
+                        
+                        (h/content content))
+  [:li.auth :a] (if current-auth
              (h/do-> (h/content "Log Out")
                      (h/set-attr :href "/logout"))
              (h/do-> (h/content "Log In / Register")

@@ -23,3 +23,12 @@
                 (with e/user (fields :username)))
           (order :comment.created_on :DESC)
           (where {:user_id (str->int user_id)})))
+
+(defn count
+  [user_id]
+  (:count
+   (first
+    (select e/comment-notification
+            (aggregate (count :*) :count)
+            (where {:user_id (str->int user_id)
+                    :viewed false})))))

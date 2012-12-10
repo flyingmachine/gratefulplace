@@ -14,46 +14,6 @@
   `(when ~condition
      #(identity %)))
 
-(h/defsnippet nav (str template-dir "index.html") [:nav]
-  [current-auth]
-  [:#logged-in] (keep-when current-auth)
-  [:.likes] (keep-when current-auth)
-  [:.notifications] (keep-when current-auth)
-  [:.notifications :a] (let [count (notification/count (current-user-id))
-                            content (if (zero? count) "Notifications" (str "Notifications (" count ")"))]
-                        
-                        (h/content content))
-  [:li.auth :a] (if current-auth
-             (h/do-> (h/content "Log Out")
-                     (h/set-attr :href "/logout"))
-             (h/do-> (h/content "Log In / Register")
-                     (h/set-attr :href "/login"))))
-
-(h/deftemplate layout (str template-dir "index.html")
-  [html]
-  [:html] (h/substitute html)
-  [:nav] (h/substitute (nav (current-authentication)))
-
-  [:nav :ul.secondary :#logged-in :a]
-  (if-let [username (:username (current-authentication))]
-    (h/do->
-     (h/set-attr :href (str "/users/" username)))))
-
-;; Need to come up with better name
-;; Bundles together some defsnippet commonalities for user with the
-;; layout template
-;;
-;; TODO destructuring doesn't work in argnames
-(defmacro defpage
-  [name file [& argnames] & body]
-  `(do
-     (h/defsnippet ~(symbol (str name "*")) (str template-dir ~file) [:html]
-       [~@argnames]
-       ~@body)
-     (defn ~name
-       [{:keys [~@argnames]}]
-       (layout (~(symbol (str name "*")) ~@argnames)))))
-
 ;; Path stuff
 (defn path
   [record url-string prefix & suffixes]
@@ -144,3 +104,46 @@
 (defn user-favorites
   [user-id]
   (into #{} (map :post_id (favorite/all user-id))))
+
+
+(h/defsnippet nav (str template-dir "index.html") [:nav]
+  [current-auth]
+  [:#logged-in] (keep-when current-auth)
+  [:#logged-in :a] (set-path current-auth user-path)
+  [:.likes] (keep-when current-auth)
+  [:.notifications] (keep-when current-auth)
+  [:.notifications :a] (when current-auth
+                         (let [count (notification/count (current-user-id))
+                               content (if (zero? count) "Notifications" (str "Notifications (" count ")"))]
+                                          
+                           (h/content content)))
+  [:li.auth :a] (if current-auth
+             (h/do-> (h/content "Log Out")
+                     (h/set-attr :href "/logout"))
+             (h/do-> (h/content "Log In / Register")
+                     (h/set-attr :href "/login"))))
+
+(h/deftemplate layout (str template-dir "index.html")
+  [html]
+  [:html] (h/substitute html)
+  [:nav] (h/substitute (nav (current-authentication)))
+
+  [:nav :ul.secondary :#logged-in :a]
+  (if-let [username (:username (current-authentication))]
+    (h/do->
+     (h/set-attr :href (str "/users/" username)))))
+
+;; Need to come up with better name
+;; Bundles together some defsnippet commonalities for user with the
+;; layout template
+;;
+;; TODO destructuring doesn't work in argnames
+(defmacro defpage
+  [name file [& argnames] & body]
+  `(do
+     (h/defsnippet ~(symbol (str name "*")) (str template-dir ~file) [:html]
+       [~@argnames]
+       ~@body)
+     (defn ~name
+       [{:keys [~@argnames]}]
+       (layout (~(symbol (str name "*")) ~@argnames)))))

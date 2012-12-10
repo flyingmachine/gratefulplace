@@ -113,7 +113,7 @@
   [:.likes] (keep-when current-auth)
   [:.notifications] (keep-when current-auth)
   [:.notifications :a] (when current-auth
-                         (let [count (notification/num (current-user-id))
+                         (let [count (notification/record-count (current-user-id))
                                content (if (zero? count) "Notifications" (str "Notifications (" count ")"))]
                                           
                            (h/content content)))

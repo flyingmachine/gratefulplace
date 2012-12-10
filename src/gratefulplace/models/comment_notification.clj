@@ -24,7 +24,7 @@
           (order :comment.created_on :DESC)
           (where {:user_id (str->int user_id)})))
 
-(defn num
+(defn record-count
   [user_id]
   (:count
    (first

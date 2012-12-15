@@ -17,3 +17,7 @@
                       (notification/mark-all-viewed (current-user-id))
                       html)
                     [])))
+
+;; This kind of interesting because it serves both as an MVC
+;; controller for serving views *and* as a controller for coordinating
+;; the creation and sending of notifications

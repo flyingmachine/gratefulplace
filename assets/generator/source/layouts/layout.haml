@@ -21,75 +21,75 @@
             %cite
               &ndash; Tal Ben-Shahar, the "Harvard Happiness Professor"
           %a{:href => "/about"}Learn more
-  .page
-    %nav
-      %ul
-        %li.new-post
-          %a{:href => "/posts/new"} New Post
-        %li.likes
-          %a{:href => "/favorites"} Likes
-        %li.notifications
-          %a{:href => "/notifications"} Notifications
-      %ul
-        %li#logged-in
-          %a{:href => "/users/show.html"} Your Profile
-      %ul
-        %li.auth
-          %a Log Out
-    #main
-      = yield
-  .markdown-help.hidden
-    %table
-      %tbody
-        %tr{:style => "background-color: #ffff99; text-align: center"}
-          %td
-            %em you type:
-          %td
-            %em you see:
-        %tr
-          %td *italics*
-          %td
-            %em italics
-        %tr
-          %td **bold**
-          %td
-            %b bold
-        %tr
-          %td [google!](http://google.com)
-          %td
-            %a{:href => "http://google.com"} google!
-        %tr
-          %td
-            * item 1
-            %br>/
-            * item 2
-            %br>/
-            * item 3
-          %td
-            %ul
-              %li item 1
-              %li item 2
-              %li item 3
-        %tr
-          %td &gt; quoted text
-          %td
-            %blockquote quoted text
-        %tr
-          %td ~~strikethrough~~
-          %td
-            %strike strikethrough
-        %tr
-          %td super^script
-          %td
-            super
-            %sup script
-  :javascript
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36229486-1']);
-    _gaq.push(['_trackPageview']);
-  
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    .page
+      %nav
+        %ul
+          %li.new-post
+            %a{:href => "/posts/new"} New Post
+          %li.likes
+            %a{:href => "/favorites"} Likes
+          %li.notifications
+            %a{:href => "/notifications"} Notifications
+        %ul
+          %li#logged-in
+            %a{:href => "/users/show.html"} Your Profile
+        %ul
+          %li.auth
+            %a Log Out
+      #main
+        = yield
+    .markdown-help.hidden
+      %table
+        %tbody
+          %tr{:style => "background-color: #ffff99; text-align: center"}
+            %td
+              %em you type:
+            %td
+              %em you see:
+          %tr
+            %td *italics*
+            %td
+              %em italics
+          %tr
+            %td **bold**
+            %td
+              %b bold
+          %tr
+            %td [google!](http://google.com)
+            %td
+              %a{:href => "http://google.com"} google!
+          %tr
+            %td
+              * item 1
+              %br>/
+              * item 2
+              %br>/
+              * item 3
+            %td
+              %ul
+                %li item 1
+                %li item 2
+                %li item 3
+          %tr
+            %td &gt; quoted text
+            %td
+              %blockquote quoted text
+          %tr
+            %td ~~strikethrough~~
+            %td
+              %strike strikethrough
+          %tr
+            %td super^script
+            %td
+              super
+              %sup script
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36229486-1']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();

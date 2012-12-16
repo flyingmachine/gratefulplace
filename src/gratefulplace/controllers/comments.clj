@@ -2,7 +2,8 @@
   (:require [ring.util.response :as res]
             [net.cgrand.enlive-html :as h]
             [gratefulplace.models.comment :as comment]
-            [gratefulplace.models.comment-notification :as notification]
+            [gratefulplace.models.user :as user]
+            [gratefulplace.models.notification :as notification]
             [gratefulplace.models.post :as post]
             [gratefulplace.views.comments :as view]
             [cemerick.friend :as friend])
@@ -21,8 +22,9 @@
          post-owner-id (:user_id (post/by-id (:post_id params)))]
      ;; TODO path stuff here
      (if (not= (current-user-id) post-owner-id)
-       (notification/create! {:user_id post-owner-id
-                              :comment_id (:id comment)}))
+       (future (notification/notify
+                (user/one {:id post-owner-id})
+                comment)))
      (res/redirect (str "/posts/" (:post_id params) "#comment-" (:id comment))))
    (res/redirect (str "/posts/" (:post_id params) "?blank-comment=true"))))
 

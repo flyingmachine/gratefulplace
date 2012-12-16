@@ -3,8 +3,11 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :repositories [["central-proxy" "http://repository.sonatype.org/content/repositories/central/"]]
+
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [org.clojure/clojure-contrib "1.2.0"]
+                 [org.apache.commons/commons-email "1.2"]
                  [ring "1.1.6"]
                  [compojure "1.1.3"]
                  [enlive/enlive "1.0.1"]

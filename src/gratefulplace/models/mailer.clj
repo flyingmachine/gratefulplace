@@ -1,5 +1,4 @@
-(ns gratefulplace.models.notification
-  (:require [gratefulplace.models.comment-notification :as comment-notification])
+(ns gratefulplace.models.mailer
   (:use gratefulplace.utils))
 
 

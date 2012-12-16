@@ -428,13 +428,13 @@ html {
   font-size: 16px;
   line-height: 1.5em; }
 
-/* line 66, base.css.scss */
+/* line 67, base.css.scss */
 body {
   background: #87ddfd url("/images/blurbg2.jpg") no-repeat;
   color: #444;
   font-family: Palatino Linotype, Book Antiqua, Palatino, serif; }
 
-/* line 72, base.css.scss */
+/* line 73, base.css.scss */
 h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.875em;
@@ -444,7 +444,11 @@ h2 {
   margin-top: 0.4em;
   border-bottom: 1px solid #999; }
 
-/* line 81, base.css.scss */
+/* line 82, base.css.scss */
+h2:first-child {
+  margin-top: 0; }
+
+/* line 86, base.css.scss */
 h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.3125em;
@@ -455,37 +459,46 @@ h3 {
   margin-top: 1.14286em;
   margin-bottom: 0.57143em; }
 
-/* line 89, base.css.scss */
+/* line 94, base.css.scss */
+h3:first-child {
+  margin-top: 0; }
+
+/* line 98, base.css.scss */
 a {
   text-decoration: none;
   color: #73a1e5; }
 
-/* line 94, base.css.scss */
+/* line 103, base.css.scss */
 a:visited {
   color: #8873e5; }
 
-/* line 98, base.css.scss */
+/* line 107, base.css.scss */
 a:hover {
   text-decoration: underline; }
 
-/* line 102, base.css.scss */
+/* line 111, base.css.scss */
 p, blockquote {
   margin-bottom: 1.5em; }
 
-/* line 106, base.css.scss */
+/* line 115, base.css.scss */
 blockquote {
   background: #f0fafd;
   padding: .5em 1em; }
 
-/* line 111, base.css.scss */
+/* line 120, base.css.scss */
 em, i {
   font-style: italic; }
 
-/* line 115, base.css.scss */
+/* line 124, base.css.scss */
 strong {
   font-weight: bold; }
 
-/* line 119, base.css.scss */
+/* line 128, base.css.scss */
+.clearfix {
+  overflow: hidden;
+  *zoom: 1; }
+
+/* line 132, base.css.scss */
 .masthead {
   *zoom: 1;
   max-width: 59em;
@@ -500,19 +513,19 @@ strong {
     content: "";
     display: table;
     clear: both; }
-  /* line 123, base.css.scss */
+  /* line 136, base.css.scss */
   .masthead .content {
     width: 74.57627%;
     float: left;
     margin-right: 1.69492%;
     display: inline; }
-  /* line 127, base.css.scss */
+  /* line 140, base.css.scss */
   .masthead .logo {
     width: 54.54545%;
     float: left;
     margin-right: 2.27273%;
     display: inline; }
-  /* line 131, base.css.scss */
+  /* line 144, base.css.scss */
   .masthead blockquote {
     width: 43.18182%;
     float: right;
@@ -523,19 +536,19 @@ strong {
     padding: 0;
     margin: 0;
     color: #555; }
-    /* line 137, base.css.scss */
+    /* line 150, base.css.scss */
     .masthead blockquote cite {
       display: block;
       font-style: italic; }
-  /* line 143, base.css.scss */
+  /* line 156, base.css.scss */
   .masthead .intro a {
     display: none; }
 
-/* line 149, base.css.scss */
+/* line 162, base.css.scss */
 .content ul, .markdown-help ul {
   list-style: disc inside; }
 
-/* line 154, base.css.scss */
+/* line 167, base.css.scss */
 nav {
   padding-bottom: 1.5em;
   overflow: hidden;
@@ -545,13 +558,13 @@ nav {
   margin-right: 0;
   #margin-left: -1em;
   display: inline; }
-  /* line 159, base.css.scss */
+  /* line 172, base.css.scss */
   nav ul {
     margin-bottom: 1.5em; }
-  /* line 163, base.css.scss */
+  /* line 176, base.css.scss */
   nav li {
     margin-bottom: 0.375em; }
-  /* line 167, base.css.scss */
+  /* line 180, base.css.scss */
   nav a {
     background: rgba(255, 255, 255, 0.3);
     -webkit-box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
@@ -569,15 +582,15 @@ nav {
     padding-right: .5em;
     display: block;
     border-left: 2px solid white; }
-    /* line 179, base.css.scss */
+    /* line 192, base.css.scss */
     nav a:hover {
       text-decoration: none;
       background: rgba(255, 255, 255, 0.7); }
-    /* line 184, base.css.scss */
+    /* line 197, base.css.scss */
     nav a:visited {
       color: #444; }
 
-/* line 191, base.css.scss */
+/* line 204, base.css.scss */
 .pagination a, .pagination span {
   background: rgba(255, 255, 255, 0.3);
   -webkit-border-radius: 3px;
@@ -593,12 +606,12 @@ nav {
   display: block;
   float: left;
   margin: 0 .25em 0 0; }
-  /* line 203, base.css.scss */
+  /* line 216, base.css.scss */
   .pagination a:hover, .pagination a.current, .pagination span:hover, .pagination span.current {
     text-decoration: none;
     background: rgba(255, 255, 255, 0.6); }
 
-/* line 210, base.css.scss */
+/* line 223, base.css.scss */
 .page {
   *zoom: 1;
   max-width: 59em;
@@ -615,14 +628,14 @@ nav {
     display: table;
     clear: both; }
 
-/* line 217, base.css.scss */
+/* line 230, base.css.scss */
 #main {
   width: 74.57627%;
   float: left;
   margin-right: 1.69492%;
   display: inline; }
 
-/* line 221, base.css.scss */
+/* line 234, base.css.scss */
 #posts .post, #post .comment, #post .post {
   background: white;
   -webkit-border-radius: 3px;
@@ -642,16 +655,16 @@ nav {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-bottom: 0.75em; }
-  /* line 225, base.css.scss */
+  /* line 238, base.css.scss */
   #posts .post header, #posts .post footer, #post .comment header, #post .comment footer, #post .post header, #post .post footer {
     font-size: 0.8125em;
     line-height: 1.84615em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: inherit; }
-  /* line 229, base.css.scss */
+  /* line 242, base.css.scss */
   #posts .post header, #post .comment header, #post .post header {
     float: right; }
-  /* line 233, base.css.scss */
+  /* line 246, base.css.scss */
   #posts .post footer, #post .comment footer, #post .post footer {
     overflow: hidden;
     *zoom: 1;
@@ -661,14 +674,14 @@ nav {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-top: 1px solid #ccc; }
-  /* line 241, base.css.scss */
+  /* line 254, base.css.scss */
   #posts .post .content, #post .comment .content, #post .post .content {
     font-size: 1.125em;
     line-height: 1.33333em; }
-    /* line 244, base.css.scss */
+    /* line 257, base.css.scss */
     #posts .post .content p:last-child, #post .comment .content p:last-child, #post .post .content p:last-child {
       margin-bottom: 0; }
-    /* line 248, base.css.scss */
+    /* line 261, base.css.scss */
     #posts .post .content .controls, #post .comment .content .controls, #post .post .content .controls {
       font-size: 0.8125em;
       line-height: 1.84615em;
@@ -676,29 +689,29 @@ nav {
       line-height: inherit;
       font-size: 0.72222em;
       line-height: 1.84615em; }
-      /* line 252, base.css.scss */
+      /* line 265, base.css.scss */
       #posts .post .content .controls .formatting-help, #post .comment .content .controls .formatting-help, #post .post .content .controls .formatting-help {
         font-size: 1em;
         line-height: 1.84615em; }
-  /* line 259, base.css.scss */
+  /* line 272, base.css.scss */
   #posts .post .author, #post .comment .author, #post .post .author {
     font-weight: bold;
     float: right;
     margin-right: .5em; }
-  /* line 265, base.css.scss */
+  /* line 278, base.css.scss */
   #posts .post .date, #post .comment .date, #post .post .date {
     float: right; }
-  /* line 269, base.css.scss */
+  /* line 282, base.css.scss */
   #posts .post .comments, #post .comment .comments, #post .post .comments {
     float: left;
     margin-left: 1em; }
-  /* line 274, base.css.scss */
+  /* line 287, base.css.scss */
   #posts .post .favorite, #post .comment .favorite, #post .post .favorite {
     float: left; }
-    /* line 276, base.css.scss */
+    /* line 289, base.css.scss */
     #posts .post .favorite .status, #post .comment .favorite .status, #post .post .favorite .status {
       float: left; }
-    /* line 280, base.css.scss */
+    /* line 293, base.css.scss */
     #posts .post .favorite a, #post .comment .favorite a, #post .post .favorite a {
       float: left;
       display: block;
@@ -712,11 +725,11 @@ nav {
       -o-border-radius: 1em;
       border-radius: 1em;
       margin-right: .5em; }
-      /* line 290, base.css.scss */
+      /* line 303, base.css.scss */
       #posts .post .favorite a:hover, #post .comment .favorite a:hover, #post .post .favorite a:hover {
         color: #999;
         text-decoration: none; }
-    /* line 296, base.css.scss */
+    /* line 309, base.css.scss */
     #posts .post .favorite.added a, #post .comment .favorite.added a, #post .post .favorite.added a {
       background: #ebf4f6;
       color: #73a1e5;
@@ -735,33 +748,33 @@ nav {
       transition-duration: .5s;
       position: relative;
       left: 1px; }
-  /* line 307, base.css.scss */
+  /* line 320, base.css.scss */
   #posts .post .moderate, #post .comment .moderate, #post .post .moderate {
     float: right;
     margin-left: .5em; }
-  /* line 312, base.css.scss */
+  /* line 325, base.css.scss */
   #posts .post .edit, #post .comment .edit, #post .post .edit {
     float: right;
     margin-left: .5em; }
-  /* line 317, base.css.scss */
+  /* line 330, base.css.scss */
   #posts .post textarea, #post .comment textarea, #post .post textarea {
     font-size: 1em;
     line-height: 1.33333em; }
 
-/* line 322, base.css.scss */
+/* line 335, base.css.scss */
 #post .comment footer {
   border: none;
   margin: 0;
   float: left;
   color: #999; }
-  /* line 328, base.css.scss */
+  /* line 341, base.css.scss */
   #post .comment footer a {
     color: #aac2e5; }
-    /* line 330, base.css.scss */
+    /* line 343, base.css.scss */
     #post .comment footer a:visited {
       color: #9889dd; }
 
-/* line 336, base.css.scss */
+/* line 349, base.css.scss */
 textarea {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -774,7 +787,7 @@ textarea {
   border: 1px solid #ddd;
   height: 120px; }
 
-/* line 346, base.css.scss */
+/* line 359, base.css.scss */
 #new-post, #new-user, .new, .chunk {
   background: white;
   -webkit-border-radius: 3px;
@@ -794,17 +807,17 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-bottom: 1.5em; }
-  /* line 350, base.css.scss */
+  /* line 363, base.css.scss */
   #new-post .edit, #new-user .edit, .new .edit, .chunk .edit {
     float: right;
     margin-top: 1em; }
 
-/* line 357, base.css.scss */
+/* line 370, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.75em; }
 
-/* line 363, base.css.scss */
+/* line 376, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -824,47 +837,57 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 367, base.css.scss */
+/* line 380, base.css.scss */
+form {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.875em;
+  line-height: 1.71429em; }
+
+/* line 385, base.css.scss */
 table.input {
   margin-bottom: 0.75em; }
-  /* line 369, base.css.scss */
+  /* line 387, base.css.scss */
   table.input td {
     padding-bottom: 0.75em; }
-  /* line 373, base.css.scss */
+  /* line 391, base.css.scss */
   table.input tr:last-child td {
     padding-bottom: 0; }
-  /* line 377, base.css.scss */
+  /* line 395, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 381, base.css.scss */
+  /* line 399, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 388, base.css.scss */
+/* line 406, base.css.scss */
+.action {
+  margin-top: 1.5em; }
+
+/* line 410, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;
   line-height: 1.6em; }
 
-/* line 394, base.css.scss */
+/* line 416, base.css.scss */
 #user-content h2 {
   margin-bottom: 0; }
-/* line 397, base.css.scss */
+/* line 419, base.css.scss */
 #user-content .local-nav {
   overflow: hidden;
   *zoom: 1;
   margin-bottom: 0.75em; }
-  /* line 399, base.css.scss */
+  /* line 421, base.css.scss */
   #user-content .local-nav li {
     float: left;
     margin-right: 1em; }
-/* line 407, base.css.scss */
+/* line 429, base.css.scss */
 #user-content div.posts, #user-content div.comments {
   border-bottom: 1px solid #eee; }
-/* line 410, base.css.scss */
+/* line 432, base.css.scss */
 #user-content div.post, #user-content div.comment {
   display: block;
   overflow: hidden;
@@ -875,22 +898,22 @@ table.input {
   padding-bottom: 0.75em;
   padding-top: 0.75em;
   border-top: 1px solid #eee; }
-  /* line 418, base.css.scss */
+  /* line 440, base.css.scss */
   #user-content div.post.highlight, #user-content div.comment.highlight {
     border-top: 1px solid #8873e5; }
-  /* line 422, base.css.scss */
+  /* line 444, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 426, base.css.scss */
+  /* line 448, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 430, base.css.scss */
+  /* line 452, base.css.scss */
   #user-content div.post .meta, #user-content div.comment .meta {
     float: right;
     padding: 0 4px;
     margin: 0 .5em;
     border-left: 1px solid #eee; }
-  /* line 438, base.css.scss */
+  /* line 460, base.css.scss */
   #user-content div.post .date, #user-content div.post .author, #user-content div.comment .date, #user-content div.comment .author {
     float: right;
     padding: 0 .5em;
@@ -899,34 +922,34 @@ table.input {
     font-size: 0.8125em;
     line-height: 1.84615em; }
 
-/* line 452, base.css.scss */
+/* line 474, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.5em; }
-  /* line 457, base.css.scss */
+  /* line 479, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.75em;
     border-bottom: none; }
 
-/* line 464, base.css.scss */
+/* line 486, base.css.scss */
 .markdown-help table {
   width: 100%; }
-/* line 467, base.css.scss */
+/* line 489, base.css.scss */
 .markdown-help td:first-child {
   width: 50%; }
-/* line 470, base.css.scss */
+/* line 492, base.css.scss */
 .markdown-help td {
   padding: 0 .5em;
   border: 1px solid #eee; }
 
-/* line 476, base.css.scss */
+/* line 498, base.css.scss */
 .hidden {
   display: none; }
 
-/* line 480, base.css.scss */
+/* line 502, base.css.scss */
 .formatting-help {
   float: right;
   font-size: 0.8125em;
@@ -934,13 +957,24 @@ table.input {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: inherit; }
 
-/* line 485, base.css.scss */
+/* line 507, base.css.scss */
 .delete {
   margin-top: 1.5em; }
-  /* line 488, base.css.scss */
+  /* line 510, base.css.scss */
   .delete input[type="submit"] {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f1d8df));
     background-image: -webkit-linear-gradient(#ffffff, #f1d8df);
     background-image: -moz-linear-gradient(#ffffff, #f1d8df);
     background-image: -o-linear-gradient(#ffffff, #f1d8df);
     background-image: linear-gradient(#ffffff, #f1d8df); }
+
+/* line 515, base.css.scss */
+#signup {
+  padding: 12px 1em;
+  background: #cdf0cc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #a6e5a4; }

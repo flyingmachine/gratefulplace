@@ -50,9 +50,12 @@
 (defn create!
   [attributes]
   ;; not sure why insert returns serialized roles
-  (deserialize
-   (insert e/user (values attributes))
-   :roles))
+  (let [attributes (merge {:receive_comment_notifications false
+                           :receive_newsletter false}
+                          attributes)]
+    (deserialize
+     (insert e/user (values attributes))
+     :roles)))
 
 (defn update!
   [conditions attributes]

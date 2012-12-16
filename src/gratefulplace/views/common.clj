@@ -83,6 +83,12 @@
    (h/content (:username record))
    (set-path record user-path)))
 
+(defn check-if
+  [condition]
+  (if condition
+    (h/set-attr :checked true)
+    (h/remove-attr :checked)))
+
 (defn timestamp->string
   [timestamp]
   (-> (java.text.SimpleDateFormat. "MMM dd, yyyy hh:mma")

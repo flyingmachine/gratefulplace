@@ -12,15 +12,15 @@ title: "Log In :: Grateful Place"
       %table.input
         %tr
           %td
-            %label{:for => "username"} Username
+            %label{:for => "login-username"} Username
           %td
-            %input.username{:name => "username", :type => "text"}
+            %input#login-username{:name => "username", :type => "text"}
 
         %tr
           %td
-            %label{:for => "password"} Password
+            %label{:for => "login-password"} Password
           %td
-            %input{:name => "password", :type => "password"}
+            %input#login-password{:name => "password", :type => "password"}
 
     %input{:type => "submit", :value => "Log In"}
 
@@ -40,19 +40,19 @@ title: "Log In :: Grateful Place"
         %table.input
           %tr
             %td
-              %label{:for => "username"} Username
+              %label{:for => "signup-username"} Username
             %td
-              %input{:name => "username", :type => "text"}
+              %input#login-username{:name => "username", :type => "text"}
           %tr
             %td
-              %label{:for => "password"} Password
+              %label{:for => "signup-password"} Password
             %td
-              %input#password{:name => "password", :type => "password"}
+              %input#signup-password{:name => "password", :type => "password"}
           %tr
             %td
-              %label{:for => "email"} Email
+              %label{:for => "signup-email"} Email
             %td
-              %input#email{:name => "email", :type => "text"}
+              %input#signup-email{:name => "email", :type => "text"}
         .option
           %input#receive_comment_notifications{:type =>"checkbox", :name => "receive_comment_notifications", :checked => true}
           %label{:for => "receive_comment_notifications"}

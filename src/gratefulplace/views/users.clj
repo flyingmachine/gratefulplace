@@ -12,7 +12,9 @@
   [:#password :.errors] (error-content errors :password)
   
   [:#email :input] (h/set-attr :value (:email params))
-  [:#email :.errors] (error-content errors :email))
+  [:#email :.errors] (error-content errors :email)
+  [:#receive_comment_notifications] (check-if (:receive_comment_notifications params))
+  [:#receive_newsletter] (check-if (:receive_newsletter params)))
 
 
 ;; TODO if this is your page, show edit link

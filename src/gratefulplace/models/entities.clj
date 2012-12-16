@@ -24,9 +24,11 @@
   ;; todo move user param transform function here
   (prepare
    (fn [attributes]
-     (-> (if (:password attributes)
-           (assoc attributes :password (creds/hash-bcrypt (:password attributes)))
-            attributes)
+     (-> (transform-when-key-exists
+          attributes
+          {:password #(creds/hash-bcrypt %)
+           :receive_comment_notifications #(= % "on")
+           :receive_newsletter #(= % "on")})
          (assoc :roles (str [:user])))))
   
   (transform #(deserialize % :roles)))

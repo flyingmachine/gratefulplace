@@ -6,7 +6,7 @@
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>Log In :: Grateful Place</title>
-    <link type="text/css" href="/stylesheets/base.css" rel="stylesheet" media="screen" />
+    <link type="text/css" href="/stylesheets/base.css" media="screen" rel="stylesheet" />
     <script type="text/javascript" src="/javascripts/all.js"></script>
   </head>
   <body class='session session_new'>
@@ -54,63 +54,87 @@
       </nav>
       <div id='main'>
         <div class='new' id='login'>
-          <h2>Log In</h2>
-          <form action='/login' method='POST'>
-            <div class='errors'></div>
-            <table class='input'>
-              <tr>
-                <td>
-                  <label for='username'>Username</label>
-                </td>
-                <td>
-                  <input class='username' name='username' type='text' />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for='password'>Password</label>
-                </td>
-                <td>
-                  <input name='password' type='password' />
-                </td>
-              </tr>
-            </table>
-            <input type='submit' value='Log In' />
-          </form>
+  <h2>Log In</h2>
+  <div class='clearfix'></div>
+  <form action='/login' method='POST'>
+    <div class='errors'></div>
+    <div class='clearfix'>
+      <table class='input'>
+        <tr>
+          <td>
+            <label for='login-username'>Username</label>
+          </td>
+          <td>
+            <input id='login-username' name='username' type='text' />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for='login-password'>Password</label>
+          </td>
+          <td>
+            <input id='login-password' name='password' type='password' />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <input type='submit' value='Log In' />
+  </form>
+</div>
+<div id='new-user'>
+  <h2>No Account? Join the Grateful Place Community</h2>
+  <p>Join Grateful Place and become part of a community dedicated to cultivating gratitude.</p>
+  <p>Taking a few minutes of every day to express what you are grateful for will improve your life and have a positive impact on others. Not only does expressing your gratitude make others feel appreciated, it also makes you aware of the positive in your life.</p>
+  <p>It allows you to look past the small, petty things and focus on what's important. It enables you to turn the negative into something positive, letting you see the good in what may seem bad.</p>
+  <div id='signup'>
+    <h3>Join</h3>
+    <form action='/users' method='POST'>
+      <div class='clearfix'>
+        <table class='input'>
+          <tr>
+            <td>
+              <label for='signup-username'>Username</label>
+            </td>
+            <td>
+              <input id='login-username' name='username' type='text' />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for='signup-password'>Password</label>
+            </td>
+            <td>
+              <input id='signup-password' name='password' type='password' />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for='signup-email'>Email</label>
+            </td>
+            <td>
+              <input id='signup-email' name='email' type='text' />
+            </td>
+          </tr>
+        </table>
+        <div class='option'>
+          <input checked='checked' id='receive_comment_notifications' name='receive_comment_notifications' type='checkbox' />
+          <label for='receive_comment_notifications'>
+            Receive email when people comment on your posts
+          </label>
         </div>
-        <div id='new-user'>
-          <h2>No Account? Join Grateful Place</h2>
-          <p>Joining will let you write posts and comments.</p>
-          <form action='/users' method='POST'>
-            <table class='input'>
-              <tr>
-                <td>
-                  <label for='username'>Username</label>
-                </td>
-                <td>
-                  <input name='username' type='text' />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for='password'>Password</label>
-                </td>
-                <td>
-                  <input name='password' type='password' />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for='email'>Email</label>
-                </td>
-                <td>
-                  <input name='email' type='text' />
-                </td>
-              </tr>
-            </table>
-            <input type='submit' value='Join Grateful Place' />
-          </form>
+        <div class='option'>
+          <input id='receive_newsletter' name='receive_newsletter' type='checkbox' />
+          <label for='receive_newsletter'>
+            Receive biweekly email newsletter, "Cultivating Gratitude"
+          </label>
         </div>
+      </div>
+      <div class='action'>
+        <input type='submit' value='Join Grateful Place' />
+      </div>
+    </form>
+  </div>
+</div>
       </div>
     </div>
     <div class='markdown-help hidden'>

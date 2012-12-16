@@ -6,7 +6,7 @@
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>Join :: Grateful Place</title>
-    <link type="text/css" href="/stylesheets/base.css" rel="stylesheet" media="screen" />
+    <link type="text/css" href="/stylesheets/base.css" media="screen" rel="stylesheet" />
     <script type="text/javascript" src="/javascripts/all.js"></script>
   </head>
   <body class='users users_new'>
@@ -54,40 +54,56 @@
       </nav>
       <div id='main'>
         <div id='new-user'>
-          <h2>Join Grateful Place</h2>
-          <p>Joining will let you write posts and comments.</p>
-          <form action='/users' method='POST'>
-            <table class='input'>
-              <tr>
-                <td class='label'>
-                  <label for='username'>Username</label>
-                </td>
-                <td id='username'>
-                  <input name='username' type='text' />
-                  <div class='errors'></div>
-                </td>
-              </tr>
-              <tr>
-                <td class='label'>
-                  <label for='password'>Password</label>
-                </td>
-                <td id='password'>
-                  <input name='password' type='password' />
-                  <div class='errors'></div>
-                </td>
-              </tr>
-              <tr>
-                <td class='label'>
-                  <label for='email'>Email</label>
-                </td>
-                <td id='email'>
-                  <input name='email' type='text' />
-                  <div class='errors'></div>
-                </td>
-              </tr>
-            </table>
-            <input type='submit' value='Join Grateful Place' />
-          </form>
+          <h2>Join the Grateful Place Community</h2>
+          <p>Join Grateful Place and become part of a community dedicated to cultivating gratitude.</p>
+          <div id='signup'>
+            <form action='/users' method='POST'>
+              <table class='input'>
+                <tr>
+                  <td class='label'>
+                    <label for='login-username'>Username</label>
+                  </td>
+                  <td id='username'>
+                    <input id='login-username' name='username' type='text' />
+                    <div class='errors'></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='label'>
+                    <label for='login-password'>Password</label>
+                  </td>
+                  <td id='password'>
+                    <input id='login-password' name='password' type='password' />
+                    <div class='errors'></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='label'>
+                    <label for='login-email'>Email</label>
+                  </td>
+                  <td id='email'>
+                    <input id='login-email' name='email' type='text' />
+                    <div class='errors'></div>
+                  </td>
+                </tr>
+              </table>
+              <div class='option'>
+                <input checked='checked' id='receive_comment_notifications' name='receive_comment_notifications' type='checkbox' />
+                <label for='receive_comment_notifications'>
+                  Receive email when people comment on your posts
+                </label>
+              </div>
+              <div class='option'>
+                <input id='receive_newsletter' name='receive_newsletter' type='checkbox' />
+                <label for='receive_newsletter'>
+                  Receive biweekly email newsletter, "Cultivating Gratitude"
+                </label>
+              </div>
+              <div class='action'>
+                <input type='submit' value='Join Grateful Place' />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

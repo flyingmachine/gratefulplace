@@ -3,29 +3,39 @@ title: "Join :: Grateful Place"
 ---
 
 #new-user
-  %h2 Join Grateful Place
+  %h2 Join the Grateful Place Community
 
-  %p Joining will let you write posts and comments.
+  %p Join Grateful Place and become part of a community dedicated to cultivating gratitude.
 
-  %form{:action => "/users", :method => "POST"}
-    %table.input
-      %tr
-        %td.label
-          %label{:for => "username"} Username
-        %td#username
-          %input{:name => "username", :type => "text"}
-          .errors
-      %tr
-        %td.label
-          %label{:for => "password"} Password
-        %td#password
-          %input{:name => "password", :type => "password"}
-          .errors
+  #signup
+    %form{:action => "/users", :method => "POST"}
+      %table.input
+        %tr
+          %td.label
+            %label{:for => "login-username"} Username
+          %td#username
+            %input#login-username{:name => "username", :type => "text"}
+            .errors
+        %tr
+          %td.label
+            %label{:for => "login-password"} Password
+          %td#password
+            %input#login-password{:name => "password", :type => "password"}
+            .errors
 
-      %tr
-        %td.label
-          %label{:for => "email"} Email
-        %td#email
-          %input{:name => "email", :type => "text"}
-          .errors
-    %input{:type => "submit", :value => "Join Grateful Place"}
+        %tr
+          %td.label
+            %label{:for => "login-email"} Email
+          %td#email
+            %input#login-email{:name => "email", :type => "text"}
+            .errors
+      .option
+        %input#receive_comment_notifications{:type =>"checkbox", :name => "receive_comment_notifications", :checked => true}
+        %label{:for => "receive_comment_notifications"}
+          Receive email when people comment on your posts
+      .option
+        %input#receive_newsletter{:type =>"checkbox", :name => "receive_newsletter"}
+        %label{:for => "receive_newsletter"}        
+          Receive biweekly email newsletter, "Cultivating Gratitude"
+      .action
+        %input{:type => "submit", :value => "Join Grateful Place"}

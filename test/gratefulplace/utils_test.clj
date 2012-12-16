@@ -24,3 +24,11 @@
   (testing "Transforms value for given keys in map from a string to a Clojure data structure"
     (is (= (deserialize {:a "[]" :b "{}"} :a :b)
            {:a [] :b {}}))))
+
+(deftest transform-when-key-exists-test
+  (testing "Returns a map with all transformations applied"
+    (is (= (transform-when-key-exists
+            {:a 1 :b 2}
+            {:a #(inc %)
+             :c #(inc %)})
+           {:a 2 :b 2}))))

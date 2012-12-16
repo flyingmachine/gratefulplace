@@ -9,5 +9,4 @@
   (comment-notification/create! {:user_id (:id user)
                                  :comment_id (:id comment)})
   ;; TODO where does this test belong?
-  (if (:receive_comment_notifications user)
-    (mailer/send-new-comment user comment)))
+  (mailer/send-new-comment user comment))

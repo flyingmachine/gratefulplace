@@ -8,6 +8,7 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [org.clojure/clojure-contrib "1.2.0"]
                  [org.apache.commons/commons-email "1.2"]
+                 [environ "0.3.0"]
                  [ring "1.1.6"]
                  [compojure "1.1.3"]
                  [enlive/enlive "1.0.1"]
@@ -21,5 +22,3 @@
                  [clojure-twitter "1.2.6-SNAPSHOT"]]
   
   :main gratefulplace.server)
-
-

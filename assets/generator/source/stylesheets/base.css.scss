@@ -78,6 +78,10 @@ h2 {
   border-bottom: 1px solid #999;
 }
 
+h2:first-child {
+  margin-top:0;
+}
+
 h3 {
   @include sans-family;
   @include adjust-font-size-to(21px, 1);

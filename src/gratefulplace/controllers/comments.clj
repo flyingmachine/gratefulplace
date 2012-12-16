@@ -20,11 +20,12 @@
                                     :user_id
                                     (current-user-id)))
          post-owner-id (:user_id (post/by-id (:post_id params)))]
-     ;; TODO path stuff here
-     (if (not= (current-user-id) post-owner-id)
+     
+     (if (not-current-user-id? post-owner-id)
        (future (notification/notify
                 (user/one {:id post-owner-id})
                 comment)))
+     ;; TODO path stuff here
      (res/redirect (str "/posts/" (:post_id params) "#comment-" (:id comment))))
    (res/redirect (str "/posts/" (:post_id params) "?blank-comment=true"))))
 

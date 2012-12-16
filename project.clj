@@ -20,5 +20,7 @@
                  [markdown-clj "0.9.9"]
                  [crypto-random "1.1.0"]
                  [clojure-twitter "1.2.6-SNAPSHOT"]]
+
+  :aliases {"migrate" ["run" "-m" "tasks.db" "migrate"]}
   
   :main gratefulplace.server)

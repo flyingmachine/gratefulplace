@@ -65,3 +65,9 @@
               (refer-to :comment)
               (boolean :viewed (default false)))))
   (down [] (drop (table :comment_notification))))
+
+(defmigration add-user-preferences
+  (up [] (alter :add
+                (table :user
+                       (boolean :receive_comment_notifications (default true))
+                       (boolean :receive_newsletter (default true))))))

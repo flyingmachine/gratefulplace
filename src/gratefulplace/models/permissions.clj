@@ -12,6 +12,14 @@
 (defn current-user-id []
   (:id (friend/current-authentication)))
 
+(defn current-user-id?
+  [id]
+  (= id (current-user-id)))
+
+(defn not-current-user-id?
+  [id]
+  (not (current-user-id? id)))
+
 (defn can-modify-profile? [user]
   (or
    (= user (current-username))

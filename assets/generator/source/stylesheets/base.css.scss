@@ -59,6 +59,7 @@ $red: #ff5553;
 $purple: #8873e5;
 $blue: #73a1e5;
 $light-blue: #f8fcfd;
+$medium-green: #cdf0cc;
 
 // To customize vertical ryhthm, see http://compass-style.org/reference/compass/typography/vertical_rhythm/
 @include establish-baseline;
@@ -90,6 +91,10 @@ h3 {
   @include trailer(.5, 21px);
 }
 
+h3:first-child {
+  margin-top:0;
+}
+
 a {
   text-decoration: none;
   color: $blue;
@@ -118,6 +123,10 @@ em, i {
 
 strong {
   font-weight: bold;
+}
+
+.clearfix {
+  @include clearfix;
 }
 
 .masthead {
@@ -368,6 +377,11 @@ textarea {
   @include chunk;
 }
 
+form {
+  @include sans-family;
+  @include adjust-font-size-to(14px);
+}
+
 table.input {
   @include trailer(.5);
   td {
@@ -387,6 +401,10 @@ table.input {
     padding-right: 10px;
     display:block;
   }
+}
+
+.action {
+  @include leader;
 }
 
 .errors {
@@ -492,4 +510,11 @@ table.input {
   input[type="submit"] {
     @include background-image(linear-gradient(white, #f1d8df));
   }
+}
+
+#signup {
+  padding: (.5 * $base-line-height) $gutter-width;
+  background: $medium-green;
+  @include border-radius(3px);
+  border: 1px solid #a6e5a4;
 }

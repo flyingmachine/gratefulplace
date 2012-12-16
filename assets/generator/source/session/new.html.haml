@@ -5,20 +5,22 @@ title: "Log In :: Grateful Place"
 #login.new
   %h2 Log In
 
+  .clearfix
   %form{:action => "/login", :method => "POST"}
     .errors
-    %table.input
-      %tr
-        %td
-          %label{:for => "username"} Username
-        %td
-          %input.username{:name => "username", :type => "text"}
+    .clearfix
+      %table.input
+        %tr
+          %td
+            %label{:for => "username"} Username
+          %td
+            %input.username{:name => "username", :type => "text"}
 
-      %tr
-        %td
-          %label{:for => "password"} Password
-        %td
-          %input{:name => "password", :type => "password"}
+        %tr
+          %td
+            %label{:for => "password"} Password
+          %td
+            %input{:name => "password", :type => "password"}
 
     %input{:type => "submit", :value => "Log In"}
 
@@ -30,25 +32,35 @@ title: "Log In :: Grateful Place"
   %p Taking a few minutes of every day to express what you are grateful for will improve your life and have a positive impact on others. Not only does expressing your gratitude make others feel appreciated, it also makes you aware of the positive in your life.
 
   %p It allows you to look past the small, petty things and focus on what's important. It enables you to turn the negative into something positive, letting you see the good in what may seem bad.
-  
-  %form{:action => "/users", :method => "POST"}
-    %table.input
-      %tr
-        %td
-          %label{:for => "username"} Username
-        %td
-          %input{:name => "username", :type => "text"}
 
-      %tr
-        %td
-          %label{:for => "password"} Password
-        %td
-          %input{:name => "password", :type => "password"}
+  #signup
+    %h3 Join
+    %form{:action => "/users", :method => "POST"}
+      .clearfix
+        %table.input
+          %tr
+            %td
+              %label{:for => "username"} Username
+            %td
+              %input{:name => "username", :type => "text"}
+          %tr
+            %td
+              %label{:for => "password"} Password
+            %td
+              %input#password{:name => "password", :type => "password"}
+          %tr
+            %td
+              %label{:for => "email"} Email
+            %td
+              %input#email{:name => "email", :type => "text"}
+        .option
+          %input#receive_comment_notifications{:type =>"checkbox", :name => "receive_comment_notifications", :checked => true}
+          %label{:for => "receive_comment_notifications"}
+            Receive Comment Notifications
+        .option
+          %input#receive_newsletter{:type =>"checkbox", :name => "receive_newsletter"}
+          %label{:for => "receive_newsletter"}        
+            Receive Newsletter
+      .action
+        %input{:type => "submit", :value => "Join Grateful Place"}
 
-      %tr
-        %td
-          %label{:for => "email"} Email
-        %td
-          %input{:name => "email", :type => "text"}
-    %input{:type => "submit", :value => "Join Grateful Place"}
-  

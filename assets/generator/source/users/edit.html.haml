@@ -6,15 +6,19 @@ title: "Editing Profile :: Grateful Place"
   .edit
     %a{:href => "/users/comments.html"}
       Back to profile
-  %h2
+  %h2.first
     Edit Your Profile
   #about.sub-section
     %h3 About You
+    %p Let the rest of the community know a little bit about yourself. What got you interested in the site? What are your interests?
     %form{:action => "/users/username", :method => "POST"}
       %textarea{:name => "about"}
       %input{:type => "submit", :value => "Update"}
+
+.chunk
+  %h2 Update Your Settings
   #change-password.sub-section
-    %h3 Change Password
+    %h3 Password
     %form{:action => "/users/username", :method => "POST"}
       .errors Your passwords didn't match
       %table.input
@@ -37,8 +41,25 @@ title: "Editing Profile :: Grateful Place"
       %input{:type => "submit", :value => "Change Password"}
       
   #change-email.sub-section
-    %h3 Change Email Address
+    %h3 Email Address
     %form{:action => "/users/username", :method => "POST"}
+      %p
+        Current email address:
+        %span#current-email someguy@something.com
       .errors
       %input{:name => "email", :type => "text"}
-      %input{:type => "submit", :value => "Update"}
+      %input{:type => "submit", :value => "Update Email Address"}
+
+  #change-notifications.sub-section
+    %h3 Change Notification Settings
+    %form#update-notification-settings{:action => "/users/username", :method => "POST"}
+      .option
+        %input#receive_comment_notifications{:type =>"checkbox", :name => "receive_comment_notifications", :checked => true}
+        %label{:for => "receive_comment_notifications"}
+          Receive email when people comment on your posts
+      .option
+        %input#receive_newsletter{:type =>"checkbox", :name => "receive_newsletter"}
+        %label{:for => "receive_newsletter"}        
+          Receive biweekly email newsletter, "Cultivating Gratitude"
+      .action
+        %input{:type => "submit", :value => "Change Notification Settings"}

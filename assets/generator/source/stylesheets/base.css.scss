@@ -79,7 +79,7 @@ h2 {
   border-bottom: 1px solid #999;
 }
 
-h2:first-child {
+h2:first-child, h2.first {
   margin-top:0;
 }
 
@@ -91,7 +91,7 @@ h3 {
   @include trailer(.5, 21px);
 }
 
-h3:first-child {
+#signup h3 {
   margin-top:0;
 }
 
@@ -362,7 +362,6 @@ textarea {
 
   .edit {
     float:right;
-    margin-top:1em;
   }
 }
 

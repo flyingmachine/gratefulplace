@@ -64,6 +64,10 @@
       :user (user/one {:username username})))))
 
 ;; TODO don't really need to have a redirect here do I?
+(defn success-redirect
+  [username]
+  (res/redirect (str "/users/" username "/edit?success=true")))
+
 (defn update
   [params]
   (let [username (:username params)]
@@ -85,8 +89,20 @@
                                {:password (get-in params [:change-password :new-password])}
                                (dissoc params :username))]
           (user/update! {:username username} new-attributes)
-          (res/redirect (str "/users/" username "/edit?success=true")))
+          (success-redirect username))
         (view
          view/edit
          :user params
          :errors errors))))))
+
+(defn update-notification-settings
+  [params]
+  (println "this thing!")
+  (let [username (:username params)]
+    (protect
+     (can-modify-profile? username)
+     (let [new-attributes (merge {:receive_comment_notifications false
+                                  :receive_newsletter false}
+                                 (dissoc params :username))]
+          (user/update! {:username username} new-attributes)
+          (res/redirect (str "/users/" username "/edit?success=true#change-notifications"))))))

@@ -45,6 +45,7 @@
   (route GET "/users/:username/posts" users/posts)
   (route GET "/users/:username/comments" users/comments)
   (route POST "/users/:username" users/update)
+  (route POST "/users/:username/notification-settings" users/update-notification-settings)
 
   ;; notifications
   (route GET "/notifications" notifications/all)

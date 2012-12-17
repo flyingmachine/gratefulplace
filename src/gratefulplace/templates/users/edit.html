@@ -6,7 +6,7 @@
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>Editing Profile :: Grateful Place</title>
-    <link type="text/css" href="/stylesheets/base.css" media="screen" rel="stylesheet" />
+    <link type="text/css" href="/stylesheets/base.css" rel="stylesheet" media="screen" />
     <script type="text/javascript" src="/javascripts/all.js"></script>
   </head>
   <body class='users users_edit'>
@@ -59,18 +59,22 @@
       Back to profile
     </a>
   </div>
-  <h2>
+  <h2 class='first'>
     Edit Your Profile
   </h2>
   <div class='sub-section' id='about'>
     <h3>About You</h3>
+    <p>Let the rest of the community know a little bit about yourself. What got you interested in the site? What are your interests?</p>
     <form action='/users/username' method='POST'>
       <textarea name='about'></textarea>
       <input type='submit' value='Update' />
     </form>
   </div>
+</div>
+<div class='chunk'>
+  <h2>Update Your Settings</h2>
   <div class='sub-section' id='change-password'>
-    <h3>Change Password</h3>
+    <h3>Password</h3>
     <form action='/users/username' method='POST'>
       <div class='errors'>Your passwords didn't match</div>
       <table class='input'>
@@ -103,11 +107,35 @@
     </form>
   </div>
   <div class='sub-section' id='change-email'>
-    <h3>Change Email Address</h3>
+    <h3>Email Address</h3>
     <form action='/users/username' method='POST'>
+      <p>
+        Current email address:
+        <span id='current-email'>someguy@something.com</span>
+      </p>
       <div class='errors'></div>
       <input name='email' type='text' />
-      <input type='submit' value='Update' />
+      <input type='submit' value='Update Email Address' />
+    </form>
+  </div>
+  <div class='sub-section' id='change-notifications'>
+    <h3>Change Notification Settings</h3>
+    <form action='/users/username' id='update-notification-settings' method='POST'>
+      <div class='option'>
+        <input checked='checked' id='receive_comment_notifications' name='receive_comment_notifications' type='checkbox' />
+        <label for='receive_comment_notifications'>
+          Receive email when people comment on your posts
+        </label>
+      </div>
+      <div class='option'>
+        <input id='receive_newsletter' name='receive_newsletter' type='checkbox' />
+        <label for='receive_newsletter'>
+          Receive biweekly email newsletter, "Cultivating Gratitude"
+        </label>
+      </div>
+      <div class='action'>
+        <input type='submit' value='Change Notification Settings' />
+      </div>
     </form>
   </div>
 </div>

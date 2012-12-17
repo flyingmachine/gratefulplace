@@ -40,7 +40,7 @@
                   `(path ~x ~url-id ~(str record-type "s"))))))
         (conj suffixes nil))))
 
-(create-path-fns "user" :username "edit" "posts" "comments")
+(create-path-fns "user" :username "edit" "posts" "comments" "notification-settings")
 (create-path-fns "post" :id "edit" "destroy")
 (create-path-fns "favorite" :id "edit" "destroy")
 (create-path-fns "comment" :id "edit" "destroy")

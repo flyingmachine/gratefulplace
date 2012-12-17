@@ -445,7 +445,7 @@ h2 {
   border-bottom: 1px solid #999; }
 
 /* line 82, base.css.scss */
-h2:first-child {
+h2:first-child, h2.first {
   margin-top: 0; }
 
 /* line 86, base.css.scss */
@@ -460,7 +460,7 @@ h3 {
   margin-bottom: 0.57143em; }
 
 /* line 94, base.css.scss */
-h3:first-child {
+#signup h3 {
   margin-top: 0; }
 
 /* line 98, base.css.scss */
@@ -809,15 +809,14 @@ textarea {
   padding-bottom: 1.5em; }
   /* line 363, base.css.scss */
   #new-post .edit, #new-user .edit, .new .edit, .chunk .edit {
-    float: right;
-    margin-top: 1em; }
+    float: right; }
 
-/* line 370, base.css.scss */
+/* line 369, base.css.scss */
 #new-comment h3 {
   margin: 0;
   margin-bottom: 0.75em; }
 
-/* line 376, base.css.scss */
+/* line 375, base.css.scss */
 #tips {
   background: white;
   -webkit-border-radius: 3px;
@@ -837,57 +836,57 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 380, base.css.scss */
+/* line 379, base.css.scss */
 form {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.875em;
   line-height: 1.71429em; }
 
-/* line 385, base.css.scss */
+/* line 384, base.css.scss */
 table.input {
   margin-bottom: 0.75em; }
-  /* line 387, base.css.scss */
+  /* line 386, base.css.scss */
   table.input td {
     padding-bottom: 0.75em; }
-  /* line 391, base.css.scss */
+  /* line 390, base.css.scss */
   table.input tr:last-child td {
     padding-bottom: 0; }
-  /* line 395, base.css.scss */
+  /* line 394, base.css.scss */
   table.input .label {
     height: 100%;
     vertical-align: top; }
-  /* line 399, base.css.scss */
+  /* line 398, base.css.scss */
   table.input label {
     text-align: right;
     padding-right: 10px;
     display: block; }
 
-/* line 406, base.css.scss */
+/* line 405, base.css.scss */
 .action {
   margin-top: 1.5em; }
 
-/* line 410, base.css.scss */
+/* line 409, base.css.scss */
 .errors {
   color: #ff5553;
   font-size: 0.9375em;
   line-height: 1.6em; }
 
-/* line 416, base.css.scss */
+/* line 415, base.css.scss */
 #user-content h2 {
   margin-bottom: 0; }
-/* line 419, base.css.scss */
+/* line 418, base.css.scss */
 #user-content .local-nav {
   overflow: hidden;
   *zoom: 1;
   margin-bottom: 0.75em; }
-  /* line 421, base.css.scss */
+  /* line 420, base.css.scss */
   #user-content .local-nav li {
     float: left;
     margin-right: 1em; }
-/* line 429, base.css.scss */
+/* line 428, base.css.scss */
 #user-content div.posts, #user-content div.comments {
   border-bottom: 1px solid #eee; }
-/* line 432, base.css.scss */
+/* line 431, base.css.scss */
 #user-content div.post, #user-content div.comment {
   display: block;
   overflow: hidden;
@@ -898,22 +897,22 @@ table.input {
   padding-bottom: 0.75em;
   padding-top: 0.75em;
   border-top: 1px solid #eee; }
-  /* line 440, base.css.scss */
+  /* line 439, base.css.scss */
   #user-content div.post.highlight, #user-content div.comment.highlight {
     border-top: 1px solid #8873e5; }
-  /* line 444, base.css.scss */
+  /* line 443, base.css.scss */
   #user-content div.post:hover, #user-content div.comment:hover {
     background: #f8fcfd; }
-  /* line 448, base.css.scss */
+  /* line 447, base.css.scss */
   #user-content div.post a, #user-content div.comment a {
     text-decoration: none; }
-  /* line 452, base.css.scss */
+  /* line 451, base.css.scss */
   #user-content div.post .meta, #user-content div.comment .meta {
     float: right;
     padding: 0 4px;
     margin: 0 .5em;
     border-left: 1px solid #eee; }
-  /* line 460, base.css.scss */
+  /* line 459, base.css.scss */
   #user-content div.post .date, #user-content div.post .author, #user-content div.comment .date, #user-content div.comment .author {
     float: right;
     padding: 0 .5em;
@@ -922,34 +921,34 @@ table.input {
     font-size: 0.8125em;
     line-height: 1.84615em; }
 
-/* line 474, base.css.scss */
+/* line 473, base.css.scss */
 .sub-section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1.5em; }
-  /* line 479, base.css.scss */
+  /* line 478, base.css.scss */
   .sub-section:last-child {
     padding-bottom: 0.75em;
     border-bottom: none; }
 
-/* line 486, base.css.scss */
+/* line 485, base.css.scss */
 .markdown-help table {
   width: 100%; }
-/* line 489, base.css.scss */
+/* line 488, base.css.scss */
 .markdown-help td:first-child {
   width: 50%; }
-/* line 492, base.css.scss */
+/* line 491, base.css.scss */
 .markdown-help td {
   padding: 0 .5em;
   border: 1px solid #eee; }
 
-/* line 498, base.css.scss */
+/* line 497, base.css.scss */
 .hidden {
   display: none; }
 
-/* line 502, base.css.scss */
+/* line 501, base.css.scss */
 .formatting-help {
   float: right;
   font-size: 0.8125em;
@@ -957,10 +956,10 @@ table.input {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: inherit; }
 
-/* line 507, base.css.scss */
+/* line 506, base.css.scss */
 .delete {
   margin-top: 1.5em; }
-  /* line 510, base.css.scss */
+  /* line 509, base.css.scss */
   .delete input[type="submit"] {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f1d8df));
     background-image: -webkit-linear-gradient(#ffffff, #f1d8df);
@@ -968,7 +967,7 @@ table.input {
     background-image: -o-linear-gradient(#ffffff, #f1d8df);
     background-image: linear-gradient(#ffffff, #f1d8df); }
 
-/* line 515, base.css.scss */
+/* line 514, base.css.scss */
 #signup {
   padding: 12px 1em;
   background: #cdf0cc;

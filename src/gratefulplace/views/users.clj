@@ -85,5 +85,9 @@
 
   [:#change-password :.errors] (error-content errors :change-password)
 
-  [:#change-email [:input (h/attr= :type "text")]] (h/set-attr :value (:email user))
-  [:#change-email :.errors] (error-content errors :email))
+  [:#current-email] (h/content (:email user))
+  [:#change-email :.errors] (error-content errors :email)
+
+  [:#update-notification-settings] (h/set-attr :action (user-notification-settings-path user))
+  [:#receive_comment_notifications] (check-if (:receive_comment_notifications user))
+  [:#receive_newsletter] (check-if (:receive_newsletter user)))

@@ -29,4 +29,6 @@
     (is (= (post-destroy-path 1)
            "/posts/1/destroy"))
     (is (= (post-path 1 "#comments")
+           "/posts/1#comments"))
+    (is (= (post-path 1 "#" "comments")
            "/posts/1#comments"))))

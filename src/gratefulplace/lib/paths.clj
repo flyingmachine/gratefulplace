@@ -61,6 +61,6 @@ expands to:
                   ~(if suffix
                      `(path ~x ~url-id ~(str record-type "s") ~suffix)
                      `(path ~x ~url-id ~(str record-type "s"))))
-               ([~x ~y]
-                  (str (~fn-name ~x) ~y)))))
+               ([~x & ~y]
+                  (str (~fn-name ~x) (apply str ~y))))))
         (conj suffixes nil))))

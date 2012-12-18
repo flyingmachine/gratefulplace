@@ -72,7 +72,7 @@
   [:.comment] (h/clone-for [comment comments]
                            [:.date]    (h/content (created-on-short comment))
                            [:.content] (h/content (:content comment))
-                           [:a]        (h/set-attr :href (comment-on-post-path (:post_id comment) comment)))
+                           [:a]        (h/set-attr :href (post-path (:post_id comment) "#" (:id comment))))
   
   [:.local-nav] #(local-nav % user))
 

@@ -15,20 +15,6 @@
   (testing "Shows log out when logged in is true"
     (is (snippet-contains? "Log In" (nav false)))))
 
-(deftest path-test
-  (testing "Uses url key to generate url"
-    (is (= (path {:username "chestnut"} :username "users")
-           "/users/chestnut")))
-
-  (testing "Uses record itself when url key doesn't apply"
-    (is (= (path "chestnut" :username "users")
-           "/users/chestnut")))
-  
-  (testing "Appends suffixes"
-    (is (= (path "chestnut" :username "users" "posts")
-           "/users/chestnut/posts"))
-    (is (= (path "chestnut" :username "users" "posts" "all")
-           "/users/chestnut/posts/all"))))
 
 ;; TODO could make this less complex
 (deftest set-path-test

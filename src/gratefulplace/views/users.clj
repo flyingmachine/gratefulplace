@@ -2,6 +2,7 @@
   (:require [net.cgrand.enlive-html :as h])
   (:use [gratefulplace.views.common :exclude [layout nav *template-dir*]]
         gratefulplace.utils
+        gratefulplace.paths
         gratefulplace.models.permissions))
 
 (defpage show-new "users/new.html"

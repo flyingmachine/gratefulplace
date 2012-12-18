@@ -19,6 +19,7 @@
                  [com.cemerick/friend "0.1.2"]
                  [markdown-clj "0.9.9"]
                  [crypto-random "1.1.0"]
+                 [org.clojure/tools.namespace "0.2.2"]
                  [clojure-twitter "1.2.6-SNAPSHOT"]]
 
   :aliases {"migrate" ["run" "-m" "tasks.db" "migrate"]}

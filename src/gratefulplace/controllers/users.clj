@@ -8,7 +8,8 @@
             [cemerick.friend.workflows :as workflows])
 
   (:use [gratefulplace.controllers.common :only (if-valid view)]
-        gratefulplace.models.permissions))
+        gratefulplace.models.permissions
+        gratefulplace.paths))
 
 
 (defn show-new
@@ -63,11 +64,6 @@
       view/edit
       :user (user/one {:username username})))))
 
-;; TODO don't really need to have a redirect here do I?
-(defn success-redirect
-  [username]
-  (res/redirect (str "/users/" username "/edit?success=true")))
-
 (defn update
   [params]
   (let [username (:username params)]
@@ -89,7 +85,7 @@
                                {:password (get-in params [:change-password :new-password])}
                                (dissoc params :username))]
           (user/update! {:username username} new-attributes)
-          (success-redirect username))
+          (res/redirect (user-edit-path username "?success=true")))
         (view
          view/edit
          :user params
@@ -105,4 +101,4 @@
                                   :receive_newsletter false}
                                  (dissoc params :username))]
           (user/update! {:username username} new-attributes)
-          (res/redirect (str "/users/" username "/edit?success=true#change-notifications"))))))
+          (res/redirect (user-edit-path username "?success=true#change-notifications"))))))

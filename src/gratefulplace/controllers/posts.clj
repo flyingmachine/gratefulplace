@@ -9,6 +9,7 @@
   (:use [gratefulplace.controllers.common :only (if-valid view with-visibility)]
         gratefulplace.controllers.common.content
         gratefulplace.utils
+        gratefulplace.paths
         gratefulplace.models.permissions
         gratefulplace.models.helpers
         gratefulplace.lib.twitter
@@ -77,7 +78,6 @@
      (let [post (post/create! (assoc params
                                 :user_id
                                 (:id (friend/current-authentication))))]
-                                        ; TODO path
-       (future (send-tweets! (:content params) (str "/posts/" (:id post)))))
+       (future (send-tweets! (:content params) (post-path post))))
      (res/redirect "/"))
    (view view/show-new :errors errors)))

@@ -5,6 +5,7 @@
             markdown)
   (use [cemerick.friend :only (current-authentication)]
        gratefulplace.utils
+       gratefulplace.paths
        gratefulplace.models.permissions))
 
 (defonce template-dir "gratefulplace/templates/")
@@ -13,38 +14,6 @@
   [condition]
   `(when ~condition
      #(identity %)))
-
-;; Path stuff
-(defn path
-  [record url-string prefix & suffixes]
-  (str "/"
-       (apply str
-              (interpose
-               "/"
-               (into [prefix (or (url-string record) record)] suffixes)))))
-
-(defmacro create-path-fns
-  [record-type url-id & suffixes]
-  `(do
-     ~@(map
-        (fn [suffix]
-          (let [fn-name-suffix (if suffix
-                                 (str "-" suffix "-path")
-                                 "-path")
-                x (gensym)]
-            `(defn ~(symbol (str record-type fn-name-suffix))
-               [~x]
-               ;; TODO is there a briefer way of doing this?
-               ~(if suffix
-                  `(path ~x ~url-id ~(str record-type "s") ~suffix)
-                  `(path ~x ~url-id ~(str record-type "s"))))))
-        (conj suffixes nil))))
-
-(create-path-fns "user" :username "edit" "posts" "comments" "notification-settings")
-(create-path-fns "post" :id "edit" "destroy")
-(create-path-fns "favorite" :id "edit" "destroy")
-(create-path-fns "comment" :id "edit" "destroy")
-(create-path-fns "notification" :id)
 
 (defn comment-on-post-path
   [post, comment]

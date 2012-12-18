@@ -3,6 +3,7 @@
             markdown)
   (:use [gratefulplace.views.common :exclude [layout nav *template-dir*]]
         gratefulplace.utils
+        gratefulplace.paths
         gratefulplace.models.permissions
         [cemerick.friend :only (current-authentication)]))
 

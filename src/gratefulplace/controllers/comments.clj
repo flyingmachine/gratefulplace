@@ -10,6 +10,7 @@
 
   (:use [gratefulplace.controllers.common :only (if-valid view)]
         gratefulplace.controllers.common.content
+        gratefulplace.paths
         gratefulplace.models.permissions))
 
 (defn create!
@@ -25,9 +26,8 @@
        (future (notification/notify
                 (user/one {:id post-owner-id})
                 comment)))
-     ;; TODO path stuff here
-     (res/redirect (str "/posts/" (:post_id params) "#comment-" (:id comment))))
-   (res/redirect (str "/posts/" (:post_id params) "?blank-comment=true"))))
+     (res/redirect (post-path (:post_id params) "#comment-" (:id comment))))
+   (res/redirect (post-path (:post_id params) "?blank-comment=true"))))
 
 (defn edit
   [params]

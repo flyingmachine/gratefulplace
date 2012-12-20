@@ -36,7 +36,8 @@
   (route POST "/comments" comments/create! (friend/authorize #{:user}))
   (route GET "/comments/:id/edit" comments/edit)
   (route POST "/comments/:id" comments/update)
-
+  (route POST "/comments/:id/destroy" comments/destroy)
+  
   ;; users
   (route GET "/users/new" users/show-new)
   (POST "/users" [] users/create!)

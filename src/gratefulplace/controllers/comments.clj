@@ -36,3 +36,8 @@
    :comment (comment/by-id (:id params))))
 
 (def update (update-fn comment/by-id comment/update!))
+
+(defn destroy
+  [params]
+  (comment/destroy! (select-keys params [:id]))
+  (res/redirect (post-path (:post_id params))))

@@ -2,9 +2,15 @@
 layout: false
 ---
 
-%form{:action => "/comments/show.html", :method => "POST"}
+%form.update{:action => "/comments/show.html", :method => "POST"}
   #content
     %textarea{:name => "content"}
-  %input{:type => "submit", :value => "Update"}
-  .formatting-help
-    %a{:href => "#"} formatting help
+  .controls
+    %input{:type => "submit", :value => "Update"}
+    %a.cancel{:href => "#"} cancel
+    .formatting-help
+      %a{:href => "#"} formatting help
+
+%form.delete{:action => "/comments/show.html/delete", :method => "POST"}      
+  %input{:type => "submit", :value => "Delete"}
+  %input.post_id{:type => "hidden", :name => "post_id"}

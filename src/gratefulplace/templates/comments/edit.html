@@ -1,9 +1,16 @@
-<form action='/comments/show.html' method='POST'>
+<form action='/comments/show.html' class='update' method='POST'>
   <div id='content'>
     <textarea name='content'></textarea>
   </div>
-  <input type='submit' value='Update' />
-  <div class='formatting-help'>
-    <a href='#'>formatting help</a>
+  <div class='controls'>
+    <input type='submit' value='Update' />
+    <a class='cancel' href='#'>cancel</a>
+    <div class='formatting-help'>
+      <a href='#'>formatting help</a>
+    </div>
   </div>
+</form>
+<form action='/comments/show.html/delete' class='delete' method='POST'>
+  <input type='submit' value='Delete' />
+  <input class='post_id' name='post_id' type='hidden' />
 </form>

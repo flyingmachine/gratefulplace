@@ -8,5 +8,7 @@
 
 (defpage edit "comments/edit.html"
   [comment]
-  [:form]     (h/set-attr :action (comment-path comment))
-  [:textarea] (h/content (:content comment)))
+  [:form.update] (h/set-attr :action (comment-path comment))
+  [:form.delete] (h/set-attr :action (comment-destroy-path comment))
+  [:textarea] (h/content (:content comment))
+  [:.post_id] (h/set-attr :value (:post_id comment)))

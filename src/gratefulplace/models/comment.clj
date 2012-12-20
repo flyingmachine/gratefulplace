@@ -4,6 +4,7 @@
             [gratefulplace.models.entities :as e])
   (:use korma.core
         gratefulplace.utils
+        gratefulplace.models.helpers
         gratefulplace.models.entities))
 
 (def validations
@@ -15,12 +16,9 @@
   [attributes]
   (insert e/comment (values attributes)))
 
-(defn update!
-  [conditions attributes]
-  (let [attributes (dissoc attributes :id)]
-    (update e/comment
-            (set-fields attributes)
-            (where (str->int conditions :id)))))
+(def update! (updatefn e/comment))
+(def by-id (by-idfn e/comment))
+(def destroy! (destroyfn e/comment))
 
 (defmacro all
   [& clauses]
@@ -28,9 +26,3 @@
            (with e/user (fields :username))
            ~@clauses
            (order :created_on :DESC)))
-
-(defn by-id
-  [id]
-  (first (select e/comment
-                 (where {:id (str->int id)}))))
-

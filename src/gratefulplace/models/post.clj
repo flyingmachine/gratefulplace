@@ -2,7 +2,8 @@
   (:require gratefulplace.models.db
             [gratefulplace.models.entities :as e])
   (:use korma.core
-        gratefulplace.utils))
+        gratefulplace.utils
+        gratefulplace.models.helpers))
 
 (def validations
   {:content
@@ -13,17 +14,8 @@
   [attributes]
   (insert e/post (values attributes)))
 
-(defn update!
-  [conditions attributes]
-  (let [attributes (dissoc attributes :id)]
-    (update e/post
-            (set-fields attributes)
-            (where (str->int conditions :id)))))
-
-(defn destroy!
-  [conditions]
-  (delete e/post
-          (where (str->int conditions :id))))
+(def update! (updatefn e/post))
+(def destroy! (destroyfn e/post))
 
 (def base
   (->

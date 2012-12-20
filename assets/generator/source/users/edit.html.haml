@@ -51,7 +51,7 @@ title: "Editing Profile :: Grateful Place"
       %input{:type => "submit", :value => "Update Email Address"}
 
   #change-notifications.sub-section
-    %h3 Change Notification Settings
+    %h3 Change Email Settings
     %form#update-notification-settings{:action => "/users/username", :method => "POST"}
       .option
         %input#receive_comment_notifications{:type =>"checkbox", :name => "receive_comment_notifications", :checked => true}

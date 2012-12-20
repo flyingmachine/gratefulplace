@@ -39,5 +39,5 @@
 
 (defn destroy
   [params]
-  (comment/destroy! (select-keys params [:id]))
+  ((destroy-fn comment/by-id comment/destroy!) params)
   (res/redirect (post-path (:post_id params))))

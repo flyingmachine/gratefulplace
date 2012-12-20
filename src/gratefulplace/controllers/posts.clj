@@ -63,7 +63,7 @@
 
 (defn destroy
   [params]
-  (post/destroy! params)
+  ((destroy-fn post/by-id post/destroy!) params)
   (res/redirect "/"))
 
 (defn show-new

@@ -16,3 +16,12 @@
        (can-modify-record? record)
        (record-update-fn {:id id} params)
        (updated params)))))
+
+(defn destroy-fn
+  [finder-fn record-destroy-fn]
+  (fn [params]
+    (let [id     (:id params)
+          record (finder-fn id)]
+      (protect
+       (can-modify-record? record)
+       (record-destroy-fn {:id id})))))

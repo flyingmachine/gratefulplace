@@ -20,7 +20,8 @@
                  [markdown-clj "0.9.9"]
                  [crypto-random "1.1.0"]
                  [org.clojure/tools.namespace "0.2.2"]
-                 [clojure-twitter "1.2.6-SNAPSHOT"]]
+                 [clojure-twitter "1.2.6-SNAPSHOT"]
+                 [com.flyingmachine/webutils "0.1.0"]]
 
   :aliases {"migrate" ["run" "-m" "tasks.db" "migrate"]}
   

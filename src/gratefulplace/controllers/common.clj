@@ -52,16 +52,28 @@ validation checks"
   [to-validate validations]
   (self-unless-fn (validate to-validate validations) empty? nil))
 
-(defmacro view
-  "provides defaults for the map provided to view functions and allows
-  you to provide additional key value pairs. Assumes that a variable
-  named req exists"
 
-  [view-fn & keys]
-  `(let [x# {:current-auth (friend/current-authentication)
-             :errors {}
-             :params ~'params}]
-     (~view-fn (into x# (map vec (partition 2 ~(vec keys)))))))
+
+(defmacro defview
+  "provides defaults for the map provided to view functions and allows
+  you to provide additional key value pairs.
+
+  example: 
+  (defview mainview
+    {:current-auth (friend/current-authentication)
+     :errors {}
+     :params params})"
+  
+  [name defaults]
+  `(defmacro ~name
+     [view-fn# & keys#]
+     `(~view-fn# (into ~~defaults (map vec (partition 2 ~(vec keys#)))))))
+
+(defview view
+  '{:current-auth (friend/current-authentication)
+    :errors {}
+    :params params})
+
 
 (defmacro with-visibility
   "this conditional was used a few times so I put it in a macro"

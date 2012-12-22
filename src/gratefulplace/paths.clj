@@ -1,5 +1,5 @@
 (ns gratefulplace.paths
-  (use gratefulplace.lib.paths))
+  (use flyingmachine.webutils.paths))
 
 (create-path-fns "user" :username "edit" "posts" "comments" "notification-settings")
 (create-path-fns "post" :id "edit" "destroy")

@@ -1,5 +1,6 @@
 (ns gratefulplace.models.mailer
   (:use gratefulplace.utils
+        gratefulplace.paths
         environ.core)
   (:import org.apache.commons.mail.SimpleEmail))
 
@@ -10,7 +11,16 @@
 
 You've received a new comment on Grateful Place. You can reply to it by visiting http://gratefulplace.com/posts/" (:post_id comment) ". Here's the comment:
 
-" (:content comment)))
+" (:content comment) "
+
+
+=========
+You can change your email preferences by going to http://gratefulplace.com" (user-edit-path username) "
+
+If you'd like to stop receiving emails but don't want to log in, please email notifications@gratefulplace.com, and I apologize for the inconvenience - one-click unsubscribe is on my to-do list.
+
+Take care!
+Daniel Higginbotham of Grateful Place"))
 
 (defn send-new-comment 
   "send an email for a new comment"

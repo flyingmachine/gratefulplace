@@ -2,7 +2,7 @@
   (:require [gratefulplace.models.favorite :as favorite]
            [gratefulplace.views.favorites :as view])
 
-  (:use [gratefulplace.controllers.common :only (if-valid view)]
+  (:use gratefulplace.controllers.common
         gratefulplace.models.permissions))
 
 (defn create!

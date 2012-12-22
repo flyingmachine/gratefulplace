@@ -5,10 +5,10 @@
             [gratefulplace.models.user :as user]
             [gratefulplace.models.notification :as notification]
             [gratefulplace.models.post :as post]
-            [gratefulplace.views.comments :as view]
-            [cemerick.friend :as friend])
+            [gratefulplace.views.comments :as view])
 
-  (:use [gratefulplace.controllers.common :only (if-valid view)]
+  (:use gratefulplace.controllers.common
+        [flyingmachine.webutils.validation :only (if-valid)]
         gratefulplace.controllers.common.content
         gratefulplace.paths
         gratefulplace.models.permissions))

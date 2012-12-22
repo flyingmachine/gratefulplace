@@ -4,10 +4,10 @@
             [gratefulplace.models.comment :as comment]
             [gratefulplace.views.users :as view]
             [ring.util.response :as res]
-            [cemerick.friend :as friend]
             [cemerick.friend.workflows :as workflows])
 
-  (:use [gratefulplace.controllers.common :only (if-valid view)]
+  (:use gratefulplace.controllers.common 
+        [flyingmachine.webutils.validation :only (if-valid )]
         gratefulplace.models.permissions
         gratefulplace.paths))
 

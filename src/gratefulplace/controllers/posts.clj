@@ -6,7 +6,8 @@
             [gratefulplace.views.posts :as view]
             [cemerick.friend :as friend])
 
-  (:use [gratefulplace.controllers.common :only (if-valid view with-visibility)]
+  (:use gratefulplace.controllers.common
+        [flyingmachine.webutils.validation :only (if-valid)]
         gratefulplace.controllers.common.content
         gratefulplace.utils
         gratefulplace.paths

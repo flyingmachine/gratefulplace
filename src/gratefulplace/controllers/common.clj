@@ -1,12 +1,13 @@
 (ns gratefulplace.controllers.common
   (:require [cemerick.friend :as friend])
   (:use gratefulplace.utils
-        gratefulplace.models.permissions))
+        gratefulplace.models.permissions
+        flyingmachine.webutils.controllers))
 
 (defview view
-  '{:current-auth (friend/current-authentication)
-    :errors {}
-    :params params})
+  {:current-auth '(cemerick.friend/current-authentication)
+   :errors {}
+   :params 'params})
 
 
 (defmacro with-visibility

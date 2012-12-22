@@ -2,10 +2,9 @@
   (:require [ring.util.response :as res]
             [net.cgrand.enlive-html :as h]
             [gratefulplace.models.comment-notification :as notification]
-            [gratefulplace.views.notifications :as view]
-            [cemerick.friend :as friend])
+            [gratefulplace.views.notifications :as view])
 
-  (:use [gratefulplace.controllers.common :only (if-valid view)]
+  (:use gratefulplace.controllers.common
         gratefulplace.models.permissions))
 
 (defn all

@@ -3,8 +3,7 @@
             [gratefulplace.models.user :as user]
             [cemerick.friend :as friend]
             (cemerick.friend [workflows :as workflows]
-                             [credentials :as creds]
-                             [openid :as openid])))
+                             [credentials :as creds])))
 
 
 

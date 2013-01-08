@@ -1,7 +1,6 @@
 (ns gratefulplace.controllers.common
   (:require [cemerick.friend :as friend])
   (:use gratefulplace.utils
-        gratefulplace.models.permissions
         flyingmachine.webutils.controllers))
 
 (defview view

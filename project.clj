@@ -16,7 +16,7 @@
                  [korma "0.3.0-beta9"]
                  [lobos "1.0.0-SNAPSHOT"]
                  [postgresql "9.1-901.jdbc4"]
-                 [com.cemerick/friend "0.1.2"]
+                 [com.cemerick/friend "0.1.5"]
                  [markdown-clj "0.9.9"]
                  [crypto-random "1.1.0"]
                  [org.clojure/tools.namespace "0.2.2"]
